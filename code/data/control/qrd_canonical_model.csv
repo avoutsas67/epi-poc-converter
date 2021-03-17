@@ -1,0 +1,259 @@
+,id,Procedure type,Document type,Language code,Display code,Name,parent_id,Mandatory
+1,1,CAP,SmPC,en,,SUMMARY OF PRODUCT CHARACTERISTICS,,True
+2,2,CAP,SmPC,en,,qThis medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions.,1.0,False
+3,3,CAP,SmPC,en,1,NAME OF THE MEDICINAL PRODUCT,1.0,True
+4,4,CAP,SmPC,en,2,QUALITATIVE AND QUANTITATIVE COMPOSITION,1.0,True
+5,5,CAP,SmPC,en,2.1,General description,4.0,False
+6,6,CAP,SmPC,en,2.2,Qualitative and quantitative composition,4.0,False
+7,7,CAP,SmPC,en,,Excipient(s) with known effect,6.0,False
+8,8,CAP,SmPC,en,3,PHARMACEUTICAL FORM,1.0,True
+9,9,CAP,SmPC,en,4,CLINICAL PARTICULARS,1.0,True
+10,10,CAP,SmPC,en,4.1,Therapeutic indications,9.0,True
+11,11,CAP,SmPC,en,4.2,Posology and method of administration,9.0,True
+12,12,CAP,SmPC,en,,Posology,11.0,True
+13,13,CAP,SmPC,en,,Paediatric population,12.0,True
+14,14,CAP,SmPC,en,,Method of administration ,11.0,True
+15,15,CAP,SmPC,en,,Precautions to be taken before handling or administering the medicinal product,14.0,False
+16,16,CAP,SmPC,en,4.3,Contraindications,9.0,True
+17,17,CAP,SmPC,en,4.4,Special warnings and precautions for use,9.0,True
+18,18,CAP,SmPC,en,,Traceability,17.0,False
+19,19,CAP,SmPC,en,,Paediatric population,17.0,False
+20,20,CAP,SmPC,en,4.5,Interaction with other medicinal products and other forms of interaction,9.0,True
+21,21,CAP,SmPC,en,,Paediatric population,20.0,False
+22,22,CAP,SmPC,en,4.6,"Fertility, pregnancy and lactation",9.0,True
+23,23,CAP,SmPC,en,,Pregnancy,22.0,False
+24,24,CAP,SmPC,en,,Breast-feeding,22.0,False
+25,25,CAP,SmPC,en,,Fertility,22.0,False
+26,26,CAP,SmPC,en,4.7,Effects on ability to drive and use machines,9.0,True
+27,27,CAP,SmPC,en,4.8,Undesirable effects,9.0,True
+28,28,CAP,SmPC,en,,Paediatric population,27.0,False
+29,29,CAP,SmPC,en,,Reporting of suspected adverse reactions,27.0,True
+30,30,CAP,SmPC,en,4.9,Overdose,9.0,True
+31,31,CAP,SmPC,en,,Paediatric population,30.0,False
+32,32,CAP,SmPC,en,5,PHARMACOLOGICAL PROPERTIES,1.0,True
+33,33,CAP,SmPC,en,5.1,Pharmacodynamic properties,32.0,True
+34,34,CAP,SmPC,en,,Mechanism of action,33.0,False
+35,35,CAP,SmPC,en,,Pharmacodynamic effects,33.0,False
+36,36,CAP,SmPC,en,,Clinical efficacy and safety,33.0,False
+37,37,CAP,SmPC,en,,Paediatric population,33.0,False
+38,38,CAP,SmPC,en,5.2,Pharmacokinetic properties,32.0,True
+39,39,CAP,SmPC,en,,Absorption,38.0,False
+40,40,CAP,SmPC,en,,Distribution,38.0,False
+41,41,CAP,SmPC,en,,Biotransformation,38.0,False
+42,42,CAP,SmPC,en,,Elimination,38.0,False
+43,43,CAP,SmPC,en,,Linearity/non-linearity,38.0,False
+44,44,CAP,SmPC,en,,Pharmacokinetic/pharmacodynamic relationship(s),38.0,False
+45,45,CAP,SmPC,en,5.3,Preclinical safety data,32.0,True
+46,46,CAP,SmPC,en,,Environmental risk assessment (ERA),45.0,False
+47,47,CAP,SmPC,en,6,PHARMACEUTICAL PARTICULARS,1.0,True
+48,48,CAP,SmPC,en,6.1,List of excipients,47.0,True
+49,49,CAP,SmPC,en,6.2,Incompatibilities,47.0,True
+50,50,CAP,SmPC,en,6.3,Shelf life,47.0,True
+51,51,CAP,SmPC,en,6.4,Special precautions for storage,47.0,True
+52,52,CAP,SmPC,en,6.5,Nature and contents of container <and special equipment for use administration or implantation>,47.0,True
+53,53,CAP,SmPC,en,6.6,Special precautions for disposal <and other handling>,47.0,True
+54,54,CAP,SmPC,en,,Use in the paediatric population,53.0,False
+55,55,CAP,SmPC,en,7,MARKETING AUTHORISATION HOLDER,1.0,True
+56,56,CAP,SmPC,en,8,MARKETING AUTHORISATION NUMBER(S),1.0,True
+57,57,CAP,SmPC,en,9,DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION,1.0,True
+58,58,CAP,SmPC,en,10,DATE OF REVISION OF THE TEXT,1.0,True
+59,59,CAP,SmPC,en,11,DOSIMETRY,1.0,False
+60,60,CAP,SmPC,en,12,INSTRUCTIONS FOR PREPARATION OF RADIOPHARMACEUTICALS,1.0,False
+1,1001,CAP,AnnexII,en,,ANNEX II,,True
+2,1002,CAP,AnnexII,en,A,MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE,1001.0,True
+3,1003,CAP,AnnexII,en,,Name and address of the manufacturer(s) of the biological active substance(s),1002.0,False
+4,1004,CAP,AnnexII,en,,Name and address of the manufacturer(s) responsible for batch release,1002.0,True
+5,1005,CAP,AnnexII,en,B,CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE,1001.0,True
+6,1006,CAP,AnnexII,en,,Official batch release,1005.0,False
+7,1007,CAP,AnnexII,en,C,OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION,1001.0,True
+8,1008,CAP,AnnexII,en,,Periodic safety update reports (PSURs),1007.0,True
+9,1009,CAP,AnnexII,en,D,CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT,1001.0,True
+10,1010,CAP,AnnexII,en,,Risk management plan (RMP),1009.0,True
+11,1011,CAP,AnnexII,en,,Additional risk minimisation measures,1009.0,False
+12,1012,CAP,AnnexII,en,,Obligation to conduct post-authorisation measures,1009.0,False
+13,1013,CAP,AnnexII,en,E,"SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>",1001.0,False
+1,2001,CAP,Labelling,en,,LABELLING ,,True
+2,2002,CAP,Labelling,en,,PARTICULARS TO APPEAR ON <THE OUTER PACKAGING> <AND> <THE IMMEDIATE PACKAGING>,2001.0,True
+3,2003,CAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT,2002.0,True
+4,2004,CAP,Labelling,en,2,STATEMENT OF ACTIVE SUBSTANCE(S),2002.0,True
+5,2005,CAP,Labelling,en,3,LIST OF EXCIPIENTS,2002.0,True
+6,2006,CAP,Labelling,en,4,PHARMACEUTICAL FORM AND CONTENTS,2002.0,True
+7,2007,CAP,Labelling,en,5,METHOD AND ROUTE(S) OF ADMINISTRATION,2002.0,True
+8,2008,CAP,Labelling,en,6,SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN,2002.0,True
+9,2009,CAP,Labelling,en,7,"OTHER SPECIAL WARNING(S), IF NECESSARY",2002.0,True
+10,2010,CAP,Labelling,en,8,EXPIRY DATE,2002.0,True
+11,2011,CAP,Labelling,en,9,SPECIAL STORAGE CONDITIONS,2002.0,True
+12,2012,CAP,Labelling,en,10,"SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE",2002.0,True
+13,2013,CAP,Labelling,en,11,NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER,2002.0,True
+14,2014,CAP,Labelling,en,12,MARKETING AUTHORISATION NUMBER(S) ,2002.0,True
+15,2015,CAP,Labelling,en,13,"BATCH NUMBER<, DONATION AND PRODUCT CODES>",2002.0,True
+16,2016,CAP,Labelling,en,14,GENERAL CLASSIFICATION FOR SUPPLY,2002.0,True
+17,2017,CAP,Labelling,en,15,INSTRUCTIONS ON USE,2002.0,True
+18,2018,CAP,Labelling,en,16,INFORMATION IN BRAILLE,2002.0,True
+19,2019,CAP,Labelling,en,17,UNIQUE IDENTIFIER – 2D BARCODE,2002.0,True
+20,2020,CAP,Labelling,en,18,UNIQUE IDENTIFIER - HUMAN READABLE DATA,2002.0,True
+21,2021,CAP,Labelling,en,,MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS,2001.0,True
+22,2022,CAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT,2021.0,True
+23,2023,CAP,Labelling,en,2,NAME OF THE MARKETING AUTHORISATION HOLDER,2021.0,True
+24,2024,CAP,Labelling,en,3,EXPIRY DATE,2021.0,True
+25,2025,CAP,Labelling,en,4,"BATCH NUMBER<, DONATION AND PRODUCT CODES>",2021.0,True
+26,2026,CAP,Labelling,en,5,OTHER,2021.0,True
+27,2027,CAP,Labelling,en,,MINIMUM PARTICULARS TO APPEAR ON SMALL IMMEDIATE PACKAGING UNITS,2001.0,True
+28,2028,CAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT AND ROUTE(S) OF ADMINISTRATION,2027.0,True
+29,2029,CAP,Labelling,en,2,METHOD OF ADMINISTRATION,2027.0,True
+30,2030,CAP,Labelling,en,3,EXPIRY DATE,2027.0,True
+31,2031,CAP,Labelling,en,4,"BATCH NUMBER<, DONATION AND PRODUCT CODES>",2027.0,True
+32,2032,CAP,Labelling,en,5,"CONTENTS BY WEIGHT, BY VOLUME OR BY UNIT",2027.0,True
+33,2033,CAP,Labelling,en,6,OTHER,2027.0,True
+1,3001,CAP,Package leaflet,en,,PACKAGE LEAFLET,,True
+2,3002,CAP,Package leaflet,en,,q This medicine is subject to additional monitoring. This will allow quick identification of new safety information. You can help by reporting any side effects you may get. See the end of section 4 for how to report side effects.,3001.0,False
+3,3003,CAP,Package leaflet,en,,What is in this leaflet,3001.0,True
+4,3004,CAP,Package leaflet,en,1,What X is and what it is used for,3001.0,True
+5,3005,CAP,Package leaflet,en,2,What you need to know before you <take> <use> X ,3001.0,True
+6,3006,CAP,Package leaflet,en,,Do not <take> <use> X,3005.0,True
+7,3007,CAP,Package leaflet,en,,Warnings and precautions ,3005.0,True
+8,3008,CAP,Package leaflet,en,,Children <and adolescents>,3005.0,True
+9,3009,CAP,Package leaflet,en,,Other medicines and X,3005.0,True
+10,3010,CAP,Package leaflet,en,,"X with <food> <and> <,> <drink> <and> <alcohol>",3005.0,True
+11,3011,CAP,Package leaflet,en,,"Pregnancy <and> <,> breast-feeding <and fertility>",3005.0,True
+12,3012,CAP,Package leaflet,en,,Driving and using machines,3005.0,True
+13,3013,CAP,Package leaflet,en,,X contains {name the excipient(s)},3005.0,False
+14,3014,CAP,Package leaflet,en,3,How to <take> <use> X ,3001.0,True
+15,3015,CAP,Package leaflet,en,,Use in children <and adolescents>,3014.0,False
+16,3016,CAP,Package leaflet,en,,If you <take> <use> more X than you should,3014.0,False
+17,3017,CAP,Package leaflet,en,,If you forget to <take> <use> X>,3014.0,False
+18,3018,CAP,Package leaflet,en,,If you stop <taking> <using> X>,3014.0,False
+19,3019,CAP,Package leaflet,en,4,Possible side effects,3001.0,True
+20,3020,CAP,Package leaflet,en,,Additional side effects in children <and adolescents>,3019.0,False
+21,3021,CAP,Package leaflet,en,,Reporting of side effects,3019.0,True
+22,3022,CAP,Package leaflet,en,5,How to store X,3001.0,True
+23,3023,CAP,Package leaflet,en,6,Contents of the pack and other information,3001.0,True
+24,3024,CAP,Package leaflet,en,,What X contains ,3023.0,True
+25,3025,CAP,Package leaflet,en,,What X looks like and contents of the pack,3023.0,True
+26,3026,CAP,Package leaflet,en,,Marketing Authorisation Holder and Manufacturer,3023.0,True
+27,3027,CAP,Package leaflet,en,,"For any information about this medicine, please contact the local representative of the Marketing Authorisation Holder:",3023.0,False
+28,3028,CAP,Package leaflet,en,,This leaflet was last revised in <{MM/YYYY}><{month YYYY}>.,3023.0,True
+29,3029,CAP,Package leaflet,en,,Other sources of information,3023.0,False
+30,3030,CAP,Package leaflet,en,,The following information is intended for healthcare professionals only:,3001.0,False
+1,4001,NAP,SmPC,en,,SUMMARY OF PRODUCT CHARACTERISTICS,,True
+2,4002,NAP,SmPC,en,,qThis medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions.>,4001.0,False
+3,4003,NAP,SmPC,en,1,NAME OF THE MEDICINAL PRODUCT,4001.0,True
+4,4004,NAP,SmPC,en,2,QUALITATIVE AND QUANTITATIVE COMPOSITION,4001.0,True
+5,4005,NAP,SmPC,en,,Excipient(s) with known effect,4004.0,False
+6,4006,NAP,SmPC,en,3,PHARMACEUTICAL FORM,4001.0,True
+7,4007,NAP,SmPC,en,4,CLINICAL PARTICULARS,4001.0,True
+8,4008,NAP,SmPC,en,4.1,Therapeutic indications,4007.0,True
+9,4009,NAP,SmPC,en,4.2,Posology and method of administration,4007.0,True
+10,4010,NAP,SmPC,en,,Posology,4009.0,True
+11,4011,NAP,SmPC,en,,Paediatric population,4010.0,True
+12,4012,NAP,SmPC,en,,Method of administration ,4009.0,True
+13,4013,NAP,SmPC,en,,Precautions to be taken before handling or administering the medicinal product,4012.0,False
+14,4014,NAP,SmPC,en,4.3,Contraindications,4007.0,True
+15,4015,NAP,SmPC,en,4.4,Special warnings and precautions for use,4007.0,True
+16,4016,NAP,SmPC,en,,Traceability,4015.0,False
+17,4017,NAP,SmPC,en,,Paediatric population,4015.0,False
+18,4018,NAP,SmPC,en,4.5,Interaction with other medicinal products and other forms of interaction,4007.0,True
+19,4019,NAP,SmPC,en,,Paediatric population,4018.0,False
+20,4020,NAP,SmPC,en,4.6,"Fertility, pregnancy and lactation",4007.0,True
+21,4021,NAP,SmPC,en,,Pregnancy,4020.0,False
+22,4022,NAP,SmPC,en,,Breast-feeding,4020.0,False
+23,4023,NAP,SmPC,en,,Fertility,4020.0,False
+24,4024,NAP,SmPC,en,4.7,Effects on ability to drive and use machines,4007.0,True
+25,4025,NAP,SmPC,en,4.8,Undesirable effects,4007.0,True
+26,4026,NAP,SmPC,en,,Paediatric population,4025.0,False
+27,4027,NAP,SmPC,en,,Reporting of suspected adverse reactions,4025.0,True
+28,4028,NAP,SmPC,en,4.9,Overdose,4007.0,True
+29,4029,NAP,SmPC,en,,Paediatric population,4028.0,False
+30,4030,NAP,SmPC,en,5,PHARMACOLOGICAL PROPERTIES,4001.0,True
+31,4031,NAP,SmPC,en,5.1,Pharmacodynamic properties,4030.0,True
+32,4032,NAP,SmPC,en,,Mechanism of action,4031.0,False
+33,4033,NAP,SmPC,en,,Pharmacodynamic effects,4031.0,False
+34,4034,NAP,SmPC,en,,Clinical efficacy and safety,4031.0,False
+35,4035,NAP,SmPC,en,,Paediatric population,4031.0,False
+36,4036,NAP,SmPC,en,5.2,Pharmacokinetic properties,4030.0,True
+37,4037,NAP,SmPC,en,,Absorption,4036.0,False
+38,4038,NAP,SmPC,en,,Distribution,4036.0,False
+39,4039,NAP,SmPC,en,,Biotransformation,4036.0,False
+40,4040,NAP,SmPC,en,,Elimination,4036.0,False
+41,4041,NAP,SmPC,en,,Linearity/non-linearity,4036.0,False
+42,4042,NAP,SmPC,en,,Pharmacokinetic/pharmacodynamic relationship(s),4036.0,False
+43,4043,NAP,SmPC,en,5.3,Preclinical safety data,4030.0,True
+44,4044,NAP,SmPC,en,,Environmental risk assessment (ERA),4043.0,False
+45,4045,NAP,SmPC,en,6,PHARMACEUTICAL PARTICULARS,4001.0,True
+46,4046,NAP,SmPC,en,6.1,List of excipients,4045.0,True
+47,4047,NAP,SmPC,en,6.2,Incompatibilities,4045.0,True
+48,4048,NAP,SmPC,en,6.3,Shelf life,4045.0,True
+49,4049,NAP,SmPC,en,6.4,Special precautions for storage,4045.0,True
+50,4050,NAP,SmPC,en,6.5,Nature and contents of container,4045.0,True
+51,4051,NAP,SmPC,en,6.6,Special precautions for disposal <and other handling>,4045.0,True
+52,4052,NAP,SmPC,en,,Use in the paediatric population,4051.0,False
+53,4053,NAP,SmPC,en,7,MARKETING AUTHORISATION HOLDER,4001.0,True
+54,4054,NAP,SmPC,en,8,MARKETING AUTHORISATION NUMBER(S),4001.0,True
+55,4055,NAP,SmPC,en,9,DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION,4001.0,True
+56,4056,NAP,SmPC,en,10,DATE OF REVISION OF THE TEXT,4001.0,True
+57,4057,NAP,SmPC,en,11,DOSIMETRY,4001.0,False
+58,4058,NAP,SmPC,en,12,INSTRUCTIONS FOR PREPARATION OF RADIOPHARMACEUTICALS,4001.0,False
+1,5001,NAP,Labelling,en,,LABELLING ,,True
+2,5002,NAP,Labelling,en,,PARTICULARS TO APPEAR ON <THE OUTER PACKAGING> <AND> <THE IMMEDIATE PACKAGING>,5001.0,True
+3,5003,NAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT,5002.0,True
+4,5004,NAP,Labelling,en,2,STATEMENT OF ACTIVE SUBSTANCE(S),5002.0,True
+5,5005,NAP,Labelling,en,3,LIST OF EXCIPIENTS,5002.0,True
+6,5006,NAP,Labelling,en,4,PHARMACEUTICAL FORM AND CONTENTS,5002.0,True
+7,5007,NAP,Labelling,en,5,METHOD AND ROUTE(S) OF ADMINISTRATION,5002.0,True
+8,5008,NAP,Labelling,en,6,SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN,5002.0,True
+9,5009,NAP,Labelling,en,7,"OTHER SPECIAL WARNING(S), IF NECESSARY",5002.0,True
+10,5010,NAP,Labelling,en,8,EXPIRY DATE,5002.0,True
+11,5011,NAP,Labelling,en,9,SPECIAL STORAGE CONDITIONS,5002.0,True
+12,5012,NAP,Labelling,en,10,"SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE",5002.0,True
+13,5013,NAP,Labelling,en,11,NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER,5002.0,True
+14,5014,NAP,Labelling,en,12,MARKETING AUTHORISATION NUMBER(S) ,5002.0,True
+15,5015,NAP,Labelling,en,13,BATCH NUMBER,5002.0,True
+16,5016,NAP,Labelling,en,14,GENERAL CLASSIFICATION FOR SUPPLY,5002.0,True
+17,5017,NAP,Labelling,en,15,INSTRUCTIONS ON USE,5002.0,True
+18,5018,NAP,Labelling,en,16,INFORMATION IN BRAILLE,5002.0,True
+19,5019,NAP,Labelling,en,17,UNIQUE IDENTIFIER – 2D BARCODE,5002.0,True
+20,5020,NAP,Labelling,en,18,UNIQUE IDENTIFIER - HUMAN READABLE DATA,5002.0,True
+21,5021,NAP,Labelling,en,,MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS,5001.0,True
+22,5022,NAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT,5021.0,True
+23,5023,NAP,Labelling,en,2,NAME OF THE MARKETING AUTHORISATION HOLDER,5021.0,True
+24,5024,NAP,Labelling,en,3,EXPIRY DATE,5021.0,True
+25,5025,NAP,Labelling,en,4,BATCH NUMBER,5021.0,True
+26,5026,NAP,Labelling,en,5,OTHER,5021.0,True
+27,5027,NAP,Labelling,en,,MINIMUM PARTICULARS TO APPEAR ON SMALL IMMEDIATE PACKAGING UNITS,5001.0,True
+28,5028,NAP,Labelling,en,1,NAME OF THE MEDICINAL PRODUCT AND ROUTE(S) OF ADMINISTRATION,5027.0,True
+29,5029,NAP,Labelling,en,2,METHOD OF ADMINISTRATION,5027.0,True
+30,5030,NAP,Labelling,en,3,EXPIRY DATE,5027.0,True
+31,5031,NAP,Labelling,en,4,BATCH NUMBER,5027.0,True
+32,5032,NAP,Labelling,en,5,"CONTENTS BY WEIGHT, BY VOLUME OR BY UNIT",5027.0,True
+33,5033,NAP,Labelling,en,6,OTHER,5027.0,True
+1,6001,NAP,Package leaflet,en,,PACKAGE LEAFLET,,True
+2,6002,NAP,Package leaflet,en,,q This medicine is subject to additional monitoring. This will allow quick identification of new safety information. You can help by reporting any side effects you may get. See the end of section 4 for how to report side effects.,6001.0,False
+3,6003,NAP,Package leaflet,en,,What is in this leaflet,6001.0,True
+4,6004,NAP,Package leaflet,en,1,What X is and what it is used for,6001.0,True
+5,6005,NAP,Package leaflet,en,2,What you need to know before you <take> <use> X ,6001.0,True
+6,6006,NAP,Package leaflet,en,,Do not <take> <use> X,6005.0,True
+7,6007,NAP,Package leaflet,en,,Warnings and precautions ,6005.0,True
+8,6008,NAP,Package leaflet,en,,Children <and adolescents>,6005.0,True
+9,6009,NAP,Package leaflet,en,,Other medicines and X,6005.0,True
+10,6010,NAP,Package leaflet,en,,"X with <food> <and> <,> <drink> <and> <alcohol>",6005.0,True
+11,6011,NAP,Package leaflet,en,,"Pregnancy <and> <,> breast-feeding <and fertility>",6005.0,True
+12,6012,NAP,Package leaflet,en,,Driving and using machines,6005.0,True
+13,6013,NAP,Package leaflet,en,,X contains {name the excipient(s)},6005.0,False
+14,6014,NAP,Package leaflet,en,3,How to <take> <use> X ,6001.0,True
+15,6015,NAP,Package leaflet,en,,Use in children <and adolescents>,6014.0,False
+16,6016,NAP,Package leaflet,en,,If you <take> <use> more X than you should,6014.0,False
+17,6017,NAP,Package leaflet,en,,If you forget to <take> <use> X>,6014.0,False
+18,6018,NAP,Package leaflet,en,,If you stop <taking> <using> X>,6014.0,False
+19,6019,NAP,Package leaflet,en,4,Possible side effects,6001.0,True
+20,6020,NAP,Package leaflet,en,,Additional side effects in children <and adolescents>,6019.0,False
+21,6021,NAP,Package leaflet,en,,Reporting of side effects,6019.0,True
+22,6022,NAP,Package leaflet,en,5,How to store X,6001.0,True
+23,6023,NAP,Package leaflet,en,6,Contents of the pack and other information,6001.0,True
+24,6024,NAP,Package leaflet,en,,What X contains ,6023.0,True
+25,6025,NAP,Package leaflet,en,,What X looks like and contents of the pack,6023.0,True
+26,6026,NAP,Package leaflet,en,,Marketing Authorisation Holder and Manufacturer,6023.0,True
+27,6027,NAP,Package leaflet,en,,This medicinal product is authorised in the Member States of the EEA under the following names :,6023.0,False
+28,6028,NAP,Package leaflet,en,,This leaflet was last revised in <{MM/YYYY}><{month YYYY}>.,6023.0,True
+29,6029,NAP,Package leaflet,en,,Other sources of information,6023.0,False
+30,6030,NAP,Package leaflet,en,,The following information is intended for healthcare professionals only:,6001.0,False
