@@ -1,0 +1,130 @@
+,index,id,Procedure type,Display code,Name,parent_id,htmlText,htmlIndex
+0,952,28001,CAP,,SUMMARY OF PRODUCT CHARACTERISTICS,,SUMMARY OF PRODUCT CHARACTERISTICS,76
+1,954,28003,CAP,1,NAME OF THE MEDICINAL PRODUCT,28001,1.       NAME OF THE MEDICINAL PRODUCT,87
+2,955,28004,CAP,2,QUALITATIVE AND QUANTITATIVE COMPOSITION,28001,2.       QUALITATIVE AND QUANTITATIVE COMPOSITION,97
+3,958,28007,CAP,,Excipient(s) with known effect,28006,Excipient with known effect,108
+4,959,28008,CAP,3,PHARMACEUTICAL FORM,28001,3.       PHARMACEUTICAL FORM,122
+5,960,28009,CAP,4,CLINICAL PARTICULARS,28001,CLINICAL PARTICULARS,138
+6,961,28010,CAP,4.1,Therapeutic indications,28009,4.1     Therapeutic indications,143
+7,962,28011,CAP,4.2,Posology and method of administration,28009,4.2     Posology and method of administration,185
+8,963,28012,CAP,,Posology,28011,Posology,197
+9,964,28013,CAP,,Paediatric population,28012,Paediatric population,587
+10,970,28019,CAP,,Paediatric population,28017,Paediatric population,587
+11,972,28021,CAP,,Paediatric population,28020,Paediatric population,587
+12,979,28028,CAP,,Paediatric population,28027,Paediatric population,587
+13,982,28031,CAP,,Paediatric population,28030,Paediatric population,587
+14,988,28037,CAP,,Paediatric population,28033,Paediatric population,587
+15,965,28014,CAP,,Method of administration ,28011,Method of administration,615
+16,967,28016,CAP,4.3,Contraindications,28009,4.3       Contraindications,637
+17,968,28017,CAP,4.4,Special warnings and precautions for use,28009,4.4       Special warnings and precautions for use,645
+18,964,28013,CAP,,Paediatric population,28012,Paediatric population,787
+19,970,28019,CAP,,Paediatric population,28017,Paediatric population,787
+20,972,28021,CAP,,Paediatric population,28020,Paediatric population,787
+21,979,28028,CAP,,Paediatric population,28027,Paediatric population,787
+22,982,28031,CAP,,Paediatric population,28030,Paediatric population,787
+23,988,28037,CAP,,Paediatric population,28033,Paediatric population,787
+24,971,28020,CAP,4.5,Interaction with other medicinal products and other forms of interaction,28009,Interaction with other medicinal products and other forms of interaction,824
+25,964,28013,CAP,,Paediatric population,28012,Paediatric population,964
+26,970,28019,CAP,,Paediatric population,28017,Paediatric population,964
+27,972,28021,CAP,,Paediatric population,28020,Paediatric population,964
+28,979,28028,CAP,,Paediatric population,28027,Paediatric population,964
+29,982,28031,CAP,,Paediatric population,28030,Paediatric population,964
+30,988,28037,CAP,,Paediatric population,28033,Paediatric population,964
+31,973,28022,CAP,4.6,"Fertility, pregnancy and lactation",28009,"4.6    Fertility, pregnancy and lactation",976
+32,974,28023,CAP,,Pregnancy,28022,Pregnancy,981
+33,975,28024,CAP,,Breast-feeding,28022,Breast‑feeding,992
+34,976,28025,CAP,,Fertility,28022,Fertility,1003
+35,977,28026,CAP,4.7,Effects on ability to drive and use machines,28009,4.7     Effects on ability to drive and use machines,1014
+36,978,28027,CAP,4.8,Undesirable effects,28009,Undesirable effects,1025
+37,964,28013,CAP,,Paediatric population,28012,Paediatric population,1489
+38,970,28019,CAP,,Paediatric population,28017,Paediatric population,1489
+39,972,28021,CAP,,Paediatric population,28020,Paediatric population,1489
+40,979,28028,CAP,,Paediatric population,28027,Paediatric population,1489
+41,982,28031,CAP,,Paediatric population,28030,Paediatric population,1489
+42,988,28037,CAP,,Paediatric population,28033,Paediatric population,1489
+43,980,28029,CAP,,Reporting of suspected adverse reactions,28027,Reporting of suspected adverse reactions,1631
+44,983,28032,CAP,5,PHARMACOLOGICAL PROPERTIES,28001,5.       PHARMACOLOGICAL PROPERTIES,1655
+45,984,28033,CAP,5.1,Pharmacodynamic properties,28032,Pharmacodynamic properties,1663
+46,989,28038,CAP,5.2,Pharmacokinetic properties,28032,Pharmacodynamic properties,1663
+47,985,28034,CAP,,Mechanism of action,28033,Mechanism of action,1673
+48,986,28035,CAP,,Pharmacodynamic effects,28033,Pharmacodynamic effects,1696
+49,987,28036,CAP,,Clinical efficacy and safety,28033,Clinical efficacy and safety,1776
+50,964,28013,CAP,,Paediatric population,28012,Paediatric population,2732
+51,970,28019,CAP,,Paediatric population,28017,Paediatric population,2732
+52,972,28021,CAP,,Paediatric population,28020,Paediatric population,2732
+53,979,28028,CAP,,Paediatric population,28027,Paediatric population,2732
+54,982,28031,CAP,,Paediatric population,28030,Paediatric population,2732
+55,988,28037,CAP,,Paediatric population,28033,Paediatric population,2732
+56,989,28038,CAP,5.2,Pharmacokinetic properties,28032,5.2     Pharmacokinetic properties,2743
+57,990,28039,CAP,,Absorption,28038,Absorption,2759
+58,991,28040,CAP,,Distribution,28038,Distribution,2777
+59,992,28041,CAP,,Biotransformation,28038,Biotransformation,2789
+60,993,28042,CAP,,Elimination,28038,Elimination,2807
+61,994,28043,CAP,,Linearity/non-linearity,28038,Linearity/non‑linearity,2818
+62,964,28013,CAP,,Paediatric population,28012,Paediatric population,2908
+63,970,28019,CAP,,Paediatric population,28017,Paediatric population,2908
+64,972,28021,CAP,,Paediatric population,28020,Paediatric population,2908
+65,979,28028,CAP,,Paediatric population,28027,Paediatric population,2908
+66,982,28031,CAP,,Paediatric population,28030,Paediatric population,2908
+67,988,28037,CAP,,Paediatric population,28033,Paediatric population,2908
+68,996,28045,CAP,5.3,Preclinical safety data,28032,5.3     Preclinical safety data,3124
+69,998,28047,CAP,6,PHARMACEUTICAL PARTICULARS,28001,6.       PHARMACEUTICAL PARTICULARS,3162
+70,999,28048,CAP,6.1,List of excipients,28047,6.1     List of excipients,3167
+71,1000,28049,CAP,6.2,Incompatibilities,28047,6.2     Incompatibilities,3227
+72,1002,28051,CAP,6.4,Special precautions for storage,28047,6.4     Special precautions for storage,3245
+73,1004,28053,CAP,6.6,Special precautions for disposal <and other handling>,28047,6.6    Special precautions for disposal and other handling,3285
+74,1006,28055,CAP,7,MARKETING AUTHORISATION HOLDER,28001,7.       MARKETING AUTHORISATION HOLDER,3295
+75,1007,28056,CAP,8,MARKETING AUTHORISATION NUMBER(S),28001,8.       MARKETING AUTHORISATION NUMBER(S),3311
+76,1008,28057,CAP,9,DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION,28001,9.       DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION,3325
+77,1009,28058,CAP,10,DATE OF REVISION OF THE TEXT,28001,10.     DATE OF REVISION OF THE TEXT,3337
+78,954,28003,CAP,1,NAME OF THE MEDICINAL PRODUCT,28001,1.       NAME OF THE MEDICINAL PRODUCT,3352
+79,955,28004,CAP,2,QUALITATIVE AND QUANTITATIVE COMPOSITION,28001,2.       QUALITATIVE AND QUANTITATIVE COMPOSITION,3366
+80,958,28007,CAP,,Excipient(s) with known effect,28006,Excipient with known effect,3380
+81,958,28007,CAP,,Excipient(s) with known effect,28006,Excipient with known effect,3403
+82,958,28007,CAP,,Excipient(s) with known effect,28006,Excipient with known effect,3426
+83,959,28008,CAP,3,PHARMACEUTICAL FORM,28001,3.       PHARMACEUTICAL FORM,3441
+84,960,28009,CAP,4,CLINICAL PARTICULARS,28001,CLINICAL PARTICULARS,3456
+85,961,28010,CAP,4.1,Therapeutic indications,28009,4.1     Therapeutic indications,3461
+86,962,28011,CAP,4.2,Posology and method of administration,28009,4.2     Posology and method of administration,3474
+87,963,28012,CAP,,Posology,28011,Posology,3488
+88,964,28013,CAP,,Paediatric population,28012,Paediatric population,3648
+89,970,28019,CAP,,Paediatric population,28017,Paediatric population,3648
+90,972,28021,CAP,,Paediatric population,28020,Paediatric population,3648
+91,979,28028,CAP,,Paediatric population,28027,Paediatric population,3648
+92,982,28031,CAP,,Paediatric population,28030,Paediatric population,3648
+93,988,28037,CAP,,Paediatric population,28033,Paediatric population,3648
+94,965,28014,CAP,,Method of administration ,28011,Method of administration ,3665
+95,967,28016,CAP,4.3,Contraindications,28009,4.3       Contraindications,3689
+96,968,28017,CAP,4.4,Special warnings and precautions for use,28009,4.4       Special warnings and precautions for use,3697
+97,964,28013,CAP,,Paediatric population,28012,Paediatric population ,3813
+98,970,28019,CAP,,Paediatric population,28017,Paediatric population ,3813
+99,972,28021,CAP,,Paediatric population,28020,Paediatric population ,3813
+100,979,28028,CAP,,Paediatric population,28027,Paediatric population ,3813
+101,982,28031,CAP,,Paediatric population,28030,Paediatric population ,3813
+102,988,28037,CAP,,Paediatric population,28033,Paediatric population ,3813
+103,971,28020,CAP,4.5,Interaction with other medicinal products and other forms of interaction,28009,Interaction with other medicinal products and other forms of interaction,3851
+104,964,28013,CAP,,Paediatric population,28012,Paediatric population,3989
+105,970,28019,CAP,,Paediatric population,28017,Paediatric population,3989
+106,972,28021,CAP,,Paediatric population,28020,Paediatric population,3989
+107,979,28028,CAP,,Paediatric population,28027,Paediatric population,3989
+108,982,28031,CAP,,Paediatric population,28030,Paediatric population,3989
+109,988,28037,CAP,,Paediatric population,28033,Paediatric population,3989
+110,973,28022,CAP,4.6,"Fertility, pregnancy and lactation",28009,"4.6       Fertility, pregnancy and lactation",4001
+111,974,28023,CAP,,Pregnancy,28022,Pregnancy,4006
+112,975,28024,CAP,,Breast-feeding,28022,Breast‑feeding,4018
+113,976,28025,CAP,,Fertility,28022,Fertility,4031
+114,977,28026,CAP,4.7,Effects on ability to drive and use machines,28009,4.7     Effects on ability to drive and use machines,4042
+115,978,28027,CAP,4.8,Undesirable effects,28009,4.8     Undesirable effects,4051
+116,964,28013,CAP,,Paediatric population,28012,Paediatric population,4336
+117,970,28019,CAP,,Paediatric population,28017,Paediatric population,4336
+118,972,28021,CAP,,Paediatric population,28020,Paediatric population,4336
+119,979,28028,CAP,,Paediatric population,28027,Paediatric population,4336
+120,982,28031,CAP,,Paediatric population,28030,Paediatric population,4336
+121,988,28037,CAP,,Paediatric population,28033,Paediatric population,4336
+122,980,28029,CAP,,Reporting of suspected adverse reactions,28027,Reporting of suspected adverse reactions,4468
+123,983,28032,CAP,5,PHARMACOLOGICAL PROPERTIES,28001,5.       PHARMACOLOGICAL PROPERTIES,4491
+124,984,28033,CAP,5.1,Pharmacodynamic properties,28032,Pharmacodynamic properties,4499
+125,989,28038,CAP,5.2,Pharmacokinetic properties,28032,Pharmacodynamic properties,4499
+126,985,28034,CAP,,Mechanism of action,28033,Mechanism of action,4511
+127,986,28035,CAP,,Pharmacodynamic effects,28033,Pharmacodynamic effects,4534
+128,987,28036,CAP,,Clinical efficacy and safety,28033,Clinical efficacy and safety,4573
