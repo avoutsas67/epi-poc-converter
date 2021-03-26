@@ -128,3 +128,21 @@
 126,985,28034,CAP,,Mechanism of action,28033,Mechanism of action,4511
 127,986,28035,CAP,,Pharmacodynamic effects,28033,Pharmacodynamic effects,4534
 128,987,28036,CAP,,Clinical efficacy and safety,28033,Clinical efficacy and safety,4573
+129,964,28013,CAP,,Paediatric population,28012,Paediatric population,5668
+130,970,28019,CAP,,Paediatric population,28017,Paediatric population,5668
+131,972,28021,CAP,,Paediatric population,28020,Paediatric population,5668
+132,979,28028,CAP,,Paediatric population,28027,Paediatric population,5668
+133,982,28031,CAP,,Paediatric population,28030,Paediatric population,5668
+134,988,28037,CAP,,Paediatric population,28033,Paediatric population,5668
+135,989,28038,CAP,5.2,Pharmacokinetic properties,28032,5.2       Pharmacokinetic properties,5678
+136,990,28039,CAP,,Absorption,28038,Absorption,5689
+137,991,28040,CAP,,Distribution,28038,Distribution,5710
+138,992,28041,CAP,,Biotransformation,28038,Biotransformation,5721
+139,993,28042,CAP,,Elimination,28038,Elimination,5741
+140,994,28043,CAP,,Linearity/non-linearity,28038,Linearity/non‑linearity,5754
+141,964,28013,CAP,,Paediatric population,28012,Paediatric population,5840
+142,970,28019,CAP,,Paediatric population,28017,Paediatric population,5840
+143,972,28021,CAP,,Paediatric population,28020,Paediatric population,5840
+144,979,28028,CAP,,Paediatric population,28027,Paediatric population,5840
+145,982,28031,CAP,,Paediatric population,28030,Paediatric population,5840
+146,988,28037,CAP,,Paediatric population,28033,Paediatric population,5840
