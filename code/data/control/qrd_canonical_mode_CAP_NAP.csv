@@ -407,7 +407,7 @@
 405,11028,CAP,INDLÆGSSEDDEL,da,,Denne indlægsseddel blev senest ændret <{MM/ÅÅÅÅ}> <{måned ÅÅÅÅ}.>,11023.0,True,28
 406,11029,CAP,INDLÆGSSEDDEL,da,,Andre informationskilder,11023.0,False,29
 407,11030,CAP,INDLÆGSSEDDEL,da,,Nedenstående oplysninger er til læger og sundhedspersonale:,11001.0,False,30
-408,12001,CAP,SmPC,de,,SUMMARY OF PRODUCT CHARACTERISTICS,,True,1
+408,12001,CAP,SmPC,de,,ZUSAMMENFASSUNG DER MERKMALE DES ARZNEIMITTELS,,True,1
 409,12002,CAP,SmPC,de,,"Dieses Arzneimittel unterliegt einer zusätzlichen Überwachung. Dies ermöglicht eine schnelle Identifizierung neuer Erkenntnisse über die Sicherheit. Angehörige von Gesundheitsberufen sind aufgefordert, jeden Verdachtsfall einer Nebenwirkung zu melden. Hinweise zur Meldung von Nebenwirkungen, siehe Abschnitt 4.8.",12001.0,False,2
 410,12003,CAP,SmPC,de,1,BEZEICHNUNG DES ARZNEIMITTELS,12001.0,True,3
 411,12004,CAP,SmPC,de,2,QUALITATIVE UND QUANTITATIVE ZUSAMMENSETZUNG,12001.0,True,4
@@ -3766,7 +3766,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3760,108028,NAP,INDLÆGSSEDDEL,da,,Denne indlægsseddel blev senest ændret <{MM/ÅÅÅÅ}> <{måned ÅÅÅÅ}.>,108023.0,True,28
 3761,108029,NAP,INDLÆGSSEDDEL,da,,Andre informationskilder,108023.0,False,29
 3762,108030,NAP,INDLÆGSSEDDEL,da,,Nedenstående oplysninger er til læger og sundhedspersonale:,108001.0,False,30
-3763,109001,NAP,SmPC,de,,SUMMARY OF PRODUCT CHARACTERISTICS,,True,1
+3763,109001,NAP,SmPC,de,,ZUSAMMENFASSUNG DER MERKMALE DES ARZNEIMITTELS,,True,1
 3764,109002,NAP,SmPC,de,,"Dieses Arzneimittel unterliegt einer zusätzlichen Überwachung. Dies ermöglicht eine schnelle Identifizierung neuer Erkenntnisse über die Sicherheit. Angehörige von Gesundheitsberufen sind aufgefordert, jeden Verdachtsfall einer Nebenwirkung zu melden. Hinweise zur Meldung von Nebenwirkungen, siehe Abschnitt 4.8.",109001.0,False,2
 3765,109003,NAP,SmPC,de,1,BEZEICHNUNG DES ARZNEIMITTELS,109001.0,True,3
 3766,109004,NAP,SmPC,de,2,QUALITATIVE UND QUANTITATIVE ZUSAMMENSETZUNG,109001.0,True,4
