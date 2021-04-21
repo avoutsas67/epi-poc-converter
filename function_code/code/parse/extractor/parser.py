@@ -384,6 +384,7 @@ class parserExtractor:
     ## Function to convert all images, in the html folders created by MS Word, to base64
     def convertImgToBase64(self, input_filename):
         html_folder_name = input_filename.replace('.html','_files')
+        html_folder_name = input_filename.replace('.htm','_files')
         img_base64_dict = defaultdict(list)
         if(os.path.exists(html_folder_name)):
             files_in_dir = [f for f in listdir(html_folder_name) if isfile(join(html_folder_name, f))]
@@ -411,10 +412,10 @@ class parserExtractor:
 
             ## Process images
             body_with_embedded_imgs = self.attachImgUriToHtml(soup.body, img_base64_dict)
-            if(body_with_embedded_imgs):
-                dom_elements=body_with_embedded_imgs.find_all(True)   
-            else:
-                dom_elements=soup.body.find_all(True) 
+            # if(body_with_embedded_imgs):
+            #     dom_elements=body_with_embedded_imgs.find_all(True)   
+            # else:
+            dom_elements=soup.body.find_all(True) 
             css_in_style = str(soup.style)
             css_in_style = self.cleanCssString(css_in_style)
             class_style_dict = self.parseClassesInStyle(css_in_style)
