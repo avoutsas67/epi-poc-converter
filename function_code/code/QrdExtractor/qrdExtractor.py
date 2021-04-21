@@ -2,6 +2,9 @@ import os
 import pandas as pd
 
 
+class ErrorInQrdTemplate(Exception):
+    pass
+
 class QrdCanonical():
 
     def __init__(self,fileName, procedureType, languageCode, documentType):
@@ -70,20 +73,56 @@ class QrdCanonical():
             if row['Name'] in topCateories:
                 return 'H0'
             elif pd.isna(row['Display code']):
-                return 'H2'
-            else:
                 return 'H1'
+            else:
+                return 'H2'
 
 
-    def createHeadingLevelColumn(self, dfQrd):
+    # def createHeadingLevelColumn(self, dfQrd):
 
+    #     '''
+    #     Create Heading Level column in the Qrd template dataframe.
+    #     '''
+
+    #     dfQrd['Heading Level'] = dfQrd.apply(lambda row: self.assignHeadingLevel(row), axis=1)
+
+    #     return dfQrd
+
+
+    def createHeadingLevelColumn(self,dfQrd):
+            
         '''
-        Create Heading Level column in the Qrd template dataframe.
+        Assign Heading level to the Qrd dataframe as a new column using the parent_id and its heading level.
         '''
+        dfQrd['Heading Level'] = dfQrd.apply(lambda row : 'H0' if pd.isna(row['parent_id']) else None,axis = 1)
 
-        dfQrd['Heading Level'] = dfQrd.apply(lambda row: self.assignHeadingLevel(row), axis=1)
 
-        return dfQrd
+        for index,_ in dfQrd.iterrows():
+            
+
+            headingLevel = dfQrd.loc[index]['Heading Level']
+            parentId = dfQrd.loc[index]['parent_id']
+            
+            if headingLevel == 'H0':
+                continue
+
+            parentHeadingLevel = list(dfQrd[dfQrd['id'] == int(parentId)]['Heading Level'])[0]
+
+            
+            if parentHeadingLevel == None:
+                print("None found")
+                raise ErrorInQrdTemplate("Heading Not Assigned")
+
+            if parentHeadingLevel == 'H0':
+                dfQrd.at[index,'Heading Level'] = 'H1'
+
+            if parentHeadingLevel == 'H1':
+                dfQrd.at[index,'Heading Level'] = 'H2'
+            if parentHeadingLevel == 'H2':
+                dfQrd.at[index,'Heading Level'] = 'H3'
+                    
+        return dfQrd    
+                
 
     def extractQrdSection(self,dfCanonicalModel):
 

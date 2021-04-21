@@ -330,8 +330,13 @@ class MatchDocument():
 
                                 validated = validateMatchObk.validateMatch(qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,
                                                           previousH2HeadingRowFound, self.dfModelwRulesF, self.subSectionCollectionFoundHeadings)
+                                        
 
                                 if validated:
+
+                                    if str_['IsPossibleHeading'] is False:
+                                        validated = False
+                                        continue
 
                                     print(found, ' || ', outputString,
                                           ' || ', str_['Text'], ' || ', qrd_str)
@@ -351,6 +356,8 @@ class MatchDocument():
 
                                     # Break the loop as the heading has been found and validated.
                                     outerFlag = False
+                                    
+                                    
                                     break
 
                                 # else:
@@ -394,6 +401,6 @@ class MatchDocument():
                         print('found_vec length: ', len(found_vec))
 
         # Once done call the check heading function for the document parsed.
-        self.checkMandatoryHeadingsFound(mandatoryOnly=False)
+        self.checkMandatoryHeadingsFound(mandatoryOnly=True)
 
         return self.dfHtml ,self.collectionFoundHeadings

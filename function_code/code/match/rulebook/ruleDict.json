@@ -196,7 +196,7 @@
                     "Contains<>": 0,
                     "damLevenDistProb": 300,
                     "minFuzzyScore_r": 45,
-                    "minFuzzyScore_wr": 70,
+                    "minFuzzyScore_wr": 73,
                     "minFuzzyScore_pr": 60,
                     "jaroWinklerSimCut": 0.7
                 },
