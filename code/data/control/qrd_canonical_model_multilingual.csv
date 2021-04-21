@@ -1083,7 +1083,7 @@
 23,31023,CAP,Package leaflet,en,6,Contents of the pack and other information,31001.0,True
 24,31024,CAP,Package leaflet,en,,What X contains ,31023.0,True
 25,31025,CAP,Package leaflet,en,,What X looks like and contents of the pack,31023.0,True
-26,31026,CAP,Package leaflet,en,,Marketing Authorisation Holder and Manufacturer,31023.0,True
+26,31026,CAP,Package leaflet,en,,Marketing Authorisation Holder <and Manufacturer>,31023.0,True
 27,31027,CAP,Package leaflet,en,,"For any information about this medicine, please contact the local representative of the Marketing Authorisation Holder:",31023.0,False
 28,31028,CAP,Package leaflet,en,,This leaflet was last revised in <{MM/YYYY}><{month YYYY}>.,31023.0,True
 29,31029,CAP,Package leaflet,en,,Other sources of information,31023.0,False
