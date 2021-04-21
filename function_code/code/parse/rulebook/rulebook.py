@@ -8,7 +8,7 @@ def createNewFeatureObj(styleFeatureKeyList):
         return featureDict
 
 
-styleFeatureKeyList = ['Bold', 'Italics', 'Uppercased', 'Underlined', 'Indexed','IsListItem']
+styleFeatureKeyList = ['Bold', 'Italics', 'Uppercased', 'Underlined', 'Indexed', 'IsListItem', 'HasBorder']
 
 
         

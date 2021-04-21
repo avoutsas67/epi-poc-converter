@@ -10,6 +10,11 @@ from bs4 import NavigableString, BeautifulSoup
 from collections import defaultdict
 import random
 import string
+import unicodedata
+import base64
+from os import listdir
+from os.path import isfile, join
+
 
 
 class parserExtractor:
@@ -20,15 +25,13 @@ class parserExtractor:
         self.styleRuleDict = styleRuleDict
         self.styleFeatureKeyList = styleFeatureKeyList
         self.ignore_child_in_tagType = ['p', 'table', 'h1', 'h2', 'h3']
-        self.section_dict = defaultdict(list)
-        self.section_dict['ANNEX I']=False
-        self.section_dict['ANNEX II']=False
-        self.section_dict['ANNEX III']=False
-        self.section_dict['B. PACKAGE LEAFLET']=False
-
     
-    def getStyleRulesForSection(self, section):
-        return dict(self.styleRuleDict[section])
+    def preprocessStr(self, str_):
+        str_ = unicodedata.normalize("NFKD",str_)
+        return str_
+
+    def getStyleRulesForSection(self, section, styleRuleDict):
+        return self.styleRuleDict[section]
 
     def createNewFeatureObj(self, styleFeatureKeyList):
         featureDict = defaultdict(list)
@@ -37,7 +40,7 @@ class parserExtractor:
         return featureDict
     
     def compareFeatureObjs(self, partialRuleDict, ele):
-        for feature in dict(partialRuleDict).keys():
+        for feature in partialRuleDict.keys():
             if(partialRuleDict[feature] != ele[feature]):
                 return False
         return True
@@ -53,7 +56,7 @@ class parserExtractor:
             else:
                 has_either = True
                 for ruleSet in styleRuleDict[level]['Either'].keys():
-                    if(compareFeatureObjs(styleRuleDict[level]['Either'][ruleSet], ele)):
+                    if(self.compareFeatureObjs(styleRuleDict[level]['Either'][ruleSet], ele)):
                         any_one_feature_set = True
         if(has_either):
             return any_one_feature_set
@@ -147,6 +150,9 @@ class parserExtractor:
         if(styleStr.find('font-style')!=-1):
             feature_dict['Italics'] = styleStr.partition('font-style')[2].split(';')[0].find('italic')!=-1
 
+        if(styleStr.find('border')!=-1):
+            feature_dict['HasBorder'] = styleStr.partition('border')[2].split(';')[0].find('solid')!=-1
+
         return feature_dict
         
     ## Function to create a dict for CSS in style tag
@@ -166,20 +172,35 @@ class parserExtractor:
             css_features_in_style[key] = self.parseCssInStr(class_style_dict[key])
         return css_features_in_style
 
-
+    def attachImgUriToHtml(self, ele, img_base64_dict):
+        """
+        Function to embed images into dom
+        """
+        img_doms = ele.find_all('img')
+        if(len(img_doms) > 0):
+            for img_dom in img_doms:
+                img_src = img_dom.get('src')
+                req_img_dict_key = img_src.split('/')[-1]
+                if req_img_dict_key in img_base64_dict:
+                    uri =  'data:image/{0};base64,{1}'.format(img_base64_dict[req_img_dict_key]['type'], img_base64_dict[req_img_dict_key]['uri'])
+                    img_dom['src'] = uri
+        return ele
+    
     def getRulesAndCompare(self, section, dom_data):
-        styleRuleDict = self.styleRuleDict #getStyleRulesForSection(section)
+        styleRuleDict = self.getStyleRulesForSection(section, self.styleRuleDict)
         if(dom_data['Text']):
             dom_data['IsHeadingType'] = self.compareEleAndStyleDict(styleRuleDict, dom_data)
             if(dom_data['IsHeadingType']):
                 dom_data['IsPossibleHeading'] = True
-
-            ## Uncomment this to print all heading and levels
-            if(dom_data['IsHeadingType']):
-                print(dom_data['Text'], dom_data['IsHeadingType'])
         return dom_data
             
-    def createDomEleData(self, ele, get_immediate_text, class_style_dict, html_tags_for_styles):
+    def createDomEleData(self,
+                         ele, 
+                         get_immediate_text, 
+                         class_style_dict, 
+                         html_tags_for_styles, 
+                         img_base64_dict,
+                         section_dict):
         dom_data = defaultdict(list)  
         parsed_output = defaultdict(list)
         ## Assigning an unique ID to elements
@@ -197,6 +218,8 @@ class parserExtractor:
 
         dom_data['IsPossibleHeading'] = False
         dom_data['IsHeadingType'] = None
+        css_in_attr = self.parseCssInStr(self.cleanCssString(dom_data['Styles']))
+
         ## Extracting text of element 
         if(get_immediate_text):
 
@@ -204,6 +227,11 @@ class parserExtractor:
             concatenated_text = "".join(ele.find_all(text=True, recursive=False))
             concatenated_text = concatenated_text.replace("\n"," ")
             concatenated_text = concatenated_text.replace("\xa0"," ")
+            concatenated_text = self.preprocessStr(concatenated_text)
+
+            if(not dom_data['HasBorder']):
+                dom_data['HasBorder'] = css_in_attr['HasBorder'] 
+
             parsed_output['ignore_child_in_parentId'] = None
 
         else:
@@ -212,12 +240,12 @@ class parserExtractor:
             concatenated_text = "".join(ele.find_all(text=True, recursive=True))
             concatenated_text = concatenated_text.replace("\n"," ")
             concatenated_text = concatenated_text.replace("\xa0"," ")
+            concatenated_text = self.preprocessStr(concatenated_text)
             parsed_output['ignore_child_in_parentId'] = dom_data['ID']
 
             ## Checking length for style extraction
             if(len(concatenated_text)>3 and len(concatenated_text)<200):
                 parent_features = self.createNewFeatureObj(self.styleFeatureKeyList)
-                css_in_attr = self.parseCssInStr(self.cleanCssString(dom_data['Styles']))
 
                 ## Checking for required css in class of current element 
                 ## Case 1: Handling tags such as h1, h2, h3
@@ -252,7 +280,7 @@ class parserExtractor:
                 if(not dom_data['Underlined']):
                     dom_data['Underlined'] = css_in_attr['Underlined']
                 if(not dom_data['Italics']):
-                    dom_data['Italics'] = css_in_attr['Italics'] 
+                    dom_data['Italics'] = css_in_attr['Italics']
 
 
                 parent_features['Bold'] = dom_data['Bold']
@@ -274,7 +302,7 @@ class parserExtractor:
                     if(not isinstance(child, NavigableString)):
                         if("".join(child.find_all(text=True, recursive=False)).isspace()):
                             continue
-
+                        
                     if(not parent_features['Bold']):
                         if(child.name == 'b'):
                             dom_data['Bold'] = True
@@ -289,7 +317,7 @@ class parserExtractor:
                             dom_data['Underlined'] = self.checkAllChildrenForTag(dom_data['Element'], 'u')
 
                     if(not parent_features['Italics']):
-
+                    
                         if(child.name == 'i' or child.name == 'em'):
                             dom_data['Italics'] = True
                         else:
@@ -318,30 +346,30 @@ class parserExtractor:
         dom_data['Text']=concatenated_text
 
         ## Tracking which section is being parsed using section_dict    
-        for key in reversed(self.section_dict.keys()):
-            if(dom_data['Text'].lower().find(key.lower())!=-1 and self.section_dict[key] == False):
+        for key in reversed(section_dict.keys()):
+            if(dom_data['Text'].encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
                 dom_data['IsHeadingType'] = 'L1'
                 dom_data['IsPossibleHeading'] = True
-                self.section_dict[key] = True
+                section_dict[key] = True
                 break
 
         ## Extract levels section-wise based on style dict
-        if(self.section_dict['ANNEX I']==True and self.section_dict['ANNEX II']==False):
+        if(section_dict['ANNEX I']==True and section_dict['ANNEX II']==False):
             dom_data = self.getRulesAndCompare('ANNEX I', dom_data)
-        elif(self.section_dict['ANNEX II']==True and self.section_dict['ANNEX III']==False):
+        elif(section_dict['ANNEX II']==True and section_dict['ANNEX III']==False):
             dom_data = self.getRulesAndCompare('ANNEX II', dom_data)
 
-        elif(self.section_dict['ANNEX III']==True and self.section_dict['B. PACKAGE LEAFLET']==False):
+        elif(section_dict['ANNEX III']==True and section_dict['B. PACKAGE LEAFLET']==False):
             dom_data = self.getRulesAndCompare('ANNEX III', dom_data)
 
-        elif(self.section_dict['B. PACKAGE LEAFLET']==True):
+        elif(section_dict['B. PACKAGE LEAFLET']==True):
             dom_data = self.getRulesAndCompare('B. PACKAGE LEAFLET', dom_data)
 
         dom_data['ParentId']=str(ele.parent.get('id'))
         parsed_output['data'] = dom_data
         return parsed_output
 
-    ##Function to clean a string which contains CSS
+    ## Function to clean a string which contains CSS
     def cleanCssString(self, css_string):
         css_string = css_string.replace('\n','')
         css_string = css_string.replace('\t','')
@@ -353,13 +381,40 @@ class parserExtractor:
         css_string = css_string.replace('*/','')
         return css_string
 
+    ## Function to convert all images, in the html folders created by MS Word, to base64
+    def convertImgToBase64(self, input_filename):
+        html_folder_name = input_filename.replace('.html','_files')
+        img_base64_dict = defaultdict(list)
+        if(os.path.exists(html_folder_name)):
+            files_in_dir = [f for f in listdir(html_folder_name) if isfile(join(html_folder_name, f))]
+            for img in files_in_dir:
+                with open(os.path.join(html_folder_name, img), "rb") as image_file:
+                    img_instance = defaultdict(list)
+                    img_instance['uri'] = base64.b64encode(image_file.read()).decode('utf-8')
+                    img_instance['type'] = img.split('.')[-1]
+                    img_base64_dict[img] = img_instance
+                image_file.close()
+        return img_base64_dict
+
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
-    def createPIJsonFromHTML(self, input_filepath, output_filepath):
+    def createPIJsonFromHTML(self, input_filepath, output_filepath, img_base64_dict):
         html_tags_for_styles = ['h1', 'h2', 'h3', 'h4', 'em']
+        section_dict = defaultdict(list)
+        section_dict['ANNEX I']=False
+        section_dict['ANNEX II']=False
+        section_dict['ANNEX III']=False
+        section_dict['B. PACKAGE LEAFLET']=False
+        
         with open(input_filepath) as fp:
             soup = BeautifulSoup(fp, "html.parser")
             soup.body['id']=uuid.uuid4()
-            dom_elements=soup.body.find_all(True)   
+
+            ## Process images
+            body_with_embedded_imgs = self.attachImgUriToHtml(soup.body, img_base64_dict)
+            if(body_with_embedded_imgs):
+                dom_elements=body_with_embedded_imgs.find_all(True)   
+            else:
+                dom_elements=soup.body.find_all(True) 
             css_in_style = str(soup.style)
             css_in_style = self.cleanCssString(css_in_style)
             class_style_dict = self.parseClassesInStyle(css_in_style)
@@ -380,12 +435,22 @@ class parserExtractor:
                     continue
                 else:
                     if(ele.name in self.ignore_child_in_tagType):
-                        parsed_output = self.createDomEleData(ele, False, class_style_dict, html_tags_for_styles)
+                        parsed_output = self.createDomEleData(ele, 
+                                                         False, 
+                                                         class_style_dict, 
+                                                         html_tags_for_styles, 
+                                                         img_base64_dict,
+                                                         section_dict)
                         parsed_dom_elements['data'].append(parsed_output['data'])            
                     else:
-                        parsed_output = self.createDomEleData(ele, True, class_style_dict, html_tags_for_styles)
+                        parsed_output = self.createDomEleData(ele, 
+                                                         True, 
+                                                         class_style_dict, 
+                                                         html_tags_for_styles, 
+                                                         img_base64_dict, 
+                                                         section_dict)
                         parsed_dom_elements['data'].append(parsed_output['data'])
-        fp.close()
+            fp.close()
 
         ## Writing to json    
         with open(output_filepath, 'w+') as outfile:
