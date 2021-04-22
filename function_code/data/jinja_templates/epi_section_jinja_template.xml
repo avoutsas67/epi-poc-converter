@@ -1,0 +1,30 @@
+
+<section>
+	{% for id_dict in id_dict_list %}
+		{% if loop.index == 1 %}
+			<title value="{{id_dict[root].htmlText}}"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    {{id_dict[root]["Html_betw"]}}
+			</div>
+		</text>
+		{% endif %}
+
+		{% if id_dict[root]["Children"] %}
+    	    {% for child in id_dict[root].Children.ids %}
+
+			    {%with id_dict=id_dict, template_name="epi_sub_section_jinja_template.xml", root=child %}
+		               {%include template_name%}
+			    {%endwith%}
+    	    {% endfor %}
+		{% endif %}
+	{% endfor %}
+</section>
