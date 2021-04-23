@@ -19,16 +19,14 @@ from os.path import isfile, join
 
 class parserExtractor:
 
-    def __init__(self, config, logger, styleRuleDict, styleFeatureKeyList):
+    def __init__(self, config, logger, styleRuleDict, styleFeatureKeyList, qrd_section_headings):
         self.config = config
         self.logger = logger
         self.styleRuleDict = styleRuleDict
         self.styleFeatureKeyList = styleFeatureKeyList
         self.ignore_child_in_tagType = ['p', 'table', 'h1', 'h2', 'h3']
+        self.qrd_section_headings = qrd_section_headings
     
-    def preprocessStr(self, str_):
-        str_ = unicodedata.normalize("NFKD",str_)
-        return str_
 
     def getStyleRulesForSection(self, section, styleRuleDict):
         return self.styleRuleDict[section]
@@ -66,7 +64,7 @@ class parserExtractor:
     def compareEleAndStyleDict(self, styleRuleDict, ele):
         for level in styleRuleDict.keys():
             if(self.checkFeaturesAtLevel(styleRuleDict, level, ele)):
-                return level
+                return str(level)
         return None
 
     ## Function that checks a list of classes for the required feature after handling different class names
@@ -227,7 +225,6 @@ class parserExtractor:
             concatenated_text = "".join(ele.find_all(text=True, recursive=False))
             concatenated_text = concatenated_text.replace("\n"," ")
             concatenated_text = concatenated_text.replace("\xa0"," ")
-            concatenated_text = self.preprocessStr(concatenated_text)
 
             if(not dom_data['HasBorder']):
                 dom_data['HasBorder'] = css_in_attr['HasBorder'] 
@@ -240,7 +237,6 @@ class parserExtractor:
             concatenated_text = "".join(ele.find_all(text=True, recursive=True))
             concatenated_text = concatenated_text.replace("\n"," ")
             concatenated_text = concatenated_text.replace("\xa0"," ")
-            concatenated_text = self.preprocessStr(concatenated_text)
             parsed_output['ignore_child_in_parentId'] = dom_data['ID']
 
             ## Checking length for style extraction
@@ -346,7 +342,7 @@ class parserExtractor:
         dom_data['Text']=concatenated_text
 
         ## Tracking which section is being parsed using section_dict    
-        for key in reversed(section_dict.keys()):
+        for key in list(reversed(self.qrd_section_headings)):
             if(dom_data['Text'].encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
                 dom_data['IsHeadingType'] = 'L1'
                 dom_data['IsPossibleHeading'] = True
@@ -354,16 +350,15 @@ class parserExtractor:
                 break
 
         ## Extract levels section-wise based on style dict
-        if(section_dict['ANNEX I']==True and section_dict['ANNEX II']==False):
-            dom_data = self.getRulesAndCompare('ANNEX I', dom_data)
-        elif(section_dict['ANNEX II']==True and section_dict['ANNEX III']==False):
-            dom_data = self.getRulesAndCompare('ANNEX II', dom_data)
+        for i, key in enumerate(self.qrd_section_headings, 0):
+            if(section_dict[key]==True):
+                if(i==len(self.qrd_section_headings)-1):
+                    dom_data = self.getRulesAndCompare(key, dom_data)
+                    break
+                if(section_dict[self.qrd_section_headings[i+1]]==False):
+                    dom_data = self.getRulesAndCompare(key, dom_data)
+                
 
-        elif(section_dict['ANNEX III']==True and section_dict['B. PACKAGE LEAFLET']==False):
-            dom_data = self.getRulesAndCompare('ANNEX III', dom_data)
-
-        elif(section_dict['B. PACKAGE LEAFLET']==True):
-            dom_data = self.getRulesAndCompare('B. PACKAGE LEAFLET', dom_data)
 
         dom_data['ParentId']=str(ele.parent.get('id'))
         parsed_output['data'] = dom_data
@@ -397,14 +392,13 @@ class parserExtractor:
                 image_file.close()
         return img_base64_dict
 
+    
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
     def createPIJsonFromHTML(self, input_filepath, output_filepath, img_base64_dict):
         html_tags_for_styles = ['h1', 'h2', 'h3', 'h4', 'em']
         section_dict = defaultdict(list)
-        section_dict['ANNEX I']=False
-        section_dict['ANNEX II']=False
-        section_dict['ANNEX III']=False
-        section_dict['B. PACKAGE LEAFLET']=False
+        for key in self.qrd_section_headings:
+            section_dict[key]=False
         
         with open(input_filepath) as fp:
             soup = BeautifulSoup(fp, "html.parser")
@@ -453,7 +447,8 @@ class parserExtractor:
                         parsed_dom_elements['data'].append(parsed_output['data'])
             fp.close()
 
-        ## Writing to json    
+        ## Writing to json
+        self.logger.debug('Writing to file: ' + output_filepath)
         with open(output_filepath, 'w+') as outfile:
             json.dump(parsed_dom_elements, outfile)
         outfile.close()

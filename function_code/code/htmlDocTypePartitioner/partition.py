@@ -1,7 +1,8 @@
 import re
 import os
 import pandas as pd
-from jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
+import json
+
 class DocTypePartitioner:
     def __init__(self, logger):
         self.logger = logger
@@ -90,15 +91,22 @@ class DocTypePartitioner:
         return partitioned_df
 
     def partitionHtmls(self, qrdkeys, path_json):
-    
+        qrdkeys[0] = 'SmPC'
+
+        partition_output_folder = path_json.replace('outputJSON', 'partitionedJSONs')
+        if(not os.path.exists(partition_output_folder)):
+            os.mkdir(partition_output_folder)
         files_json = [i for i in list(os.listdir(path_json)) if ('json' in i)]
         for filename in files_json:
             self.new_dataframe_start = 0
             input_filename = os.path.join( path_json , filename)
             self.logger.debug('Partitioning Json: '+ filename)
-            df = pd.DataFrame(loadJSON_Convert_to_DF(input_filename))
+            with open(input_filename) as f:
+                json_html = json.load(f)
+            df = pd.DataFrame(json_html['data'])
             page_breaks = self.getPageBreakIndices(df)
             partitioned_df = None
+
             for i in range(len(qrdkeys)):
                 if(self.new_dataframe_start==len(df)):
                    break
