@@ -115,8 +115,7 @@ class DocTypePartitioner:
                 else:
                     partitioned_df = self.splitHtmlBasedOnDoc(df, qrdkeys[i+1],page_breaks, False)
 
-                path_output_json = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'partitionedJSONs')
-                partitioned_filename = os.path.join( path_output_json , filename)
+                partitioned_filename = os.path.join(partition_output_folder , filename)
                 partitioned_filename = partitioned_filename.replace('.json', "".join(["_", re.sub(r'^[A-Za-z0-9]\. +', ' ',qrdkeys[i]),'.json']))
                 self.logger.debug('Writing partition to file: '+ partitioned_filename)
                 partitioned_df.to_json(partitioned_filename, orient ='records')
