@@ -1,0 +1,255 @@
+2021-04-25 20:51:45,346 : Style Dictionary_F : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_es.json
+2021-04-25 20:51:45,898 : Style Dictionary_F : Qrd Section Keys Generated: ANEXO I, ANEXO II, ANEXO III, B. PROSPECTO
+2021-04-25 20:51:56,106 : Parser_s : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\es\emea-combined-h-2494-es.json
+2021-04-25 20:51:57,295 : Style Dictionary_r : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_es.json
+2021-04-25 20:51:57,374 : Style Dictionary_r : Qrd Section Keys Generated: ANEXO I, ANEXO II, ANEXO III, B. PROSPECTO
+2021-04-25 20:51:57,381 : Partition_J : Partitioning Json: emea-combined-h-2494-es.json
+2021-04-25 20:51:57,800 : Partition_J : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\es\emea-combined-h-2494-es_SmPC.json
+2021-04-25 20:51:57,990 : Partition_J : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\es\emea-combined-h-2494-es_ANEXO II.json
+2021-04-25 20:51:58,198 : Partition_J : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\es\emea-combined-h-2494-es_ANEXO III.json
+2021-04-25 20:51:58,293 : Partition_J : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\es\emea-combined-h-2494-es_ PROSPECTO.json
+2021-04-25 22:01:20,548 : ExtractContentBetween_7 : Cleaning Match Results
+2021-04-25 22:01:20,550 : ExtractContentBetween_7 : Finished Cleaning Match Results
+2021-04-25 22:06:24,367 : ExtractContentBetween_r : Cleaning Match Results
+2021-04-25 22:06:24,370 : ExtractContentBetween_r : Finished Cleaning Match Results
+2021-04-25 22:06:24,382 : ExtractContentBetween_r : Extracting Content Between Headings
+2021-04-25 22:06:24,392 : ExtractContentBetween_r : Finished Extracting Content Between Headings
+2021-04-25 22:06:24,436 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 22:06:24,547 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_ PROSPECTO.xml
+2021-04-25 22:15:12,353 : ExtractContentBetween_m : Cleaning Match Results
+2021-04-25 22:15:12,362 : ExtractContentBetween_m : Finished Cleaning Match Results
+2021-04-25 22:15:12,405 : ExtractContentBetween_m : Extracting Content Between Headings
+2021-04-25 22:15:12,429 : ExtractContentBetween_m : Finished Extracting Content Between Headings
+2021-04-25 22:15:12,489 : XmlGeneration_I : Initiating XML Generation
+2021-04-25 22:15:12,730 : XmlGeneration_I : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-25 22:33:34,389 : ExtractContentBetween_I : Cleaning Match Results
+2021-04-25 22:33:34,394 : ExtractContentBetween_I : Finished Cleaning Match Results
+2021-04-25 22:33:34,439 : ExtractContentBetween_I : Extracting Content Between Headings
+2021-04-25 22:33:34,474 : ExtractContentBetween_I : Finished Extracting Content Between Headings
+2021-04-25 22:33:34,558 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 22:33:34,558 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 22:33:34,934 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-25 22:33:34,934 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-25 22:53:08,941 : ExtractContentBetween_J : Cleaning Match Results
+2021-04-25 22:53:08,945 : ExtractContentBetween_J : Finished Cleaning Match Results
+2021-04-25 22:53:08,980 : ExtractContentBetween_J : Extracting Content Between Headings
+2021-04-25 22:53:09,002 : ExtractContentBetween_J : Finished Extracting Content Between Headings
+2021-04-25 22:53:09,076 : XmlGeneration_T : Initiating XML Generation
+2021-04-25 22:53:09,306 : XmlGeneration_T : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-25 23:03:51,360 : ExtractContentBetween_M : Cleaning Match Results
+2021-04-25 23:03:51,363 : ExtractContentBetween_M : Finished Cleaning Match Results
+2021-04-25 23:03:51,369 : ExtractContentBetween_M : Extracting Content Between Headings
+2021-04-25 23:03:51,376 : ExtractContentBetween_M : Finished Extracting Content Between Headings
+2021-04-25 23:03:51,405 : XmlGeneration_5 : Initiating XML Generation
+2021-04-25 23:03:51,443 : XmlGeneration_5 : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-25 23:34:22,633 : ExtractContentBetween_C : Cleaning Match Results
+2021-04-25 23:34:22,638 : ExtractContentBetween_C : Finished Cleaning Match Results
+2021-04-25 23:34:22,643 : ExtractContentBetween_C : Extracting Content Between Headings
+2021-04-25 23:34:22,647 : ExtractContentBetween_C : Finished Extracting Content Between Headings
+2021-04-25 23:34:22,675 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 23:34:22,675 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 23:34:22,675 : XmlGeneration_H : Initiating XML Generation
+2021-04-25 23:34:22,713 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-25 23:34:22,713 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-25 23:34:22,713 : XmlGeneration_H : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-25 23:40:32,268 : ExtractContentBetween_Q : Cleaning Match Results
+2021-04-25 23:40:32,274 : ExtractContentBetween_Q : Finished Cleaning Match Results
+2021-04-25 23:40:32,299 : ExtractContentBetween_Q : Extracting Content Between Headings
+2021-04-25 23:40:32,700 : ExtractContentBetween_Q : Finished Extracting Content Between Headings
+2021-04-25 23:40:32,824 : XmlGeneration_a : Initiating XML Generation
+2021-04-25 23:40:33,169 : XmlGeneration_a : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:00:35,419 : ExtractContentBetween_y : Cleaning Match Results
+2021-04-26 00:00:35,423 : ExtractContentBetween_y : Finished Cleaning Match Results
+2021-04-26 00:00:35,451 : ExtractContentBetween_y : Extracting Content Between Headings
+2021-04-26 00:00:35,839 : ExtractContentBetween_y : Finished Extracting Content Between Headings
+2021-04-26 00:00:35,962 : XmlGeneration_k : Initiating XML Generation
+2021-04-26 00:00:36,208 : XmlGeneration_k : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:12:10,518 : ExtractContentBetween_S : Cleaning Match Results
+2021-04-26 00:12:10,524 : ExtractContentBetween_S : Finished Cleaning Match Results
+2021-04-26 00:12:10,548 : ExtractContentBetween_S : Extracting Content Between Headings
+2021-04-26 00:12:10,985 : ExtractContentBetween_S : Finished Extracting Content Between Headings
+2021-04-26 00:12:11,122 : XmlGeneration_T : Initiating XML Generation
+2021-04-26 00:12:11,122 : XmlGeneration_T : Initiating XML Generation
+2021-04-26 00:12:11,434 : XmlGeneration_T : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:12:11,434 : XmlGeneration_T : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:26:03,010 : ExtractContentBetween_2 : Cleaning Match Results
+2021-04-26 00:26:03,014 : ExtractContentBetween_2 : Finished Cleaning Match Results
+2021-04-26 00:26:03,039 : ExtractContentBetween_2 : Extracting Content Between Headings
+2021-04-26 00:26:03,456 : ExtractContentBetween_2 : Finished Extracting Content Between Headings
+2021-04-26 00:26:03,593 : XmlGeneration_B : Initiating XML Generation
+2021-04-26 00:26:03,957 : XmlGeneration_B : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:28:47,042 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 00:28:47,048 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 00:28:47,063 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 00:28:47,080 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 00:28:47,121 : XmlGeneration_a : Initiating XML Generation
+2021-04-26 00:28:47,121 : XmlGeneration_a : Initiating XML Generation
+2021-04-26 00:28:47,242 : XmlGeneration_a : Writing to File:emea-combined-h-2494-es_ PROSPECTO.xml
+2021-04-26 00:28:47,242 : XmlGeneration_a : Writing to File:emea-combined-h-2494-es_ PROSPECTO.xml
+2021-04-26 00:29:44,270 : ExtractContentBetween_K : Cleaning Match Results
+2021-04-26 00:29:44,273 : ExtractContentBetween_K : Finished Cleaning Match Results
+2021-04-26 00:29:44,304 : ExtractContentBetween_K : Extracting Content Between Headings
+2021-04-26 00:29:44,324 : ExtractContentBetween_K : Finished Extracting Content Between Headings
+2021-04-26 00:29:44,381 : XmlGeneration_R : Initiating XML Generation
+2021-04-26 00:29:44,659 : XmlGeneration_R : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-26 00:29:48,049 : ExtractContentBetween_M : Cleaning Match Results
+2021-04-26 00:29:48,049 : ExtractContentBetween_M : Cleaning Match Results
+2021-04-26 00:29:48,055 : ExtractContentBetween_M : Finished Cleaning Match Results
+2021-04-26 00:29:48,055 : ExtractContentBetween_M : Finished Cleaning Match Results
+2021-04-26 00:29:48,062 : ExtractContentBetween_M : Extracting Content Between Headings
+2021-04-26 00:29:48,062 : ExtractContentBetween_M : Extracting Content Between Headings
+2021-04-26 00:29:48,069 : ExtractContentBetween_M : Finished Extracting Content Between Headings
+2021-04-26 00:29:48,069 : ExtractContentBetween_M : Finished Extracting Content Between Headings
+2021-04-26 00:29:48,097 : XmlGeneration_s : Initiating XML Generation
+2021-04-26 00:29:48,122 : XmlGeneration_s : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-26 00:30:36,940 : ExtractContentBetween_6 : Cleaning Match Results
+2021-04-26 00:30:36,944 : ExtractContentBetween_6 : Finished Cleaning Match Results
+2021-04-26 00:30:36,967 : ExtractContentBetween_6 : Extracting Content Between Headings
+2021-04-26 00:30:37,353 : ExtractContentBetween_6 : Finished Extracting Content Between Headings
+2021-04-26 00:30:37,474 : XmlGeneration_5 : Initiating XML Generation
+2021-04-26 00:30:37,474 : XmlGeneration_5 : Initiating XML Generation
+2021-04-26 00:30:37,806 : XmlGeneration_5 : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:30:37,806 : XmlGeneration_5 : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:32:46,040 : ExtractContentBetween_G : Cleaning Match Results
+2021-04-26 00:32:46,044 : ExtractContentBetween_G : Finished Cleaning Match Results
+2021-04-26 00:32:46,090 : ExtractContentBetween_G : Extracting Content Between Headings
+2021-04-26 00:32:46,120 : ExtractContentBetween_G : Finished Extracting Content Between Headings
+2021-04-26 00:32:46,217 : XmlGeneration_A : Initiating XML Generation
+2021-04-26 00:32:46,569 : XmlGeneration_A : Writing to File:emea-combined-h-2494-es_SmPC.xml
+2021-04-26 00:32:50,323 : ExtractContentBetween_F : Cleaning Match Results
+2021-04-26 00:32:50,327 : ExtractContentBetween_F : Finished Cleaning Match Results
+2021-04-26 00:32:50,335 : ExtractContentBetween_F : Extracting Content Between Headings
+2021-04-26 00:32:50,342 : ExtractContentBetween_F : Finished Extracting Content Between Headings
+2021-04-26 00:32:50,369 : XmlGeneration_A : Initiating XML Generation
+2021-04-26 00:32:50,369 : XmlGeneration_A : Initiating XML Generation
+2021-04-26 00:32:50,407 : XmlGeneration_A : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-26 00:32:50,407 : XmlGeneration_A : Writing to File:emea-combined-h-2494-es_ANEXO II.xml
+2021-04-26 00:34:03,727 : ExtractContentBetween_N : Cleaning Match Results
+2021-04-26 00:34:03,734 : ExtractContentBetween_N : Finished Cleaning Match Results
+2021-04-26 00:34:03,776 : ExtractContentBetween_N : Extracting Content Between Headings
+2021-04-26 00:34:04,392 : ExtractContentBetween_N : Finished Extracting Content Between Headings
+2021-04-26 00:34:04,640 : XmlGeneration_y : Initiating XML Generation
+2021-04-26 00:34:05,157 : XmlGeneration_y : Writing to File:emea-combined-h-2494-es_ANEXO III.xml
+2021-04-26 00:36:54,033 : ExtractContentBetween_1 : Cleaning Match Results
+2021-04-26 00:36:54,038 : ExtractContentBetween_1 : Finished Cleaning Match Results
+2021-04-26 00:36:54,060 : ExtractContentBetween_1 : Extracting Content Between Headings
+2021-04-26 00:36:54,084 : ExtractContentBetween_1 : Finished Extracting Content Between Headings
+2021-04-26 00:36:54,158 : XmlGeneration_x : Initiating XML Generation
+2021-04-26 00:36:54,343 : XmlGeneration_x : Writing to File:emea-combined-h-2494-es_ PROSPECTO.xml
+2021-04-26 00:45:07,062 : Style Dictionary_R : Creating default style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_de.json
+2021-04-26 00:45:07,087 : Style Dictionary_R : Qrd Section Keys Generated: ANHANG I, ANHANG II, ANHANG III, B. PACKUNGSBEILAGE
+2021-04-26 00:45:13,341 : Parser_E : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\de\emea-combined-h-2494-de.json
+2021-04-26 00:45:14,006 : Style Dictionary_8 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_de.json
+2021-04-26 00:45:14,048 : Style Dictionary_8 : Qrd Section Keys Generated: ANHANG I, ANHANG II, ANHANG III, B. PACKUNGSBEILAGE
+2021-04-26 00:45:14,063 : Partition_H : Partitioning Json: emea-combined-h-2494-de.json
+2021-04-26 00:45:14,331 : Partition_H : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\de\emea-combined-h-2494-de_SmPC.json
+2021-04-26 00:45:14,427 : Partition_H : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\de\emea-combined-h-2494-de_ANHANG II.json
+2021-04-26 00:45:14,565 : Partition_H : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\de\emea-combined-h-2494-de_ANHANG III.json
+2021-04-26 00:45:14,613 : Partition_H : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\de\emea-combined-h-2494-de_ PACKUNGSBEILAGE.json
+2021-04-26 00:49:12,955 : ExtractContentBetween_w : Cleaning Match Results
+2021-04-26 00:49:12,958 : ExtractContentBetween_w : Finished Cleaning Match Results
+2021-04-26 00:49:12,987 : ExtractContentBetween_w : Extracting Content Between Headings
+2021-04-26 00:49:13,007 : ExtractContentBetween_w : Finished Extracting Content Between Headings
+2021-04-26 00:49:13,051 : XmlGeneration_s : Initiating XML Generation
+2021-04-26 00:49:13,051 : XmlGeneration_s : Initiating XML Generation
+2021-04-26 00:49:13,286 : XmlGeneration_s : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 00:49:13,286 : XmlGeneration_s : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 01:02:06,228 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 01:02:06,228 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 01:02:06,234 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 01:02:06,234 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 01:02:06,276 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 01:02:06,276 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 01:02:06,314 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 01:02:06,314 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 01:02:06,382 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 01:02:06,821 : XmlGeneration_1 : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 01:13:59,890 : ExtractContentBetween_J : Cleaning Match Results
+2021-04-26 01:13:59,890 : ExtractContentBetween_J : Cleaning Match Results
+2021-04-26 01:13:59,898 : ExtractContentBetween_J : Finished Cleaning Match Results
+2021-04-26 01:13:59,898 : ExtractContentBetween_J : Finished Cleaning Match Results
+2021-04-26 01:13:59,951 : ExtractContentBetween_J : Extracting Content Between Headings
+2021-04-26 01:13:59,951 : ExtractContentBetween_J : Extracting Content Between Headings
+2021-04-26 01:13:59,989 : ExtractContentBetween_J : Finished Extracting Content Between Headings
+2021-04-26 01:13:59,989 : ExtractContentBetween_J : Finished Extracting Content Between Headings
+2021-04-26 01:14:00,110 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 01:14:00,110 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 01:14:00,533 : XmlGeneration_1 : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 01:14:00,533 : XmlGeneration_1 : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 01:34:33,793 : ExtractContentBetween_r : Cleaning Match Results
+2021-04-26 01:34:33,793 : ExtractContentBetween_r : Cleaning Match Results
+2021-04-26 01:34:33,799 : ExtractContentBetween_r : Finished Cleaning Match Results
+2021-04-26 01:34:33,799 : ExtractContentBetween_r : Finished Cleaning Match Results
+2021-04-26 01:34:33,829 : ExtractContentBetween_r : Extracting Content Between Headings
+2021-04-26 01:34:33,829 : ExtractContentBetween_r : Extracting Content Between Headings
+2021-04-26 01:34:33,853 : ExtractContentBetween_r : Finished Extracting Content Between Headings
+2021-04-26 01:34:33,853 : ExtractContentBetween_r : Finished Extracting Content Between Headings
+2021-04-26 01:34:33,908 : XmlGeneration_7 : Initiating XML Generation
+2021-04-26 01:34:34,284 : XmlGeneration_7 : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-26 01:44:54,263 : ExtractContentBetween_e : Cleaning Match Results
+2021-04-26 01:44:54,268 : ExtractContentBetween_e : Finished Cleaning Match Results
+2021-04-26 01:44:54,277 : ExtractContentBetween_e : Extracting Content Between Headings
+2021-04-26 01:44:54,284 : ExtractContentBetween_e : Finished Extracting Content Between Headings
+2021-04-26 01:44:54,317 : XmlGeneration_g : Initiating XML Generation
+2021-04-26 01:44:54,372 : XmlGeneration_g : Writing to File:emea-combined-h-2494-de_ANHANG II.xml
+2021-04-26 01:49:11,111 : ExtractContentBetween_q : Cleaning Match Results
+2021-04-26 01:49:11,119 : ExtractContentBetween_q : Finished Cleaning Match Results
+2021-04-26 01:49:11,164 : ExtractContentBetween_q : Extracting Content Between Headings
+2021-04-26 01:49:11,829 : ExtractContentBetween_q : Finished Extracting Content Between Headings
+2021-04-26 01:49:11,998 : XmlGeneration_Y : Initiating XML Generation
+2021-04-26 01:49:12,327 : XmlGeneration_Y : Writing to File:emea-combined-h-2494-de_ANHANG III.xml
+2021-04-26 02:00:23,873 : ExtractContentBetween_4 : Cleaning Match Results
+2021-04-26 02:00:23,879 : ExtractContentBetween_4 : Finished Cleaning Match Results
+2021-04-26 02:00:23,902 : ExtractContentBetween_4 : Extracting Content Between Headings
+2021-04-26 02:00:23,925 : ExtractContentBetween_4 : Finished Extracting Content Between Headings
+2021-04-26 02:00:24,010 : XmlGeneration_W : Initiating XML Generation
+2021-04-26 02:00:24,362 : XmlGeneration_W : Writing to File:emea-combined-h-2494-de_ PACKUNGSBEILAGE.xml
+2021-04-26 02:18:12,611 : Style Dictionary_6 : Creating default style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_en.json
+2021-04-26 02:18:12,690 : Style Dictionary_6 : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET
+2021-04-26 02:18:21,938 : Parser_D : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\en\Kalydeco II-86-PI-clean.json
+2021-04-26 02:18:36,050 : Style Dictionary_R : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_en.json
+2021-04-26 02:18:36,050 : Style Dictionary_R : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_en.json
+2021-04-26 02:18:36,103 : Style Dictionary_R : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET
+2021-04-26 02:18:36,103 : Style Dictionary_R : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET
+2021-04-26 02:18:36,118 : Partition_8 : Partitioning Json: Kalydeco II-86-PI-clean.json
+2021-04-26 02:18:36,408 : Partition_8 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\en\Kalydeco II-86-PI-clean_SmPC.json
+2021-04-26 02:18:36,645 : Partition_8 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\en\Kalydeco II-86-PI-clean_ANNEX II.json
+2021-04-26 02:18:36,903 : Partition_8 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\en\Kalydeco II-86-PI-clean_ANNEX III.json
+2021-04-26 02:18:37,038 : Partition_8 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\en\Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.json
+2021-04-26 02:19:51,614 : ExtractContentBetween_9 : Cleaning Match Results
+2021-04-26 02:19:51,617 : ExtractContentBetween_9 : Finished Cleaning Match Results
+2021-04-26 02:19:51,645 : ExtractContentBetween_9 : Extracting Content Between Headings
+2021-04-26 02:19:51,665 : ExtractContentBetween_9 : Finished Extracting Content Between Headings
+2021-04-26 02:19:51,721 : XmlGeneration_Y : Initiating XML Generation
+2021-04-26 02:19:51,721 : XmlGeneration_Y : Initiating XML Generation
+2021-04-26 02:19:51,911 : XmlGeneration_Y : Writing to File:Kalydeco II-86-PI-clean_SmPC.xml
+2021-04-26 02:19:51,911 : XmlGeneration_Y : Writing to File:Kalydeco II-86-PI-clean_SmPC.xml
+2021-04-26 02:33:05,999 : ExtractContentBetween_K : Cleaning Match Results
+2021-04-26 02:33:05,999 : ExtractContentBetween_K : Cleaning Match Results
+2021-04-26 02:33:06,002 : ExtractContentBetween_K : Finished Cleaning Match Results
+2021-04-26 02:33:06,002 : ExtractContentBetween_K : Finished Cleaning Match Results
+2021-04-26 02:33:06,009 : ExtractContentBetween_K : Extracting Content Between Headings
+2021-04-26 02:33:06,009 : ExtractContentBetween_K : Extracting Content Between Headings
+2021-04-26 02:33:06,016 : ExtractContentBetween_K : Finished Extracting Content Between Headings
+2021-04-26 02:33:06,016 : ExtractContentBetween_K : Finished Extracting Content Between Headings
+2021-04-26 02:33:06,033 : XmlGeneration_e : Initiating XML Generation
+2021-04-26 02:33:06,057 : XmlGeneration_e : Writing to File:Kalydeco II-86-PI-clean_ANNEX II.xml
+2021-04-26 02:34:42,462 : ExtractContentBetween_R : Cleaning Match Results
+2021-04-26 02:34:42,467 : ExtractContentBetween_R : Finished Cleaning Match Results
+2021-04-26 02:34:42,498 : ExtractContentBetween_R : Extracting Content Between Headings
+2021-04-26 02:34:43,043 : ExtractContentBetween_R : Finished Extracting Content Between Headings
+2021-04-26 02:34:43,172 : XmlGeneration_O : Initiating XML Generation
+2021-04-26 02:34:43,435 : XmlGeneration_O : Writing to File:Kalydeco II-86-PI-clean_ANNEX III.xml
+2021-04-26 02:37:43,224 : ExtractContentBetween_C : Cleaning Match Results
+2021-04-26 02:37:43,224 : ExtractContentBetween_C : Cleaning Match Results
+2021-04-26 02:37:43,230 : ExtractContentBetween_C : Finished Cleaning Match Results
+2021-04-26 02:37:43,230 : ExtractContentBetween_C : Finished Cleaning Match Results
+2021-04-26 02:37:43,244 : ExtractContentBetween_C : Extracting Content Between Headings
+2021-04-26 02:37:43,244 : ExtractContentBetween_C : Extracting Content Between Headings
+2021-04-26 02:37:43,258 : ExtractContentBetween_C : Finished Extracting Content Between Headings
+2021-04-26 02:37:43,258 : ExtractContentBetween_C : Finished Extracting Content Between Headings
+2021-04-26 02:37:43,300 : XmlGeneration_d : Initiating XML Generation
+2021-04-26 02:37:43,404 : XmlGeneration_d : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 03:22:22,297 : MatchLogger : Match Found:
+2021-04-26 03:22:22,297 : MatchLogger : Match Found:
+2021-04-26 03:22:22,297 : MatchLogger : Match Found:

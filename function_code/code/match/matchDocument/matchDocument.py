@@ -2,6 +2,7 @@ from QrdExtractor.qrdExtractor import QrdCanonical
 from match.matchStrings.matchStrings import MatchStrings
 from match.validateMatch.validateMatch import ValidateMatch
 from match.rulebook.matchRulebook import MatchRuleBook
+from languageInfo.documentTypeNames.documentTypeNames import DocumentTypeNames
 from nltk.tokenize import word_tokenize
 from fuzzywuzzy import process
 from fuzzywuzzy import fuzz
@@ -20,42 +21,56 @@ import glob
 import os
 import time
 import re
+from collections import Counter
 pd.options.display.max_colwidth = 200
+
 pd.set_option("max_rows", None)
 
 
 class MatchDocument():
 
     def __init__(self,
-                 procedureType,
-                 languageCode,
-                 documentType,
-                 fileNameDoc,
-                 fileNameQrd,
-                 fileNameMatchRuleBook,
-                 topHeadingsConsidered,
-                 bottomHeadingsConsidered,
-                 stopWordFilterListSize,
-                 stopWordlanguage,
-                 isPackageLeaflet=False):
+                    procedureType,
+                    languageCode,
+                    documentNumber,
+                    fileNameDoc,
+                    fileNameQrd,
+                    fileNameMatchRuleBook,
+                    fileNameDocumentTypeNames,
+                    topHeadingsConsidered,
+                    bottomHeadingsConsidered,
+                    stopWordFilterListSize,
+                    stopWordlanguage,
+                    isPackageLeaflet=False,
+                    medName=None):
 
         self.fileNameDoc = fileNameDoc
 
+        self.languageCode = languageCode
+
         self.dfHtml = self.createHtmlDataframe()
 
+        self.documentNumber = documentNumber
+
+        self.documentType = DocumentTypeNames(
+            fileNameDocumentTypeNames=fileNameDocumentTypeNames,
+            languageCode=languageCode,
+            procedureType=procedureType,
+            documentNumber=self.documentNumber).extractDocumentTypeName()
+
+        print(self.documentType)
         self.dfModelwRulesF = QrdCanonical(
             fileName=fileNameQrd,
             procedureType=procedureType,
             languageCode=languageCode,
-            documentType=documentType).ProcessQrdDataframe()
+            documentType=self.documentType).ProcessQrdDataframe()
 
         self.ruleDict = MatchRuleBook(
-            fileNameRuleBook= fileNameMatchRuleBook,
-            procedureType= procedureType,
-            languageCode= languageCode,
-            documentType= documentType).ruleDict
+            fileNameRuleBook=fileNameMatchRuleBook,
+            procedureType=procedureType,
+            languageCode=languageCode,
+            documentNumber=self.documentNumber).ruleDict
 
-        self.documentType = documentType
         self.stopWordFilterListSize = stopWordFilterListSize
         self.stopWordlanguage = stopWordlanguage
         self.isPackageLeaflet = isPackageLeaflet
@@ -65,12 +80,16 @@ class MatchDocument():
 
         # If package leaflet, Tweek the name of the medicine as per the package leaflet section.
 
-        if self.isPackageLeaflet:
-            self.medName = self.handleMedNamePackageLeaflet(
-                self.extractMedNameFromFileName())
-        else:
-            self.medName = self.extractMedNameFromFileName()
+        if medName is None:
 
+            if self.isPackageLeaflet:
+                self.medName = self.handleMedNamePackageLeaflet(
+                    self.extractMedNameFromFileName())
+            else:
+                self.medName = self.extractMedNameFromFileName()
+        else:
+
+            self.medName = medName
         # Final Output Collection
         self.collectionFoundHeadings = {}
 
@@ -84,7 +103,7 @@ class MatchDocument():
         '''
 
         path_json = os.path.join(os.path.abspath(
-            os.path.join('..')), 'data', 'partitionedJSONs')
+            os.path.join('..')), 'data', 'partitionedJSONs',f'{self.languageCode}')
         output_filename = os.path.join(path_json, self.fileNameDoc)
         print('File being processed: ' + output_filename)
         print("--------------------------------------------")
@@ -168,7 +187,6 @@ class MatchDocument():
             # print(previousHeadingRowFound['id'])
             return previousHeadingRowFound['id']
 
-
     def updatePreviousHeadingRowFound(self, currentHeadingRow,
                                       previousHeadingRowFound, previousH1HeadingRowFound, previousH2HeadingRowFound
                                       ):
@@ -244,8 +262,6 @@ class MatchDocument():
             print("\nAll mandatory headings have been found !!!\n")
             return True
 
-
-
     def matchHtmlHeaddingsWithQrd(self):
         '''
         This function takes input a html dataframe and extract all the rows which are headings in the QRD template              dataframe.
@@ -280,9 +296,12 @@ class MatchDocument():
         subSectionIndex = 0
 
         matchStringObj = MatchStrings(
-            self.documentType, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
+            self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
 
         validateMatchObk = ValidateMatch()
+
+        headingRemovedUsingStyle = []
+
         # %%time
 
         # Initiate matching. Pick a string from an HTML and match it to QRD
@@ -293,14 +312,15 @@ class MatchDocument():
         for indexDF, str_ in self.dfHtml.iterrows():
 
             # String which are less than 5 and greater than 250 characters are not matched as these wont be headings.
-            if (str_['StringLength'] > 5) & (str_['StringLength'] < 250):
+            if (str_['StringLength'] > 5) & (str_['StringLength'] < 260):
                 # print(str_['Text'])
                 if len(str_) > 5:
                     outerFlag = True
                     while outerFlag == True:
                         # we perform a check only if the length is greater than 5
                         found_vec = []
-                        topHeadingFound = False
+                        currentHeadingIsTop = False
+                        previousHeadingIsBottom = False
                         validated = False
 
                         for _, qrd_str_row in self.dfModelwRulesF.iterrows():
@@ -310,32 +330,46 @@ class MatchDocument():
 
                             # Prefixing the Display code to Name of the heading in the QRD dataframe row.
                             if pd.isna(qrd_index) == False:
-                                qrd_str = str(qrd_index) + " " + qrd_str
+                                if '.' in qrd_index:
+                                    qrd_str = str(qrd_index) + " " + qrd_str
+                                else:
+                                    qrd_str = str(qrd_index) + ". " + qrd_str
 
                             # handle the package leaflet headins ( X Replacement)
                             qrd_str = self.updateXPackageLeaflet(qrd_str)
 
                             # Call matching algorith
                             found, outputString = matchStringObj.matchStrings(
-                                str_['Text'], qrd_str)
-
+                                str_['Text'], qrd_str, qrd_str_row['heading_id'])
+                            
                             if found:
 
                                 if (qrd_str_row['id'] in list(self.dfModelwRulesF.head(self.topHeadingsConsidered).id)):
-                                    topHeadingFound = True
+                                    currentHeadingIsTop = True
 
+                                if (previousHeadingRowFound is not None) and (previousHeadingRowFound['id'] in list(self.dfModelwRulesF.tail(self.bottomHeadingsConsidered).id)):
+                                    previousHeadingIsBottom = True
+                                
                                 #print(str_['Text'], ' |===| ' , qrd_str)
 
                                 # Calling validateMatch function
 
                                 validated = validateMatchObk.validateMatch(qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,
-                                                          previousH2HeadingRowFound, self.dfModelwRulesF, self.subSectionCollectionFoundHeadings)
-                                        
+                                                                           previousH2HeadingRowFound, self.dfModelwRulesF, self.subSectionCollectionFoundHeadings, currentHeadingIsTop, previousHeadingIsBottom)
 
                                 if validated:
 
+
                                     if str_['IsPossibleHeading'] is False:
                                         validated = False
+                                        print(
+                                            "----------------------------------")
+                                        print("RemovedByStyle", ' || ', outputString,
+                                              ' || ', str_['Text'], ' || ', qrd_str)
+                                        print(
+                                            "----------------------------------")
+                                        headingRemovedUsingStyle.append(
+                                            qrd_str)
                                         continue
 
                                     print(found, ' || ', outputString,
@@ -356,8 +390,7 @@ class MatchDocument():
 
                                     # Break the loop as the heading has been found and validated.
                                     outerFlag = False
-                                    
-                                    
+
                                     break
 
                                 # else:
@@ -379,11 +412,11 @@ class MatchDocument():
                         of the qrd headings. Top and Bottom depends on document types
 
                         '''
-
+                        #print(currentHeadingIsTop,previousHeadingIsBottom)
                         if (validated == False) and \
-                            (topHeadingFound != False) and \
+                            (currentHeadingIsTop != False) and \
                             (previousHeadingRowFound is not None) and \
-                                (previousHeadingRowFound['id'] in list(self.dfModelwRulesF.tail(self.bottomHeadingsConsidered).id)):
+                                (previousHeadingIsBottom != False):
                             print(
                                 "oooooooooooooooooooooooooooooooooooooooo END OF Sub Section oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
                             self.subSectionCollectionFoundHeadings = {}
@@ -401,6 +434,8 @@ class MatchDocument():
                         print('found_vec length: ', len(found_vec))
 
         # Once done call the check heading function for the document parsed.
-        self.checkMandatoryHeadingsFound(mandatoryOnly=True)
+        self.checkMandatoryHeadingsFound(mandatoryOnly=False)
 
-        return self.dfHtml ,self.collectionFoundHeadings
+        print(Counter(headingRemovedUsingStyle).keys())
+
+        return self.dfHtml, self.collectionFoundHeadings

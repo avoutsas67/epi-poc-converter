@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="${instance.bundle[n].fullUrlUrnUuid}"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="${instance.bundle[n].idUuid}"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="${document[n].authoringDateTime}"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="${instance.bundle[n].compositionFullUrlUuid}"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+							<status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="List/${instance.bundle[n].listId}"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="${document[n].authoringDate}"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="${document[n].organizationOMSCode}" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="B. PACKAGE LEAFLET"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleA"><span lang="EN-GB">B. PACKAGE LEAFLET</span></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB"> </span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Package leaflet: Information for the patient</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal; background:white"><span lang="EN-GB"> </span></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Kalydeco 150 mg film-coated tablets</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB">ivacaftor</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Read all of this leaflet carefully before you start taking this medicine because it contains important information for you.</span></b></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal; page-break-after:avoid"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Keep this leaflet. You may need to read it again.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">If you have any further questions, ask your doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">This medicine has been prescribed for you only. Do not pass it on to others. It may harm them, even if their signs of illness are the same as yours.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">If you get any side effects, talk to your doctor or pharmacist. This includes any possible side effects not listed in this leaflet. See section 4.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="What is in this leaflet"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">What is in this leaflet</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">1.   What Kalydeco is and what it is used for</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">2.   What you need to know before you take Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">3.   How to take Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">4.   Possible side effects</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">5.   How to store Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">6.   Contents of the pack and other information</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="1.              What Kalydeco is and what it is used for"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">1.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What Kalydeco is and what it is used for</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><span lang="EN-GB">Kalydeco contains the active ingredient ivacaftor. Ivacaftor acts at the level of the cystic fibrosis transmembrane conductance regulator (CFTR), a protein that forms a channel at the cell surface that allows the movement of particles such as chloride in and out of the cell. Due to mutations in the <i>CFTR</i> gene (see below), chloride movement is reduced in those with cystic fibrosis (CF). Ivacaftor helps certain abnormal CFTR proteins open more often to improve chloride movement in and out of the cell.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB"> </span></p><p class="labeltext" style="page-break-after:avoid"><a name="_Hlk46239356"><span lang="EN-GB" style="font-size:11.0pt">Kalydeco tablets are indicated: </span></a></p><p class="labeltext" style="margin-left:28.35pt;text-indent:-.25in;page-break-after: avoid"><span lang="EN-GB" style="font-size:11.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB" style="font-size:11.0pt">As monotherapy for patients aged 6 years and older and weighing 25 kg or more with cystic fibrosis (CF) who have an <i>R117H</i></span><i><span lang="EN-GB" style="font-size:11.0pt"> </span></i><i><span lang="EN-GB" style="font-size:11.0pt">CFTR</span></i><span lang="EN-GB" style="font-size:11.0pt"> mutation or one of the following gating mutations in the <i>CFTR</i> gene: <i>G551D</i>, <i>G1244E</i>, <i>G1349D</i>, <i>G178R</i>, <i>G551S</i>, <i>S1251N</i>, <i>S1255P</i>, <i>S549N</i> or <i>S549R</i>.</span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in; text-autospace:none"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>In combination with tezacaftor/ivacaftor tablets for patients aged 12 years and older with CF who have two <i>F508del </i>mutations in the <i>CFTR </i>gene (homozygous for the <i>F508del </i>mutation) or who have an <i>F508del </i>mutation and certain other second mutations (heterozygous for the <i>F508del</i> mutation). If you have been prescribed Kalydeco to be taken with tezacaftor/ivacaftor, read the tezacaftor/ivacaftor package leaflet. It contains important information about how to take these two medicines.</p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace: none"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>In combination with ivacaftor/tezacaftor/elexacaftor tablets for patients aged 12 years and over with CF who are homozygous for the <i>F508del </i>mutation in the <i>CFTR</i> gene or heterozygous for <i>F508del</i> in the <i>CFTR</i> gene with a minimal function (MF) mutation. A minimal function mutation is defined as one that results either in no CFTR protein being produced or a CFTR protein that does not function, and which is unlikely to respond to ivacaftor alone and tezacaftor/ivacaftor. If you have been prescribed Kalydeco to be taken with ivacaftor/tezacaftor/elexacaftor, read the ivacaftor/tezacaftor/elexacaftor package leaflet. It contains important information about how to take these two medicines.</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.              What you need to know before you take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:0in;text-indent:0in;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before you take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>if you are allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Warnings and precautions"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Warnings and precautions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoListParagraphCxSpFirst" style="margin-left:28.35pt;text-indent:-.25in; page-break-after:avoid"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Talk to your doctor if you have liver problems or have previously had them. Your doctor may need to adjust your dose.</p><p class="MsoListParagraphCxSpLast" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Increased liver enzymes in the blood have been seen in some people receiving Kalydeco (alone or in combination with tezacaftor/ivacaftor or ivacaftor/tezacaftor/elexacaftor). Tell your doctor right away if you have any of these symptoms, which may be a sign of liver problems:</p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Pain or discomfort in the upper right stomach (abdominal) area</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Yellowing of the skin or the white part of the eyes</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Loss of appetite</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nausea or vomiting</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dark urine</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span lang="EN-GB">Your doctor will do some blood tests to check your liver before and during treatment, particularly during the first year and especially if your blood tests showed high liver enzymes in the past.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Talk to your doctor if you have kidney problems or have previously had them.</p><p class="MsoNormal" style="margin-left:10.35pt"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Kalydeco (alone or in combination with tezacaftor/ivacaftor or ivacaftor/tezacaftor/elexacaftor) is not recommended if you have undergone an organ transplant.</p><p class="MsoNormal" style="margin-left:10.35pt"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Talk to your doctor if you are using hormonal contraception – for example, women using the contraceptive pill. This may mean you are more likely to get a rash while taking Kalydeco in combination with ivacaftor/tezacaftor/elexacaftor.</p><p class="MsoNormal" style="margin-left:10.35pt"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Abnormality of the eye lens (cataract) without any effect on vision has been noted in some children and adolescents treated with Kalydeco (alone or in combination with tezacaftor/ivacaftor or ivacaftor/tezacaftor/elexacaftor). Your doctor may perform some eye examinations prior to and during treatment.</p><p class="MsoNormal" style="margin-left:10.35pt"><span lang="EN-GB"> </span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>Kalydeco (alone or in combination with tezacaftor/ivacaftor or ivacaftor/tezacaftor/elexacaftor) should only be used if you have one of the mutations in the <i>CFTR</i> gene indicated in section 1 (What Kalydeco is and what it is used for).</p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Children and adolescents"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Children and adolescents</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Do not give this medicine to children under 4 months of age as it is not known if ivacaftor is safe and effective in these children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not give this medicine in combination with tezacaftor/ivacaftor or with ivacaftor/tezacaftor/elexacaftor to children under 12 years of age as it is not known if they are safe and effective for them.</span></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB"> </span></b></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other medicines and Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Other medicines and Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Tell your doctor or pharmacist if you are using, have recently used or might use any other medicines. Some medicines can affect how Kalydeco works or make side effects more likely. In particular, tell your doctor if you are taking any of the medicines listed below. Your doctor may decide to adjust your dose or that you need extra check-ups.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoListParagraphCxSpFirst" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Antifungal medicines</b> (used for the treatment of fungal infections). These include fluconazole, itraconazole, ketoconazole, posaconazole, and voriconazole.</p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Antibiotic medicines</b> (used for the treatment of bacterial infections). These include clarithromycin, erythromycin, rifabutin, rifampicin, and telithromycin .</p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Epilepsy</b><b> medicines</b> (used for the treatment of epileptic seizures). These include carbamazepine, phenobarbital, and phenytoin. </p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Herbal medicines.</b> These include St. John’s wort (Hypericum perforatum).</p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Immunosuppressants</b> (used after an organ transplantation). These include ciclosporin, everolimus, sirolimus, and tacrolimus, . </p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Cardiac glycosides</b> (used for the treatment of some heart conditions). These include digoxin.</p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Anticoagulant medicines</b> (used to prevent blood clots). These include warfarin. </p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Medicines for diabetes.</b> These include glimepiride and glipizide. </p><p class="MsoListParagraphCxSpLast" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b>Medicines for lowering blood pressure.</b> These include verapamil.</p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Kalydeco with food and drink"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Kalydeco with food and drink</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="labeltext" style="page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt">Avoid food or drink containing grapefruit during treatment with Kalydeco as they may increase the side effects of Kalydeco by increasing the amount of ivacaftor in your body.</span></p><p class="labeltext" style="page-break-after:avoid"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Pregnancy and breast-feeding"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Pregnancy and breast-feeding</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">If you are pregnant or breast-feeding, think you may be pregnant or are planning to have a baby, ask your doctor for advice before taking this medicine. </span>It may be better to avoid using Kalydeco during pregnancy, if possible, and <span lang="EN-GB">your doctor will help you decide what is best for you and your child.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">It is unknown whether ivacaftor is excreted in human milk. If you plan to breast-feed, ask your doctor for advice before taking Kalydeco.</span><span lang="EN-GB" style='font-size:10.5pt;font-family:"TimesNewRoman",serif'> </span>Your doctor will decide whether to recommend that you stop breast-feeding or for you to stop ivacaftor therapy. Your doctor will take into account the benefit of breast-feeding for the child and the benefit of therapy for you.</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Driving and using machines"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Driving and using machines</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><span lang="EN-GB">Kalydeco can make you dizzy. If you feel dizzy, do not drive, cycle or use machines.</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Important information about the contents of Kalydeco</span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Kalydeco contains lactose. </span></b><span lang="EN-GB">If you have been told by your doctor that you have an intolerance to some sugars, contact your doctor before taking this medicine.</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in"><b><span lang="EN-GB">Kalydeco</span><span lang="EN-GB"> contains less than 1 mmol sodium</span></b><span lang="EN-GB"> (23 mg) per dose, that is to say essentially ‘sodium‑free’.</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.              How to take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">3.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">How to take Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Always take this medicine exactly as your doctor has told you to. Check with your doctor if you are not sure.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor will determine which medicine and dose is right for you.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Kalydeco dosing recommendations are provided in Table 1.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Table 1: Dosing recommendations</span></b></p><table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="width:469.6pt;border-collapse:collapse;border:none" width="626"> <tr style="height:16.25pt"> <td style="width:148.2pt;border:solid windowtext 1.0pt;padding:   0in 5.4pt 0in 5.4pt;height:16.25pt" width="198"> <p class="labeltext" style="page-break-after:avoid"><b><span style="font-size:   11.0pt"> </span></b></p> </td> <td style="width:192.35pt;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:16.25pt" width="256"> <p align="center" class="labeltext" style="text-align:center;page-break-after:   avoid"><b><span style="font-size:11.0pt">Morning</span></b></p> </td> <td style="width:129.05pt;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:16.25pt" width="172"> <p align="center" class="labeltext" style="text-align:center;page-break-after:   avoid"><b><span style="font-size:11.0pt">Evening</span></b></p> </td> </tr> <tr style="height:15.3pt"> <td colspan="3" style="width:469.6pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="626"> <p class="labeltext" style="page-break-after:avoid"><b><span style="font-size:   11.0pt">Kalydeco as monotherapy</span></b></p> </td> </tr> <tr style="height:16.25pt"> <td style="width:148.2pt;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:16.25pt" width="198"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">6 years and older, ≥25 kg</span></p> </td> <td style="width:192.35pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.25pt" width="256"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">One Kalydeco 150 mg tablet</span></p> </td> <td style="width:129.05pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.25pt" width="172"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">One Kalydeco 150 mg tablet</span></p> </td> </tr> <tr style="height:15.3pt"> <td colspan="3" style="width:469.6pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="626"> <p class="labeltext" style="page-break-after:avoid"><b><span style="font-size:   11.0pt">Kalydeco in combination with tezacaftor/ivacaftor</span></b></p> </td> </tr> <tr style="height:15.3pt"> <td style="width:148.2pt;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="198"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">12 years and older</span></p> </td> <td style="width:192.35pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="256"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">One tezacaftor 100 mg/ivacaftor 150 mg tablet</span></p> </td> <td style="width:129.05pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="172"> <p class="labeltext" style="page-break-after:avoid"><span style="font-size:   11.0pt">One Kalydeco 150 mg tablet</span></p> </td> </tr> <tr style="height:15.3pt"> <td colspan="3" style="width:469.6pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="626"> <p class="labeltext" style="page-break-after:avoid"><b><span style="font-size:   11.0pt">Kalydeco in combination with ivacaftor/tezacaftor/elexacaftor</span></b></p> </td> </tr> <tr style="height:15.3pt"> <td style="width:148.2pt;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="198"> <p class="labeltext"><span style="font-size:11.0pt">12 years and older</span></p> </td> <td style="width:192.35pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="256"> <p class="labeltext"><span style="font-size:11.0pt">Two ivacaftor 75 mg/tezacaftor   50 mg/elexacaftor 100 mg tablets</span></p> </td> <td style="width:129.05pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.3pt" width="172"> <p class="labeltext"><span style="font-size:11.0pt">One Kalydeco 150 mg   tablet</span></p> </td> </tr> </table><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Take the tablets morning and evening doses approximately 12 hours apart with food that contains fat. </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">You must keep using all other medicines you use, unless your doctor tells you to stop using any.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">If you have liver problems, either moderate or severe, your doctor may need to reduce the dose of your tablets, because your liver will not clear the medicine as fast as in people who have normal liver function.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Use in children"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Use in children</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Other forms of this medicine (granules in sachet) are more suitable for children under 6 years of age; ask your doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">This medicine is for oral use. </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Swallow the tablet whole. Do not break, chew or dissolve the tablets. Take Kalydeco tablets with food that contains fat.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Meals or snacks that contain fat include those prepared with butter or oils or those containing eggs. Other fat-containing foods are:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Cheese, whole milk, whole-milk dairy products, yogurt, chocolate</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Meats, oily fish</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Avocados, hummus, soy-based products (tofu)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nuts, fat-containing nutritional bars or drinks</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB" style="font-size:12.0pt"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="If you take more Kalydeco than you should"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you take more Kalydeco than you should</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">You may experience side effects, including those mentioned in section 4 below. If so, contact your doctor or pharmacist to ask for advice. If possible, have your medicine and this leaflet with you.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="If you forget to take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you forget to take Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Take the missed dose if less than 6 hours have passed since the time you missed the dose. Otherwise, wait until your next scheduled dose as you normally would. Do not take a double dose to make up for a forgotten dose.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="If you stop taking Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you stop taking Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Take Kalydeco for as long as your doctor recommends. Do not stop unless your doctor advises you to. If you have any further questions on the use of this medicine, ask your doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB" style="color:black"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB" style="color:black"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.         Possible side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><a name="_Hlk45322707"><b><span lang="EN-GB">4.         Possible side effects</span></b></a></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Like all medicines, this medicine can cause side effects, although not everybody gets them.</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Serious side effects </span></b></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Stomach (abdominal) ache and increased liver enzymes in the blood. </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Possible signs of liver problems</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Increased liver enzymes in the blood are common in patients with CF. These may be signs of liver problems: </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Pain or discomfort in the upper right area of the stomach (abdominal) area</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Yellowing of the skin or white part of the eyes</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Loss of appetite</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nausea or vomiting</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dark urine</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><b><span lang="EN-GB">Tell</span></b><b><span lang="EN-GB"> your doctor straight away</span></b><span lang="EN-GB"> if you get any of these.</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Very common</span></b><span lang="EN-GB"> side effects (may affect more than 1 in 10 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Upper respiratory tract infection (the common cold), including sore throat and nasal congestion</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Headache</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dizziness</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Diarrhoea</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Stomach or abdominal pain</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Changes in the type of bacteria in mucus</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Increased liver enzymes (signs of stress on the liver)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Rash </span></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Common</span></b><span lang="EN-GB"> side effects (may affect up to 1 in 10 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Runny nose</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ear pain, ear discomfort</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ringing in the ears</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Redness inside the ear</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Inner ear disorder (</span><span lang="EN-GB">feeling dizzy or spinning</span><span lang="EN-GB">)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Sinus problems (sinus congestion)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Redness in the throat</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Breast mass</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Feeling sick (nausea)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Flu</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Low blood sugar (hypoglycaemia)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Abnormal breathing (shortness of breath or difficulty breathing)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Wind (flatulence)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Spots (acne)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Itchy skin </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Increased creatine phosphokinase (sign of muscle breakdown) seen in blood tests</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Uncommon</span></b><span lang="EN-GB"> side effects (may affect up to 1 in 100 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ear congestion</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Breast inflammation </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Enlargement of the breast in males</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nipple changes or pain</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Wheezing</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Increased blood pressure</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Additional side effects in children and adolescents"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Additional side effects in children and adolescents</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Side effects seen in children and adolescents are similar to those observed in adults. However, increased liver enzymes in the blood are more frequently seen in young children.</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Reporting of side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Reporting of side effects</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">If you get any side effects, talk to your doctor or pharmacist. This includes any possible side effects not listed in this leaflet. You can also report side effects directly via <span style="background:lightgrey">the national reporting system listed in </span><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc"><span style="color:windowtext;background:lightgrey">Appendix V</span></a>. By reporting side effects you can help provide more information on the safety of this medicine.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.                   How to store Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">5.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">How to store Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Keep this medicine out of the sight and reach of children.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Do not use this medicine after the expiry date which is stated on the package after EXP. The expiry date refers to the last day of that month.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicine does not require any special storage conditions.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Do not throw away any medicines via wastewater or household waste. Ask your pharmacist how to throw away medicines you no longer use. These measures will help to protect the environment.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       Contents of the pack and other information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">6.       Contents of the pack and other information</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="What Kalydeco contains"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">What Kalydeco contains</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">The active substance is ivacaftor. Each film‑coated tablet contains 150 mg of ivacaftor.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">The other ingredients are:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-13.5pt;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Tablet core: cellulose microcrystalline, lactose monohydrate, hypromellose acetate succinate, croscarmellose sodium, sodium laurilsulfate (E487), silica, colloidal anhydrous, and magnesium stearate.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-13.5pt;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Coating:<i> </i>polyvinyl alcohol, titanium dioxide (E171), macrogol (PEG 3350), talc, indigo carmine aluminium lake (E132) and carnauba wax.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-13.5pt;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Printing ink: </span><span lang="EN-GB">shellac, iron oxide black (E172), propylene glycol (E1520) and ammonia solution, concentrated.</span></p><p class="MsoListParagraph" style="margin-left:0in">See the end of section 2 - Important information about the contents of Kalydeco.</p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="What Kalydeco looks like and contents of the pack"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">What Kalydeco looks like and contents of the pack</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Kalydeco 150 mg film-coated tablets are light blue, capsule‑shaped, 16.5 mm x 8.4 mm, and printed with “V 150” in black ink on one side and plain on the other.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Kalydeco is available in the following pack sizes:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Blister card pack containing 28 film‑coated tablets</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Blister pack containing 56 film‑coated tablets</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Bottle containing 56 film‑coated tablets</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Marketing Authorisation Holder"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><a name="OLE_LINK2"></a><a name="OLE_LINK3"><b><span lang="EN-GB">Marketing Authorisation Holder</span></b></a></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">28-32 Pembroke Street Upper</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Dublin 2, D02 EK84</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Ireland</span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><span lang="EN-GB">Tel: +353 (0)1 761 7299</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Manufacturer</span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Almac Pharma Services (Ireland) Limited</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Finnabair Industrial Estate</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Dundalk</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Co. Louth</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">A91 P9KD</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Ireland</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Almac Pharma Services Limited</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Seagoe Industrial Estate</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Craigavon</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">County Armagh</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">BT63 5UA</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">United Kingdom</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="This leaflet was last revised in"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">This leaflet was last revised in</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other sources of information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Other sources of information</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Detailed information on this medicine is available on the European Medicines Agency website: <a href="http://www.ema.europa.eu"><span style="color:windowtext">http://www.ema.europa.eu</span></a>. There are also links to other websites about rare diseases and treatments.</span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p align="center" class="MsoNormal" style="margin-right:-.1pt;text-align:center; line-height:normal"><b><span lang="EN-GB">Package leaflet: Information for the patient</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal; background:white"><span lang="EN-GB"> </span></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Kalydeco 25 mg granules in sachet</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Kalydeco 50 mg granules in sachet</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Kalydeco 75 mg granules in sachet</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB">ivacaftor</span></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Read all of this leaflet carefully before your child starts taking this medicine because it contains important information for your child.</span></b></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal; page-break-after:avoid"><span lang="EN-GB" style="font-size:10.0pt;font-family: Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Keep this leaflet. You may need to read it again.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">If you have any further questions, ask your child’s doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">This medicine has been prescribed for your child only. Do not pass it on to others. It may harm them, even if their signs of illness are the same as your child’s.</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">If your child gets any side effects, talk to your child’s doctor or pharmacist. This includes any possible side effects not listed in this leaflet. See section 4.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="What is in this leaflet"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">What is in this leaflet</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">1.   What Kalydeco is and what it is used for</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">2.   What you need to know before your child takes Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">3.   How to take Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">4.   Possible side effects</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">5.   How to store Kalydeco</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-1.4pt;margin-bottom: 0in;margin-left:17.85pt;margin-bottom:.0001pt;text-indent:-17.85pt;line-height: normal"><span lang="EN-GB">6.   Contents of the pack and other information</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="1.              What Kalydeco is and what it is used for"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">1.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What Kalydeco is and what it is used for</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><span lang="EN-GB">Kalydeco contains the active ingredient ivacaftor. </span>Ivacaftor acts at the level of the cystic fibrosis transmembrane conductance regulator (CFTR), a protein that forms a channel at the cell surface that allows the movement of particles such as chloride in and out of the cell. Due to mutations in the <i>CFTR </i>gene (see below), chloride movement is reduced in those with cystic fibrosis (CF). Ivacaftor helps certain abnormal CFTR proteins open more often to improve chloride movement in and out of the cell.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB"> </span></p><p class="labeltext"><span style="font-size:11.0pt">Kalydeco granules are indicated for the treatment of babies and children aged 4 months and older and weighing 5 kg to less than 25 kg with cystic fibrosis (CF) who have an</span><i><span style="font-size:11.0pt"> </span></i><i><span style="font-size:11.0pt">R117H CFTR</span></i><span style="font-size:11.0pt"> mutation or one of the following gating mutations in the <i>CFTR</i> gene: <i>G551D, G1244E, G1349D, G178R, G551S, S1251N, S1255P, S549N </i>or<i> S549R</i>.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.              What you need to know before your child takes Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before your child takes Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal;page-break-after:avoid"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">if your child is allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Warnings and precautions"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Warnings and precautions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal;page-break-after:avoid"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Talk to your child’s doctor if your child has liver problems or has had them previously. Your child’s doctor may need to adjust your child’s dose.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Increased liver enzymes in the blood have been seen in some people receiving Kalydeco. Tell your child’s doctor right away if your child has any of these symptoms, which may be a sign of liver problems:</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Pain or discomfort in the upper right stomach (abdominal) area</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Yellowing of the skin or the white part of the eyes</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Loss of appetite</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nausea or vomiting</span></p><p class="MsoNormal" style="margin-left:42.55pt;text-indent:-.25in;line-height: normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dark urine</span></p><p class="MsoNormal" style="margin-left:.25in;line-height:normal"><span lang="EN-GB">Your child’s doctor will do some blood tests to check your child’s liver before and during treatment, particularly during the first year and </span><span lang="EN-GB">especially if blood tests showed high liver enzymes in the past.</span></p><p class="MsoNormal" style="margin-left:.25in;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Talk to your child’s doctor if you have been told your child has kidney problems or has previously had them. </span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Kalydeco is not recommended for patients who have undergone an organ transplant.</span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Abnormality of the eye lens (cataract) without any effect on vision has been noted in some children and adolescents during treatment. </span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB">Your child’s doctor may perform some eye examinations prior to and during treatment with ivacaftor.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Children</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Do not give this medicine to children under 4 months of age as it is not known if ivacaftor is safe and effective in these children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other medicines and Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Other medicines and Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Tell your child’s doctor or pharmacist if your child is using, has recently used or might use any other medicines. Some medicines can affect how Kalydeco works or make side effects more likely. In particular, tell your child’s doctor if your child is taking any of the medicines listed below. Your child’s doctor may decide to adjust your child’s dose or if extra check-ups are needed.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Antifungal medicines</span></b><span lang="EN-GB"> (used for the treatment of fungal infections). These include fluconazole, itraconazole, ketoconazole, posaconazole, and voriconazole.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Antibiotic medicines </span></b><span lang="EN-GB">(used for the treatment of bacterial infections). These include, clarithromycin, erythromycin, rifabutin, rifampicin and telithromycin.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Epilepsy</span></b><b><span lang="EN-GB"> medicines</span></b><span lang="EN-GB"> (used for the treatment of epileptic seizures or fits). These include carbamazepine, phenobarbital, and phenytoin.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Herbal medicines</span></b><span lang="EN-GB">. These include St. John’s wort (<i>Hypericum perforatum</i>).</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Immunosuppressants</span></b><span lang="EN-GB"> (used after an organ transplantation). These include ciclosporin, everolimus, sirolimus, and tacrolimus. </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Cardiac glycosides</span></b><span lang="EN-GB"> (used for the treatment of some heart conditions). These include digoxin.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Anticoagulant medicines</span></b><span lang="EN-GB"> (used to prevent blood clots). These include warfarin.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Medicines for diabetes</span></b><span lang="EN-GB">. These include glimepiride and glipizide.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Medicines for lowering blood pressure</span></b><span lang="EN-GB">. These include verapamil.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Kalydeco with food and drink"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Kalydeco with food and drink</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="labeltext" style="page-break-after:avoid"><span style="font-size:11.0pt">Avoid giving your child food or drink containing grapefruit during treatment with Kalydeco as they may increase </span><span lang="EN-GB" style="font-size:11.0pt">the side effects of Kalydeco by increasing the amount of ivacaftor in </span><span style="font-size:11.0pt">your child’s body.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Driving and using machines"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Driving and using machines</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><span lang="EN-GB">Kalydeco can make your child dizzy. If your child feels dizzy, it is advised that your child does not ride his/her bike or do anything else that needs his/her full attention.</span></p><p class="MsoNormalIndent" style="margin:0in"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Important information about the contents of Kalydeco</span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Kalydeco contains lactose. </span></b><span lang="EN-GB">If you have been told by your child’s doctor that your child has an intolerance to some sugars, contact your child’s doctor before your child takes this medicine.</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in"><b><span lang="EN-GB">Kalydeco</span><span lang="EN-GB"> contains less than 1 mmol sodium </span></b><span lang="EN-GB">(23 mg) per dose, that is to say essentially ‘sodium‑free’.</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.              How to take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.65pt;text-indent:-28.65pt;line-height: normal;page-break-after:avoid"><b><span lang="EN-GB">3.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">How to take Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Always give your child this medicine exactly as your child’s doctor has told you to. Check with your child’s doctor if you are not sure.</span></p><p class="s15" style="margin:0in"><span class="s10"> </span></p><p class="s15" style="margin:0in"><span class="s10"><span style="font-size:11.0pt">Your child’s doctor will determine the correct dose for your child.</span></span><span style="font-size:11.0pt"> </span><span lang="EN-GB" style="font-size:11.0pt">Your child must keep using all other medicines, unless your child’s doctor tells him/her to stop using any.</span></p><p class="s15" style="margin:0in"><span class="s10"><span style="font-size:11.0pt"> </span></span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Kalydeco dosing recommendations are provided in Table 1.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-bottom:6.0pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Table 1: Dosing recommendations for children aged 4 months and older</span></b></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:5.4pt;border-collapse:collapse;border:none"> <tr style="height:11.45pt"> <td style="width:93.3pt;border:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="124"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Age</span></b></p> </td> <td style="width:101.35pt;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Weight</span></b></p> </td> <td style="width:171.75pt;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="229"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Dose</span></b></p> </td> <td style="width:81.95pt;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="109"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Total daily dose</span></b></p> </td> </tr> <tr style="height:10.85pt"> <td style="width:93.3pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="124"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">4 months to less than 6 months</span></p> </td> <td style="width:101.35pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">5 kg or more</span></p> </td> <td style="width:171.75pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="229"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">One sachet of 25 mg granules taken orally every 12 hours   with fat‑containing food</span></p> </td> <td style="width:81.95pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="109"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">50 mg</span></p> </td> </tr> <tr style="height:10.85pt"> <td rowspan="4" style="width:93.3pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="124"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">6 months and older</span></p> </td> <td style="width:101.35pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">5 kg to less than 7 kg</span></p> </td> <td style="width:171.75pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="229"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">One Kalydeco sachet of 25 mg granules taken orally every   12 hours with fat‑containing food</span></p> </td> <td style="width:81.95pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.85pt" valign="top" width="109"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">50 mg</span></p> </td> </tr> <tr style="height:10.75pt"> <td style="width:101.35pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.75pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">7 kg to less   than 14 kg</span></p> </td> <td style="width:171.75pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.75pt" valign="top" width="229"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">One Kalydeco sachet   of 50 mg granules taken orally every 12 hours with fat-containing food </span></p> </td> <td style="width:81.95pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:10.75pt" valign="top" width="109"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">100 mg</span></p> </td> </tr> <tr style="height:11.45pt"> <td style="width:101.35pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">14 kg to   less than 25 kg</span></p> </td> <td style="width:171.75pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="229"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">One Kalydeco sachet   of 75 mg granules taken orally every 12 hours with fat-containing food </span></p> </td> <td style="width:81.95pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:11.45pt" valign="top" width="109"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">150 mg</span></p> </td> </tr> <tr style="height:16.95pt"> <td style="width:101.35pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.95pt" valign="top" width="135"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">25 kg or   more</span></p> </td> <td colspan="2" style="width:253.7pt;border-top:none;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.95pt" valign="top" width="338"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Please refer   to Kalydeco tablets Package Leaflet</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><b><span lang="EN-GB">If your child has liver problems</span></b><span lang="EN-GB">, your child’s doctor may need to reduce the dose of Kalydeco as your child’s liver will not clear the medicine as fast as in children who have normal liver function.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Moderate liver problems in children 6 months of age or older:</span></b><span lang="EN-GB"> the dose may be reduced to one half of the indicated dose in the table above, that is one sachet once daily.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Severe liver problems in children 6 months of age or older:</span></b><span lang="EN-GB"> the use is not recommended but your child’s doctor will decide if it is appropriate for your child to use this medicine in which case the dose (as indicated in the table above) must be reduced to one sachet every other day.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><a name="_Hlk36546718"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="EN-GB">Liver problems in children between 4 months and 6 months of age:</span></b></a><span lang="EN-GB"> the use is not recommended but your child’s doctor will decide if it is appropriate for your child to use<a name="_Hlk36546744"> and </a>what dose your child should have.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Kalydeco is for oral use.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Each sachet is for single use only.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB" style="font-size:10.0pt"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Giving Kalydeco to your child:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Hold sachet of granules with cut line on top.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Shake sachet gently to settle contents.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Tear or cut sachet open along cut line.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Mix the entire content of a sachet with 5 mL of age-appropriate soft food or liquid. Food or liquid should be at room temperature or below. Some examples of age-appropriate soft foods or liquids include puréed fruits or vegetables, yogurt, applesauce, water, milk, </span><span lang="EN-GB">breast milk, infant formula, </span><span lang="EN-GB">or juice.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Once mixed, give the product to your child immediately. If this is not possible, give it within the following hour after mixing. Ensure that the mixture is completely and immediately consumed.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">A fat-containing meal or snack should be given to your child just before or just after dosing (some examples are provided below).</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><b><i><span lang="EN-GB" style="font-size:10.0pt"> </span></i></b></p><p class="MsoListParagraph" style="margin-left:0in;page-break-after:avoid">Meals or snacks that contain fat include those prepared with butter or oils or those containing eggs. Other fat-containing foods are:</p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Cheese, whole milk, whole-milk dairy products, yogurt, </span><span lang="EN-GB">breast milk, infant formula,</span><span lang="EN-GB"> chocolate</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Meats, oily fish</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Avocados, hummus, soy-based products (tofu)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nuts, fat-containing nutritional bars or drinks</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><b><span lang="EN-GB"> </span></b></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="If your child takes more Kalydeco than he/she should"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If your child takes more Kalydeco than he/she should</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Your child may experience side effects, including those mentioned in section 4 below. If so, contact your child’s doctor or pharmacist to ask for advice. If possible, have your child’s medicine and this leaflet with you.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><i><span lang="EN-GB"> </span></i></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you forget to give your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Give the missed dose if less than 6 hours have passed since the time your child missed the dose. Otherwise, wait until your child’s next scheduled dose as you normally would. Do not give your child a double dose to make up for a forgotten dose.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you stop giving your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Give Kalydeco to your child for as long as your child’s doctor recommends. Do not stop unless your child’s doctor advises you to. If you have any further questions on the use of this medicine, ask your child’s doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.              Possible side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">4.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">Possible side effects</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Like all medicines, this medicine can cause side effects, although not everybody gets them.</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><b><span lang="EN-GB">Serious side effects</span></b></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB">Stomach (abdominal) ache and increased liver enzymes in the blood. </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Possible signs of liver problems</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Increased liver enzymes in the blood are common in patients with CF. These may be signs of liver problems: </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Pain or discomfort in the upper right area of the stomach (abdominal) area</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Yellowing of the skin or white part of the eyes</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Loss of appetite</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nausea or vomiting</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dark urine</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB">Tell your child’s doctor straight away if he/she gets any of these.</span></p><p class="MsoNormal" style="margin-right:-1.45pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Very common</span></b><span lang="EN-GB"> side effects (may affect more than 1 in 10 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal;page-break-after:avoid"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Upper respiratory tract infection (the common cold), including sore throat and nasal congestion</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Headache</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Dizziness</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Diarrhoea</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Rash</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Changes in the type of bacteria in mucus</span></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Common</span></b><span lang="EN-GB"> side effects (may affect up to 1 in 10 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Runny nose</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ear pain, ear discomfort</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ringing in the ears</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Redness inside the ear</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Inner ear disorder (feeling dizzy or spinning)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Sinus congestion</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Redness in the throat</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Breast mass</span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Uncommon</span></b><span lang="EN-GB"> side effects (may affect up to 1 in 100 people)</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Ear congestion</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Breast inflammation</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Enlargement of the breast in males</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Nipple changes or pain</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Additional side effects in children and adolescents"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Additional side effects in children and adolescents</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Side effects seen in children and adolescents are similar to those observed in adults. However, increased liver enzymes in the blood are more frequently seen in young children. </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Reporting of side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Reporting of side effects</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">If your child gets any side effects, talk to your child’s doctor or pharmacist. This includes any possible side effects not listed in this leaflet. You can also report side effects directly via <span style="background:lightgrey">the national reporting system listed in </span><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc"><span style="color:windowtext;background:lightgrey">Appendix V</span></a>. By reporting side effects you can help provide more information on the safety of this medicine.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.              How to store Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:.4in;text-indent:-.4in;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">5.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">How to store Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Keep this medicine out of the sight and reach of children.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Do not use this medicine after the expiry date which is stated on the package after EXP. The expiry date refers to the last day of that month.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicine does not require any special storage conditions.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Once mixed, the mixture has been shown to be stable for one hour.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Do not throw away any medicines via wastewater or household waste. Ask your pharmacist how to throw away medicines you no longer use. These measures will help to protect the environment.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.              Contents of the pack and other information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB">6.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">Contents of the pack and other information</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="What Kalydeco contains"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">What Kalydeco contains</span></b></p><p class="MsoNormal" style="margin-left:.25in;line-height:normal;page-break-after: avoid"><u><span lang="EN-GB"><span style="text-decoration:none"> </span></span></u></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after: avoid"><u><span lang="EN-GB">Kalydeco 25 mg granules in sachet:</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB">The active substance is ivacaftor. Each sachet contains 25 mg of ivacaftor.</span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><u><span lang="EN-GB"><span style="text-decoration:none"> </span></span></u></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><u><span lang="EN-GB">Kalydeco 50 mg granules in sachet:</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB">The active substance is ivacaftor. Each sachet contains 50 mg of ivacaftor.</span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><u><span lang="EN-GB">Kalydeco 75 mg granules in sachet:</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;line-height:normal"><span lang="EN-GB">The active substance is ivacaftor. Each sachet contains 75 mg of ivacaftor.</span></p><p class="MsoNormal" style="margin-left:28.35pt"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt"><span lang="EN-GB">The other ingredients are: silica, colloidal anhydrous, croscarmellose sodium, hypromellose acetate succinate, lactose monohydrate, magnesium stearate, mannitol, sucralose and sodium laurilsulfate </span><span lang="EN-GB">(E487)</span><span lang="EN-GB">.</span></p><p class="MsoNormal" style="margin-left:.25in"><span lang="EN-GB"> </span></p><p class="MsoListParagraphCxSpFirst" style="margin-left:0in">See the end of section 2 - Important information about the contents of Kalydeco.</p><p class="MsoListParagraphCxSpLast" style="margin-left:0in"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="What Kalydeco looks like and contents of the pack"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">What Kalydeco looks like and contents of the pack</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Kalydeco 25 mg granules in sachet are white to off-white granules.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Kalydeco 50 mg granules in sachet are white to off-white granules.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Kalydeco 75 mg granules in sachet are white to off-white granules.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal">The granules are supplied in sachets.</p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal"><span lang="EN-GB" style="font-size:10.0pt;font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">Pack size of 56 sachets (contains 4 individual wallets with 14 sachets per wallet)</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><i><span lang="EN-GB"> </span></i></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Marketing Authorisation Holder"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB">Marketing Authorisation Holder</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">28-32 Pembroke Street Upper</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Dublin 2, D02 EK84</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Ireland</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Tel: +353 (0)1 761 7299</span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="EN-GB"> </span></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB">Manufacturer</span></b></p><p class="MsoNormalIndent" style="margin:0in;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Almac Pharma Services (Ireland) Limited</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Finnabair Industrial Estate</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Dundalk</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Co. Louth</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">A91 P9KD</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Ireland</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Almac Pharma Services Limited</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Seagoe Industrial Estate</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">Craigavon</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">County Armagh</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">BT63 5UA</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="background:lightgrey">United Kingdom</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="This leaflet was last revised in "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">This leaflet was last revised in </span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other sources of information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">Other sources of information</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Detailed information on this medicine is available on the European Medicines Agency website: <a href="http://www.ema.europa.eu"><span style="color:windowtext">http://www.ema.europa.eu</span></a>. There are also links to other websites about rare diseases and treatments.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><a name="page_total_master4"></a><a name="page_total"></a><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				<!-- an entry that is a list of PMS Product references -->
+				<entry>
+					<fullUrl value="${instance.bundle[n].listFullUrlUuid}"/>
+					<resource>
+                        <List>
+							<!-- any id will do -->
+                        	<id value="${instance.bundle[n].listId}"/>
+							<status value="current"/>
+							<mode value="working"/>
+							<entry>
+								<item>
+									<reference value="${instance.product[n].url}"/>
+									<display value="${instance.product[n].name}"/>
+								</item>
+							</entry>
+						</List>
+					</resource>
+				</entry>
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

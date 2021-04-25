@@ -949,7 +949,7 @@
 944,27023,CAP,Package leaflet,es,6,Contenido del envase e información adicional,27001.0,True,23
 945,27024,CAP,Package leaflet,es,,Composición de X ,27023.0,True,24
 946,27025,CAP,Package leaflet,es,,Aspecto del producto y contenido del envase,27023.0,True,25
-947,27026,CAP,Package leaflet,es,,Titular de la autorización de comercialización y responsable de la fabricación,27023.0,True,26
+947,27026,CAP,Package leaflet,es,,Titular de la autorización de comercialización <y responsable de la fabricación>,27023.0,True,26
 948,27027,CAP,Package leaflet,es,,Pueden solicitar más información respecto a este medicamento dirigiéndose al representante local del titular de la autorización de comercialización:,27023.0,False,27
 949,27028,CAP,Package leaflet,es,,Fecha de la última revisión de este prospecto: <{MM/AAAA}><{mes AAAA}>.,27023.0,True,28
 950,27029,CAP,Package leaflet,es,,Otras fuentes de información,27023.0,False,29
@@ -1979,7 +1979,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 1973,57010,CAP,AnnexII,lt,,Rizikos valdymo planas (RVP),57009.0,True,10
 1974,57011,CAP,AnnexII,lt,,Papildomos rizikos mažinimo priemonės,57009.0,False,11
 1975,57012,CAP,AnnexII,lt,,Įpareigojimas vykdyti poregistracines užduotis ,57009.0,False,12
-1976,57013,CAP,AnnexII,en,E,SPECIFINIS ĮPAREIGOJIMAS ĮVYKDYTI POREGISTRACINES UŽDUOTIS <SĄLYGINĖS REGISTRACIJOS ATVEJU> <REGISTRACIJOS IŠIMTINĖMIS SĄLYGOMIS ATVEJU,57001.0,False,13
+1976,57013,CAP,AnnexII,lt,E,SPECIFINIS ĮPAREIGOJIMAS ĮVYKDYTI POREGISTRACINES UŽDUOTIS <SĄLYGINĖS REGISTRACIJOS ATVEJU> <REGISTRACIJOS IŠIMTINĖMIS SĄLYGOMIS ATVEJU,57001.0,False,13
 1977,58001,CAP,Labelling,lt,,ŽENKLINIMAS,,True,1
 1978,58002,CAP,Labelling,lt,,INFORMACIJA ANT <IŠORINĖS> <IR> <VIDINĖS> PAKUOTĖS,58001.0,True,2
 1979,58003,CAP,Labelling,lt,1,VAISTINIO PREPARATO PAVADINIMAS,58002.0,True,3
@@ -2523,7 +2523,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 2517,73010,CAP,AnnexII,no,,Risikohåndteringsplan (RMP),73009.0,True,10
 2518,73011,CAP,AnnexII,no,,Andre risikominimeringsaktiviteter,73009.0,False,11
 2519,73012,CAP,AnnexII,no,,Forpliktelse til å utføre tiltak etter autorisasjon,73009.0,False,12
-2520,73013,CAP,AnnexII,en,E,SPESIFIKK FORPLIKTELSE TIL Å FULLFØRE TILTAK ETTER AUTORISASJON FOR <DEN BETINGEDE MARKEDSFØRINGSTILLATELSEN> <MARKEDSFØRINGSTILLATELSEN GITT PÅ SÆRSKILT GRUNNLAG>,73001.0,False,13
+2520,73013,CAP,AnnexII,no,E,SPESIFIKK FORPLIKTELSE TIL Å FULLFØRE TILTAK ETTER AUTORISASJON FOR <DEN BETINGEDE MARKEDSFØRINGSTILLATELSEN> <MARKEDSFØRINGSTILLATELSEN GITT PÅ SÆRSKILT GRUNNLAG>,73001.0,False,13
 2521,74001,CAP,Labelling,no,,MERKING,,True,1
 2522,74002,CAP,Labelling,no,,OPPLYSNINGER SOM SKAL ANGIS PÅ <YTRE EMBALLASJE><OG> <INDRE EMBALLASJE>,74001.0,True,2
 2523,74003,CAP,Labelling,no,1,LEGEMIDLETS NAVN,74002.0,True,3
@@ -3203,7 +3203,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3197,93010,CAP,AnnexII,sk,,Plán riadenia rizík (RMP),93009.0,True,10
 3198,93011,CAP,AnnexII,sk,,Nadstavbové opatrenia na minimalizáciu rizika,93009.0,False,11
 3199,93012,CAP,AnnexII,sk,,Povinnosť vykonať postregistračné opatrenia,93009.0,False,12
-3200,93013,CAP,AnnexII,en,E,OSOBITNÉ POŽIADAVKY NA SPLNENIE POSTREGISTRAČNÝCH OPATRENÍ <PRI REGISTRÁCII S PODMIENKOU> <PRI REGISTRÁCII ZA MIMORIADNYCH OKOLNOSTÍ>,93001.0,False,13
+3200,93013,CAP,AnnexII,sk,E,OSOBITNÉ POŽIADAVKY NA SPLNENIE POSTREGISTRAČNÝCH OPATRENÍ <PRI REGISTRÁCII S PODMIENKOU> <PRI REGISTRÁCII ZA MIMORIADNYCH OKOLNOSTÍ>,93001.0,False,13
 3201,94001,CAP,Labelling,sk,,OZNAČENIE OBALU,,True,1
 3202,94002,CAP,Labelling,sk,,"ÚDAJE, KTORÉ MAJÚ BYŤ UVEDENÉ NA <VONKAJŠOM OBALE> <A> <VNÚTORNOM OBALE>",94001.0,True,2
 3203,94003,CAP,Labelling,sk,1,NÁZOV LIEKU,94002.0,True,3
@@ -3339,7 +3339,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3333,97010,CAP,AnnexII,sl,,Načrt za obvladovanje tveganj (RMP),97009.0,True,10
 3334,97011,CAP,AnnexII,sl,,Dodatni ukrepi za zmanjševanje tveganj,97009.0,False,11
 3335,97012,CAP,AnnexII,sl,,Obveznost izvedbe ukrepov po pridobitvi dovoljenja za promet,97009.0,False,12
-3336,97013,CAP,AnnexII,en,E,SPECIFIČNE ZAHTEVE ZA IZPOLNITEV UKREPOV PO PRIDOBITVI <POGOJNEGA DOVOLJENJA ZA PROMET Z ZDRAVILOM> <DOVOLJENJA ZA PROMET Z ZDRAVILOM V IZJEMNIH OKOLIŠČINAH,97001.0,False,13
+3336,97013,CAP,AnnexII,sl,E,SPECIFIČNE ZAHTEVE ZA IZPOLNITEV UKREPOV PO PRIDOBITVI <POGOJNEGA DOVOLJENJA ZA PROMET Z ZDRAVILOM> <DOVOLJENJA ZA PROMET Z ZDRAVILOM V IZJEMNIH OKOLIŠČINAH,97001.0,False,13
 3337,98001,CAP,Labelling,sl,,OZNAČEVANJE,,True,1
 3338,98002,CAP,Labelling,sl,,PODATKI NA <ZUNANJI OVOJNINI> <IN> <PRIMARNI OVOJNINI>,98001.0,True,2
 3339,98003,CAP,Labelling,sl,1,IME ZDRAVILA,98002.0,True,3
