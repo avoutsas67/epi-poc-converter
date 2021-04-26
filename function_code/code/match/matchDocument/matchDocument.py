@@ -370,18 +370,24 @@ class MatchDocument():
 
                                     
                                     if str_['IsPossibleHeading'] is False:
-                                        validated = False
-                                        print(
-                                            "----------------------------------")
-                                        print("RemovedByStyle", ' || ', outputString,
-                                              ' || ', str_['Text'], ' || ', qrd_str)
-                                        print(
-                                            "----------------------------------")
-                                        self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                                         
-                                        headingRemovedUsingStyle.append(
-                                            qrd_str)
-                                        continue
+                                        if qrd_str_row['heading_id'] == 1:
+                                            pass
+                                        elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
+                                            pass
+                                        else:
+                                            validated = False
+                                            print(
+                                                "----------------------------------")
+                                            print("RemovedByStyle", ' || ', outputString,
+                                                ' || ', str_['Text'], ' || ', qrd_str)
+                                            print(
+                                                "----------------------------------")
+                                            self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            
+                                            headingRemovedUsingStyle.append(
+                                                qrd_str)
+                                            continue
 
                                     print(found, ' || ', outputString,
                                           ' || ', str_['Text'], ' || ', qrd_str)
