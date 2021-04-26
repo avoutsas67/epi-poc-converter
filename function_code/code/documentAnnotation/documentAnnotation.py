@@ -151,7 +151,7 @@ class DocumentAnnotation:
 
                                     if code != "220000000061":
                                         print(
-                                            f"Skipping entry due to incorrect code {code}")
+                                            f"Skipping entry due to different code {code}")
                                     else:
                                         print("Found entry with code 220000000061")
                                         foundReleventCode = True
@@ -178,12 +178,15 @@ class DocumentAnnotation:
                                     medicinalProductDefinitionId = ((entry['resource']['subject']['reference']).replace(
                                         "MedicinalProductDefinition/", ""))
                                 elif 'PackagedProductDefinition' in entry['resource']['subject']['reference']:
+                                    print(
+                                        f"Warning: Medicinal Product Definition Reference Missing for Authorization Identifier {authorizationIdentifier}")
+                                    print("Found Packaged Product Definition")
                                     directFlag = False
                                     packagedProductDefinitionId = ((entry['resource']['subject']['reference']).replace(
                                         "PackagedProductDefinition/", ""))
                                 else:
                                     raise IncorrectReference(
-                                        "This Regulated Authorization is not referencing Medicinal Product not Packaed Product Definition.")
+                                        "This Regulated Authorization is not referencing Medicinal Product nor Packaed Product Definition.")
                             else:
                                 raise MissingKeyValuePair(
                                     "Missing Key 'reference' in 'subject' key value pair")
@@ -344,4 +347,9 @@ class DocumentAnnotation:
 
         self.uniqueFinalOutput = uniqueFinalOutput
 
-        return uniqueFinalOutput
+        self.finalOutputDict = {}
+        
+        self.finalOutputDict['Author Value'] = self.finalOutputDict[0][0]
+        self.finalOutputDict['Medicinal Product Definitions'] = self.finalOuput
+
+        return self.finalOutputDict
