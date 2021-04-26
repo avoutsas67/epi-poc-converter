@@ -27,8 +27,9 @@ from nltk.corpus import stopwords
 
 class MatchStrings():
 
-    def __init__(self, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
+    def __init__(self, logger, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
+        self.logger = logger
         self.documentNumber = int(documentNumber)
         self.ruleDict = ruleDict
         self.stopWordFilterListSize = stopWordFilterListSize
@@ -275,7 +276,10 @@ class MatchStrings():
         #print(f"resultSum: - {resultSum}")
 
         if resultSum == 3:
+            
+            self.logger.logMatchCheckpoint('Match Passed',textOriginal, textToMatch, True)
             return True, outputString
+
         else:
 
             if self.documentNumber == 1: ### Annex II
@@ -296,10 +300,16 @@ class MatchStrings():
                 # print(f"\nLowerCaseCheck\n{foundMatchLowerCase,outputString1,textOriginal.lower(),textToMatch.lower()}\n")
 
                 if foundMatchLowerCase:
+                    self.logger.logMatchCheckpoint('Match Passed In Lowercase',textOriginal, textToMatch, True)
                     return foundMatchLowerCase, outputString1
 
                 else:
+                    self.logger.logMatchCheckpoint('Match Failed In Lowercase',textOriginal, textToMatch, False)
                     return False, outputString1
+
+            if resultSum == 2:
+                self.logger.logMatchCheckpoint('Match Failed',textOriginal, textToMatch, False)
+                
 
             return False, outputString
 

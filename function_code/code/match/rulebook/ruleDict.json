@@ -679,7 +679,7 @@
                     "damLevenDistProb": 300,
                     "minFuzzyScore_r": 60,
                     "minFuzzyScore_wr": 73,
-                    "minFuzzyScore_pr": 70,
+                    "minFuzzyScore_pr": 60,
                     "jaroWinklerSimCut": 0.7
                 },
                 "SpecialCase1": {

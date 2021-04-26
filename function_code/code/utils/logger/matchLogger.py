@@ -27,6 +27,7 @@ class MatchLogger():
         if fileNameLog:
             file_handler = RotatingFileHandler(filename=fileNameLog, \
                             mode='a', maxBytes=20000000, backupCount=5)
+
             file_handler.setFormatter(formatter)
 
         logger.addHandler(stream_handler)
@@ -38,15 +39,57 @@ class MatchLogger():
 
         logger.setLevel(logging.DEBUG)
 
-        self.customDimension = {
+        self.logger = logger
+    
+
+    def logFlowCheckpoint(self, message):
+
+
+        customDimension = {
                                 'Document File Name': self.fileNameDoc,
                                 'Procedure Type': self.procedureType,
                                 'Lanaguage Code': self.languageCode,
                                 'Document Type': self.documentType,
-                                'Document Text': '',
-                                'Qrd Text': '',
-                                'Status': '',
+                        }
+
+        properties  = {'custom_dimensions': customDimension}
+
+        self.logger.info(message, extra = properties)
+
+    
+    def logMatchCheckpoint(self, message, htmlText, qrdText, status):
+
+
+        customDimensionMatch = {
+                                'Document File Name': self.fileNameDoc,
+                                'Procedure Type': self.procedureType,
+                                'Lanaguage Code': self.languageCode,
+                                'Document Type': self.documentType,
+                                'Document Text': htmlText,
+                                'Qrd Text': qrdText,
+                                'Status': status,
                                 }
 
-        self.logger = logger
-    
+        properties  = {'custom_dimensions': customDimensionMatch}
+
+        self.logger.info(message, extra = properties)
+
+
+    def logValidateCheckpoint(self, message, currentHeadingRow, previousHeadingFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, status):
+
+        
+        customDimensionValidate = {
+                                'Document File Name': self.fileNameDoc,
+                                'Procedure Type': self.procedureType,
+                                'Lanaguage Code': self.languageCode,
+                                'Document Type': self.documentType,
+                                'Current Heading': currentHeadingRow,
+                                'Previous Heading Found': previousHeadingFound,
+                                'Previous H1 Heading Found': previousH1HeadingRowFound,
+                                'Previous H2 Heading Found': previousH2HeadingRowFound,
+                                'Status': status,
+                                }
+
+        properties  = {'custom_dimensions': customDimensionValidate}
+
+        self.logger.info(message, extra = properties)

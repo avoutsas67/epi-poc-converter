@@ -152,10 +152,34 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="margin-left:0in;text-indent:0in;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before you take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>if you are allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+		    <p class="MsoNormal" style="margin-left:0in;text-indent:0in;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before you take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
 			</div>
 		</text>
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="Do not take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-.25in"><span style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span>if you are allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -734,10 +758,34 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before your child takes Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal;page-break-after:avoid"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">if your child is allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.1pt;margin-bottom:0in; margin-left:28.5pt;margin-bottom:.0001pt;text-indent:-28.5pt;line-height:normal; page-break-after:avoid"><b><span lang="EN-GB" style="text-transform:uppercase">2.<span style='font:7.0pt "Times New Roman"'> </span></span></b><b><span lang="EN-GB">What you need to know before your child takes Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p>
 			</div>
 		</text>
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="Do not take Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Do not take Kalydeco</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-.25in;line-height: normal;page-break-after:avoid"><span lang="EN-GB" style="font-size:10.0pt; font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><span lang="EN-GB">if your child is allergic to ivacaftor or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -874,7 +922,31 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If your child takes more Kalydeco than he/she should</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Your child may experience side effects, including those mentioned in section 4 below. If so, contact your child’s doctor or pharmacist to ask for advice. If possible, have your child’s medicine and this leaflet with you.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><i><span lang="EN-GB"> </span></i></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you forget to give your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Give the missed dose if less than 6 hours have passed since the time your child missed the dose. Otherwise, wait until your child’s next scheduled dose as you normally would. Do not give your child a double dose to make up for a forgotten dose.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you stop giving your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Give Kalydeco to your child for as long as your child’s doctor recommends. Do not stop unless your child’s doctor advises you to. If you have any further questions on the use of this medicine, ask your child’s doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If your child takes more Kalydeco than he/she should</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Your child may experience side effects, including those mentioned in section 4 below. If so, contact your child’s doctor or pharmacist to ask for advice. If possible, have your child’s medicine and this leaflet with you.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><i><span lang="EN-GB"> </span></i></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="If you forget to give your child Kalydeco"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you forget to give your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Give the missed dose if less than 6 hours have passed since the time your child missed the dose. Otherwise, wait until your child’s next scheduled dose as you normally would. Do not give your child a double dose to make up for a forgotten dose.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB">If you stop giving your child Kalydeco</span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Give Kalydeco to your child for as long as your child’s doctor recommends. Do not stop unless your child’s doctor advises you to. If you have any further questions on the use of this medicine, ask your child’s doctor or pharmacist.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB"> </span></p>
 			</div>
 		</text>
 		

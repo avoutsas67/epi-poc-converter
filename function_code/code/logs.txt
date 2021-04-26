@@ -253,3 +253,52 @@
 2021-04-26 03:22:22,297 : MatchLogger : Match Found:
 2021-04-26 03:22:22,297 : MatchLogger : Match Found:
 2021-04-26 03:22:22,297 : MatchLogger : Match Found:
+2021-04-26 03:26:25,972 : MatchLogger : Match Found:
+2021-04-26 03:26:25,972 : MatchLogger : Match Found:
+2021-04-26 03:26:25,972 : MatchLogger : Match Found:
+2021-04-26 03:53:50,130 : ExtractContentBetween_U : Cleaning Match Results
+2021-04-26 03:53:50,133 : ExtractContentBetween_U : Finished Cleaning Match Results
+2021-04-26 03:53:50,144 : ExtractContentBetween_U : Extracting Content Between Headings
+2021-04-26 03:53:50,156 : ExtractContentBetween_U : Finished Extracting Content Between Headings
+2021-04-26 03:53:50,195 : XmlGeneration_r : Initiating XML Generation
+2021-04-26 03:53:50,305 : XmlGeneration_r : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 03:56:31,422 : ExtractContentBetween_V : Cleaning Match Results
+2021-04-26 03:56:31,426 : ExtractContentBetween_V : Finished Cleaning Match Results
+2021-04-26 03:56:31,439 : ExtractContentBetween_V : Extracting Content Between Headings
+2021-04-26 03:56:31,452 : ExtractContentBetween_V : Finished Extracting Content Between Headings
+2021-04-26 03:56:31,491 : XmlGeneration_3 : Initiating XML Generation
+2021-04-26 03:56:31,622 : XmlGeneration_3 : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:05:41,706 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 04:05:41,706 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 04:05:41,706 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-26 04:05:41,715 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 04:05:41,715 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 04:05:41,715 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-26 04:05:41,739 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 04:05:41,739 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 04:05:41,739 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-26 04:05:41,760 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 04:05:41,760 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 04:05:41,760 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-26 04:05:41,811 : XmlGeneration_a : Initiating XML Generation
+2021-04-26 04:05:41,811 : XmlGeneration_a : Initiating XML Generation
+2021-04-26 04:05:41,811 : XmlGeneration_a : Initiating XML Generation
+2021-04-26 04:05:41,953 : XmlGeneration_a : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:05:41,953 : XmlGeneration_a : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:05:41,953 : XmlGeneration_a : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:12:06,920 : ExtractContentBetween_Z : Cleaning Match Results
+2021-04-26 04:12:06,924 : ExtractContentBetween_Z : Finished Cleaning Match Results
+2021-04-26 04:12:06,937 : ExtractContentBetween_Z : Extracting Content Between Headings
+2021-04-26 04:12:06,953 : ExtractContentBetween_Z : Finished Extracting Content Between Headings
+2021-04-26 04:12:06,989 : XmlGeneration_t : Initiating XML Generation
+2021-04-26 04:12:07,108 : XmlGeneration_t : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:30:32,616 : ExtractContentBetween_8 : Cleaning Match Results
+2021-04-26 04:30:32,620 : ExtractContentBetween_8 : Finished Cleaning Match Results
+2021-04-26 04:30:32,631 : ExtractContentBetween_8 : Extracting Content Between Headings
+2021-04-26 04:30:32,643 : ExtractContentBetween_8 : Finished Extracting Content Between Headings
+2021-04-26 04:30:32,694 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 04:30:32,694 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 04:30:32,694 : XmlGeneration_1 : Initiating XML Generation
+2021-04-26 04:30:32,810 : XmlGeneration_1 : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:30:32,810 : XmlGeneration_1 : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml
+2021-04-26 04:30:32,810 : XmlGeneration_1 : Writing to File:Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.xml

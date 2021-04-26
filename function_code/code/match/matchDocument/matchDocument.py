@@ -3,6 +3,7 @@ from match.matchStrings.matchStrings import MatchStrings
 from match.validateMatch.validateMatch import ValidateMatch
 from match.rulebook.matchRulebook import MatchRuleBook
 from languageInfo.documentTypeNames.documentTypeNames import DocumentTypeNames
+from utils.logger.matchLogger import MatchLogger
 from nltk.tokenize import word_tokenize
 from fuzzywuzzy import process
 from fuzzywuzzy import fuzz
@@ -30,6 +31,7 @@ pd.set_option("max_rows", None)
 class MatchDocument():
 
     def __init__(self,
+                    logger,
                     procedureType,
                     languageCode,
                     documentNumber,
@@ -43,6 +45,8 @@ class MatchDocument():
                     stopWordlanguage,
                     isPackageLeaflet=False,
                     medName=None):
+
+        self.logger = logger
 
         self.fileNameDoc = fileNameDoc
 
@@ -58,6 +62,7 @@ class MatchDocument():
             procedureType=procedureType,
             documentNumber=self.documentNumber).extractDocumentTypeName()
 
+        
         print(self.documentType)
         self.dfModelwRulesF = QrdCanonical(
             fileName=fileNameQrd,
@@ -290,15 +295,19 @@ class MatchDocument():
 
         '''
 
+        self.logger.logFlowCheckpoint('Started Extracting Heading')
+
+
         previousHeadingRowFound = None
         previousH1HeadingRowFound = None
         previousH2HeadingRowFound = None
         subSectionIndex = 0
 
         matchStringObj = MatchStrings(
-            self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
 
-        validateMatchObk = ValidateMatch()
+            self.logger, self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
+
+        validateMatchObk = ValidateMatch(self.logger)
 
         headingRemovedUsingStyle = []
 
@@ -343,7 +352,7 @@ class MatchDocument():
                                 str_['Text'], qrd_str, qrd_str_row['heading_id'])
                             
                             if found:
-
+                                
                                 if (qrd_str_row['id'] in list(self.dfModelwRulesF.head(self.topHeadingsConsidered).id)):
                                     currentHeadingIsTop = True
 
@@ -359,7 +368,7 @@ class MatchDocument():
 
                                 if validated:
 
-
+                                    
                                     if str_['IsPossibleHeading'] is False:
                                         validated = False
                                         print(
@@ -368,6 +377,8 @@ class MatchDocument():
                                               ' || ', str_['Text'], ' || ', qrd_str)
                                         print(
                                             "----------------------------------")
+                                        self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                        
                                         headingRemovedUsingStyle.append(
                                             qrd_str)
                                         continue
@@ -419,6 +430,8 @@ class MatchDocument():
                                 (previousHeadingIsBottom != False):
                             print(
                                 "oooooooooooooooooooooooooooooooooooooooo END OF Sub Section oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+                            self.logger.logFlowCheckpoint('End Of Sub Section')
+                            
                             self.subSectionCollectionFoundHeadings = {}
                             previousHeadingRowFound = None
                             subSectionIndex = subSectionIndex + 1
