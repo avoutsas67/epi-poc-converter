@@ -448,3 +448,7 @@
 2021-04-27 17:27:53,485 : ExtractContentBetween_b : Finished Extracting Content Between Headings
 2021-04-27 17:27:53,857 : XmlGeneration_Z : Initiating XML Generation
 2021-04-27 17:27:55,649 : XmlGeneration_Z : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-27 22:02:46,368 : ExtractContentBetween_A : Cleaning Match Results
+2021-04-27 22:02:46,371 : ExtractContentBetween_A : Finished Cleaning Match Results
+2021-04-27 22:02:46,412 : ExtractContentBetween_A : Extracting Content Between Headings
+2021-04-27 22:02:46,431 : ExtractContentBetween_A : Finished Extracting Content Between Headings

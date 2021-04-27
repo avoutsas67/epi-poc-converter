@@ -150,5 +150,5 @@ class DataBetweenHeadingsExtractor:
                 idx_qrd=idx_qrd+1
         
         self.logger.debug('Finished Extracting Content Between Headings')
-        display(dfExtractedHierRR)
+        #display(dfExtractedHierRR)
         return dfExtractedHierRR
