@@ -1066,7 +1066,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE" style="text-transform:uppercase">BLISTERKARTEN</span></b><b><span lang="DE"> –PACKUNG MIT 28 TABLETTEN</span></b></p> </div><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE" style="text-transform:uppercase">BLISTERKARTEN</span></b><b><span lang="DE"> –PACKUNG MIT 28 TABLETTEN</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -1084,6 +1084,462 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DEM BEHÄLTNIS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Kalydeco 150 mg Filmtabletten</span></p><p class="MsoNormal"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">2.       </span></b><b><span lang="DE">WIRKSTOFF(E)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF(E)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Eine Tablette enthält 150 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p align="left" class="TitleA" style="text-align:left"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten</span><span lang="DE">.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">4.       </span></b><b><span lang="DE">DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">7 Tabletten</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">5.       </span></b><b><span lang="DE">HINWEISE ZUR</span></b><b><span lang="DE"> UND ART(EN) DER ANWENDUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       HINWEISE ZUR UND ART(EN) DER ANWENDUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><b><span lang="DE">Hinweise zur Anwendung</span></b></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Wenden Sie dieses Arzneimittel immer genau nach Absprache mit Ihrem Arzt an. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Zusammen mit einer fetthaltigen Mahlzeit einnehmen. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Die Tabletten nicht zerbrechen, zerkauen oder auflösen.</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Mo Di Mi Do Fr Sa So</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">6.       </span></b><b><span lang="DE">WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       </span></b><b><span lang="DE">WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.1pt;text-indent:-28.1pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.      </span></b><b><span lang="DE">VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.      VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Verwendbar bis</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       </span></b><b><span lang="DE">BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">10.     </span></b><b><span lang="DE">GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     </span></b><b><span lang="DE">NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">12.     </span></b><b><span lang="DE">ZULASSUNGSNUMMER(N)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/005</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">13.     CHARGENBEZEICHNUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     CHARGENBEZEICHNUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ch.-B.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">14.     </span></b><b><span lang="DE">VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">16.     </span></b><b><span lang="DE">ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">17.     </span></b><b><span lang="DE">INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">18.     </span></b><b><span lang="DE">INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">MINDESTANGABEN AUF BLISTERPACKUNGEN ODER FOLIENSTREIFEN</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">BLISTERPACKUNG – PACKUNG MIT 28 TABLETTEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -1678,7 +2134,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE" style="text-transform:uppercase">BLISTERKARTEN</span></b><b><span lang="DE"> –PACKUNG MIT 28 TABLETTEN</span></b></p> </div><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE" style="text-transform:uppercase">BLISTERKARTEN</span></b><b><span lang="DE"> –PACKUNG MIT 28 TABLETTEN</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -1696,6 +2152,462 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DEM BEHÄLTNIS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Kalydeco 75 mg Filmtabletten</span></p><p class="MsoNormal"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">2.       </span></b><b><span lang="DE">WIRKSTOFF(E)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF(E)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Eine Tablette enthält 75 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p align="left" class="TitleA" style="text-align:left"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten</span><span lang="DE">.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">4.       </span></b><b><span lang="DE">DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">7 Tabletten</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">5.       </span></b><b><span lang="DE">HINWEISE ZUR</span></b><b><span lang="DE"> UND ART(EN) DER ANWENDUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       HINWEISE ZUR UND ART(EN) DER ANWENDUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><b><span lang="DE">Hinweise zur Anwendung</span></b></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Wenden Sie dieses Arzneimittel immer genau nach Absprache mit Ihrem Arzt an. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Zusammen mit einer fetthaltigen Mahlzeit einnehmen. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Die Tabletten nicht zerbrechen, zerkauen oder auflösen.</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Mo Di Mi Do Fr Sa So</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">6.       </span></b><b><span lang="DE">WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       </span></b><b><span lang="DE">WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.1pt;text-indent:-28.1pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.      </span></b><b><span lang="DE">VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.      VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Verwendbar bis</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       </span></b><b><span lang="DE">BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">10.     </span></b><b><span lang="DE">GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     </span></b><b><span lang="DE">NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">12.     </span></b><b><span lang="DE">ZULASSUNGSNUMMER(N)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/007</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">13.     CHARGENBEZEICHNUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     CHARGENBEZEICHNUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ch.-B.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">14.     </span></b><b><span lang="DE">VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">16.     </span></b><b><span lang="DE">ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">17.     </span></b><b><span lang="DE">INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">18.     </span></b><b><span lang="DE">INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">MINDESTANGABEN AUF BLISTERPACKUNGEN ODER FOLIENSTREIFEN</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">BLISTERPACKUNG – PACKUNG MIT 28 TABLETTEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -2242,7 +3154,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><span lang="DE"> </span></p> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">FLASCHENETIKETT</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">ANGABEN AUF DEM BEHÄLTNIS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><span lang="DE"> </span></p> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">FLASCHENETIKETT</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -2260,6 +3172,414 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DEM BEHÄLTNIS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Kalydeco 150 mg Filmtabletten</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><b><span lang="DE"> </span></b></p><p class="MsoNormal"><b><span lang="DE"> </span></b></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">2.       WIRKSTOFF(E)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF(E)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Eine Tablette enthält 150 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">4.       DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">56 Tabletten</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">5.       <span style="text-transform:uppercase">Hinweise zur</span> UND ART(EN) DER ANWENDUNG</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER </span></b><b><span lang="DE">UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.       VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Verwendbar bis</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">12.     ZULASSUNGSNUMMER(N) </span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/001 </span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">13.     <span style="text-transform: uppercase">Chargenbezeichnung</span></span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ch.-B.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">14.     VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">16.     ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><b><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:black'><br clear="all" style="page-break-before:always"/> </span></b><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:black'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="background:white"><b><span lang="DE"> </span></b></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF DER ÄUSSEREN UMHÜLLUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE" style="text-transform:uppercase">UMKarton</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 		
 	
@@ -2662,7 +3982,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -2680,6 +4000,414 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DER ZWISCHENVERPACKUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Kalydeco 25 mg Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">2.       WIRKSTOFF</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ein Beutel Granulat enthält 25 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">4.       DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">14 Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">5.       <span style="text-transform:uppercase">Hinweise zur</span> UND ART(EN) DER ANWENDUNG</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid;text-autospace:none"><b><span lang="DE">Hinweise zur Anwendung</span></b></p><p class="MsoNormal" style="page-break-after:avoid;text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Mischen Sie den gesamten Inhalt eines Beutels mit 5 ml einer altersgerechten weichen Speise oder Flüssigkeit, die höchstens Raumtemperatur haben darf, und verzehren Sie diese Mischung vollständig. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Verzehren Sie die Mischung </span><span lang="DE">innerhalb von einer Stunde nach dem Mischen, unmittelbar vor oder unmittelbar nach einer fetthaltigen </span><span lang="DE">Mahlzeit oder Zwischenmahlzeit.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">B</span><span lang="DE">rauchen Sie alle für 7 Tage vorgesehenen Dosen auf, bevor Sie eine neue Walletpackung anbrechen.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Morgens</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Abends</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Mo Di Mi Do Fr Sa So</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER </span></b><b><span lang="DE">UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:0in 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.       VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">12.     ZULASSUNGSNUMMER(N) </span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/006</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">13.     <span style="text-transform: uppercase">Chargenbezeichnung</span></span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">14.     VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">16.     ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">MINDESTANGABEN AUF KLEINEN BEHÄLTNISSEN</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">BEUTEL</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -3202,7 +4930,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -3220,6 +4948,414 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DER ZWISCHENVERPACKUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Kalydeco 50 mg Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">2.       WIRKSTOFF</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ein Beutel Granulat enthält 50 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">4.       DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">14 Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">5.       <span style="text-transform:uppercase">Hinweise zur</span> UND ART(EN) DER ANWENDUNG</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid;text-autospace:none"><b><span lang="DE">Hinweise zur Anwendung</span></b></p><p class="MsoNormal" style="page-break-after:avoid;text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Mischen Sie den gesamten Inhalt eines Beutels mit 5 ml einer altersgerechten weichen Speise oder Flüssigkeit, die höchstens Raumtemperatur haben darf, und verzehren Sie diese Mischung vollständig. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Verzehren Sie die Mischung </span><span lang="DE">innerhalb von einer Stunde nach dem Mischen, unmittelbar vor oder unmittelbar nach einer fetthaltigen </span><span lang="DE">Mahlzeit oder Zwischenmahlzeit.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">B</span><span lang="DE">rauchen Sie alle für 7 Tage vorgesehenen Dosen auf, bevor Sie eine neue Walletpackung anbrechen.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Morgens</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Abends</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Mo Di Mi Do Fr Sa So</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER </span></b><b><span lang="DE">UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:0in 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.       VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">12.     ZULASSUNGSNUMMER(N) </span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/003</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">13.     <span style="text-transform: uppercase">Chargenbezeichnung</span></span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">14.     VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">16.     ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:6.6pt"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">MINDESTANGABEN AUF KLEINEN BEHÄLTNISSEN</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">BEUTEL</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 
 			    
@@ -3742,7 +5878,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">PC</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">SN</span></p><p class="MsoNormal"><span lang="DE">NN</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">ANGABEN AUF </span></b><b><span lang="DE">DER ZWISCHENVERPACKUNG</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">WALLETPACKUNG</span></b><b><span lang="DE"> FÜR BEUTEL</span></b></p> </div>
 			</div>
 		</text>
 		
@@ -3760,6 +5896,414 @@
 		
 
 		
+    	    
+
+			    
+		               
+<section>
+			<title value="ANGABEN AUF DER ZWISCHENVERPACKUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">1.       BEZEICHNUNG DES ARZNEIMITTELS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       BEZEICHNUNG DES ARZNEIMITTELS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Kalydeco 75 mg Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE">Ivacaftor</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">2.       WIRKSTOFF</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       WIRKSTOFF"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE">Ein Beutel Granulat enthält 75 mg Ivacaftor.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">3.       SONSTIGE BESTANDTEILE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       SONSTIGE BESTANDTEILE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Enthält Lactose.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">4.       DARREICHUNGSFORM UND INHALT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       DARREICHUNGSFORM UND INHALT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Granulat im Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">14 Beutel</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">5.       <span style="text-transform:uppercase">Hinweise zur</span> UND ART(EN) DER ANWENDUNG</span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Packungsbeilage beachten.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Zum Einnehmen</span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><b><span lang="DE">Hinweise zur Anwendung</span></b></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Mischen Sie den gesamten Inhalt eines Beutels mit 5 ml einer altersgerechten weichen Speise oder Flüssigkeit, die höchstens Raumtemperatur haben darf, und verzehren Sie diese Mischung vollständig. </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE">Verzehren Sie die Mischung </span><span lang="DE">innerhalb von einer Stunde nach dem Mischen, unmittelbar vor oder unmittelbar nach einer fetthaltigen </span><span lang="DE">Mahlzeit oder Zwischenmahlzeit.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">B</span><span lang="DE">rauchen Sie alle für 7 Tage vorgesehenen Dosen auf, bevor Sie eine neue Walletpackung anbrechen.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Morgens</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Abends</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Mo Di Mi Do Fr Sa So</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal" style="text-autospace:none"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER </span></b><b><span lang="DE">UNZUGÄNGLICH AUFZUBEWAHREN IST</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       WARNHINWEIS, DASS DAS ARZNEIMITTEL FÜR KINDER UNZUGÄNGLICH AUFZUBEWAHREN IST"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Arzneimittel für Kinder unzugänglich aufbewahren.</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       WEITERE WARNHINWEISE, FALLS ERFORDERLICH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">8.       VERFALLDATUM</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       VERFALLDATUM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       BESONDERE VORSICHTSMASSNAHMEN FÜR DIE AUFBEWAHRUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     GEGEBENENFALLS BESONDERE VORSICHTSMASSNAHMEN FÜR DIE BESEITIGUNG VON NICHT VERWENDETEM ARZNEIMITTEL ODER DAVON STAMMENDEN ABFALLMATERIALIEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME UND ANSCHRIFT DES PHARMAZEUTISCHEN UNTERNEHMERS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">Vertex Pharmaceuticals (Ireland) Limited</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">28-32 Pembroke Street Upper</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Dublin 2, D02 EK84</span></p><p class="MsoNormal"><span lang="DE" style="background:silver">Irland</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormalIndent" style="margin:0in"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">12.     ZULASSUNGSNUMMER(N) </span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     ZULASSUNGSNUMMER(N) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE">EU/1/12/782/004</span></p><p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">13.     <span style="text-transform: uppercase">Chargenbezeichnung</span></span></b></p> </div><p class="MsoNormal" style="page-break-after:avoid"><i><span lang="DE"> </span></i></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">14.     VERKAUFSABGRENZUNG</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     VERKAUFSABGRENZUNG"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:2.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;border:none; padding:0in"><b><span lang="DE">15.     HINWEISE FÜR DEN GEBRAUCH</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     HINWEISE FÜR DEN GEBRAUCH"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">16.     ANGABEN IN BLINDENSCHRIFT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     ANGABEN IN BLINDENSCHRIFT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE" style="background:#CCCCCC"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="page-break-after:avoid;border:none;padding:0in"><b><span lang="DE">17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     INDIVIDUELLES ERKENNUNGSMERKMAL – 2D-BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;page-break-after: avoid;border:none;padding:0in"><b><span lang="DE">18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     INDIVIDUELLES ERKENNUNGSMERKMAL – VOM MENSCHEN LESBARES FORMAT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="page-break-after:avoid"><span lang="DE"> </span></p><p class="MsoNormal"><span lang="DE" style="background:#CCCCCC"> </span></p><span lang="DE" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal"><span lang="DE"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">MINDESTANGABEN AUF KLEINEN BEHÄLTNISSEN</span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE"> </span></b></p> <p class="MsoNormal" style="border:none;padding:0in"><b><span lang="DE">BEUTEL</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
     	    
 
 			    

@@ -8,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 
 class MatchLogger():
 
-    def __init__(self, reqLoggerId, fileNameDoc, procedureType, languageCode, documentType, fileNameLog = None):
+    def __init__(self, reqLoggerId, fileNameDoc, procedureType, languageCode, documentType, fileNameLog):
         super().__init__()
 
         self.fileNameDoc = fileNameDoc
@@ -16,26 +16,29 @@ class MatchLogger():
         self.languageCode = languageCode
         self.documentType = documentType
         self.fileNameLog = fileNameLog
-
-    
+        
+        instrumentationKey = os.environ['APPLICATIONINSIGHTS_CONNECTION_STRING']
         logger = logging.getLogger(reqLoggerId)
-        
         formatter = logging.Formatter('%(asctime)s : %(name)s : %(message)s')
-        
+        handlerAzure = AzureLogHandler(connection_string= instrumentationKey)
+        handlerAzure.setFormatter(formatter)
+
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(formatter)
-        if fileNameLog:
-            file_handler = RotatingFileHandler(filename=fileNameLog, \
+
+
+        path = '/path/mounted/logs'
+        file_handler = RotatingFileHandler(filename=os.path.join(path, fileNameLog), \
                             mode='a', maxBytes=20000000, backupCount=5)
+        file_handler.setFormatter(formatter)
 
-            file_handler.setFormatter(formatter)
+    
 
+        logger.addHandler(handlerAzure)
         logger.addHandler(stream_handler)
         logger.addHandler(file_handler)
 
-        #logger.addHandler(AzureLogHandler(
-        #    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-        #)
+    
 
         logger.setLevel(logging.DEBUG)
 

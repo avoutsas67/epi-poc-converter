@@ -215,18 +215,11 @@ class ValidateMatch():
 
                 if currentHeadingRow['Heading Level'] == 'H3':
 
-                    if previousHeadingRow['Heading Level'] == 'H1':
+                    previousHeadingRowActual = self.findPreviousHeading(
+                        currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)
 
-                        previousHeadingRowActual = self.findPreviousHeading(
-                            currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)
-
-                        childH3HeadingsIdList = [item['id'] for item in self.findChildHeadings(
-                            previousHeadingRowActual, dfQrd)]
-
-                    else:
-
-                        childH3HeadingsIdList = [
-                            item['id'] for item in self.findChildHeadings(previousHeadingRow, dfQrd)]
+                    childH3HeadingsIdList = [item['id'] for item in self.findChildHeadings(
+                        previousHeadingRowActual, dfQrd)]
 
                     if currentHeadingRow['id'] not in childH3HeadingsIdList:
                         #print("\n\nException 2 \n\n")

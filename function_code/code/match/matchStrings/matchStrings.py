@@ -287,7 +287,7 @@ class MatchStrings():
             else:
                 lowerCaseCheckFuzzyScoreThreshhold = 90
 
-            if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
+            if (fuzzyScoreOutput[2] >= lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
 
                 print(
                     f"\nOriginalCheck\n{outputString,textOriginal,textToMatch}\n")

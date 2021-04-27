@@ -351,11 +351,11 @@
             "2": {
                 "checkLowerCase": {
                     "checkLowerCase": 0,
-                    "damLevenDistProb": 10,
-                    "minFuzzyScore_r": 90,
+                    "damLevenDistProb":200,
+                    "minFuzzyScore_r": 60,
                     "minFuzzyScore_wr": 90,
                     "minFuzzyScore_pr": 90,
-                    "jaroWinklerSimCut": 0.90
+                    "jaroWinklerSimCut": 0.85
                 },
                 "<=1": {
                     "<=1": 0,
@@ -393,9 +393,9 @@
                     "Contains<>": 0,
                     "damLevenDistProb": 300,
                     "minFuzzyScore_r": 40,
-                    "minFuzzyScore_wr": 85,
-                    "minFuzzyScore_pr": 80,
-                    "jaroWinklerSimCut": 0.70
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 65,
+                    "jaroWinklerSimCut": 0.60
                 }
             },
             "3": {
