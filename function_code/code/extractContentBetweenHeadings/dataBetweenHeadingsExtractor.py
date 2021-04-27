@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import json
 from collections import defaultdict
-from jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
+from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
 
 class DataBetweenHeadingsExtractor:
     

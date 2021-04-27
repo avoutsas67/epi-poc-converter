@@ -26,9 +26,7 @@ class MatchLogger():
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(formatter)
 
-
-        path = '/path/mounted/logs'
-        file_handler = RotatingFileHandler(filename=os.path.join(path, fileNameLog), \
+        file_handler = RotatingFileHandler(filename=os.path.join(fileNameLog), \
                             mode='a', maxBytes=20000000, backupCount=5)
         file_handler.setFormatter(formatter)
 
