@@ -27,9 +27,10 @@ from nltk.corpus import stopwords
 
 class MatchStrings():
 
-    def __init__(self, documentType, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
+    def __init__(self, logger, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
-        self.documentType = documentType
+        self.logger = logger
+        self.documentNumber = int(documentNumber)
         self.ruleDict = ruleDict
         self.stopWordFilterListSize = stopWordFilterListSize
         self.stopWordlanguage = stopWordlanguage
@@ -42,6 +43,7 @@ class MatchStrings():
         '''
         #str_ = re.sub('^[A-Za-z0-9]\.[\s]*', '', str_)
 
+        str_ = re.sub('^.[\s]+', '', str_)
         str_ = re.sub('[\s]+', ' ', str_)
 
         str_ = str_.rstrip()
@@ -86,7 +88,8 @@ class MatchStrings():
 
         return len(self.preprocessStr(str_))
 
-    def matchStrings(self, textOriginal, textToMatch, avoidLowerCaseMatch=False):
+
+    def matchStrings(self, textOriginal, textToMatch,qrdRowHeadingId, avoidLowerCaseMatch=False):
         '''
         This is the matching algorithm which based on following similarity checks, return if two string are matching or not.
 
@@ -124,7 +127,9 @@ class MatchStrings():
         textToMatch1 = self.preprocessStr(textToMatch)
 
         if len(textOriginal1) >= 2*len(textToMatch1):
-            return False, ""
+            if self.documentNumber != 3 and qrdRowHeadingId != 13:
+                return False, ""
+            
 
         #print(textOriginal1," : ",textToMatch1)
         if textOriginal1 == textToMatch1:
@@ -152,17 +157,37 @@ class MatchStrings():
         #################################################
 
         key = None
+        # if avoidLowerCaseMatch:
+        #     key = "checkLowerCase"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif ('<{MM/YYYY}><{month YYYY}>' in textToMatch):
+        #     key = "SpecialCase1"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif ('<food> <and> <,> <drink>' in textToMatch):
+        #     key = "SpecialCase2"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif ('Pregnancy <and> <,> breast-feeding <and fertility>' in textToMatch):
+        #     key = "SpecialCase3"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif ("<" in textToMatch) and (">" in textToMatch):
+        #     key = "Contains<>"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif(noWordstextToMatch1 <= 1):
+        #     key = "<=1"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif(noWordstextToMatch1 <= 4):
+        #     key = "<=4"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif(noWordstextToMatch1 <= 7):
+        #     key = "<=7"
+        #     ruleDict1 = self.ruleDict[key]
+        # elif(noWordstextToMatch1 > 7):
+        #     key = ">7"
+        #     ruleDict1 = self.ruleDict[key]
+
+            
         if avoidLowerCaseMatch:
             key = "checkLowerCase"
-            ruleDict1 = self.ruleDict[key]
-        elif ('<{MM/YYYY}><{month YYYY}>' in textToMatch):
-            key = "SpecialCase1"
-            ruleDict1 = self.ruleDict[key]
-        elif ('<food> <and> <,> <drink>' in textToMatch):
-            key = "SpecialCase2"
-            ruleDict1 = self.ruleDict[key]
-        elif ('Pregnancy <and> <,> breast-feeding <and fertility>' in textToMatch):
-            key = "SpecialCase3"
             ruleDict1 = self.ruleDict[key]
         elif ("<" in textToMatch) and (">" in textToMatch):
             key = "Contains<>"
@@ -180,13 +205,34 @@ class MatchStrings():
             key = ">7"
             ruleDict1 = self.ruleDict[key]
 
-        if('{name the excipient(s)}' in textToMatch1):
+        if self.documentNumber == 0: ## SmPC
+            if (qrdRowHeadingId == 52):
+                key = "SpecialCase1"
+                ruleDict1 = self.ruleDict[key]
+            elif (qrdRowHeadingId == 53):
+                key = "SpecialCase2"
+                ruleDict1 = self.ruleDict[key]
 
-            if noWordstextOriginal1 > 5:
-                return False, ""
+        if self.documentNumber == 3: ## Package Leaflet
+            
+            if(qrdRowHeadingId == 13):
+                key = "<=4"
+                ruleDict1 = self.ruleDict[key]
+                if noWordstextOriginal1 > 30:
+                    return False, ""
 
-            textOriginal1, textToMatch1 = " ".join(list(textOriginal1.split(" "))[
-                0:2]), " ".join(list(textToMatch1.split(" "))[0:2])
+                textOriginal1, textToMatch1 = " ".join(list(textOriginal1.split(" "))[
+                    0:2]), " ".join(list(textToMatch1.split(" "))[0:2])
+            elif (qrdRowHeadingId == 28):
+                key = "SpecialCase1"
+                ruleDict1 = self.ruleDict[key]
+            elif (qrdRowHeadingId == 10):
+                key = "SpecialCase2"
+                ruleDict1 = self.ruleDict[key]
+            elif (qrdRowHeadingId == 11):
+                key = "SpecialCase3"
+                ruleDict1 = self.ruleDict[key]
+        
 
         outputString = outputString + f"{key}|"
 
@@ -230,15 +276,18 @@ class MatchStrings():
         #print(f"resultSum: - {resultSum}")
 
         if resultSum == 3:
+            
+            self.logger.logMatchCheckpoint('Match Passed',textOriginal, textToMatch, True)
             return True, outputString
+
         else:
 
-            if self.documentType == 'AnnexII':
+            if self.documentNumber == 1: ### Annex II
                 lowerCaseCheckFuzzyScoreThreshhold = 85
             else:
                 lowerCaseCheckFuzzyScoreThreshhold = 90
 
-            if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
+            if (fuzzyScoreOutput[2] >= lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
 
                 print(
                     f"\nOriginalCheck\n{outputString,textOriginal,textToMatch}\n")
@@ -246,15 +295,21 @@ class MatchStrings():
                 # print(textOriginal.lower(),textToMatch.lower(),outputString)
 
                 foundMatchLowerCase, outputString1 = self.matchStrings(
-                    textOriginal.lower(), textToMatch.lower(), avoidLowerCaseMatch=True)
+                    textOriginal.lower(), textToMatch.lower(), qrdRowHeadingId, avoidLowerCaseMatch=True)
 
                 # print(f"\nLowerCaseCheck\n{foundMatchLowerCase,outputString1,textOriginal.lower(),textToMatch.lower()}\n")
 
                 if foundMatchLowerCase:
+                    self.logger.logMatchCheckpoint('Match Passed In Lowercase',textOriginal, textToMatch, True)
                     return foundMatchLowerCase, outputString1
 
                 else:
+                    self.logger.logMatchCheckpoint('Match Failed In Lowercase',textOriginal, textToMatch, False)
                     return False, outputString1
+
+            if resultSum == 2:
+                self.logger.logMatchCheckpoint('Match Failed',textOriginal, textToMatch, False)
+                
 
             return False, outputString
 

@@ -102,10 +102,9 @@ class QrdCanonical():
 
             headingLevel = dfQrd.loc[index]['Heading Level']
             parentId = dfQrd.loc[index]['parent_id']
-            
             if headingLevel == 'H0':
                 continue
-
+            
             parentHeadingLevel = list(dfQrd[dfQrd['id'] == int(parentId)]['Heading Level'])[0]
 
             
@@ -119,6 +118,8 @@ class QrdCanonical():
             if parentHeadingLevel == 'H1':
                 dfQrd.at[index,'Heading Level'] = 'H2'
             if parentHeadingLevel == 'H2':
+                dfQrd.at[index,'Heading Level'] = 'H3'
+            if parentHeadingLevel == 'H3':
                 dfQrd.at[index,'Heading Level'] = 'H3'
                     
         return dfQrd    
