@@ -46,7 +46,7 @@ class DataBetweenHeadingsExtractor:
                 break
         return idList
     
-    def extractContentBetweenHeadings(self, input_filename):
+    def extractContentBetweenHeadings(self, languageCode, input_filename):
 
         """
         Function to extract text and html between headings
@@ -67,7 +67,7 @@ class DataBetweenHeadingsExtractor:
         dfExtractedHierRR['Html_betw']=''
         dfExtractedHierRR = dfExtractedHierRR.reset_index(drop=True)
 
-        path_partition_json = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'partitionedJSONs')
+        path_partition_json = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'partitionedJSONs', languageCode)
         partitioned_filename = os.path.join(path_partition_json , input_filename)
         
         print('File being processed: ' + partitioned_filename)

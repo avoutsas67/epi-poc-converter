@@ -17,11 +17,11 @@
 			</div>
 		</text>
 		{% endif %}
-
-		{% if id_dict[root]["Children"] %}
-    	    {% for child in id_dict[root].Children.ids %}
-
+		{% if id_dict[root]["Children"]  and  ( id_dict[root]["Children"]|length >0 )%}
+    	    {% for child in id_dict[root]["Children"]["ids"] %}
+				{{id_dict[root]["Children"]["ids"]}}
 			    {%with id_dict=id_dict, template_name="epi_sub_section_jinja_template.xml", root=child %}
+						
 		               {%include template_name%}
 			    {%endwith%}
     	    {% endfor %}

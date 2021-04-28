@@ -3,20 +3,27 @@ import sys
 import os
 import jinja2
 import copy
+import uuid
 from collections import defaultdict
 from bs4 import BeautifulSoup
+from datetime import datetime
+
 
 class FhirXmlGenerator:
     
-    def __init__(self, logger):
+    def __init__(self, logger,pms_oms_annotation_data):
         self.logger = logger
+        self.pms_oms_annotation_data = pms_oms_annotation_data
 
-    def createIdDict(self, row, html_img_embeded):
+    def createIdDict(self, row, html_img_embeded = None):
         id_dict_item= defaultdict(list)
         id_dict_item['id'] = row.id
         id_dict_item['htmlText'] = row.htmlText
         id_dict_item['Text'] = row.Text
-        id_dict_item['Html_betw'] = html_img_embeded
+        if(html_img_embeded):
+            id_dict_item['Html_betw'] = html_img_embeded
+        else:
+            id_dict_item['Html_betw'] = row.Html_betw
         id_dict_item['Children'] = defaultdict(list)
         id_dict_item['Children']['ids']=[]
         return id_dict_item
@@ -64,17 +71,22 @@ class FhirXmlGenerator:
            
         """
         root_entry = None
+        html_img_embeded = None
         id_dict_list = []
         id_dict = defaultdict(list)
         img_ref_dict = defaultdict(list)
         prevSubSecIndex = 0
         root = None
         for i, row in enumerate(df.itertuples(), 0):
-            
-            img_ref_dict, html_img_embeded = self.createImgRef(row.Html_betw, img_ref_dict)
-            df.at[row.Index, 'Html_betw'] = html_img_embeded
+
+            if(len(img_ref_dict.keys())>0):     
+                img_ref_dict, html_img_embeded = self.createImgRef(row.Html_betw, img_ref_dict)
+                df.at[row.Index, 'Html_betw'] = html_img_embeded
             if(i==0):
-                id_dict[row.id] = self.createIdDict(row, html_img_embeded)
+                if(html_img_embeded):
+                    id_dict[row.id] = self.createIdDict(row, html_img_embeded)
+                else:
+                    id_dict[row.id] = self.createIdDict(row)
                 root_entry = id_dict
                 root = list(root_entry.keys())[0]
                 root_entry = copy.deepcopy(id_dict)
@@ -99,16 +111,33 @@ class FhirXmlGenerator:
         template_path = os.path.join(template_path, 'data')
         xml_output_path = os.path.join(template_path, 'fhir_messages')
         template_path = os.path.join(template_path, 'jinja_templates')
-
+        
         templateLoader = jinja2.FileSystemLoader(searchpath=template_path)
         templateEnv = jinja2.Environment(loader=templateLoader)
         TEMPLATE_FILE = 'ePI_jinja_template.xml'
         template = templateEnv.get_template(TEMPLATE_FILE)
 
+        xml_bundle_data = defaultdict(list)
+        xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+        xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
+        xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+        xml_bundle_data['authorValue']  = self.pms_oms_annotation_data['Author Value']
+
+        xml_bundle_data['listEntryId'] = 'List/'+ str(uuid.uuid4())
+        xml_bundle_data['listEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+        xml_bundle_data['medicinalProductDict'] = defaultdict(list)
+        
+        for row in self.pms_oms_annotation_data['Medicinal Product Definitions']:
+            xml_bundle_data['medicinalProductDict'][row[1]] = row[2]
+
         self.logger.debug('Initiating XML Generation')
         id_dict_list, root, img_ref_dict = self.createIdTree(df)
 
-        outputText = template.render(id_dict_list=list(id_dict_list), root=root, img_ref_dict=img_ref_dict)  # this is where to put args to the template renderer
+        outputText = template.render(id_dict_list=list(id_dict_list), 
+                                     root=root,
+                                     img_ref_dict=img_ref_dict,
+                                     xml_bundle_data = xml_bundle_data)  # this is where to put args to the template renderer
         
         output_template_path = os.path.join(xml_output_path, xml_file_name)
 
@@ -116,3 +145,4 @@ class FhirXmlGenerator:
         with open(output_template_path,'w+', encoding='utf-8') as f:
             f.write(outputText)
             f.close()
+        return outputText.encode(encoding='utf-8').decode()

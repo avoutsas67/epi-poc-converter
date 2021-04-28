@@ -40,6 +40,7 @@ class MatchDocument():
                  isPackageLeaflet=False):
 
         self.fileNameDoc = fileNameDoc
+        self.languageCode = languageCode
 
         self.dfHtml = self.createHtmlDataframe()
 
@@ -84,7 +85,7 @@ class MatchDocument():
         '''
 
         path_json = os.path.join(os.path.abspath(
-            os.path.join('..')), 'data', 'partitionedJSONs')
+            os.path.join('..')), 'data', 'partitionedJSONs', self.languageCode)
         output_filename = os.path.join(path_json, self.fileNameDoc)
         print('File being processed: ' + output_filename)
         print("--------------------------------------------")

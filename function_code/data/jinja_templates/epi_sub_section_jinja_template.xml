@@ -14,8 +14,8 @@
 		    {{id_dict[root]["Html_betw"]}}
 			</div>
 		</text>
-		{% if id_dict[root]["Children"] %}
-    	    {% for child in id_dict[root].Children.ids %}
+		{% if id_dict[root]["Children"] and  ( id_dict[root]["Children"]|length >0 ) %}
+    	    {% for child in id_dict[root]["Children"]["ids"] %}
 
 			    {%with id_dict=id_dict, template_name="epi_sub_section_jinja_template.xml", root=child %}
 		               {%include template_name%}
