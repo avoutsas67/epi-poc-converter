@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="${instance.bundle[n].fullUrlUrnUuid}"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="${instance.bundle[n].idUuid}"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="${document[n].authoringDateTime}"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="${instance.bundle[n].compositionFullUrlUuid}"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+							<status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="List/${instance.bundle[n].listId}"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="${document[n].authoringDate}"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="${document[n].organizationOMSCode}" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="ANEXO II"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p align="center" class="MsoNormal" style="text-align:center"><b><span lang="ES">ANEXO II</span></b></p><p class="MsoNormal" style="margin-right:70.8pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="A.         FABRICANTE(S) RESPONSABLE(S) DE LA LIBERACIÓN DE LOS LOTES"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.95pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-35.4pt"><b><span lang="ES">A.         FABRICANTE(S) RESPONSABLE(S) DE LA LIBERACIÓN DE LOS LOTES</span></b></p><p class="MsoNormal" style="margin-right:70.8pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="B.         CONDICIONES O RESTRICCIONES DE SUMINISTRO Y USO"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.95pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-35.4pt"><b><span lang="ES">B.         CONDICIONES O RESTRICCIONES DE SUMINISTRO Y USO</span></b></p><p class="MsoNormal" style="margin-right:70.8pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="C.         OTRAS CONDICIONES Y REQUISITOS DE LA AUTORIZACIÓN DE COMERCIALIZACIÓN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.95pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-35.4pt"><b><span lang="ES">C.         OTRAS CONDICIONES Y REQUISITOS DE LA AUTORIZACIÓN DE COMERCIALIZACIÓN</span></b></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.95pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-35.4pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="D.         CONDICIONES O RESTRICCIONES EN RELACIÓN CON LA UTILIZACIÓN SEGURA Y EFICAZ DEL MEDICAMENTO"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.95pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt;text-indent:-35.4pt"><b><span lang="ES">D.         CONDICIONES O RESTRICCIONES EN RELACIÓN CON LA UTILIZACIÓN SEGURA Y EFICAZ DEL MEDICAMENTO</span></b></p><p class="MsoNormal" style="margin-top:0in;margin-right:77.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-35.4pt"><span lang="ES"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt"><span lang="ES"> </span></p><p class="MsoNormal" style="margin-right:-.05pt"><span lang="ES"> </span></p><b><span lang="ES" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span></b><span lang="ES" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="A.       FABRICANTE(S) RESPONSABLE(S) DE LA LIBERACIÓN DE LOS LOTES"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleB"><span lang="ES">A.       FABRICANTE(S) RESPONSABLE(S) DE LA LIBERACIÓN DE LOS LOTES</span></p><p class="MsoNormal" style="margin-right:70.8pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Nombre y dirección del (de los) fabricante(s) responsable(s) de la liberación de los lotes"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><u><span lang="ES">Nombre y dirección del (de los) fabricante(s) responsable(s) de la liberación de los lotes</span></u></p><p class="MsoNormal"><span lang="ES"> </span></p><p class="MsoNormal">Almac Pharma Services (Ireland) Limited</p><p class="MsoNormal">Finnabair Industrial Estate</p><p class="MsoNormal">Dundalk</p><p class="MsoNormal">Co. Louth</p><p class="MsoNormal"><span lang="EN-GB">A91 P9KD</span></p><p class="MsoNormal"><span lang="PT">Irlanda</span></p><p class="MsoNormal"><span lang="PT"> </span></p><p class="MsoNormal"><span lang="PT">Almac Pharma Services Ltd.</span></p><p class="MsoNormal"><span lang="ES">Seagoe Industrial Estate</span></p><p class="MsoNormal"><span lang="ES">Craigavon</span></p><p class="MsoNormal"><span lang="ES">Co. Armagh BT63 5UA</span></p><p class="MsoNormal"><span lang="ES">Reino Unido</span></p><p class="MsoNormal"><span lang="ES"> </span></p><p class="MsoNormal"><span lang="ES">El prospecto impreso del medicamento debe especificar el nombre y dirección del fabricante responsable de la liberación del lote en cuestión.</span></p><p class="MsoNormal"><span lang="ES"> </span></p><p class="MsoNormal"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="B.       CONDICIONES O RESTRICCIONES DE SUMINISTRO Y USO"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleB"><span lang="ES">B.       CONDICIONES O RESTRICCIONES DE SUMINISTRO Y USO</span></p><p class="MsoNormal"><span lang="ES"> </span></p><p class="MsoNormal"><span lang="ES">Medicamento sujeto a prescripción médica restringida (ver Anexo I: Ficha Técnica o Resumen de las Características del Producto, sección 4.2).</span></p><p class="MsoNormal"><span lang="ES"> </span></p><p class="MsoNormal"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="C.       OTRAS CONDICIONES Y REQUISITOS DE LA AUTORIZACIÓN DE COMERCIALIZACIÓN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleB"><span lang="ES">C.       OTRAS CONDICIONES Y REQUISITOS DE LA AUTORIZACIÓN DE COMERCIALIZACIÓN</span></p><p class="MsoNormal" style="margin-right:28.35pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·             Informes periódicos de seguridad (IPSs)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-27.0pt;line-height: 13.0pt"><span lang="ES" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="ES">Informes periódicos de seguridad (IPSs)</span></b></p><p class="MsoNormal" style="margin-right:28.35pt"><span lang="ES"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="ES">Los requerimientos para la presentación de los IPSs para este medicamento se establecen en la lista de fechas de referencia de la Unión (lista EURD) prevista en el artículo 107quater, apartado 7, de la Directiva 2001/83/CE y cualquier actualización posterior publicada en el portal web europeo sobre medicamentos.</span></p><p class="MsoNormal" style="margin-right:-.05pt"><u><span lang="ES"><span style="text-decoration:none"> </span></span></u></p><p class="MsoNormal" style="margin-right:-.05pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="D.       CONDICIONES O RESTRICCIONES EN RELACIÓN CON LA UTILIZACIÓN SEGURA Y EFICAZ DEL MEDICAMENTO"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleB"><span lang="ES">D.       CONDICIONES O RESTRICCIONES EN RELACIÓN CON LA UTILIZACIÓN SEGURA Y EFICAZ DEL MEDICAMENTO</span></p><p class="MsoNormal" style="margin-right:-.05pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·             Plan de gestión de riesgos (PGR)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:27.0pt;margin-bottom:.0001pt;text-indent:-27.0pt;line-height: 13.0pt"><span lang="ES" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="ES">Plan de gestión de riesgos (PGR)</span></b></p><p class="NormalAgency"><span lang="ES" style='font-family:"Times New Roman",serif'> </span></p><p class="NormalAgency"><span lang="ES" style='font-family:"Times New Roman",serif'>El titular de la autorización de comercialización (TAC) realizará las actividades e intervenciones de farmacovigilancia necesarias según lo acordado en la versión del PGR incluido en el Módulo 1.8.2. de la autorización de comercialización y en cualquier actualización del PGR que se acuerde posteriormente.</span></p><p class="NormalAgency"><span lang="ES" style='font-family:"Times New Roman",serif'> </span></p><p class="MsoNormal" style="margin-right:-.05pt"><span lang="ES">Se debe presentar un PGR actualizado:</span></p><ul style="margin-top:0in" type="disc"> <li class="MsoNormal" style="margin-right:-.05pt;line-height:13.0pt"><span lang="ES">A petición de la Agencia Europea de Medicamentos.</span></li> <li class="MsoNormal" style="margin-right:-.05pt;line-height:13.0pt"><span lang="ES">Cuando se modifique el sistema de gestión de riesgos,      especialmente como resultado de nueva información disponible que pueda      conllevar cambios relevantes en el perfil beneficio/riesgo, o como      resultado de la consecución de un hito importante (farmacovigilancia o      minimización de riesgos).</span></li> </ul><li class="MsoNormal" style="margin-right:-.05pt;line-height:13.0pt"><span lang="ES">A petición de la Agencia Europea de Medicamentos.</span></li><span lang="ES">A petición de la Agencia Europea de Medicamentos.</span><li class="MsoNormal" style="margin-right:-.05pt;line-height:13.0pt"><span lang="ES">Cuando se modifique el sistema de gestión de riesgos,      especialmente como resultado de nueva información disponible que pueda      conllevar cambios relevantes en el perfil beneficio/riesgo, o como      resultado de la consecución de un hito importante (farmacovigilancia o      minimización de riesgos).</span></li><span lang="ES">Cuando se modifique el sistema de gestión de riesgos,      especialmente como resultado de nueva información disponible que pueda      conllevar cambios relevantes en el perfil beneficio/riesgo, o como      resultado de la consecución de un hito importante (farmacovigilancia o      minimización de riesgos).</span><p class="MsoNormal" style="margin-right:-.05pt"><span lang="ES"> </span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="·        Obligación de llevar a cabo medidas posautorización"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height: 13.0pt;page-break-after:avoid"><span lang="ES" style="font-family:Symbol">·<span style='font:7.0pt "Times New Roman"'> </span></span><b><span lang="ES">Obligación de llevar a cabo medidas posautorización</span></b></p><p class="MsoNormal" style="margin-right:-.05pt;page-break-after:avoid"><span lang="ES"> </span></p><p class="MsoNormal" style="margin-right:-.05pt;page-break-after:avoid"><span lang="ES">El TAC deberá llevar a cabo, dentro del plazo establecido, las siguientes medidas:</span></p><p class="BodytextAgency" style="margin-bottom:0in;line-height:normal;page-break-after: avoid"><span lang="ES" style='font-size:11.0pt;font-family:"Times New Roman",serif'> </span></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:5.4pt;border-collapse:collapse;border:none" width="613"> <thead> <tr> <td style="width:277.85pt;border:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt" valign="top" width="370"> <p class="MsoNormal" style="page-break-after:avoid"><b><span lang="ES">Descripción</span></b></p> </td> <td style="width:182.0pt;border:solid windowtext 1.0pt;    border-left:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="243"> <p class="MsoNormal" style="margin-right:-.05pt;page-break-after:avoid"><b><span lang="ES">Fecha límite</span></b></p> </td> </tr> </thead> <tr> <td style="width:277.85pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="370"> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES">Estudio de   eficacia a largo plazo para comparar la progresión de la enfermedad en niños   con FQ </span><span lang="ES">con una mutación específica </span><span lang="ES">de   apertura del canal de CFTR<i> </i>y </span><span lang="ES">una edad de 2 a   5 años en el momento de iniciar el tratamiento con </span><span lang="ES">Kalydeco   </span><span lang="ES">con la progresión de la enfermedad en una cohorte   simultánea ajustada de niños con FQ que nunca han recibido tratamiento con   Kalydeco.</span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES"> </span></p> </td> <td style="width:182.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="243"> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES">Análisis   parcial 1: diciembre de 2017</span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES"> </span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES">Análisis   parcial 2: diciembre de 2019</span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES"> </span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES">Análisis   parcial 3: diciembre de 2021</span></p> <p class="MsoNormal" style="page-break-after:avoid"><span lang="ES"> </span></p> <p class="documenttext" style="page-break-after:avoid"><span lang="ES">Informe   final: diciembre de 2023</span></p> </td> </tr> </table><b><span lang="ES" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span></b><span lang="ES" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				<!-- an entry that is a list of PMS Product references -->
+				<entry>
+					<fullUrl value="${instance.bundle[n].listFullUrlUuid}"/>
+					<resource>
+                        <List>
+							<!-- any id will do -->
+                        	<id value="${instance.bundle[n].listId}"/>
+							<status value="current"/>
+							<mode value="working"/>
+							<entry>
+								<item>
+									<reference value="${instance.product[n].url}"/>
+									<display value="${instance.product[n].name}"/>
+								</item>
+							</entry>
+						</List>
+					</resource>
+				</entry>
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

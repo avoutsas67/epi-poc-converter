@@ -1,0 +1,38 @@
+{
+    "en": {
+
+    
+        "CAP":{
+
+            "0": "SmPC",
+            "1": "AnnexII",
+            "2": "Labelling",
+            "3": "Package leaflet"
+        },
+        "NAP":{}
+
+    },
+    "de":{
+        "CAP":{
+
+            "0": "SmPC",
+            "1": "ANHANG II",
+            "2": "Etikettierung",
+            "3": "Packungsbeilage"
+        
+        },
+        "NAP":{}
+    },
+    "es":{
+        "CAP":{
+            
+            "0": "SmPC",
+            "1": "AnnexII",
+            "2": "Labelling",
+            "3": "Package leaflet"
+        
+        },
+        "NAP":{}
+    }
+
+}

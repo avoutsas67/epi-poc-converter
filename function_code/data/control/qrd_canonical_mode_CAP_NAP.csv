@@ -407,7 +407,7 @@
 405,11028,CAP,INDLÆGSSEDDEL,da,,Denne indlægsseddel blev senest ændret <{MM/ÅÅÅÅ}> <{måned ÅÅÅÅ}.>,11023.0,True,28
 406,11029,CAP,INDLÆGSSEDDEL,da,,Andre informationskilder,11023.0,False,29
 407,11030,CAP,INDLÆGSSEDDEL,da,,Nedenstående oplysninger er til læger og sundhedspersonale:,11001.0,False,30
-408,12001,CAP,SmPC,de,,SUMMARY OF PRODUCT CHARACTERISTICS,,True,1
+408,12001,CAP,SmPC,de,,ZUSAMMENFASSUNG DER MERKMALE DES ARZNEIMITTELS,,True,1
 409,12002,CAP,SmPC,de,,"Dieses Arzneimittel unterliegt einer zusätzlichen Überwachung. Dies ermöglicht eine schnelle Identifizierung neuer Erkenntnisse über die Sicherheit. Angehörige von Gesundheitsberufen sind aufgefordert, jeden Verdachtsfall einer Nebenwirkung zu melden. Hinweise zur Meldung von Nebenwirkungen, siehe Abschnitt 4.8.",12001.0,False,2
 410,12003,CAP,SmPC,de,1,BEZEICHNUNG DES ARZNEIMITTELS,12001.0,True,3
 411,12004,CAP,SmPC,de,2,QUALITATIVE UND QUANTITATIVE ZUSAMMENSETZUNG,12001.0,True,4
@@ -481,7 +481,7 @@
 479,13012,CAP,ANHANG II,de,,Verpflichtung zur Durchführung von Maßnahmen nach der Zulassung ,13009.0,False,12
 480,13013,CAP,ANHANG II,de,E,SPEZIFISCHE VERPFLICHTUNG ZUM ABSCHLUSS VON MASSNAHMEN NACH DER ZULASSUNG <UNTER „BESONDEREN BEDINGUNGEN“> <UNTER „AUSSERGEWÖHNLICHEN UMSTÄNDEN“,13001.0,False,13
 481,14001,CAP,Etikettierung,de,,ETIKETTIERUNG ,,True,1
-482,14002,CAP,Etikettierung,de,,ANGABEN <AUF DER ÄUSSEREN UMHÜLLUNG> <UND> <AUF DEM BEHÄLTNIS>,14001.0,True,2
+482,14002,CAP,Etikettierung,de,,ANGABEN <AUF DER ÄUSSEREN UMHÜLLUNG> <UND> <AUF DEM BEHÄLTNIS> <AUF DER ZWISCHENVERPACKUNG>,14001.0,True,2
 483,14003,CAP,Etikettierung,de,1,BEZEICHNUNG DES ARZNEIMITTELS,14002.0,True,3
 484,14004,CAP,Etikettierung,de,2,WIRKSTOFF(E),14002.0,True,4
 485,14005,CAP,Etikettierung,de,3,SONSTIGE BESTANDTEILE,14002.0,True,5
@@ -949,7 +949,7 @@
 944,27023,CAP,Package leaflet,es,6,Contenido del envase e información adicional,27001.0,True,23
 945,27024,CAP,Package leaflet,es,,Composición de X ,27023.0,True,24
 946,27025,CAP,Package leaflet,es,,Aspecto del producto y contenido del envase,27023.0,True,25
-947,27026,CAP,Package leaflet,es,,Titular de la autorización de comercialización y responsable de la fabricación,27023.0,True,26
+947,27026,CAP,Package leaflet,es,,Titular de la autorización de comercialización <y responsable de la fabricación>,27023.0,True,26
 948,27027,CAP,Package leaflet,es,,Pueden solicitar más información respecto a este medicamento dirigiéndose al representante local del titular de la autorización de comercialización:,27023.0,False,27
 949,27028,CAP,Package leaflet,es,,Fecha de la última revisión de este prospecto: <{MM/AAAA}><{mes AAAA}>.,27023.0,True,28
 950,27029,CAP,Package leaflet,es,,Otras fuentes de información,27023.0,False,29
@@ -1979,7 +1979,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 1973,57010,CAP,AnnexII,lt,,Rizikos valdymo planas (RVP),57009.0,True,10
 1974,57011,CAP,AnnexII,lt,,Papildomos rizikos mažinimo priemonės,57009.0,False,11
 1975,57012,CAP,AnnexII,lt,,Įpareigojimas vykdyti poregistracines užduotis ,57009.0,False,12
-1976,57013,CAP,AnnexII,en,E,SPECIFINIS ĮPAREIGOJIMAS ĮVYKDYTI POREGISTRACINES UŽDUOTIS <SĄLYGINĖS REGISTRACIJOS ATVEJU> <REGISTRACIJOS IŠIMTINĖMIS SĄLYGOMIS ATVEJU,57001.0,False,13
+1976,57013,CAP,AnnexII,lt,E,SPECIFINIS ĮPAREIGOJIMAS ĮVYKDYTI POREGISTRACINES UŽDUOTIS <SĄLYGINĖS REGISTRACIJOS ATVEJU> <REGISTRACIJOS IŠIMTINĖMIS SĄLYGOMIS ATVEJU,57001.0,False,13
 1977,58001,CAP,Labelling,lt,,ŽENKLINIMAS,,True,1
 1978,58002,CAP,Labelling,lt,,INFORMACIJA ANT <IŠORINĖS> <IR> <VIDINĖS> PAKUOTĖS,58001.0,True,2
 1979,58003,CAP,Labelling,lt,1,VAISTINIO PREPARATO PAVADINIMAS,58002.0,True,3
@@ -2523,7 +2523,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 2517,73010,CAP,AnnexII,no,,Risikohåndteringsplan (RMP),73009.0,True,10
 2518,73011,CAP,AnnexII,no,,Andre risikominimeringsaktiviteter,73009.0,False,11
 2519,73012,CAP,AnnexII,no,,Forpliktelse til å utføre tiltak etter autorisasjon,73009.0,False,12
-2520,73013,CAP,AnnexII,en,E,SPESIFIKK FORPLIKTELSE TIL Å FULLFØRE TILTAK ETTER AUTORISASJON FOR <DEN BETINGEDE MARKEDSFØRINGSTILLATELSEN> <MARKEDSFØRINGSTILLATELSEN GITT PÅ SÆRSKILT GRUNNLAG>,73001.0,False,13
+2520,73013,CAP,AnnexII,no,E,SPESIFIKK FORPLIKTELSE TIL Å FULLFØRE TILTAK ETTER AUTORISASJON FOR <DEN BETINGEDE MARKEDSFØRINGSTILLATELSEN> <MARKEDSFØRINGSTILLATELSEN GITT PÅ SÆRSKILT GRUNNLAG>,73001.0,False,13
 2521,74001,CAP,Labelling,no,,MERKING,,True,1
 2522,74002,CAP,Labelling,no,,OPPLYSNINGER SOM SKAL ANGIS PÅ <YTRE EMBALLASJE><OG> <INDRE EMBALLASJE>,74001.0,True,2
 2523,74003,CAP,Labelling,no,1,LEGEMIDLETS NAVN,74002.0,True,3
@@ -3203,7 +3203,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3197,93010,CAP,AnnexII,sk,,Plán riadenia rizík (RMP),93009.0,True,10
 3198,93011,CAP,AnnexII,sk,,Nadstavbové opatrenia na minimalizáciu rizika,93009.0,False,11
 3199,93012,CAP,AnnexII,sk,,Povinnosť vykonať postregistračné opatrenia,93009.0,False,12
-3200,93013,CAP,AnnexII,en,E,OSOBITNÉ POŽIADAVKY NA SPLNENIE POSTREGISTRAČNÝCH OPATRENÍ <PRI REGISTRÁCII S PODMIENKOU> <PRI REGISTRÁCII ZA MIMORIADNYCH OKOLNOSTÍ>,93001.0,False,13
+3200,93013,CAP,AnnexII,sk,E,OSOBITNÉ POŽIADAVKY NA SPLNENIE POSTREGISTRAČNÝCH OPATRENÍ <PRI REGISTRÁCII S PODMIENKOU> <PRI REGISTRÁCII ZA MIMORIADNYCH OKOLNOSTÍ>,93001.0,False,13
 3201,94001,CAP,Labelling,sk,,OZNAČENIE OBALU,,True,1
 3202,94002,CAP,Labelling,sk,,"ÚDAJE, KTORÉ MAJÚ BYŤ UVEDENÉ NA <VONKAJŠOM OBALE> <A> <VNÚTORNOM OBALE>",94001.0,True,2
 3203,94003,CAP,Labelling,sk,1,NÁZOV LIEKU,94002.0,True,3
@@ -3339,7 +3339,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3333,97010,CAP,AnnexII,sl,,Načrt za obvladovanje tveganj (RMP),97009.0,True,10
 3334,97011,CAP,AnnexII,sl,,Dodatni ukrepi za zmanjševanje tveganj,97009.0,False,11
 3335,97012,CAP,AnnexII,sl,,Obveznost izvedbe ukrepov po pridobitvi dovoljenja za promet,97009.0,False,12
-3336,97013,CAP,AnnexII,en,E,SPECIFIČNE ZAHTEVE ZA IZPOLNITEV UKREPOV PO PRIDOBITVI <POGOJNEGA DOVOLJENJA ZA PROMET Z ZDRAVILOM> <DOVOLJENJA ZA PROMET Z ZDRAVILOM V IZJEMNIH OKOLIŠČINAH,97001.0,False,13
+3336,97013,CAP,AnnexII,sl,E,SPECIFIČNE ZAHTEVE ZA IZPOLNITEV UKREPOV PO PRIDOBITVI <POGOJNEGA DOVOLJENJA ZA PROMET Z ZDRAVILOM> <DOVOLJENJA ZA PROMET Z ZDRAVILOM V IZJEMNIH OKOLIŠČINAH,97001.0,False,13
 3337,98001,CAP,Labelling,sl,,OZNAČEVANJE,,True,1
 3338,98002,CAP,Labelling,sl,,PODATKI NA <ZUNANJI OVOJNINI> <IN> <PRIMARNI OVOJNINI>,98001.0,True,2
 3339,98003,CAP,Labelling,sl,1,IME ZDRAVILA,98002.0,True,3
@@ -3766,7 +3766,7 @@ A mellékhatások jelentésének módjairól a 4. pont végén (Mellékhatások 
 3760,108028,NAP,INDLÆGSSEDDEL,da,,Denne indlægsseddel blev senest ændret <{MM/ÅÅÅÅ}> <{måned ÅÅÅÅ}.>,108023.0,True,28
 3761,108029,NAP,INDLÆGSSEDDEL,da,,Andre informationskilder,108023.0,False,29
 3762,108030,NAP,INDLÆGSSEDDEL,da,,Nedenstående oplysninger er til læger og sundhedspersonale:,108001.0,False,30
-3763,109001,NAP,SmPC,de,,SUMMARY OF PRODUCT CHARACTERISTICS,,True,1
+3763,109001,NAP,SmPC,de,,ZUSAMMENFASSUNG DER MERKMALE DES ARZNEIMITTELS,,True,1
 3764,109002,NAP,SmPC,de,,"Dieses Arzneimittel unterliegt einer zusätzlichen Überwachung. Dies ermöglicht eine schnelle Identifizierung neuer Erkenntnisse über die Sicherheit. Angehörige von Gesundheitsberufen sind aufgefordert, jeden Verdachtsfall einer Nebenwirkung zu melden. Hinweise zur Meldung von Nebenwirkungen, siehe Abschnitt 4.8.",109001.0,False,2
 3765,109003,NAP,SmPC,de,1,BEZEICHNUNG DES ARZNEIMITTELS,109001.0,True,3
 3766,109004,NAP,SmPC,de,2,QUALITATIVE UND QUANTITATIVE ZUSAMMENSETZUNG,109001.0,True,4

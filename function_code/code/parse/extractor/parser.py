@@ -406,10 +406,12 @@ class parserExtractor:
 
             ## Process images
             body_with_embedded_imgs = self.attachImgUriToHtml(soup.body, img_base64_dict)
-            # if(body_with_embedded_imgs):
-            #     dom_elements=body_with_embedded_imgs.find_all(True)   
-            # else:
-            dom_elements=soup.body.find_all(True) 
+            
+            if(body_with_embedded_imgs):
+                dom_elements=body_with_embedded_imgs.find_all(True)   
+            else:
+                dom_elements=soup.body.find_all(True) 
+            
             css_in_style = str(soup.style)
             css_in_style = self.cleanCssString(css_in_style)
             class_style_dict = self.parseClassesInStyle(css_in_style)
