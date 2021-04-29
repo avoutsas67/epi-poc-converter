@@ -707,6 +707,241 @@
                     "jaroWinklerSimCut": 0.3
                 }
             }
+        },
+        "bg": {
+            "0": {
+                "checkLowerCase": {
+                    "checkLowerCase": 0,
+                    "damLevenDistProb": 10,
+                    "minFuzzyScore_r": 90,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.90
+                },
+                "<=1": {
+                    "<=1": 0,
+                    "damLevenDistProb": 30,
+                    "minFuzzyScore_r": 80,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.80
+                },
+                "<=4": {
+                    "<=4": 0,
+                    "damLevenDistProb": 25,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.85
+                },
+                "<=7": {
+                    "<=7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.90
+                },
+                ">7": {
+                    ">7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 90,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.95
+                },
+                "SpecialCase1": {
+                    "SpecialCase1": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 40,
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 75,
+                    "jaroWinklerSimCut": 0.60
+                },
+                "SpecialCase2": {
+                    "SpecialCase2": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 50,
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 80,
+                    "jaroWinklerSimCut": 0.60
+                },
+                "Contains<>": {}
+            },
+            "1": {
+                "checkLowerCase": {
+                    "checkLowerCase": 0,
+                    "damLevenDistProb": 70,
+                    "minFuzzyScore_r": 70,
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.80
+                },
+                "<=1": {
+                    "<=1": 0,
+                    "damLevenDistProb": 30,
+                    "minFuzzyScore_r": 80,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.80
+                },
+                "<=4": {
+                    "<=4": 0,
+                    "damLevenDistProb": 25,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.85
+                },
+                "<=7": {
+                    "<=7": 0,
+                    "damLevenDistProb": 50,
+                    "minFuzzyScore_r": 75,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.80
+                },
+                ">7": {
+                    ">7": 0,
+                    "damLevenDistProb": 150,
+                    "minFuzzyScore_r": 50,
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 70,
+                    "jaroWinklerSimCut": 0.55
+                },
+                "Contains<>": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 40,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 70,
+                    "jaroWinklerSimCut": 0.65
+                }
+            },
+            "2": {
+                "checkLowerCase": {
+                    "checkLowerCase": 0,
+                    "damLevenDistProb":200,
+                    "minFuzzyScore_r": 60,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.85
+                },
+                "<=1": {
+                    "<=1": 0,
+                    "damLevenDistProb": 30,
+                    "minFuzzyScore_r": 80,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.80
+                },
+                "<=4": {
+                    "<=4": 0,
+                    "damLevenDistProb": 25,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.85
+                },
+                "<=7": {
+                    "<=7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.90
+                },
+                ">7": {
+                    ">7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 90,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.90
+                },
+                "Contains<>": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 40,
+                    "minFuzzyScore_wr": 80,
+                    "minFuzzyScore_pr": 65,
+                    "jaroWinklerSimCut": 0.60
+                }
+            },
+            "3": {
+                "checkLowerCase": {
+                    "checkLowerCase": 0,
+                    "damLevenDistProb": 10,
+                    "minFuzzyScore_r": 90,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.90
+                },
+                "<=1": {
+                    "<=1": 0,
+                    "damLevenDistProb": 30,
+                    "minFuzzyScore_r": 80,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.80
+                },
+                "<=4": {
+                    "<=4": 0,
+                    "damLevenDistProb": 25,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 90,
+                    "jaroWinklerSimCut": 0.85
+                },
+                "<=7": {
+                    "<=7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 85,
+                    "minFuzzyScore_wr": 85,
+                    "minFuzzyScore_pr": 85,
+                    "jaroWinklerSimCut": 0.90
+                },
+                ">7": {
+                    ">7": 0,
+                    "damLevenDistProb": 20,
+                    "minFuzzyScore_r": 90,
+                    "minFuzzyScore_wr": 90,
+                    "minFuzzyScore_pr": 95,
+                    "jaroWinklerSimCut": 0.90
+                },
+                "Contains<>": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 60,
+                    "minFuzzyScore_wr": 73,
+                    "minFuzzyScore_pr": 70,
+                    "jaroWinklerSimCut": 0.7
+                },
+                "SpecialCase1": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 500,
+                    "minFuzzyScore_r": 30,
+                    "minFuzzyScore_wr": 60,
+                    "minFuzzyScore_pr": 60,
+                    "jaroWinklerSimCut": 0.30
+                },
+                "SpecialCase2": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 300,
+                    "minFuzzyScore_r": 50,
+                    "minFuzzyScore_wr": 60,
+                    "minFuzzyScore_pr": 60,
+                    "jaroWinklerSimCut": 0.69
+                },
+                "SpecialCase3": {
+                    "Contains<>": 0,
+                    "damLevenDistProb": 500,
+                    "minFuzzyScore_r": 25,
+                    "minFuzzyScore_wr": 60,
+                    "minFuzzyScore_pr": 70,
+                    "jaroWinklerSimCut": 0.3
+                }
+            }
         }
     }
 }

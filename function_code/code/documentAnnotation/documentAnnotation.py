@@ -20,7 +20,6 @@ class MissingKeyValuePair(Exception):
 class IncorrectReference(Exception):
     pass
 
-
 class DocumentAnnotation:
 
     def __init__(self, fileName, subscriptionKey, apiMgmtApiBaseUrl, dfHtml, matchCollection):
@@ -349,7 +348,7 @@ class DocumentAnnotation:
 
         self.finalOutputDict = {}
         
-        self.finalOutputDict['Author Value'] = self.finalOutputDict[0][0]
-        self.finalOutputDict['Medicinal Product Definitions'] = self.finalOuput
+        self.finalOutputDict['Author Value'] = self.uniqueFinalOutput[0][0]
+        self.finalOutputDict['Medicinal Product Definitions'] = [(entry[1],entry[2]) for entry in self.uniqueFinalOutput]
 
         return self.finalOutputDict

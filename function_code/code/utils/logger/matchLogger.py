@@ -54,7 +54,9 @@ class MatchLogger():
                         }
 
         properties  = {'custom_dimensions': customDimension}
-
+        
+        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc}"
+        message = message + extraMessage
         self.logger.info(message, extra = properties)
 
     
@@ -66,31 +68,41 @@ class MatchLogger():
                                 'Procedure Type': self.procedureType,
                                 'Lanaguage Code': self.languageCode,
                                 'Document Type': self.documentType,
-                                'Document Text': htmlText,
-                                'Qrd Text': qrdText,
-                                'Status': status,
+                                'Document Text': str(htmlText),
+                                'Qrd Text': str(qrdText),
+                                'Status': str(status),
                                 }
 
         properties  = {'custom_dimensions': customDimensionMatch}
+
+        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | Doc txt :- '{str(htmlText)}' | Qrd txt :- '{str(qrdText)}' | Matched :- '{str(status)}'"
+        message = message + extraMessage
 
         self.logger.info(message, extra = properties)
 
 
     def logValidateCheckpoint(self, message, currentHeadingRow, previousHeadingFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, status):
-
         
+        currentHeadingRow = currentHeadingRow[['id','Name','parent_id','heading_id']].to_dict() if currentHeadingRow is not None else ""
+        previousHeadingFound = previousHeadingFound[['id','Name','parent_id','heading_id']].to_dict() if previousHeadingFound is not None else ""
+        previousH1HeadingRowFound = previousH1HeadingRowFound[['id','Name','parent_id','heading_id']].to_dict() if previousH1HeadingRowFound is not None else ""
+        previousH2HeadingRowFound = previousH2HeadingRowFound[['id','Name','parent_id','heading_id']].to_dict() if previousH2HeadingRowFound is not None else ""
+
         customDimensionValidate = {
                                 'Document File Name': self.fileNameDoc,
                                 'Procedure Type': self.procedureType,
                                 'Lanaguage Code': self.languageCode,
                                 'Document Type': self.documentType,
-                                'Current Heading': currentHeadingRow,
-                                'Previous Heading Found': previousHeadingFound,
-                                'Previous H1 Heading Found': previousH1HeadingRowFound,
-                                'Previous H2 Heading Found': previousH2HeadingRowFound,
-                                'Status': status,
+                                'Current Heading': str(currentHeadingRow),
+                                'Previous Heading Found': str(previousHeadingFound),
+                                'Previous H1 Heading Found': str(previousH1HeadingRowFound),
+                                'Previous H2 Heading Found': str(previousH2HeadingRowFound),
+                                'Status': str(status),
                                 }
 
         properties  = {'custom_dimensions': customDimensionValidate}
 
+        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | currHeadId :- '{str(currentHeadingRow['id'])}' | currParentHeadId :- '{str(currentHeadingRow['parent_id'])}' | prevParentHeadId :- '{str(previousHeadingFound['id'])}'"
+        message = message + extraMessage
+        
         self.logger.info(message, extra = properties)

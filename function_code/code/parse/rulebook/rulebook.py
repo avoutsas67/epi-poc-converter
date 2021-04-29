@@ -79,7 +79,7 @@ class StyleRulesDictionary:
             ## Get text for PACKAGE LEAFLET in current language
             heading_text = text_with_heading_id_one[1]
 
-            self.qrd_section_headings.append('B. '+ heading_text)
+            self.qrd_section_headings.append('Б.'+ heading_text)
             for heading in self.qrd_section_headings:
                 heading = heading.encode(encoding='utf-8').decode()
             self.logger.debug(('Qrd Section Keys Generated: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
