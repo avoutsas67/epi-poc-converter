@@ -179,11 +179,12 @@ class MatchDocument():
         return qrd_str
 
     def updatedParentId(self, currentHeadingRow, previousHeadingRowFound, collectionFoundHeadings, subSectionIndex, dfQrd):
-
-
-        if currentHeadingRow['parent_id'] == "":
+        
+        if pd.isna(currentHeadingRow['parent_id']):
+            #print("here1")
             return ""
         if previousHeadingRowFound is None:
+            #print("here2")
             if subSectionIndex > 0:
                 return currentHeadingRow['parent_id']
             else:
@@ -384,6 +385,7 @@ class MatchDocument():
                                         elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
                                             pass
                                         else:
+                                            #print("")
                                             validated = False
                                             print(
                                                 "----------------------------------")

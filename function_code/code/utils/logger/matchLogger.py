@@ -102,7 +102,7 @@ class MatchLogger():
 
         properties  = {'custom_dimensions': customDimensionValidate}
 
-        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | currHeadId :- '{str(currentHeadingRow['id'])}' | currParentHeadId :- '{str(currentHeadingRow['parent_id'])}' | prevParentHeadId :- '{str(previousHeadingFound['id'])}'"
+        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | currHeadId :- '{str(currentHeadingRow['id']) if currentHeadingRow != '' else ''}' | currParentHeadId :- '{str(currentHeadingRow['parent_id']) if currentHeadingRow != '' else ''}' | prevParentHeadId :- '{str(previousHeadingFound['id']) if previousHeadingFound != '' else ''}'"
         message = message + extraMessage
         
         self.logger.info(message, extra = properties)
