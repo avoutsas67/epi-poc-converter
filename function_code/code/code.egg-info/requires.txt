@@ -1,0 +1,7 @@
+opencensus-ext-azure
+jellyfish
+pandas
+jinja2
+beautifulsoup4
+nltk
+fuzzywuzzy
