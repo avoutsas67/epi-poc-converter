@@ -4,8 +4,8 @@ import jellyfish
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize 
-from jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
-from htmlParsingUtils import createDomEleData, createPIJsonFromHTML
+from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
+from scripts.htmlParsingUtils import createDomEleData, createPIJsonFromHTML
 from collections import defaultdict
 from bs4 import BeautifulSoup
 import numpy as np
