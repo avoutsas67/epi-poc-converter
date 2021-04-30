@@ -1,0 +1,94 @@
+0. Original
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN-GB>2.       QUALITATIVE AND QUANTITATIVE COMPOSITION</span></b></p>
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>Each mL
+contains 100&nbsp;units insulin glargine* (equivalent to 3.64&nbsp;mg). </span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>Each cartridge contains 3&nbsp;mL of solution for injection,
+equivalent to 300&nbsp;units. </span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>For the full list of excipients, see section 6.1.</span></p>
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+
+1. Remove heading (remove first paragraph)
+
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>Each mL
+contains 100&nbsp;units insulin glargine* (equivalent to 3.64&nbsp;mg). </span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>Each cartridge contains 3&nbsp;mL of solution for injection,
+equivalent to 300&nbsp;units. </span></p>
+<p style='margin:0cm'><span lang=EN-GB style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span
+lang=EN-GB>For the full list of excipients, see section 6.1.</span></p>
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB>&nbsp;</span></p>
+
+2. Remove lang (if equal to document languange) - otherwise output error
+
+<p class=MsoNormal style='line-height:normal'><span>&nbsp;</span></p>
+<p style='margin:0cm'><span style='font-size:11.0pt'>Each mL contains 100&nbsp;units insulin glargine* (equivalent to 3.64&nbsp;mg). </span></p>
+<p style='margin:0cm'><span style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span>Each cartridge contains 3&nbsp;mL of solution for injection, equivalent to 300&nbsp;units. </span></p>
+<p style='margin:0cm'><span style='font-size:11.0pt'>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal;text-autospace:none'><span>For the full list of excipients, see section 6.1.</span></p>
+<p class=MsoNormal style='line-height:normal'><span>&nbsp;</span></p>
+<p class=MsoNormal style='line-height:normal'><span>&nbsp;</span></p>
+
+3. Determine resultant styling of paragraph (include class) and remove unnecessary styling
+
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+
+<p><span>&nbsp;</span></p>
+<p><span>Each mL contains 100&nbsp;units insulin glargine* (equivalent to 3.64&nbsp;mg). </span></p>
+<p><span>&nbsp;</span></p>
+<p><span>Each cartridge contains 3&nbsp;mL of solution for injection, equivalent to 300&nbsp;units. </span></p>
+<p><span>&nbsp;</span></p>
+<p><span>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </span></p>
+<p><span>&nbsp;</span></p>
+<p><span>For the full list of excipients, see section 6.1.</span></p>
+<p><span>&nbsp;</span></p>
+<p><span>&nbsp;</span></p>
+
+3. Simplify DOM
+
+<p>&nbsp;</p>
+<p>Each mL contains 100&nbsp;units insulin glargine* (equivalent to 3.64&nbsp;mg). </p>
+<p>&nbsp;</p>
+<p>Each cartridge contains 3&nbsp;mL of solution for injection, equivalent to 300&nbsp;units. </p>
+<p>&nbsp;</p>
+<p>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </p>
+<p>&nbsp;</p>
+<p>For the full list of excipients, see section 6.1.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+5. Cleanup text (replace &nbsp; if not in empty paragraph), remove leading/trailing empty paragraphs
+
+<p>Each mL contains 100 units insulin glargine* (equivalent to 3.64 mg). </p>
+<p>&nbsp;</p>
+<p>Each cartridge contains 3 mL of solution for injection, equivalent to 300 units. </p>
+<p>&nbsp;</p>
+<p>*produced by recombinant DNA technology in <i>Escherichia coli</i>. </p>
+<p>&nbsp;</p>
+<p>For the full list of excipients, see section 6.1.</p>
