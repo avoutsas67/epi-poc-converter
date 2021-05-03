@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: code
+Version: 20210427-215121
+Summary: Document Parser
+Home-page: UNKNOWN
+Author: Vipul Sharma
+Author-email: vipsharm@microsoft.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: ~=3.7.3
+Description-Content-Type: text/markdown

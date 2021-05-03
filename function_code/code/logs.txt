@@ -448,3 +448,69 @@
 2021-04-27 17:27:53,485 : ExtractContentBetween_b : Finished Extracting Content Between Headings
 2021-04-27 17:27:53,857 : XmlGeneration_Z : Initiating XML Generation
 2021-04-27 17:27:55,649 : XmlGeneration_Z : Writing to File:emea-combined-h-2494-de_SmPC.xml
+2021-04-27 22:02:46,368 : ExtractContentBetween_A : Cleaning Match Results
+2021-04-27 22:02:46,371 : ExtractContentBetween_A : Finished Cleaning Match Results
+2021-04-27 22:02:46,412 : ExtractContentBetween_A : Extracting Content Between Headings
+2021-04-27 22:02:46,431 : ExtractContentBetween_A : Finished Extracting Content Between Headings
+2021-04-29 15:53:44,089 : ExtractContentBetween_S : Cleaning Match Results
+2021-04-29 15:53:44,095 : ExtractContentBetween_S : Finished Cleaning Match Results
+2021-04-29 15:53:44,149 : ExtractContentBetween_S : Extracting Content Between Headings
+2021-04-29 15:53:44,186 : ExtractContentBetween_S : Finished Extracting Content Between Headings
+2021-04-29 20:58:26,641 : Style Dictionary_j : Creating default style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 20:58:32,692 : Parser_F : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\bg\emea-combined-h-2494-bg.json
+2021-04-29 21:00:36,672 : Style Dictionary_q : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:00:43,405 : Parser_Q : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\bg\emea-combined-h-2494-bg.json
+2021-04-29 21:01:16,216 : Style Dictionary_w : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:01:16,264 : Partition_u : Partitioning Json: emea-combined-h-2494-bg.json
+2021-04-29 21:01:16,550 : Partition_u : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\bg\emea-combined-h-2494-bg_SmPC.json
+2021-04-29 21:03:57,779 : Style Dictionary_h : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:04:03,031 : Parser_K : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\bg\emea-combined-h-2494-bg.json
+2021-04-29 21:07:39,634 : Style Dictionary_Z : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:07:49,083 : Parser_F : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\bg\emea-combined-h-2494-bg.json
+2021-04-29 21:07:49,083 : Parser_F : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\bg\emea-combined-h-2494-bg.json
+2021-04-29 21:07:49,735 : Style Dictionary_0 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:07:49,777 : Partition_I : Partitioning Json: emea-combined-h-2494-bg.json
+2021-04-29 21:07:50,111 : Partition_I : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\bg\emea-combined-h-2494-bg_SmPC.json
+2021-04-29 21:12:07,544 : ExtractContentBetween_V : Cleaning Match Results
+2021-04-29 21:12:07,548 : ExtractContentBetween_V : Finished Cleaning Match Results
+2021-04-29 21:12:07,643 : ExtractContentBetween_V : Extracting Content Between Headings
+2021-04-29 21:12:07,673 : ExtractContentBetween_V : Finished Extracting Content Between Headings
+2021-04-29 21:39:46,621 : ExtractContentBetween_D : Cleaning Match Results
+2021-04-29 21:39:46,625 : ExtractContentBetween_D : Finished Cleaning Match Results
+2021-04-29 21:39:46,634 : ExtractContentBetween_D : Extracting Content Between Headings
+2021-04-29 21:39:46,638 : ExtractContentBetween_D : Finished Extracting Content Between Headings
+2021-04-29 21:50:27,090 : Style Dictionary_O : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:50:33,028 : Style Dictionary_X : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:50:42,662 : Style Dictionary_9 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_bg.json
+2021-04-29 21:50:42,690 : Partition_e : Partitioning Json: emea-combined-h-2494-bg.json
+2021-04-29 21:50:42,917 : Partition_e : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\bg\emea-combined-h-2494-bg_SmPC.json
+2021-04-29 21:51:49,144 : ExtractContentBetween_t : Cleaning Match Results
+2021-04-29 21:51:49,150 : ExtractContentBetween_t : Finished Cleaning Match Results
+2021-04-29 21:51:49,158 : ExtractContentBetween_t : Extracting Content Between Headings
+2021-04-29 21:51:49,166 : ExtractContentBetween_t : Finished Extracting Content Between Headings
+2021-04-29 21:57:37,277 : ExtractContentBetween_i : Cleaning Match Results
+2021-04-29 21:57:37,286 : ExtractContentBetween_i : Finished Cleaning Match Results
+2021-04-29 21:57:37,300 : ExtractContentBetween_i : Extracting Content Between Headings
+2021-04-29 21:57:37,311 : ExtractContentBetween_i : Finished Extracting Content Between Headings
+2021-04-29 22:39:54,600 : ExtractContentBetween_w : Cleaning Match Results
+2021-04-29 22:39:54,612 : ExtractContentBetween_w : Finished Cleaning Match Results
+2021-04-29 22:39:54,687 : ExtractContentBetween_w : Extracting Content Between Headings
+2021-04-29 22:39:55,814 : ExtractContentBetween_w : Finished Extracting Content Between Headings
+2021-04-29 22:52:48,716 : ExtractContentBetween_c : Cleaning Match Results
+2021-04-29 22:52:48,721 : ExtractContentBetween_c : Finished Cleaning Match Results
+2021-04-29 22:52:48,744 : ExtractContentBetween_c : Extracting Content Between Headings
+2021-04-29 22:52:48,757 : ExtractContentBetween_c : Finished Extracting Content Between Headings
+2021-04-29 23:04:31,427 : Style Dictionary_P : Creating default style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_el.json
+2021-04-29 23:04:37,506 : Parser_X : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\el\emea-combined-h-2494-el.json
+2021-04-29 23:04:37,506 : Parser_X : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\el\emea-combined-h-2494-el.json
+2021-04-29 23:04:38,027 : Style Dictionary_r : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_el.json
+2021-04-29 23:04:38,074 : Partition_1 : Partitioning Json: emea-combined-h-2494-el.json
+2021-04-29 23:04:38,364 : Partition_1 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\el\emea-combined-h-2494-el_SmPC.json
+2021-04-29 23:06:14,068 : Style Dictionary_X : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_el.json
+2021-04-29 23:06:14,068 : Style Dictionary_X : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_el.json
+2021-04-29 23:06:19,722 : Parser_D : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\outputJSON\el\emea-combined-h-2494-el.json
+2021-04-29 23:06:32,901 : Style Dictionary_7 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\styleRules\rule_dictionary_el.json
+2021-04-29 23:06:32,938 : Partition_e : Partitioning Json: emea-combined-h-2494-el.json
+2021-04-29 23:06:32,938 : Partition_e : Partitioning Json: emea-combined-h-2494-el.json
+2021-04-29 23:06:33,208 : Partition_e : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\el\emea-combined-h-2494-el_SmPC.json
+2021-04-29 23:06:33,208 : Partition_e : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\data\partitionedJSONs\el\emea-combined-h-2494-el_SmPC.json

@@ -10,8 +10,8 @@ from fuzzywuzzy import fuzz
 from nltk.corpus import stopwords
 import nltk
 import jellyfish
-from jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
-from htmlParsingUtils import createDomEleData, createPIJsonFromHTML
+from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
+from scripts.htmlParsingUtils import createDomEleData, createPIJsonFromHTML
 from collections import defaultdict
 from bs4 import BeautifulSoup
 import numpy as np
@@ -179,18 +179,27 @@ class MatchDocument():
 
         return qrd_str
 
-    def updatedParentId(self, currentHeadingRow, previousHeadingRowFound, collectionFoundHeadings):
-
-        if currentHeadingRow['parent_id'] == "":
+    def updatedParentId(self, currentHeadingRow, previousHeadingRowFound, collectionFoundHeadings, subSectionIndex, dfQrd):
+        
+        if pd.isna(currentHeadingRow['parent_id']):
+            #print("here1")
             return ""
         if previousHeadingRowFound is None:
-            return ""
+            #print("here2")
+            if subSectionIndex > 0:
+                return currentHeadingRow['parent_id']
+            else:
+                return ""
 
         if currentHeadingRow['parent_id'] in collectionFoundHeadings['id']:
+            print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
             # print(currentHeadingRow['parent_id'])
+            return currentHeadingRow['parent_id']
+        elif list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0] == 1:
             return currentHeadingRow['parent_id']
         else:
             # print(previousHeadingRowFound['id'])
+            print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
             return previousHeadingRowFound['id']
 
     def updatePreviousHeadingRowFound(self, currentHeadingRow,
@@ -377,6 +386,7 @@ class MatchDocument():
                                         elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
                                             pass
                                         else:
+                                            #print("")
                                             validated = False
                                             print(
                                                 "----------------------------------")
@@ -396,7 +406,7 @@ class MatchDocument():
                                     found_vec.append(qrd_str_row)
                                     # Add entry to final self.collectionFoundHeadings and intermediatary self.subSectionCollectionFoundHeadings
                                     docParentId = self.updatedParentId(
-                                        qrd_str_row, previousHeadingRowFound, self.subSectionCollectionFoundHeadings)
+                                        qrd_str_row, previousHeadingRowFound, self.subSectionCollectionFoundHeadings, subSectionIndex, self.dfModelwRulesF)
                                     self.collectionFoundHeadings = self.storeResults(
                                         self.collectionFoundHeadings, qrd_str_row, str_, indexDF, subSectionIndex, docParentId)
                                     self.subSectionCollectionFoundHeadings = self.storeResults(
