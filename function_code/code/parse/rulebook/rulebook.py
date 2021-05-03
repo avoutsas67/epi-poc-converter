@@ -72,9 +72,10 @@ class StyleRulesDictionary:
 
             ## Get text for ANNEX II in current language
             heading_text = text_with_heading_id_one[0]
+            heading_text = heading_text.rstrip()
             self.qrd_section_headings.append(heading_text[:-1])
             self.qrd_section_headings.append(heading_text)
-            self.qrd_section_headings.append(heading_text+'I')
+            self.qrd_section_headings.append(heading_text + heading_text[-1])
 
             ## Get text for PACKAGE LEAFLET in current language
             heading_text = text_with_heading_id_one[1]

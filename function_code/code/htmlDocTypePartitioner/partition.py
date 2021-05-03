@@ -60,7 +60,6 @@ class DocTypePartitioner:
 
     ## Function to split document based on document type
     def splitHtmlBasedOnDoc(self, df, nextkey, page_break_indices, ignore_page_break_check):
-        
         startPos = self.new_dataframe_start
         endPos = len(df)
 
@@ -77,13 +76,11 @@ class DocTypePartitioner:
                                                  0, 
                                                  len(page_break_indices)-1, 
                                                  indices_with_text[startPos+last_occurence_text])
-
             ## Check to make sure page break exists
-            if(req_page_break_index != -1 and req_page_break_index < endPos):
+            if(req_page_break_index != -1 and page_break_indices[req_page_break_index] < endPos):
                 endPos = page_break_indices[req_page_break_index]
 
         partitioned_df = pd.DataFrame(df.iloc[startPos:endPos],  columns=list(df.columns))
-    
         self.new_dataframe_start = endPos
         print('*************************** Texts with more than 2 characters**************************************')
         ind = partitioned_df['Text'].apply(lambda x: self.lenCheck(x))
