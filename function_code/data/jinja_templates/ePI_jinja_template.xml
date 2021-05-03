@@ -88,6 +88,7 @@
 						</Composition>
 					</resource>
 				</entry>
+				{% if xml_bundle_data['listEntryFullUrl'] %}
 				<!-- an entry that is a list of PMS Product references -->
 				<entry>
 					<fullUrl value="{{xml_bundle_data['listEntryFullUrl']}}"/>
@@ -110,6 +111,7 @@
 						</List>
 					</resource>
 				</entry>
+				{% endif %}
 			</Bundle>
 		</resource>
 	</entry>
