@@ -49,6 +49,7 @@ class MatchDocument():
         self.logger = logger
 
         self.fileNameDoc = fileNameDoc
+        self.languageCode = languageCode
 
         self.languageCode = languageCode
 
