@@ -450,7 +450,7 @@ class parserExtractor:
             fp.close()
 
         ## Writing to json
-        self.logger.debug('Writing to file: ' + output_filepath)
+        self.logger.logFlowCheckpoint('Writing to file: ' + output_filepath)
         with open(output_filepath, 'w+') as outfile:
             json.dump(parsed_dom_elements, outfile)
         outfile.close()

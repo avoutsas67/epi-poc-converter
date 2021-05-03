@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 from logging.handlers import RotatingFileHandler
 #from utils.config import *
@@ -9,7 +10,6 @@ from logging.handlers import RotatingFileHandler
 class MatchLogger():
 
     def __init__(self, reqLoggerId, fileNameDoc, procedureType, languageCode, documentType, fileNameLog):
-        super().__init__()
 
         self.fileNameDoc = fileNameDoc
         self.procedureType = procedureType
@@ -27,7 +27,7 @@ class MatchLogger():
         stream_handler.setFormatter(formatter)
 
         file_handler = RotatingFileHandler(filename=os.path.join(fileNameLog), \
-                            mode='a', maxBytes=20000000, backupCount=5)
+                            mode='a', maxBytes=20000000, backupCount=5, encoding= 'utf-8')
         file_handler.setFormatter(formatter)
 
     
@@ -36,7 +36,7 @@ class MatchLogger():
         logger.addHandler(stream_handler)
         logger.addHandler(file_handler)
 
-    
+
 
         logger.setLevel(logging.DEBUG)
 
@@ -58,6 +58,22 @@ class MatchLogger():
         extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc}"
         message = message + extraMessage
         self.logger.info(message, extra = properties)
+
+    def logException(self, message):
+
+
+        customDimension = {
+                                'Document File Name': self.fileNameDoc,
+                                'Procedure Type': self.procedureType,
+                                'Lanaguage Code': self.languageCode,
+                                'Document Type': self.documentType,
+                        }
+
+        properties  = {'custom_dimensions': customDimension}
+        
+        extraMessage = f" | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc}"
+        message = message + extraMessage
+        self.logger.exception(message, extra = properties)
 
     
     def logMatchCheckpoint(self, message, htmlText, qrdText, status):

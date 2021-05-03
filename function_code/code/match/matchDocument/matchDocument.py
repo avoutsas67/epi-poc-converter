@@ -113,7 +113,7 @@ class MatchDocument():
         print('File being processed: ' + output_filename)
         print("--------------------------------------------")
         # print(output_filename)
-        with open(output_filename) as f:
+        with open(output_filename, encoding='utf-8') as f:
             json_html = json.load(f)
 
         dic_json = {}
@@ -191,14 +191,14 @@ class MatchDocument():
                 return ""
 
         if currentHeadingRow['parent_id'] in collectionFoundHeadings['id']:
-            print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
+            #print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
             # print(currentHeadingRow['parent_id'])
             return currentHeadingRow['parent_id']
         elif list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0] == 1:
             return currentHeadingRow['parent_id']
         else:
             # print(previousHeadingRowFound['id'])
-            print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
+            #print(list(dfQrd[dfQrd['id'] == currentHeadingRow['parent_id']]['heading_id'])[0])
             return previousHeadingRowFound['id']
 
     def updatePreviousHeadingRowFound(self, currentHeadingRow,

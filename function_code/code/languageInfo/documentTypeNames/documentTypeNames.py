@@ -7,7 +7,7 @@ class DocumentTypeNames():
         self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'code', 'languageInfo', 'documentTypeNames')
         self.fileName = fileNameDocumentTypeNames
 
-        with open(f'{self.filePath}\\{self.fileName}') as f:
+        with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:
             self.documentNamesDict = json.load(f)
 
         self.procedureType = procedureType
@@ -19,3 +19,10 @@ class DocumentTypeNames():
         Extract specific section of the rule Book
         '''
         return self.documentNamesDict[self.languageCode][self.procedureType][self.documentNumber]
+
+    def extractStopWordLanguage(self):
+        '''
+        Extract the name of the language to be used for getting stop words from nltk library.
+        '''
+
+        return self.documentNamesDict[self.languageCode]['stopWordlanguage']

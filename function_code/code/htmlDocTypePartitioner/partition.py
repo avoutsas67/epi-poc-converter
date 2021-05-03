@@ -93,29 +93,39 @@ class DocTypePartitioner:
     def partitionHtmls(self, qrdkeys, path_json):
         qrdkeys[0] = 'SmPC'
 
-        partition_output_folder = path_json.replace('outputJSON', 'partitionedJSONs')
+        if '.json' in path_json:
+            
+            files_json = [path_json.split("\\")[-1]]
+            path_json = "\\".join(path_json.split("\\")[:-1])
+            partition_output_folder = path_json.replace('outputJSON', 'partitionedJSONs')            
+        else:
+            files_json = [i for i in list(os.listdir(path_json)) if ('json' in i)]
+            partition_output_folder = path_json.replace('outputJSON', 'partitionedJSONs')
+
         if(not os.path.exists(partition_output_folder)):
             os.mkdir(partition_output_folder)
-        files_json = [i for i in list(os.listdir(path_json)) if ('json' in i)]
+        
+        partitioned_json_paths = []
         for filename in files_json:
             self.new_dataframe_start = 0
             input_filename = os.path.join( path_json , filename)
-            self.logger.debug('Partitioning Json: '+ filename)
+            self.logger.logFlowCheckpoint('Partitioning Json: '+ filename)
             with open(input_filename) as f:
                 json_html = json.load(f)
             df = pd.DataFrame(json_html['data'])
             page_breaks = self.getPageBreakIndices(df)
             partitioned_df = None
-
             for i in range(len(qrdkeys)):
                 if(self.new_dataframe_start==len(df)):
-                   break
+                    break
                 if(i== len(qrdkeys) - 1 ):
                     partitioned_df = self.splitHtmlBasedOnDoc(df, None, page_breaks, True)
                 else:
                     partitioned_df = self.splitHtmlBasedOnDoc(df, qrdkeys[i+1],page_breaks, False)
-
                 partitioned_filename = os.path.join(partition_output_folder , filename)
                 partitioned_filename = partitioned_filename.replace('.json', "".join(["_", re.sub(r'^[A-Za-z0-9]\. +', ' ',qrdkeys[i]),'.json']))
-                self.logger.debug('Writing partition to file: '+ partitioned_filename)
+                self.logger.logFlowCheckpoint('Writing partition to file: '+ partitioned_filename)
                 partitioned_df.to_json(partitioned_filename, orient ='records')
+                partitioned_json_paths.append(partitioned_filename)
+        
+        return partitioned_json_paths

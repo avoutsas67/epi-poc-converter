@@ -31,7 +31,7 @@ def addjson(dic, _key , elementToAdd):
 
 def loadJSON_Convert_to_DF(filepathHTML):
 
-    with open(filepathHTML) as f:
+    with open(filepathHTML, encoding='utf-8') as f:
         json_html = json.load(f)
     
     dic_json = {}

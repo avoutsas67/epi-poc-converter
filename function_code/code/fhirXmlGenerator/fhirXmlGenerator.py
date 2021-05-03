@@ -105,14 +105,14 @@ class FhirXmlGenerator:
         TEMPLATE_FILE = 'ePI_jinja_template.xml'
         template = templateEnv.get_template(TEMPLATE_FILE)
 
-        self.logger.debug('Initiating XML Generation')
+        self.logger.logFlowCheckpoint('Initiating XML Generation')
         id_dict_list, root, img_ref_dict = self.createIdTree(df)
 
         outputText = template.render(id_dict_list=list(id_dict_list), root=root, img_ref_dict=img_ref_dict)  # this is where to put args to the template renderer
         
         output_template_path = os.path.join(xml_output_path, xml_file_name)
 
-        self.logger.info('Writing to File:'+str(xml_file_name))
+        self.logger.logFlowCheckpoint('Writing to File:'+str(xml_file_name))
         with open(output_template_path,'w+', encoding='utf-8') as f:
             f.write(outputText)
             f.close()
