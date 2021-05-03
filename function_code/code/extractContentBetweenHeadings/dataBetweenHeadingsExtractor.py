@@ -23,13 +23,13 @@ class DataBetweenHeadingsExtractor:
     
     def cleanMatchResults(self, matched_collection):
         
-        self.logger.debug('Cleaning Match Results')
+        self.logger.logFlowCheckpoint('Cleaning Match Results')
 
         dfExtractedHier = pd.DataFrame(matched_collection)
         dfExtractedHier['parent_id'] = dfExtractedHier['parent_id'].apply(lambda x: self.convertToInt(x))
         dfExtractedHier['id'] = dfExtractedHier['id'].apply(lambda x: self.convertToInt(x))
 
-        self.logger.debug('Finished Cleaning Match Results')
+        self.logger.logFlowCheckpoint('Finished Cleaning Match Results')
 
         return dfExtractedHier.copy()
    
@@ -85,7 +85,7 @@ class DataBetweenHeadingsExtractor:
       
         df = pd.DataFrame(dic_json)
 
-        self.logger.debug('Extracting Content Between Headings')
+        self.logger.logFlowCheckpoint('Extracting Content Between Headings')
         
         ## Appending combined text and html to each row
         for i, row in enumerate(df.itertuples(), 0):
@@ -149,6 +149,6 @@ class DataBetweenHeadingsExtractor:
                         id_list_to_ignore.extend(children_ids)
                 idx_qrd=idx_qrd+1
         
-        self.logger.debug('Finished Extracting Content Between Headings')
+        self.logger.logFlowCheckpoint('Finished Extracting Content Between Headings')
         #display(dfExtractedHierRR)
         return dfExtractedHierRR

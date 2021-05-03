@@ -7,7 +7,7 @@ class MatchRuleBook():
         self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'code', 'match', 'rulebook')
         self.fileName = fileNameRuleBook
 
-        with open(f'{self.filePath}\\{self.fileName}') as f:
+        with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:
             ruleDict = json.load(f)
 
         self.procedureType = str(procedureType)

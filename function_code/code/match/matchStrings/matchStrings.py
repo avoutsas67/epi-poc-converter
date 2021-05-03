@@ -133,6 +133,7 @@ class MatchStrings():
 
         #print(textOriginal1," : ",textToMatch1)
         if textOriginal1 == textToMatch1:
+            self.logger.logMatchCheckpoint('Match Passed',textOriginal, textToMatch, True)
             return True, ""
 
         noWordstextOriginal1 = len(textOriginal1.split())

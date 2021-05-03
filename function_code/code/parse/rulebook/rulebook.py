@@ -32,7 +32,7 @@ class StyleRulesDictionary:
 
         filePathQRD = os.path.join(filePath, self.fileName)
 
-        qrd_df = pd.read_csv(filePathQRD)
+        qrd_df = pd.read_csv(filePathQRD, encoding= 'utf-8')
         
         colsofInterest  = ['id', 'Procedure type', 'Document type', 'Language code',
         'Display code', 'Name', 'parent_id', 'Mandatory','heading_id']
@@ -83,7 +83,7 @@ class StyleRulesDictionary:
             self.qrd_section_headings.append('B. '+ heading_text)
             for heading in self.qrd_section_headings:
                 heading = heading.encode(encoding='utf-8').decode()
-            self.logger.debug(('Qrd Section Keys Generated: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
+            self.logger.logFlowCheckpoint(('Qrd Section Keys Generated: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
         else:
             raise LanguageErrorQrdTemplate("Language not found in QRD template")
 
@@ -211,13 +211,13 @@ class StyleRulesDictionary:
         dictionary_file_name = 'rule_dictionary_' + str(self.language) +'.json'
         style_dict_path = os.path.join(style_dict_path, dictionary_file_name)
         if(os.path.exists(style_dict_path)):
-            self.logger.debug('Reading style dictionary in file: ' + style_dict_path)
+            self.logger.logFlowCheckpoint('Reading style dictionary in file: ' + style_dict_path)
 
             self.getSectionKeys()
             with open(style_dict_path) as f:
                 return json.load(f)
         else:
-            self.logger.debug('Creating default style dictionary in file: ' + style_dict_path)
+            self.logger.logFlowCheckpoint('Creating default style dictionary in file: ' + style_dict_path)
 
             return self.createDefaultStyleRuleJson(style_dict_path)
 
