@@ -47,7 +47,7 @@ class DataBetweenHeadingsExtractor:
                 break
         return idList
     
-    def extractContentBetweenHeadings(self, languageCode, input_filename):
+    def extractContentBetweenHeadings(self, input_filename):
 
         """
         Function to extract text and html between headings

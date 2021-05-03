@@ -348,8 +348,8 @@ class DocumentAnnotation:
         self.uniqueFinalOutput = uniqueFinalOutput
 
         self.finalOutputDict = {}
-        
+
         self.finalOutputDict['Author Value'] = self.uniqueFinalOutput[0][0]
-        self.finalOutputDict['Medicinal Product Definitions'] = self.uniqueFinalOutput
+        self.finalOutputDict['Medicinal Product Definitions'] = [(entry[1],entry[2]) for entry in self.uniqueFinalOutput]
 
         return self.finalOutputDict
