@@ -35,7 +35,7 @@ class FhirService:
                 post_data = json.load(f)
             f.close()
             df = pd.DataFrame(post_data['data'])
-            display(df.head(5))
+
             for i, row in enumerate(df.itertuples(), 0):
                 if(row.ID == post_xml_id ):
                     df.at[row.Index][row.TimeStamp] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
