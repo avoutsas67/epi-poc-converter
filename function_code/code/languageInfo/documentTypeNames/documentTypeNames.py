@@ -4,7 +4,7 @@ class DocumentTypeNames():
 
     def __init__(self, fileNameDocumentTypeNames, languageCode, procedureType, documentNumber):
 
-        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'code', 'languageInfo', 'documentTypeNames')
+        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'documentTypeNames')
         self.fileName = fileNameDocumentTypeNames
 
         with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:

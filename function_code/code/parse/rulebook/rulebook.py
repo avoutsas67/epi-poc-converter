@@ -28,7 +28,7 @@ class StyleRulesDictionary:
 
         """
         
-        filePath = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'control')
+        filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'control')
 
         filePathQRD = os.path.join(filePath, self.fileName)
 

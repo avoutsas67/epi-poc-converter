@@ -9,7 +9,7 @@ class QrdCanonical():
 
     def __init__(self,fileName, procedureType, languageCode, documentType):
         # r'qrd_canonical_mode_CAP_NAP.csv'
-        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'control')
+        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'control')
         self.fileName = fileName
 
         self.filePathQRD = os.path.join(self.filePath, self.fileName)

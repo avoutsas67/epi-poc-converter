@@ -4,7 +4,7 @@ class MatchRuleBook():
 
     def __init__(self, fileNameRuleBook, procedureType, languageCode, documentNumber):
 
-        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'code', 'match', 'rulebook')
+        self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'matchRulebook')
         self.fileName = fileNameRuleBook
 
         with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:

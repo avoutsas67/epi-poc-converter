@@ -47,7 +47,7 @@ class MatchDocument():
                     medName=None):
 
         self.logger = logger
-
+        self.procedureType = procedureType
         self.fileNameDoc = fileNameDoc
         self.languageCode = languageCode
 
@@ -60,20 +60,20 @@ class MatchDocument():
         self.documentType = DocumentTypeNames(
             fileNameDocumentTypeNames=fileNameDocumentTypeNames,
             languageCode=languageCode,
-            procedureType=procedureType,
+            procedureType=self.procedureType,
             documentNumber=self.documentNumber).extractDocumentTypeName()
 
         
         print(self.documentType)
         self.dfModelwRulesF = QrdCanonical(
             fileName=fileNameQrd,
-            procedureType=procedureType,
+            procedureType=self.procedureType,
             languageCode=languageCode,
             documentType=self.documentType).ProcessQrdDataframe()
 
         self.ruleDict = MatchRuleBook(
             fileNameRuleBook=fileNameMatchRuleBook,
-            procedureType=procedureType,
+            procedureType=self.procedureType,
             languageCode=languageCode,
             documentNumber=self.documentNumber).ruleDict
 
@@ -109,7 +109,7 @@ class MatchDocument():
         '''
 
         path_json = os.path.join(os.path.abspath(
-            os.path.join('..')), 'data', 'partitionedJSONs',f'{self.languageCode}')
+            os.path.join('..')), 'data', 'partitionedJSONs', f'{self.procedureType}', f'{self.languageCode}')
         output_filename = os.path.join(path_json, self.fileNameDoc)
         print('File being processed: ' + output_filename)
         print("--------------------------------------------")

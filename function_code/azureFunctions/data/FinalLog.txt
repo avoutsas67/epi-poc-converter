@@ -1,0 +1,152 @@
+2021-05-04 02:28:25,871 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:25,884 : Style Dictionary_K : Creating default style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:26,120 : Style Dictionary_K : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:35,179 : Parser_d : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:37,353 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:37,354 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:39,807 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:39,807 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:39,827 : Style Dictionary_a : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:39,872 : Style Dictionary_a : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:52,624 : Parser_7 : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:54,718 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:54,718 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:54,720 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:28:54,720 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:11,326 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:11,342 : Style Dictionary_y : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:11,680 : Style Dictionary_y : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:23,641 : Parser_K : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:26,218 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:26,218 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:26,231 : Style Dictionary_V : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:31:26,282 : Style Dictionary_V : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:31:28,408 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:28,408 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:28,422 : Style Dictionary_g : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:28,456 : Style Dictionary_g : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:40,664 : Parser_F : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:43,774 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:43,774 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:43,777 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:43,777 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:31:43,789 : Style Dictionary_w : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:11,471 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:11,484 : Style Dictionary_S : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:11,732 : Style Dictionary_S : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:21,338 : Parser_9 : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:23,606 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:23,608 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:23,623 : Style Dictionary_O : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:23,684 : Style Dictionary_O : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:23,693 : Partition_h : Partitioning Json: Kalydeco II-86-PI-clean.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:24,017 : Partition_h : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_SmPC.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:24,093 : Partition_h : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX II.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:24,350 : Partition_h : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX III.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:24,376 : Partition_h : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:34:24,391 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:24,392 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:27,073 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:27,073 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:27,089 : Style Dictionary_4 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:27,124 : Style Dictionary_4 : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:34:38,855 : Parser_c : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:32,910 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:32,922 : Style Dictionary_4 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:33,150 : Style Dictionary_4 : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:42,934 : Parser_g : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:45,419 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:45,420 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:45,431 : Style Dictionary_3 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:45,489 : Style Dictionary_3 : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:45,500 : Partition_F : Partitioning Json: Kalydeco II-86-PI-clean.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:45,814 : Partition_F : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_SmPC.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:45,939 : Partition_F : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX II.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:46,228 : Partition_F : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX III.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:46,255 : Partition_F : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:36:46,268 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:46,269 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:47,777 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:47,777 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:47,791 : Style Dictionary_v : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:36:47,823 : Style Dictionary_v : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:37:00,043 : Parser_b : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:47,534 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:47,548 : Style Dictionary_g : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:47,806 : Style Dictionary_g : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:57,398 : Parser_6 : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:59,457 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:59,458 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:43:59,466 : Style Dictionary_0 : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:43:59,509 : Style Dictionary_0 : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:43:59,517 : Partition_p : Partitioning Json: Kalydeco II-86-PI-clean.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:43:59,767 : Partition_p : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_SmPC.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:43:59,829 : Partition_p : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX II.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:00,029 : Partition_p : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX III.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:00,052 : Partition_p : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:00,061 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:00,062 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:27,711 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:27,711 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:27,725 : Style Dictionary_f : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:27,758 : Style Dictionary_f : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:40,499 : Parser_V : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Kalydeco II-86-PI-clean.json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,038 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,038 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,040 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,040 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,050 : Style Dictionary_G : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,097 : Style Dictionary_G : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,107 : Partition_v : Partitioning Json: Kalydeco II-86-PI-clean.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,459 : Partition_v : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_SmPC.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,573 : Partition_v : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX II.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,807 : Partition_v : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ANNEX III.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,824 : Partition_v : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Kalydeco II-86-PI-clean_ PACKAGE LEAFLET.json | CAP |  en | Json | Kalydeco II-86-PI-clean.json
+2021-05-04 02:44:43,831 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,831 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,833 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:44:43,833 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Kalydeco II-86-PI-clean.html
+2021-05-04 02:47:03,978 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:03,997 : Style Dictionary_V : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:04,246 : Style Dictionary_V : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:17,181 : Parser_T : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Abasaglar-h-2835-en.json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:19,790 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:19,791 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:19,802 : Style Dictionary_a : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:19,861 : Style Dictionary_a : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:19,884 : Partition_L : Partitioning Json: Abasaglar-h-2835-en.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:20,284 : Partition_L : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_SmPC.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:20,375 : Partition_L : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ANNEX II.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:20,579 : Partition_L : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ANNEX III.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:20,599 : Partition_L : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ PACKAGE LEAFLET.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:47:20,620 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:47:20,622 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:26,329 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:26,330 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:27,504 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:27,505 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:27,513 : ExtractContentBetween_0 : Cleaning Match Results | CAP |  en | 0 | Abasaglar-h-2835-en_SmPC.json
+2021-05-04 02:49:27,521 : ExtractContentBetween_0 : Finished Cleaning Match Results | CAP |  en | 0 | Abasaglar-h-2835-en_SmPC.json
+2021-05-04 02:49:27,572 : ExtractContentBetween_0 : Extracting Content Between Headings | CAP |  en | 0 | Abasaglar-h-2835-en_SmPC.json
+2021-05-04 02:49:27,647 : ExtractContentBetween_0 : Finished Extracting Content Between Headings | CAP |  en | 0 | Abasaglar-h-2835-en_SmPC.json
+2021-05-04 02:49:27,648 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:30,713 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:30,713 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:30,726 : Style Dictionary_g : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:30,757 : Style Dictionary_g : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:44,831 : Parser_5 : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\outputJSON\CAP\en\Abasaglar-h-2835-en.json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,106 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,106 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,108 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,108 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,118 : Style Dictionary_C : Reading style dictionary in file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\styleRules\rule_dictionary_en.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,157 : Style Dictionary_C : Qrd Section Keys Generated: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,165 : Partition_4 : Partitioning Json: Abasaglar-h-2835-en.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,404 : Partition_4 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_SmPC.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,451 : Partition_4 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ANNEX II.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,561 : Partition_4 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ANNEX III.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,573 : Partition_4 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\data\partitionedJSONs\CAP\en\Abasaglar-h-2835-en_ PACKAGE LEAFLET.json | CAP |  en | Json | Abasaglar-h-2835-en.json
+2021-05-04 02:49:48,586 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,586 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,588 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 02:49:48,588 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html

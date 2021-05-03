@@ -17,6 +17,7 @@ class MatchLogger():
         self.documentType = documentType
         self.fileNameLog = fileNameLog
         
+        os.environ['APPLICATIONINSIGHTS_CONNECTION_STRING'] = "InstrumentationKey=769acdf5-503c-43e6-9736-77925ec553f0"
         instrumentationKey = os.environ['APPLICATIONINSIGHTS_CONNECTION_STRING']
         logger = logging.getLogger(reqLoggerId)
         formatter = logging.Formatter('%(asctime)s : %(name)s : %(message)s')
