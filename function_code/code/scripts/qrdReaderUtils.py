@@ -81,7 +81,7 @@ def loadQRDFile(filepath):
             - a string
             - an anytree structure
     '''
-    dfCanonicalModel = pd.read_csv(filepath)
+    dfCanonicalModel = pd.read_csv(filepath, encoding= 'utf-8')
     colsofInterest  = ['id', 'Procedure type', 'Document type', 'Language code',
        'Display code', 'Name', 'parent_id', 'Mandatory']
     dfCanonicalModel = dfCanonicalModel[colsofInterest]

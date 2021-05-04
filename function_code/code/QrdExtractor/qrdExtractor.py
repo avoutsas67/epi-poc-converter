@@ -22,7 +22,7 @@ class QrdCanonical():
 
     def createQrdDataframe(self):
         
-        dfCanonicalModel = pd.read_csv(self.filePathQRD)
+        dfCanonicalModel = pd.read_csv(self.filePathQRD, encoding= 'utf-8')
         
         colsofInterest  = ['id', 'Procedure type', 'Document type', 'Language code',
         'Display code', 'Name', 'parent_id', 'Mandatory','heading_id']

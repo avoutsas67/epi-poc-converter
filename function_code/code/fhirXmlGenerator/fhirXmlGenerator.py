@@ -138,9 +138,9 @@ class FhirXmlGenerator:
             xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['authorValue']  = ''
-            self.logger.debug('PMS/OMS Annotation Not Performed')
+            self.logger.logFlowCheckpoint('PMS/OMS Annotation Not Performed')
 
-        self.logger.debug('Initiating XML Generation')
+        self.logger.logFlowCheckpoint('Initiating XML Generation')
         id_dict_list, root, img_ref_dict = self.createIdTree(df)
 
         outputText = template.render(id_dict_list=list(id_dict_list), 
@@ -149,7 +149,7 @@ class FhirXmlGenerator:
                                      xml_bundle_data = xml_bundle_data)  # this is where to put args to the template renderer
         
         output_template_path = os.path.join(xml_output_path, xml_file_name)
-        self.logger.info('Writing to File:'+str(xml_file_name))
+        self.logger.logFlowCheckpoint('Writing to File:'+str(xml_file_name))
         with open(output_template_path,'w+', encoding='utf-8') as f:
             f.write(outputText)
             f.close()
