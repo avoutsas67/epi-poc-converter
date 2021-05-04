@@ -96,8 +96,8 @@ class FhirXmlGenerator:
                 id_dict = defaultdict(list)
                 id_dict = copy.deepcopy(root_entry)
                 prevSubSecIndex = row.SubSectionIndex 
-            if(row.parent_id in id_dict.keys()):
-                id_dict[row.parent_id]['Children']['ids'].append(row.id)
+            if(row.doc_parent_id in id_dict.keys()):
+                id_dict[row.doc_parent_id]['Children']['ids'].append(row.id)
             if(row.id not in id_dict.keys()):
                 id_dict[row.id] = self.createIdDict(row, html_img_embeded)
         
