@@ -1,0 +1,2530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:9c2ad76d-2a9c-481a-a975-67fc763d24d0"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="f6cd6971-901c-44d5-b41c-acda9fbe43e8"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-05-04T13:14:26Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:1530cad0-862d-4350-914a-8ea6d2bef0bf"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+							<status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="A. LABELLING"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="TitleA"><span lang="EN-GB">A. LABELLING</span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB">PARTICULARS TO APPEAR ON THE OUTER PACKAGING </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB">BOX OF 1, 2, 3, 5, 7, 10, 14, 15, 20, 21, 30, 50, 90, 100 TABLETS</span></b></p> </div>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE OUTER PACKAGING "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 5 mg film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">desloratadine</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       STATEMENT OF ACTIVE SUBSTANCE(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each tablet contains 5 mg desloratadine.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       LIST OF EXCIPIENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Contains lactose.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">See leaflet for further information.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       PHARMACEUTICAL FORM AND CONTENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1 film-coated tablet </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">2 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">3 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">5 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">7 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">10 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">14 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">15 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">20 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">21 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">30 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">50 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">90 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">100 film-coated tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       METHOD AND ROUTE(S) OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Swallow the tablet whole with water.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Oral use</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">7.       OTHER SPECIAL WARNING(S), IF NECESSARY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">8.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">9.       SPECIAL STORAGE CONDITIONS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not store above 30°C. Store in the original package.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Merck Sharp &amp; Dohme B.V.</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Waarderweg 39</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">2031 BN Haarlem</span></p><p class="MsoNormal" style="line-height:normal"><span lang="DE">The Netherlands</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">12.     MARKETING AUTHORISATION NUMBER(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/00/160/001<span style="color:black;background:#BFBFBF">  1 tablet</span></span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/002  2 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/003  3 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/004  5 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/005  7 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/006  10 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/007  14 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/008  15 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/009  20 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/010  21 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/011  30 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/012  50 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/036  90 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/013  100 tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">13.     BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">14.     GENERAL CLASSIFICATION FOR SUPPLY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">15.     INSTRUCTIONS ON USE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">16.     INFORMATION IN BRAILLE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">17.     UNIQUE IDENTIFIER – 2D BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="background:lightgrey">2D barcode carrying the unique identifier included.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal"><span lang="EN-GB">PC:</span></p><p class="MsoNormal"><span lang="EN-GB">SN: </span></p><p class="MsoNormal"><span lang="EN-GB">NN: </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span></b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB"> </span></b></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB">MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS</span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB">BOX OF 1, 2, 3, 5, 7, 10, 14, 15, 20, 21, 30, 50, 90, 100 TABLETS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB"> </span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 5 mg tablet</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">desloratadine</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       NAME OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       NAME OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">MSD</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="Uberschrift2" style="margin:0in;page-break-after:auto"><span lang="EN-GB" style='font-family:"Times New Roman",serif'> </span></p><p class="Uberschrift2" style="margin:0in;page-break-after:auto"><span lang="EN-GB" style='font-family:"Times New Roman",serif'> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       OTHER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       OTHER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="Uberschrift2" style="margin:0in"><span lang="EN-GB" style='font-family: "Times New Roman",serif'> </span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">PARTICULARS TO APPEAR ON THE OUTER PACKAGING </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">BOX OF 5, 6, 10, 12, 15, 18, 20, 30, 50, 60, 90, 100 ORODISPERSIBLE TABLETS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE OUTER PACKAGING "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 2.5 mg orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">desloratadine</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       STATEMENT OF ACTIVE SUBSTANCE(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each dose of orodispersible tablet contains 2.5 mg desloratadine.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       LIST OF EXCIPIENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Contains mannitol and aspartame.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">See leaflet for further information.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       PHARMACEUTICAL FORM AND CONTENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">6 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">10 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">12 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">15 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">18 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">20 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">30 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">50 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">60 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">90 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">100 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       METHOD AND ROUTE(S) OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Oral use</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">7.       OTHER SPECIAL WARNING(S), IF NECESSARY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">8.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">9.       SPECIAL STORAGE CONDITIONS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Store in the original package. </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Merck Sharp &amp; Dohme B.V.</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Waarderweg 39</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">2031 BN Haarlem</span></p><p class="MsoNormal" style="line-height:normal"><span lang="DE">The Netherlands</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">12.     MARKETING AUTHORISATION NUMBER(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/00/160/037            <span style="color:black;background:#BFBFBF">5 orodispersible tablets</span></span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/038            6 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/039            10 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/040            12 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/041            15 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/042            18 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/043            20 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/044            30 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/045            50 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/046            60 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/047            90 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/048            100 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">13.     BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">14.     GENERAL CLASSIFICATION FOR SUPPLY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">15.     INSTRUCTIONS ON USE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">16.     INFORMATION IN BRAILLE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 2.5 mg orodispersible tablet</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">17.     UNIQUE IDENTIFIER – 2D BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="background:lightgrey">2D barcode carrying the unique identifier included.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal"><span lang="EN-GB">PC:</span></p><p class="MsoNormal"><span lang="EN-GB">SN: </span></p><p class="MsoNormal"><span lang="EN-GB">NN: </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">Aerius 2.5 mg orodispersible tablets</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">desloratadine</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       NAME OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       NAME OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">MSD</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       OTHER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       OTHER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">PARTICULARS TO APPEAR ON THE OUTER PACKAGING </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">BOX OF 5, 6, 10, 12, 15, 18, 20, 30, 50, 60, 90, 100 ORODISPERSIBLE TABLETS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE OUTER PACKAGING "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 5 mg orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">desloratadine</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       STATEMENT OF ACTIVE SUBSTANCE(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each dose of orodispersible tablet contains 5 mg desloratadine.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       LIST OF EXCIPIENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Contains mannitol and aspartame.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">See leaflet for further information.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       PHARMACEUTICAL FORM AND CONTENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">6 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">10 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">12 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">15 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">18 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">20 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">30 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">50 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">60 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">90 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">100 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       METHOD AND ROUTE(S) OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Oral use</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">7.       OTHER SPECIAL WARNING(S), IF NECESSARY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">8.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">9.       SPECIAL STORAGE CONDITIONS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Store in the original package. </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Merck Sharp &amp; Dohme B.V.</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Waarderweg 39</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">2031 BN Haarlem</span></p><p class="MsoNormal" style="line-height:normal"><span lang="DE">The Netherlands</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">12.     MARKETING AUTHORISATION NUMBER(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/00/160/049            <span style="color:black;background:#BFBFBF">5 orodispersible tablets</span></span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/050            6 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/051            10 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/052            12 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/053            15 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/054            18 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/055            20 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/056            30 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/057            50 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/058            60 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/059            90 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/060            100 orodispersible tablets</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">13.     BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">14.     GENERAL CLASSIFICATION FOR SUPPLY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">15.     INSTRUCTIONS ON USE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">16.     INFORMATION IN BRAILLE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">Aerius 5 mg orodispersible tablet</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">17.     UNIQUE IDENTIFIER – 2D BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="background:lightgrey">2D barcode carrying the unique identifier included.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal"><span lang="EN-GB">PC:</span></p><p class="MsoNormal"><span lang="EN-GB">SN: </span></p><p class="MsoNormal"><span lang="EN-GB">NN: </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"><b><span lang="EN-GB">MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">Aerius 5 mg orodispersible tablets</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">desloratadine</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       NAME OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       NAME OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">MSD</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       OTHER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       OTHER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><b><span lang="EN-GB"> </span></b></p><b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span></b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="Uberschrift2" style="margin:0in;page-break-after:auto"><span lang="EN-GB" style='font-family:"Times New Roman",serif'> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">PARTICULARS TO APPEAR ON THE OUTER PACKAGING </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">BOTTLE OF 30 ML, 50 ML, 60 ML, 100 ML, 120 ML, 150 ML, 225 ML, 300 ML</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE OUTER PACKAGING "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 0.5 mg/ml oral solution</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">desloratadine</span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       STATEMENT OF ACTIVE SUBSTANCE(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each ml of oral solution contains 0.5 mg desloratadine.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       LIST OF EXCIPIENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Contains propylene glycol and sorbitol.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">See leaflet for further information.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       PHARMACEUTICAL FORM AND CONTENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">oral solution</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">30 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">50 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">60 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">100 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">120 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">150 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">150 ml with 1 oral syringe</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">225 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">300 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       METHOD AND ROUTE(S) OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Oral use</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">7.       OTHER SPECIAL WARNING(S), IF NECESSARY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">8.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">9.       SPECIAL STORAGE CONDITIONS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not freeze. Store in the original package.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Merck Sharp &amp; Dohme B.V.</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">Waarderweg 39</span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="DE">2031 BN Haarlem</span></p><p class="MsoNormal" style="line-height:normal"><span lang="DE">The Netherlands</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">12.     MARKETING AUTHORISATION NUMBER(S)</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/00/160/061<span style="color:black;background:#BFBFBF">            30 ml with 1 spoon</span></span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/062            50 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/063            60 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/064            100 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/065            120 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/066            150 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/069            150 ml with 1 oral syringe</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/067            225 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">EU/1/00/160/068            300 ml with 1 spoon</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">13.     BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">14.     GENERAL CLASSIFICATION FOR SUPPLY</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">15.     INSTRUCTIONS ON USE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">16.     INFORMATION IN BRAILLE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">Aerius</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">17.     UNIQUE IDENTIFIER – 2D BARCODE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="background:lightgrey">2D barcode carrying the unique identifier included.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 0in 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal"><span lang="EN-GB">PC:</span></p><p class="MsoNormal"><span lang="EN-GB">SN: </span></p><p class="MsoNormal"><span lang="EN-GB">NN: </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">MINIMUM PARTICULARS TO APPEAR ON SMALL IMMEDIATE PACKAGING UNITS</span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB"> </span></b></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">BOTTLE OF 30 ML, 50 ML, 60 ML, 100 ML, 120 ML, 150 ML, 225 ML, 300 ML</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="MINIMUM PARTICULARS TO APPEAR ON SMALL IMMEDIATE PACKAGING UNITS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">1.       NAME OF THE MEDICINAL PRODUCT AND ROUTE(S) OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Aerius 0.5 mg/ml oral solution</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">desloratadine</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">2.       METHOD OF ADMINISTRATION</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       METHOD OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Oral use</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">3.       EXPIRY DATE</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoEndnoteText"><span lang="EN-GB" style="font-size:11.0pt"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">4.       BATCH NUMBER</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">5.       CONTENTS BY WEIGHT, BY VOLUME OR BY UNIT</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       CONTENTS BY WEIGHT, BY VOLUME OR BY UNIT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">30 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">50 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">60 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">100 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">120 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">150 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">225 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#BFBFBF">300 ml</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB"> </span></p><div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid;border:none;padding:0in"><b><span lang="EN-GB">6.       LIST OF EXCIPIENTS</span></b></p> </div>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

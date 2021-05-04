@@ -1,0 +1,51 @@
+2021-05-04 15:54:19,933 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:54:51,819 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:54:51,819 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:55:00,410 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:55:00,410 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:55:00,410 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:28,431 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:28,431 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:28,431 : Flow Logger HTML : Starting HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,750 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,750 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,750 : Flow Logger HTML : Completed HTML Conversion To Json | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,764 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,764 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:32,764 : Flow Logger HTML : Starting Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,056 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,056 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,056 : Flow Logger HTML : Completed Json Split | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,064 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,064 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:57:33,064 : Flow Logger HTML : Started Processing Partitioned Jsons | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,126 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,126 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,126 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,131 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,131 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:51,131 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,242 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,242 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,242 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,245 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,245 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,245 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,300 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,300 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:52,300 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,692 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,692 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,692 : Flow Logger HTML : Completed Heading Extraction For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,697 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,697 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,697 : Flow Logger HTML : Starting Document Annotation For File | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,711 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,711 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,711 : Flow Logger HTML : Completed Document Annotation | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,716 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,716 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,716 : Flow Logger HTML : Starting Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,760 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,760 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html
+2021-05-04 15:58:54,760 : Flow Logger HTML : Completed Extracting Content Between Heading | CAP |  en | HTML | Abasaglar-h-2835-en.html

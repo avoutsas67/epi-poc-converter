@@ -1,63 +1,67 @@
 {
     "en": {
         "stopWordlanguage": "english",
-        "CAP":{
-
-            "0": "SmPC",
-            "1": "AnnexII",
-            "2": "Labelling",
-            "3": "Package leaflet"
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
         },
-        "NAP":{}
-
+        "V": {}
     },
-    "de":{
+    "de": {
         "stopWordlanguage": "german",
-        "CAP":{
-
-            "0": "SmPC",
-            "1": "ANHANG II",
-            "2": "Etikettierung",
-            "3": "Packungsbeilage"
-        
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "ANHANG II",
+                "2": "Etikettierung",
+                "3": "Packungsbeilage"
+            },
+            "NAP": {}
         },
-        "NAP":{}
+        "V": {}
     },
-    "es":{
+    "es": {
         "stopWordlanguage": "spanish",
-        "CAP":{
-            
-            "0": "SmPC",
-            "1": "AnnexII",
-            "2": "Labelling",
-            "3": "Package leaflet"
-        
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
         },
-        "NAP":{}
+        "V": {}
     },
     "bg": {
         "stopWordlanguage": "english",
-        "CAP":{
-
-            "0": "SmPC",
-            "1": "AnnexII",
-            "2": "Labelling",
-            "3": "Package leaflet"
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
         },
-        "NAP":{}
-
+        "V": {}
     },
     "el": {
         "stopWordlanguage": "greek",
-        "CAP":{
-
-            "0": "SmPC",
-            "1": "ΠΑΡΑΡΤΗΜΑ ΙΙ",
-            "2": "ΕΠΙΣΗΜΑΝΣΗ",
-            "3": "ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ"
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "ΠΑΡΑΡΤΗΜΑ ΙΙ",
+                "2": "ΕΠΙΣΗΜΑΝΣΗ",
+                "3": "ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ"
+            },
+            "NAP": {}
         },
-        "NAP":{}
-
+        "V": {}
     }
-
 }

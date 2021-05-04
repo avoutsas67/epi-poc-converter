@@ -16,10 +16,24 @@ def main(inputBlob: func.InputStream,
                 f"Name: {inputBlob.name}\n"
                 f"Blob Size: {inputBlob.length} bytes")
 
+    fileNameQrd = 'qrd_canonical_model.csv'
+    fileNameMatchRuleBook = 'ruleDict.json'
+    fileNameDocumentTypeNames = 'documentTypeNames.json'
+
+    fsMountName = '/mounted'
+
     inputHtmlFilePath = inputBlob.name
     inputHtmlFileName = inputHtmlFilePath.split('/')[-1]
     inputHtmlFolderPath = '/'.join(inputHtmlFilePath.split('/')[0:-1])
-    inputHtmlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputHtmlFolderPath)
+
+    if "\\" in os.getcwd():
+        localEnv = True
+        inputHtmlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputHtmlFolderPath)
+    else:
+        localEnv = False
+        inputHtmlFolderPath = os.path.join(f'{fsMountName}',inputHtmlFolderPath)
+
+    
     
     outputJsonFolderPath = inputHtmlFolderPath.replace("converted_to_html","outputJSON")
     outputPartJsonFolderPath = inputHtmlFolderPath.replace("converted_to_html","partitionedJSONs")
@@ -27,9 +41,11 @@ def main(inputBlob: func.InputStream,
 
     mode = 0o666
     
-    inputHtmlFolderPath = inputHtmlFolderPath.replace("/","\\")
-    outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
-    outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
+    if localEnv is True:
+        inputHtmlFolderPath = inputHtmlFolderPath.replace("/","\\")
+        outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
+        outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
+
     try:
         os.makedirs(inputHtmlFolderPath, mode)
         os.makedirs(outputJsonFolderPath, mode)
@@ -44,10 +60,8 @@ def main(inputBlob: func.InputStream,
 
     fd = open(f'{inputHtmlFolderPath}/{inputHtmlFileName}', "rb")
 
-    fileNameQrd = 'qrd_canonical_mode_CAP_NAP.csv'
-    fileNameMatchRuleBook = 'ruleDict.json'
-    fileNameDocumentTypeNames = 'documentTypeNames.json'
-    parseDocument(os.path.join(inputHtmlFolderPath,inputHtmlFileName),fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames)
+
+    parseDocument(os.path.join(inputHtmlFolderPath,inputHtmlFileName),fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, fsMountName, localEnv)
     #outputBlob.set(fd)
 
 

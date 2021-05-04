@@ -38,10 +38,13 @@ def getRandomString(N):
     return str_
 
 
-def convertHtmlToJson(procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog):
+def convertHtmlToJson(domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv):
 
-    module_path = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'converted_to_html', f'{procedureType}', f'{languageCode}')
-
+    if localEnv is True:
+        module_path = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'converted_to_html', f'{domain}', f'{procedureType}', f'{languageCode}')
+    else:
+        module_path = os.path.join(f'{fsMountName}', 'data', 'converted_to_html', f'{domain}', f'{procedureType}', f'{languageCode}')
+    
     # Generate output folder path
     output_json_path = module_path.replace('converted_to_html', 'outputJSON')
 
@@ -55,15 +58,18 @@ def convertHtmlToJson(procedureType, languageCode, fileNameHtml, fileNameQrd, fi
         if(not os.path.exists(output_json_path)):
             os.mkdir(output_json_path)
         logger = MatchLogger(f'Parser_{getRandomString(1)}', fileNameHtml,
-                             procedureType, languageCode, "HTML", fileNameLog)
+                             domain, procedureType, languageCode, "HTML", fileNameLog)
 
         styleLogger = MatchLogger(
-            f'Style Dictionary_{getRandomString(1)}', fileNameHtml, procedureType, languageCode, "HTML", fileNameLog)
+            f'Style Dictionary_{getRandomString(1)}', fileNameHtml, domain, procedureType, languageCode, "HTML", fileNameLog)
 
         styleRulesObj = StyleRulesDictionary(styleLogger,
                                              language=languageCode,
                                              fileName=fileNameQrd,
-                                             procedureType=procedureType)
+                                             domain=domain,
+                                             procedureType=procedureType,
+                                             fsMountName=fsMountName,
+                                             localEnv=localEnv)
 
         parserObj = parserExtractor(config, logger, styleRulesObj.styleRuleDict,
                                     styleRulesObj.styleFeatureKeyList,
@@ -86,23 +92,28 @@ def convertHtmlToJson(procedureType, languageCode, fileNameHtml, fileNameQrd, fi
     return output_filename.split("\\")[-1]
 
 
-def splitJson(procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog):
+def splitJson(domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog, fsMountName, localEnv):
 
     styleLogger = MatchLogger(
-        f'Style Dictionary_{getRandomString(1)}', fileNameJson, procedureType, languageCode, "Json", fileNameLog)
+        f'Style Dictionary_{getRandomString(1)}', fileNameJson, domain, procedureType, languageCode, "Json", fileNameLog)
 
     styleRulesObj = StyleRulesDictionary(styleLogger,
-                                         language=languageCode,
-                                         fileName=fileNameQrd,
-                                         procedureType=procedureType)
-
-    path_json = os.path.join(os.path.abspath(os.path.join(
-        '..')), 'data', 'outputJSON', procedureType, languageCode, fileNameJson)
-
+                                             language=languageCode,
+                                             fileName=fileNameQrd,
+                                             domain=domain,
+                                             procedureType=procedureType,
+                                             fsMountName=fsMountName,
+                                             localEnv=localEnv)
+    if localEnv is True:
+        path_json = os.path.join(os.path.abspath(os.path.join(
+                '..')), 'data', 'outputJSON', domain, procedureType, languageCode, fileNameJson)
+    else:
+        path_json = os.path.join(f'{fsMountName}', 'data', 'outputJSON', domain,  procedureType, languageCode, fileNameJson)
+        
     partitionLogger = MatchLogger(
-        f'Partition_{getRandomString(1)}', fileNameJson, procedureType, languageCode, "Json", fileNameLog)
+        f'Partition_{getRandomString(1)}', fileNameJson, domain, procedureType, languageCode, "Json", fileNameLog)
 
-    partitioner = DocTypePartitioner(partitionLogger)
+    partitioner = DocTypePartitioner(partitionLogger, localEnv)
 
     partitionedJsonPaths = partitioner.partitionHtmls(
         styleRulesObj.qrd_section_headings, path_json)
@@ -110,16 +121,20 @@ def splitJson(procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLo
     return partitionedJsonPaths
 
 
-def extractAndValidateHeadings(procedureType,
+def extractAndValidateHeadings(domain,
+                               procedureType,
                                languageCode,
                                documentNumber,
                                fileNameDoc,
                                fileNameQrd,
                                fileNameMatchRuleBook,
                                fileNameDocumentTypeNames,
+                               fileNameLog,
                                stopWordFilterLen=6,
                                isPackageLeaflet=False,
-                               medName=None):
+                               medName=None,
+                               fsMountName='/mounted',
+                               localEnv=False):
 
     if documentNumber == 0:
         topHeadingsConsidered = 4
@@ -135,18 +150,21 @@ def extractAndValidateHeadings(procedureType,
         bottomHeadingsConsidered = 10
 
     print(f"Starting Heading Extraction For File :- {fileNameDoc}")
-    logger = MatchLogger(f"Heading Extraction {fileNameDoc}", fileNameDoc, procedureType, languageCode, documentNumber, fileNameLog=os.path.join(
-        os.path.abspath(os.path.join('..')), 'data', 'matchLog.txt'))
+    logger = MatchLogger(f"Heading Extraction {fileNameDoc}", fileNameDoc, domain, procedureType, languageCode, documentNumber, fileNameLog)
     logger.logFlowCheckpoint("Starting Heading Extraction")
 
     stopWordlanguage = DocumentTypeNames(
         fileNameDocumentTypeNames=fileNameDocumentTypeNames,
         languageCode=languageCode,
+        domain=domain,
         procedureType=procedureType,
-        documentNumber=documentNumber).extractStopWordLanguage()
+        documentNumber=documentNumber,
+        fsMountName=fsMountName,
+        localEnv=localEnv).extractStopWordLanguage()
 
     matchDocObj = MatchDocument(
         logger,
+        domain,
         procedureType,
         languageCode,
         documentNumber,
@@ -159,38 +177,49 @@ def extractAndValidateHeadings(procedureType,
         stopWordFilterLen,
         stopWordlanguage,
         isPackageLeaflet,
-        medName)
+        medName,
+        fsMountName,
+        localEnv)
     df, coll = matchDocObj.matchHtmlHeaddingsWithQrd()
 
     return df, coll
 
 
-def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, medName = None):
+def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, fsMountName = '/mounted', localEnv= False, medName = None):
     
-    pathComponents = htmlDocPath.split("\\")
+    if localEnv is True:
+        pathSep = "\\"
+        fileNameLog = os.path.join(os.path.abspath(os.path.join('..')),'data','FinalLog.txt')
+    else:
+        pathSep = "/"
+        fileNameLog = os.path.join(f'{fsMountName}','data','FinalLog.txt')
+    pathComponents = htmlDocPath.split(pathSep)
+    print(pathComponents)
     fileNameHtml = pathComponents[-1]
     languageCode =  pathComponents[-2]
     procedureType = pathComponents[-3]
+    domain = pathComponents[-4]
+
     #procedureType = "CAP"
     print(fileNameHtml,languageCode,procedureType)
     
-    fileNameLog = os.path.join(os.path.abspath(os.path.join('..')),'data','FinalLog.txt')
     
-    flowLogger =  MatchLogger("Flow Logger HTML", fileNameHtml, procedureType, languageCode, "HTML", fileNameLog)
+    
+    flowLogger =  MatchLogger("Flow Logger HTML", fileNameHtml, domain, procedureType, languageCode, "HTML", fileNameLog)
 
     flowLogger.logFlowCheckpoint("Starting HTML Conversion To Json")
     ###Convert Html to Json
-    fileNameJson = convertHtmlToJson(procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog)
+    fileNameJson = convertHtmlToJson( domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv)
     
     flowLogger.logFlowCheckpoint("Completed HTML Conversion To Json")
 
     flowLogger.logFlowCheckpoint("Starting Json Split")
 
     ###Split Uber Json to multiple Jsons for each category.
-    partitionedJsonPaths = splitJson(procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog)
+    partitionedJsonPaths = splitJson(domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog, fsMountName, localEnv)
     
     partitionedJsonPaths = [ path.split("\\")[-1] for path in partitionedJsonPaths]
-    #print(partitionedJsonPaths)
+    flowLogger.logFlowCheckpoint(str(partitionedJsonPaths))
     
     flowLogger.logFlowCheckpoint("Completed Json Split")
     
@@ -198,7 +227,7 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
     
     for index, fileNamePartitioned in enumerate(partitionedJsonPaths):
         
-        print(index,fileNamePartitioned)
+        flowLogger.logFlowCheckpoint(f"\n\n\n\n||||||||||||||||||||||||||||||||{str(index)} ||||| {str(fileNamePartitioned)}||||||||||||||||||||||||||||||||\n\n\n\n")
         
         if index == 3:
             stopWordFilterLen = 100
@@ -207,16 +236,20 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
             stopWordFilterLen = 6
             isPackageLeaflet = False
             
-        df, coll = extractAndValidateHeadings(procedureType,
+        df, coll = extractAndValidateHeadings(domain,
+                                    procedureType,
                                     languageCode,
                                     index,
                                     fileNamePartitioned,
                                     fileNameQrd,
                                     fileNameMatchRuleBook,
                                     fileNameDocumentTypeNames,
+                                    fileNameLog,
                                     stopWordFilterLen=stopWordFilterLen,
                                     isPackageLeaflet=isPackageLeaflet,
-                                    medName=medName)
+                                    medName=medName,
+                                    fsMountName=fileNameLog,
+                                    localEnv=localEnv)
         
         
         print(f"Completed Heading Extraction For File")
@@ -238,20 +271,20 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
         print(f"Starting Extracting Content Between Heading For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Extracting Content Between Heading")
         
-        extractContentlogger =  MatchLogger(f'ExtractContentBetween_{index}', fileNamePartitioned, procedureType, languageCode, index, fileNameLog)
-        extractorObj = DataBetweenHeadingsExtractor(extractContentlogger, coll, procedureType, languageCode)
+        extractContentlogger =  MatchLogger(f'ExtractContentBetween_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        extractorObj = DataBetweenHeadingsExtractor(extractContentlogger, coll, domain, procedureType, languageCode, fsMountName, localEnv)
         dfExtractedHierRR = extractorObj.extractContentBetweenHeadings(fileNamePartitioned)
         
         print(f"Completed Extracting Content Between Heading")        
         flowLogger.logFlowCheckpoint("Completed Extracting Content Between Heading")
         
-        xmlLogger =  MatchLogger(f'XmlGeneration_{index}', fileNamePartitioned, procedureType, languageCode, index, fileNameLog)
-        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger)
+        xmlLogger =  MatchLogger(f'XmlGeneration_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, pms_oms_annotation_data, fsMountName, localEnv)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
-        #fhirServiceObj = FhirService(generatedXml)
-        #fhirServiceObj.submitFhirXml()
+        fhirServiceObj = FhirService(generatedXml, fsMountName, localEnv)
+        fhirServiceObj.submitFhirXml()
         print(f"Created XML File For :- {fileNamePartitioned}")        
 
         #return df,coll,dfExtractedHierRR
