@@ -6,12 +6,12 @@ class DocumentTypeNames():
         
         if localEnv is True:
 
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'documentTypeNames')
+            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'documentTypeNames')
         else:
-            self.filePath = os.path.join(f'{fsMountName}', 'files', 'documentTypeNames')
+            self.filePath = os.path.join(f'{fsMountName}', 'control', 'documentTypeNames')
         self.fileName = fileNameDocumentTypeNames
 
-        with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:
+        with open(f'{os.path.join(self.filePath,self.fileName)}', encoding='utf-8') as f:
             self.documentNamesDict = json.load(f)
         self.domain = domain
         self.procedureType = procedureType

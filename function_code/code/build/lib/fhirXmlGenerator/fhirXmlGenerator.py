@@ -111,14 +111,22 @@ class FhirXmlGenerator:
         sys.setrecursionlimit(100000)
         if self.localEnv is True:
             template_path = os.path.abspath(os.path.join('..'))
-            template_path = os.path.join(template_path, 'data')
-            xml_output_path = os.path.join(template_path, 'fhir_messages')
+            template_path = os.path.join(template_path, 'control')
+            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
             template_path = os.path.join(template_path, 'jinja_templates')
+            
         else:
             template_path = os.path.join(f'{self.fsMountName}')
-            template_path = os.path.join(template_path, 'data')
-            xml_output_path = os.path.join(template_path, 'fhir_messages')
+            template_path = os.path.join(template_path, 'control')
+            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
             template_path = os.path.join(template_path, 'jinja_templates')
+
+        try:
+            os.makedirs(xml_output_path)
+        
+        except Exception:
+            print("Already Exists")
+
 
         templateLoader = jinja2.FileSystemLoader(searchpath=template_path)
         templateEnv = jinja2.Environment(loader=templateLoader)

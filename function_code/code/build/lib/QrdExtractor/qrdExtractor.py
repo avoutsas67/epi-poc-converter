@@ -11,9 +11,9 @@ class QrdCanonical():
         # r'qrd_canonical_mode_CAP_NAP.csv'
         
         if localEnv is True:
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'control')
+            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'qrdTemplate')
         else:
-            self.filePath = os.path.join(f'{fsMountName}', 'files', 'control')
+            self.filePath = os.path.join(f'{fsMountName}', 'control', 'qrdTemplate')
 
         self.fileName = fileName
 

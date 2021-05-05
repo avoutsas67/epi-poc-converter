@@ -31,9 +31,9 @@ class StyleRulesDictionary:
 
         """
         if self.localEnv is True:
-            filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'control')
+            filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'qrdTemplate')
         else:
-            filePath = os.path.join(f"{self.fsMountName}", 'files', 'control')
+            filePath = os.path.join(f"{self.fsMountName}", 'control', 'qrdTemplate')
 
         filePathQRD = os.path.join(filePath, self.fileName)
 

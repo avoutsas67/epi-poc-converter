@@ -5,13 +5,13 @@ class MatchRuleBook():
     def __init__(self, fileNameRuleBook, domain, procedureType, languageCode, documentNumber, fsMountName, localEnv):
         
         if localEnv is True:
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'files', 'matchRulebook')
+            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'matchRulebook')
         else:
-            self.filePath = os.path.join(f'{fsMountName}', 'files', 'matchRulebook')
+            self.filePath = os.path.join(f'{fsMountName}', 'control', 'matchRulebook')
 
         self.fileName = fileNameRuleBook
 
-        with open(f'{self.filePath}\\{self.fileName}', encoding='utf-8') as f:
+        with open(f'{os.path.join(self.filePath,self.fileName)}', encoding='utf-8') as f:
             ruleDict = json.load(f)
 
         self.domain = str(domain)

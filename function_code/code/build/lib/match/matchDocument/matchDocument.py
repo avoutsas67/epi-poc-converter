@@ -387,7 +387,7 @@ class MatchDocument():
                                 if (previousHeadingRowFound is not None) and (previousHeadingRowFound['id'] in list(self.dfModelwRulesF.tail(self.bottomHeadingsConsidered).id)):
                                     previousHeadingIsBottom = True
                                 
-                                #print(str_['Text'], ' |===| ' , qrd_str)
+                                print(str_['Text'], ' |===| ' , qrd_str)
 
                                 # Calling validateMatch function
 

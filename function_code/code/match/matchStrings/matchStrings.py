@@ -22,6 +22,7 @@ pd.set_option("max_rows", None)
 import jellyfish
 import nltk
 from nltk.corpus import stopwords
+nltk.download('stopwords')
 
 
 

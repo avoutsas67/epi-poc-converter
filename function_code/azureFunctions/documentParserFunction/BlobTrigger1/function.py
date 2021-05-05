@@ -218,7 +218,7 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
     ###Split Uber Json to multiple Jsons for each category.
     partitionedJsonPaths = splitJson(domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog, fsMountName, localEnv)
     
-    partitionedJsonPaths = [ path.split("\\")[-1] for path in partitionedJsonPaths]
+    partitionedJsonPaths = [ path.split(pathSep)[-1] for path in partitionedJsonPaths]
     flowLogger.logFlowCheckpoint(str(partitionedJsonPaths))
     
     flowLogger.logFlowCheckpoint("Completed Json Split")
@@ -248,7 +248,7 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
                                     stopWordFilterLen=stopWordFilterLen,
                                     isPackageLeaflet=isPackageLeaflet,
                                     medName=medName,
-                                    fsMountName=fileNameLog,
+                                    fsMountName=fsMountName,
                                     localEnv=localEnv)
         
         
@@ -283,8 +283,8 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
-        fhirServiceObj = FhirService(generatedXml, fsMountName, localEnv)
-        fhirServiceObj.submitFhirXml()
+        #fhirServiceObj = FhirService(generatedXml, fsMountName, localEnv)
+        #fhirServiceObj.submitFhirXml()
         print(f"Created XML File For :- {fileNamePartitioned}")        
 
         #return df,coll,dfExtractedHierRR
