@@ -392,6 +392,18 @@ class parserExtractor:
                 image_file.close()
         return img_base64_dict
 
+    def cleanHTML(self, soup):
+        """
+            Function to remove empty tags in HTML
+        """
+        remove_tags_in = ['span', 'b', 'em', 'i', 'u']
+        for tag in remove_tags_in:
+            for tag_dom in soup.body.find_all(tag):
+                dom_children = tag_dom.findChildren()
+                if(len(dom_children)==0 and "".join(tag_dom.find_all(text=True, recursive=True)).isspace()):
+                    print(tag_dom)
+                    tag_dom.decompose()
+        return soup
     
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
     def createPIJsonFromHTML(self, input_filepath, output_filepath, img_base64_dict):
@@ -402,6 +414,8 @@ class parserExtractor:
         
         with open(input_filepath) as fp:
             soup = BeautifulSoup(fp, "html.parser")
+            
+            soup = self.cleanHTML(soup)
             soup.body['id']=uuid.uuid4()
 
             ## Process images
