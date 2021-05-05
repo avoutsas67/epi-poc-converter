@@ -401,7 +401,6 @@ class parserExtractor:
             for tag_dom in soup.body.find_all(tag):
                 dom_children = tag_dom.findChildren()
                 if(len(dom_children)==0 and "".join(tag_dom.find_all(text=True, recursive=True)).isspace()):
-                    print(tag_dom)
                     tag_dom.decompose()
         return soup
     

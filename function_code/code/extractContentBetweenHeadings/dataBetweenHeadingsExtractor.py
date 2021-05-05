@@ -86,7 +86,6 @@ class DataBetweenHeadingsExtractor:
       
         df = pd.DataFrame(dic_json)
 
-        self.logger.logFlowCheckpoint('Extracting Content Between Headings')
         
         ## Appending combined text and html to each row
         for i, row in enumerate(df.itertuples(), 0):
@@ -150,5 +149,4 @@ class DataBetweenHeadingsExtractor:
                         id_list_to_ignore.extend(children_ids)
                 idx_qrd=idx_qrd+1
         
-        self.logger.logFlowCheckpoint('Finished Extracting Content Between Headings')
         return dfExtractedHierRR

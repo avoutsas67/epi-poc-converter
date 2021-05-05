@@ -138,7 +138,7 @@ class FhirXmlGenerator:
             xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['authorValue']  = ''
-            self.logger.logFlowCheckpoint('PMS/OMS Annotation Not Performed')
+            self.logger.logFlowCheckpoint('PMS/OMS Annotation Information Not Retrieved')
 
         self.logger.logFlowCheckpoint('Initiating XML Generation')
         id_dict_list, root, img_ref_dict = self.createIdTree(df)
