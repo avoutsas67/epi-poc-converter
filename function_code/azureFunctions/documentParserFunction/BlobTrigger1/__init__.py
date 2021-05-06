@@ -1,44 +1,68 @@
+import os
 import logging
-
+import codecs
 import azure.functions as func
+from .function import parseDocument
 
 
-def main(myblob: func.InputStream,
-    outputblob: func.Out[func.InputStream]) -> None:
+def main(inputBlob: func.InputStream,
+    outputBlob: func.Out[func.InputStream]) -> None:
     logging.info(f"Python blob trigger function processed blob \n"
-                 f"Name: {myblob.name}\n"
-                 f"Blob Size: {myblob.length} bytes")
+                 f"Name: {inputBlob.name}\n"
+                 f"Blob Size: {inputBlob.length} bytes")
 
-    print(type(myblob))
+    print(type(inputBlob))
     print(f"Python blob trigger function processed blob \n"
-                f"Name: {myblob.name}\n"
-                f"Blob Size: {myblob.length} bytes")
+                f"Name: {inputBlob.name}\n"
+                f"Blob Size: {inputBlob.length} bytes")
 
-    blob_source_raw_name = myblob.name
-    print(blob_source_raw_name)
-    print(type(blob_source_raw_name))
-    #print(myblob.read())
-    #local_file_name_thumb = blob_source_raw_name.replace(".htm",".html")
+    fileNameQrd = 'qrd_canonical_model.csv'
+    fileNameMatchRuleBook = 'ruleDict.json'
+    fileNameDocumentTypeNames = 'documentTypeNames.json'
 
-    #local_file_name_thumb = str(blob_source_raw_name[:–4]) + ".xyz"
-    #print(local_file_name_thumb)
+    fsMountName = '/mounted'
+
+    inputHtmlFilePath = inputBlob.name
+    inputHtmlFileName = inputHtmlFilePath.split('/')[-1]
+    inputHtmlFolderPath = '/'.join(inputHtmlFilePath.split('/')[0:-1])
+
+    if "\\" in os.getcwd():
+        localEnv = True
+        inputHtmlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputHtmlFolderPath)
+    else:
+        localEnv = False
+        inputHtmlFolderPath = os.path.join(f'{fsMountName}',inputHtmlFolderPath)
+
     
-    #with open(blob_source_raw_name,"w+b") as local_blob:
-    #    local_blob.write(myblob.read())
-
-
-    f = open('./file.htm', 'wb')
-
-    print(myblob.read())
-    f.write(myblob.read())
-
-    r = open('./file.htm','r')
     
-    o = r.read()
+    outputJsonFolderPath = inputHtmlFolderPath.replace("converted_to_html","outputJSON")
+    outputPartJsonFolderPath = inputHtmlFolderPath.replace("converted_to_html","partitionedJSONs")
+    print(inputHtmlFilePath, inputHtmlFolderPath, outputJsonFolderPath)
 
-    fd = codecs.open("./file.htm", "r", "utf-8")
+    mode = 0o666
+    
+    if localEnv is True:
+        inputHtmlFolderPath = inputHtmlFolderPath.replace("/","\\")
+        outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
+        outputJsonFolderPath = outputJsonFolderPath.replace("/","\\")
 
-    outputblob.set(fd)
+    try:
+        os.makedirs(inputHtmlFolderPath, mode)
+        os.makedirs(outputJsonFolderPath, mode)
+        os.makedirs(outputPartJsonFolderPath, mode)
+    except Exception:
+        print("Already Present")
+    
+    #print(os.listdir())    
+
+    with open(f'{inputHtmlFolderPath}/{inputHtmlFileName}', 'wb') as f:
+        f.write(inputBlob.read())
+
+    fd = open(f'{inputHtmlFolderPath}/{inputHtmlFileName}', "rb")
+
+
+    parseDocument(os.path.join(inputHtmlFolderPath,inputHtmlFileName),fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, fsMountName, localEnv)
+    #outputBlob.set(fd)
 
 
 
