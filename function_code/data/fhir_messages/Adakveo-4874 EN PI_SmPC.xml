@@ -1,0 +1,1776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:1b60f519-f501-46fc-8f51-a8cad629ac74"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="a8279686-9e8f-4938-8318-c1165b46bf93"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-05-07T13:17:58Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:69e50955-2c48-4aa8-8106-7a391cba379e"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+							<contained>
+                                <Binary>
+                                	<id value="image0"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAABUAAAASCAYAAAC0EpUuAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAFDSURBVDhPrZSxTsJQFIYr6eBK4uoL8AjuuqGjq4k7LCaNLNeyYFxxMw41+gDgE5g0PgFxB3ccYUH9/uaWlHCBwuUkP/eW85+v57a9NwyCoIfO0R/yjQPxQn4a6Awd+hKpn6BmGMfx0BjzyMXNHqBd8dSpooMu0bEHeETtveozKPQx3d4xffaAGjg/c6gFJYzX6GQHcErNS16XL1/dzug2IvGBKluAf/FG1GvMYg61jyEFrDtebQFNAH4W/QtQmzCMF6haAjzGI/9CLEG564hu9TU8lIB28H9vhFqDvls9gtoa8ICcfEvhWr5e2oRub3FrC6+KFr5paaiMFPQBvzOtOwr75JVzhrPTgrPF/BQVzwXtb61iZayF0s3AcS5of3/tDLWFxXNhyH/Z/vaC2nOhDeQJtfP97QW1xa+MR+htU5fK/wN70lz+TMoSywAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image0"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image1"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAA0AAAAJCAYAAADpeqZqAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAABRSURBVCjPY2hsbGQgFTPQRFN9noehiYnJTGNjj+7Y+npJojRFGxvXgxSDNBu75aWQpqk+VtLNLS+MdjbVR3rYGRtH13sYG3d75NUb0i70sGEAGHyta9OJwycAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image1"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image2"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACHSURBVCjPY2hsbGQgBsMZ0aYehbH19ZIdHWk80R6mhbKyJtsj8+pV4QpBEu7GcrNAEiCFeW7GKcbRDT4gcTdjt9q0jg4euEIQJ9rYuB6kMMpYttcjr94QbAtUDNVqqCCyJF6FIKtBJoJs8jA27sapsD4vUtVE1mQFyN3GbnkpGL4mOniophAA2LuQewVJW9oAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image2"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image3"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACsSURBVCjPrZCxDYNADEUZgAUoTJcB0HfalOaKLEAQHaKKTopSI4fuJMQAYQIyQdaLjMQp6ShSuLDvPev7kmEYkj2VhNClJfKZmBdX6cn62h1vRPyuvB4ieBW6O6/FKuSYRdCjfpytF0jfhZCu4GaoNhnycrbtJtqsBrRRzSJotiN6GfD9+APaJiZetjxe0G5RHDBG8AKa7BBmfgJu9L4qTLQIEN/GY3Z/z9/BDzIIjqpQaDPwAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image3"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image4"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACoSURBVCjPrZDBCcMwDEUzQBbIwbllgPDdFWxRuoBrcgs5CjpAUX0zhA7QTJANul5RwYbecuhBgi89fb7dpJSaI9XkvLQErD38FlgG1ZFON2PsW3UF2WEmllFk6tD7TSHEx0UPHNx9ybn9gtqKCxzPV5inHuo8AjKJdBXUYg4jQKvGKMsfkCOdi1A3a+1LHUv2CgrTaI3dPfrNUBThMBStUepjDn/P38EPZ1mO4Ar4bTAAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image4"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image5"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACjSURBVCjPY2hsbGQgBsMZOW6yxcbRDT4dHWk80R6mhbKyJtsj8+pVURTW53kYmsjKbgcpzHMzToFpcDN2q03r6OABK4QJ5EWbRoAURBnL9nrk1RuCJKONjetj6+slwQpBJoAkGqKNfUAKkSVRFILcY2JiMhNktaysx0oQH6QRZJOHsXE3XCHMsTAT6/MiVU1kTVa4G8vNMnbLS8HwNdHBQzWFAHAmjuhoo9TWAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image5"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image6"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACrSURBVCjPrZCxDcJADEVvgAwAhekyQGRnhcNFakSw6KKUljIActKdhBgAJmCDrIeMOBS6FBRX3P3n568L0zSFNSek1BeMeCWie80y6Kgb4XoAoLlVK7+gKVcYtcsPGrFDGRsXRIyXPqXiDY6CjU8TwFyLHk8IN1arPBREO5ttP8a2zFMeeIUc/oAa4yF3cZuDbszdF0aufPUedw9gMd9AQE+/L7uH1d/zd/AF4j2OYb789v4AAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image6"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image7"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACkSURBVCjPY2hsbGQgBoOJaA/TQllZk+0ekfV2HR1pPDB+ZF69KlxhnptxinF0gw9IgZubWz5IEZxv7Fab1tHBA1YYbWxc7+ZmXAs2Ma/eMMpYthdEg20CysXW10uCFUYZMyyEmeAuZzzLxMRkJkwSTSGqCSDTQXyQRg9j4264wvo8D0MTWZMVIEFZ46je+rxIVRDf3VhulrFbXgqKr4kOHqoqBABGdo3GbfQMNwAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image7"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image8"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACdSURBVCjPY2hsbGQgBjPkuRmnmJiYzARhY2OP7si8PMNoD9NCWVmT7ZF59apwhTBGfZ6HobFxdD1Io3F0g09HRxqPm7FbbVpHBw9cIUjQw9i4O7a+XjLKWLbXI6/eECQebWxcDxKDK2yINvYxdstLQZfEUIhsCshqEBvZFrBCkIC7nPEsmEB9XqSqiazJCndjuVkwW1A8QzB4qK4QAMhsj66qiUfoAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image8"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image9"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACmSURBVCjPY2hsbGQgBjN0dKTxRBnL9sqamKzwyKs3BPGjPUwLZWVNtkfm1avCFea4yRYbRzf4gBS4GbvVghQh89M6OnjACuvzPAyNjT26wQrc8lJApoNMBklGGxvXx9bXS4IV5rkZp4AU5OVFgjV4GBt3wyRRFCJzQKaZmJjMhLkVWRPYahNZkxVubsa1ssZRvfV5kaogvrux3CyQTXDPEB08VFcIAGfxjehIKaxZAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image9"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image10"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACjSURBVCjPY2hsbGQgBjN0dKTxuBvLzZIzdp8VmVevCuJHe5gWysqabAfx4Qpz3GSLPfLqDUEK3IzdakGKjKMbfGD8tI4OHrDCKGPZXpBCECfa2LjexER2BTI/tr5eEqywPs/DEGSNiYnJTBgNk0RR2JCXJwEyHmSVh7Fxt5ubcS3MKSA+ionGxh7dIA8Zu+Wl1OdFqprImqyA8eGeITp4qK4QAJ5TjiisGzNqAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image10"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image11"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAClSURBVCjPY2hsbGQgF8MZ0aYehbH19ZIgdkdHGk+0h2mhrKzJ9si8elV0PlwzSMLdWG4WSAKmOc/NOMU4usEHJOdm7FYL0ojMT+vo4IFrBnGijY3rYZqjjGV7PfLqDcEuAoqbmMiuQObD1CGcjSSIzjYxMZmJTQ6rZpCzQTaBXOVhbNzt5mZci8zHq7k+L1LVRNZkBSgsjN3yUtD5GKFNUVTRXTMA8B3XufAXr20AAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image11"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image12"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="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"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image12"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image13"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAaCAMAAAANMMsbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJUExURf///////////45K5f4AAAACdFJOU9vzMOtySgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAADVJREFUSEvtzCECADAIw0Dg/4/eBDKSusS06qomVtL++m4kcUwcE8fEMXFMHBPHsnjvuW/6ASpfEqvzA8MRAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image13"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image14"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="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"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image14"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image15"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAADgAAAAKCAYAAADhNJ24AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAFqSURBVEjH3VVBasNADPQD8oAEvDk1Dwiyj+mprLcl59JE7M3kYILA5BzWvhlKPuAXNC/oC/qvVimCrRu3pnZzyEGskbQzmpW8G5RlGVyzBQlM6zAM38QUrA+kITXk5n2A3crcrsjNhiiyqjYjomLcpS7m9XM+nc5OYJrUm6oanduUZdkNrwXR2M8R4m8kjAfo+mBI/mkPwhKwWIpAPyaYgsF4GvReOM4KFKCtVrspJDWaOFcqetXWPkYqerHOTZiUY9ZC2hQjBfF3VwxemV/ymz6ltzs0yjVjXCtYm65BHUBT6tf/q0BZ/Y6IjwFjgzki3huljv5Y+AQ/YSCAY6HsYzyf0+9Es4N+jH0s1iA9SP3+Af9ZIBd3R7TgcSFrF/7YXVLgaTyLD8P4ie+PwQQ6MnMeNa1hL8DnRrQLBl90gtEmUClzNADPbR1kjNYRHdqaP/oljblNjPmXW/Q/zNFqNtQz0Yf3qh95tnfD5idClibkYQAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image15"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image16"/>
+                                	<!-- example format -->
+                                	<contentType value="image/jpg"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="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"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image16"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image17"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB0SURBVCjPY2hsbGQgBsMZHR1pPNEepoWysibbI/PqVXEqzHMzTjGObvABaXAzdqtN6+jgwaowyli21yOv3hDEjjY2ro+tr5fEqhBZEq9CkNUgE0FWexgbd+NUWJ8XqWoia7LC3VhulrFbXgpOzxAdPFRTCAAolJLNIdXXkAAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image17"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image18"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAA9SURBVCjPY2hsbGQgBmMIRJt6FMbW10viVNjRkcbjbiw3S1bWZDtBhWkdHTzRxsb1eBXCrR44hUQHD8UKAQJJlNuO03ePAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image18"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image19"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB0SURBVCjPY2hsbGQgBsMZHR1pPO7GcrNkTUxWeETW2+FUmOMmW+yRV28I1iBnPCu2vl4Sq0IYrq+PlTSWc5+V1tHBg1MhyDQPWdmVIJNxWg0yyUTWZEVkXr0qXs9EGcv2gjxiYmIy09jYoxuv1UQFD9UUAgBwNJMS8y8R2wAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image19"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image20"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB7SURBVCjPY2hsbGQgBsMZHR1pPB7Gxt1yxu6zIvPqVXEqzHMzTvHIqzesr4+VNJZzn5XW0cGDVSHM1GgP00Jjt7wUnCbCTc6LNDQ29ujGaWJetIdXbH29JIgdZSzbC3IGVoX1eR6GJrImK9yN5WbJekTXE7SaYPBQTSEAnxOTQJNoygYAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image20"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image21"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAABgSURBVCjPY2hsbGQgBmMI5LjJFhtHN/jgVVif52FoIiu7Ha/Cjo40Hjdjt9q8aNMIvArz3IxTPPLqDRuijX1wKgSZFu1hWmhiYjITZLWsrMfKtI4OHryewWsiWcFDsUIApiiTSLHBUzIAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image21"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image22"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB6SURBVCjPY2hsbGQgBsMZHR1pPB7Gxt0mJiYzTT2iC9M6OniwKqzP8zA0dstLIWhiQ7Sxj6ysyXYTWdntptF5ETgV1udFqsKsizY2ro+tr5fEqjDPzS0sMq9eFcSOMpbt9cirN8TpRpDV7sZys2Q9outxWk108FBNIQAlxZLDHicfXQAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image22"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image23"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB2SURBVCjPY2hsbGQgBqNwoj1MC2VlTbZ7RNbb4VSY52acYhzd4NPRkcbj5uaWn9bRwYNVYbSxcb2bm3Et2MS8ekOcJkYZMyyEmeguZzwrtr5eEodC2V6YSSDTcSqsz/MwNJE1WeFhbNwtaxzVi9fXRAcPVRQCAINekiNWacDGAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image23"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image24"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAA0AAAAKCAYAAABv7tTEAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB7SURBVCjPY2hsbGQgFaNwysvLBYKDg2NBODw8PDgrK0uHoKb6+npRBweHeicnp0oFBYW9fn5+iQQ1IdnIC9TcwMDAwEi0Jltb29b4+HhnovwEtUXIwMBg4apVq5iI1hQbG+tuamo6hejQA+G8vDy5tLQ0LZI0kRxPxGIAnwu/7JsP81AAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image24"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image25"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB7SURBVCjPY2hsbGQgBsMZHR1pPFHGsr2yJiYrPPLqDXEqzHGTLTaObvABaXAzdqtN6+jgwaqwPs/D0NjYozvaw7TQ2C0vBaeJeW7GKSAFeXmRYA04TYw2Nq6Pra+XBLFBbkV3J4rVJrImK9zcjGtljaN6cVpNdPBQTSEAp2uSSOWzepoAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image25"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image26"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAB6SURBVCjPY2hsbGQgBsMZHR1pPO7GcrPkjN1nRebVq+JUmOMmW+yRV28I0uBm7Fab1tHBg1VhlLFsL0ghiB1tbFwfW18viVVhfZ6HoaysyXYTE5OZIBqnwoa8PAmQdSCrPYyNu/GaaGzs0Q3ykLFbXgpOzxAdPFRTCADTGpKAXsOmnQAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image26"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image27"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACHSURBVCjPY2hsbGQgBsMZ0aYehbH19ZIdHWk80R6mhbKyJtsj8+pV4QpBEu7GcrNAEiCFeW7GKcbRDT4gcTdjt9q0jg4euEIQJ9rYuB6kMMpYttcjr94QbAtUDNVqqCCyJF6FIKtBJoJs8jA27sapsD4vUtVE1mQFyN3GbnkpGL4mOniophAA2LuQewVJW9oAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image27"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image28"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAABFSURBVCjPY2hsbGQgBsMZ0aYehbH19ZK4+AwdHWk87sZys2RlTbaDJND5KArTOjp4oo2N62EKkfmYVqNJ0FEh0cFDNYUAogCSidVvHywAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image28"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image29"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACNSURBVCjPY2hsbGQgBsMZ0aYehbH19ZIdHWk87sZys2RNTFZ4RNbbwRXCJWRNtoMU5rjJFnvk1RuCxeWMZ4HE4ArTOjp4oo2N62GCIFxfHytpLOc+CySHajWSQpBmD1nZlSCTMd0IVQgyyUTWZEVkXr0qds9AFUYZy/aCPGJiYjLT2NijG8NqooOHagoBHkKQwNKEDRYAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image29"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image30"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAACWSURBVCjPY2hsbGQgBsMZ0aYehbH19ZIdHWk8HsbG3XLG7rMi8+pV4QpBEu7GcrNkZU22gxTmuRmneOTVG9bXx0oay7nPSuvo4IErBHGijY3rQQpBgiCxaA/TQmO3vBRMq5EUgnBeXqShsbFHN9xEdIV50R5eMA1RxrK9IGdgVVif52FoImuyAuxuj+h6DKuJDh6qKQQAS7GQ7lbNrkIAAAAASUVORK5CYII="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image30"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image31"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAGMAAAAJCAYAAAAmVJKpAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAHKSURBVEjH7VaxUsJAEN0P4AeYydr5AXCxtYwXh9qRZNIxVMw1fMBBlwI+QDs6LawtpLXxDyz4A/5BsyfLXI5LImiBDsXNMLv7dt/t21sC0+kUTuc4zr+6jFb98yhSN8eOqxRjFOEYArkc5nmLfmM0Gh+S6CdYXy4A+BDppHcoh334HMq9CVfn9/lKF/ddZpKKHohkQbZEwCIIglcAXIdheEc4Ox4Q38nHTdRKdhBgTTapdMfkKjAAYpVp3d6J6etLrbO2AFgxxhXIFonybbGpupYBLBnH/F0OZa5Friwb2DhfPJ+6enYM3zGOcVbHgXyJwDnf58sYx7MQwwcG14lBNp+vKp4bSDbbx4diiIzxbV4o23yTZC6G8pHiaE2EiM88FL5hcjnYPiNKYbNxhgd236jZVMNdS1X1SmL4euLk3A6X1Y8yMWfSbcJ24/YRoyr+N8QwcZEapBJ1nRhNr35HjFA+XYmze7fRdfUaxXBymr52uy/0CHhLbAF5PmzRsyuRKsQxa+mbYlSuqWIqqKBPDHdN2XV2/kec/DxAxJH4qPTitnJNbTj4xLBx3Ae7jrsqffXqxPDltDmgSOZ/6mvqNz8QTp+2p9N4PgG+luSrPiNLtAAAAABJRU5ErkJggg=="/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image31"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image32"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="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"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image32"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image33"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAAEcAAAAKCAYAAADmdkOtAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAHPSURBVEjH7VYxjsIwENwH8AGkLB0PSJz6yuAC6eoQoeuoUBpqZOjS8ICjozuKq6+A9hp+wB/4w13WlpONcVAQHaIwJNrs7Ox4vAms12t4Lf/SP0pN+xFEh6lSfd9DEwE7TOYLX2ye4KIt9shSuQwR4AIAf4/i8/7u4Vs1GMfxp8hW4wYgwgkAL4hwJsCaMF5krkIuDhfw6jqOv3QeRiebVxSzngzgSM0PxGg7K4oeJ7bKxBjEZNe2IUEQ/GrMWH4bHMOp4l3WavBGuacaPr6+HC0OkRwNxDZVaShEpjgBImebMIC4IQE5sCUKgTzaBnVj5X2u0mEEqAtSnsV08X3O1PFSON10qt6uYmWu2Sw8kygWw8ebu8XH15ejxdEFxGRjRbJHy+cEejZG/OFWr5pgxayNk0QsaTeMA6nR+jlX4FsucWO2WSNOdCLOFs/Hm/7tqfDxbXM92yGzXMKVmjJTtYOajVGME7BFLJ6N3eMc1wldxbl2wcdSIu4bY8Dh2+ocnsjPpm/m0LGie+0e1iTF3BnBLV/NqtJFaa6GXWaOb751EYfPjyiCQzB6L/jLxsfXzanEebbXL3ea6+Z7c55OnNrxZq60fZ50yXl97N1Y/8x93BwYcsYkAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image33"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<contained>
+                                <Binary>
+                                	<id value="image34"/>
+                                	<!-- example format -->
+                                	<contentType value="image/png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="iVBORw0KGgoAAAANSUhEUgAAACEAAAAKCAYAAAA6jzeaAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAEASURBVDjLY2hsbGQYaMyQ4yZbzMDA8B+CZd945NUbgiRA4rJuOcXkGtwQbezDYBy1kHhHQBWjs0GOqM/zMJRlYHgDcyCIbyTLcArZwXA1skanYGJgR8jK3oSJx9bXS3Z0pPF4yDDsAXlYzth9VlpHBw9Rjogylu01jm7wiTJmWAjhQ2hkn4LEQGqQ9YPlZTz2gCyC6YHJgxwDEyMqOkC+NJGV3Q6Sl/WIrgf5BGQhLCiRfQfGUIuRHQmzHNliZAejcJAx2BFQS5FDAEbnRZtGIPsUa0gwGN8FRQNxIYHLEdDoAIUQODSA6lDSRGS9HXqaiMyrVyU5TQyKLDrqCCgGAIa9yiqLKFdGAAAAAElFTkSuQmCC"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image34"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="SUMMARY OF PRODUCT CHARACTERISTICS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:green'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><img height="18" src="#image0" width="21"/><span lang="EN-GB">This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo 10 mg/ml concentrate for solution for infusion</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="2.       QUALITATIVE AND QUANTITATIVE COMPOSITION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each ml of concentrate for solution for infusion contains 10 mg crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">One vial of 10 ml contains 100 mg crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Crizanlizumab is a monoclonal antibody produced in Chinese Hamster Ovary (CHO) cells by recombinant DNA technology.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">For the full list of excipients, see section 6.1.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="3.       PHARMACEUTICAL FORM"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><a name="_Toc259706902"></a><a name="_Toc259707071"></a><a name="_Toc259707134"></a><a name="_Toc259713075"><span lang="EN-GB">Concentrate for solution for infusion</span></a><span lang="EN-GB"> (sterile concentrate)</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Colourless to slightly brownish‑yellow liquid at pH 6 and with an osmolality of 300 mOsm/kg.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="4.       CLINICAL PARTICULARS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="4.1     Therapeutic indications"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="Standard"><span lang="EN-GB">Adakveo</span><span lang="EN-GB"> is indicated for the prevention of recurrent vaso‑occlusive crises (VOCs) in sickle cell disease patients aged 16 years and older. It can be given as an add‑on therapy to hydroxyurea/hydroxycarbamide (HU/HC) or as monotherapy in patients for whom HU/HC is inappropriate or inadequate.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.2     Posology and method of administration"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Treatment should be initiated by physicians experienced in the management of </span><span lang="EN-GB">sickle cell disease.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Posology"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The recommended dose of crizanlizumab is 5 mg/kg administered over a period of 30 minutes by intravenous infusion at week 0, week 2, and every 4 weeks thereafter.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Crizanlizumab </span><span lang="EN-GB">c</span><span lang="EN-GB">an be given alone or with HU/HC.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="Standard" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">If a dose is missed, the treatment should be administered as soon as possible.</span></p><p align="left" class="Text" style="margin-top:0in;margin-right:0in;margin-bottom: 0in;margin-left:28.35pt;margin-bottom:.0001pt;text-align:left;text-indent:-28.35pt"><span style="font-size:11.0pt">-</span><span style="font-size:11.0pt">If crizanlizumab is administered within 2 weeks after the missed dose, dosing should be continued according to the patient’s original schedule.</span></p><p align="left" class="Text" style="margin-top:0in;margin-right:0in;margin-bottom: 0in;margin-left:28.35pt;margin-bottom:.0001pt;text-align:left;text-indent:-28.35pt"><span style="font-size:11.0pt">-</span><span style="font-size:11.0pt">If crizanlizumab is administered more than 2 weeks after the missed dose, dosing should be continued every 4 weeks thereafter.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><u><span lang="EN-GB">Special populations</span></u></i></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><span lang="EN-GB">Elderly</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Crizanlizumab has not been studied in elderly patients. No dose adjustment is required as the pharmacokinetics of crizanlizumab in adults are not affected by age.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><span lang="EN-GB">Renal impairment</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Based on the population pharmacokinetic (PK) results, no dose adjustment is required in patients with mild or moderate renal impairment (see section 5.2). Data from patients with severe renal impairment are too limited to draw conclusions on this population.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><span lang="EN-GB">Hepatic impairment</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The safety and efficacy of crizanlizumab in patients with hepatic impairment have not been established. Crizanlizumab is a monoclonal antibody and is cleared via catabolism (i.e. breakdown into peptides and amino acids), and a change in dose is not expected to be required for patients with hepatic impairment (see section</span><span lang="EN-GB">5.2).</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Paediatric population"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="Standard" style="line-height:normal"><span lang="EN-GB">The safety and efficacy of </span><span lang="EN-GB">crizanlizumab</span><span lang="EN-GB"> in paediatric patients from 6 months to 16 years have not been established. No data are available.</span></p><p class="Standard" style="line-height:normal"></p><p class="Standard" style="line-height:normal"><span lang="EN-GB">There is no relevant use of crizanlizumab in infants aged less than 6 months for the indication of prevention of recurrent vaso‑occlusive crises.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Method of administration"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span><span lang="EN-GB">should be diluted with sodium chloride 9 mg/ml (0.9%) solution for injection or dextrose 5% before administration.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The diluted solution</span><span lang="EN-GB"> must be administered through a sterile, non‑pyrogenic 0.2 micron in‑line filter by intravenous infusion over a period of 30 minutes. It must not be administered by intravenous push or bolus.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">For instructions on dilution of the medicinal product before administration, see section 6.6.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.3     Contraindications"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Hypersensitivity to the active substance or to any of the excipients listed in section 6.1.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Hypersensitivity to Chinese Hamster Ovary (CHO) cell products.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.4     Special warnings and precautions for use"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Traceability"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In order to improve the traceability of biological medicinal products, the name and the batch number of the administered product should be clearly recorded.</span></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Infusion‑related reactions</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In clinical studies, infusion‑related reactions (defined as occurring within 24 hours) were observed in 2 patients (1.8%) treated with crizanlizumab 5 mg/kg</span><span lang="EN-GB">. Patients should be monitored for signs and symptoms of infusion‑related reactions, which may include fever, chills, nausea, vomiting, fatigue, dizziness, pruritus, urticaria, sweating, shortness of breath or wheezing. </span><span lang="EN-GB">In the event of a severe reaction, crizanlizumab should be discontinued and appropriate therapy should be instituted.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Laboratory test interference: automated platelet counts</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Interference with automated platelet counts (platelet clumping) has been observed in patients treated with crizanlizumab in clinical studies, in particular when tubes containing EDTA (ethylenediaminetetraacetic acid) were used. This may lead to unevaluable or falsely decreased platelet counts. There is no evidence that crizanlizumab causes a reduction in circulating platelets or has a pro‑aggregant effect <i>in vivo</i>.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">To mitigate the potential for laboratory test interference, it is recommended to run the test as soon as possible (within 4 hours of blood collection) or use citrate tubes. When needed, </span><span lang="EN-GB">platelet counts can be estimated via a peripheral blood smear</span><span lang="EN-GB">.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Excipients with known effect</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicine contains less than 1 mmol sodium (23 mg) per vial, that is to say essentially “sodium‑free”.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.5     Interaction with other medicinal products and other forms of interaction"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Interactions between crizanlizumab and other medicinal products have not been investigated in dedicated studies.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Monoclonal antibodies are not metabolised by cytochrome P450 (CYP450) enzymes. Therefore, medicinal products that are substrates, inhibitors or inducers of CYP450 are not expected to affect the pharmacokinetics of crizanlizumab. In clinical studies, HU/HC had no effect on crizanlizumab pharmacokinetics in patients.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">No effect on exposure of co‑administered medicinal products is expected based on the metabolic pathways of monoclonal antibodies.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.6     Fertility, pregnancy and lactation"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Pregnancy"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="Standard"><span lang="EN-GB">There is a limited amount of data from the use of Adakveo in pregnant women. Based on data from animal studies, crizanlizumab has the potential to cause foetal losses when administered to a pregnant woman (see section 5.3). As a precautionary measure, it is preferable to avoid the use of Adakveo during pregnancy and in woman of childbearing potential not using contraception.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="Standard" style="line-height:normal">To help determine the effects in pregnant women, healthcare professionals are encouraged to report all pregnancy cases and complications during pregnancy (from 105 days prior to the last menstrual period onward) to <span lang="EN-GB">the local representative of the</span> marketing authorisation holder (see package leaflet), in order to allow monitoring of these patients through the PRegnancy outcomes Intensive Monitoring programme (PRIM). In addition, all adverse pregnancy events should be reported <span lang="EN-GB">via <span style="color:black;background:#D9D9D9">the national reporting system listed in </span></span><span lang="EN-GB"><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc"><span style="background:#D9D9D9">Appendix V</span></a></span>.</p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Breast‑feeding"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">It is unknown whether crizanlizumab is excreted in human milk after administration of Adakveo. There are no data on the effects of crizanlizumab on the breast‑fed newborn/infant or on milk production.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Because many medicinal products, including antibodies, can be excreted in human milk, a risk to the newborn/infant cannot be excluded.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">A decision must be made whether to discontinue breast‑feeding or to discontinue Adakveo therapy, taking into account the benefit of breast‑feeding for the child and the benefit of therapy for the woman.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Fertility"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">There are no data on the effect of Adakveo on human fertility. Available non‑clinical data do not suggest an effect on fertility under crizanlizumab treatment (see section 5.3).</span></p><p class="MsoNormal" style="line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.7     Effects on ability to drive and use machines"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo may have a minor influence on the ability to drive and use machines. Dizziness, fatigue and somnolence may occur following administration of crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.8     Undesirable effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><u><span lang="EN-GB">Summary of the safety profile</span></u><a name="_nth_Summary_of_the_safety_6118"></a></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">The most frequently reported adverse drug reactions (≥10% of patients) in the Adakveo 5 mg/kg group were arthralgia, nausea, back pain, pyrexia and abdominal pain. Severe events were observed for pyrexia and arthralgia (each 0.9%).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><u><span lang="EN-GB">Tabulated list of adverse reactions</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Table 1 lists adverse reactions based on pooled data from two studies: the pivotal study, SUSTAIN, and a single‑arm, open‑label pharmacokinetics/pharmacodynamics and safety study. Use of crizanlizumab in combination with HU/HC did not result in any meaningful differences in the safety profile.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Within each system organ class, the adverse reactions are ranked by frequency, with the most frequent reactions first. Within each frequency grouping, adverse reactions are presented in order of decreasing seriousness. In addition, the corresponding frequency category for each adverse reaction is based on the following convention: very common (≥1/10); common (≥1/100 to &lt;1/10); uncommon (≥1/1,000 to &lt;1/100); rare (≥1/10,000 to &lt;1/1,000); very rare (&lt;1/10,000).</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><a name="_Toc272145403"></a><a name="_Toc272145564"></a><a name="_Toc266768477"></a><a name="_Toc260903679"></a><a name="_Toc266264818"></a><a name="_Toc499550967"></a><a name="_Toc517716325"><b><span lang="EN-GB">Table 1       Adverse reactions in clinical studies</span></b></a><a name="_hd6_Table_7_1_Percentage_o7395"></a></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="width:459.0pt;border-collapse:collapse;border:none" width="612"> <tr style="page-break-inside:avoid"> <td style="width:175.5pt;border:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p class="Text" style="margin-top:0in;page-break-after:avoid"><b><span lang="EN-GB" style="font-size:11.0pt">System organ class</span></b></p> </td> <td style="width:81.0pt;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p class="Text" style="margin-top:0in;page-break-after:avoid"><b><span lang="EN-GB" style="font-size:11.0pt">Frequency</span></b></p> </td> <td style="width:202.5pt;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p class="Text" style="margin-top:0in;page-break-after:avoid"><b><span lang="EN-GB" style="font-size:11.0pt">Adverse reaction</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Respiratory, thoracic and   mediastinal disorders</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Oropharyngeal pain</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Gastrointestinal disorders</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Very common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Nausea, abdominal pain*</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:13.45pt"> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:13.45pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:13.45pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">D</span><span lang="EN-GB" style="font-size:11.0pt">iarrhoea, vomiting</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Skin and subcutaneous tissue   disorders</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Pruritus*</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Musculoskeletal and   connective tissue disorders</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Very common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Arthralgia, back pain</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Myalgia, musculoskeletal   chest pain</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">General disorders and   administration site conditions</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Very common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Pyrexia</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Infusion site reaction*</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:175.5pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="234"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Injury, poisoning and   procedural complications</span></p> </td> <td style="width:81.0pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="108"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Common</span></p> </td> <td style="width:202.5pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="270"> <p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after:   avoid"><span lang="EN-GB" style="font-size:11.0pt">Infusion‑related   reaction</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td colspan="3" style="width:459.0pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="612"> <p class="Table" style="margin:0in"><span lang="EN-GB" style='font-family:"Times New Roman",serif'>*The   following groupings contain the following MedDRA preferred terms:</span></p> <p class="Table" style="margin-top:0in;margin-right:0in;margin-bottom:0in;   margin-left:28.35pt;text-indent:-28.35pt"><span lang="EN-GB" style='font-family:   "Times New Roman",serif'>-</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Abdominal   pain: abdominal pain, abdominal pain upper, abdominal pain lower, abdominal   discomfort, and abdominal tenderness</span></p> <p class="Table" style="margin-top:0in;margin-right:0in;margin-bottom:0in;   margin-left:28.35pt;text-indent:-28.35pt"><span lang="FR-CH" style='font-family:   "Times New Roman",serif'>-</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Pruritus:   pruritus and vulvovaginal pruritus</span></p> <p class="Table" style="margin-top:0in;margin-right:0in;margin-bottom:0in;   margin-left:28.35pt;text-indent:-28.35pt"><span lang="EN-GB" style='font-size:   11.0pt;font-family:"Times New Roman",serif'>-</span><span lang="FR-CH" style='font-family:"Times New Roman",serif'>Infusion   site reaction: infusion site extravasation, infusion site pain, and infusion   site swelling</span></p> </td> </tr> </table><p align="left" class="Text" style="margin-top:0in;text-align:left"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><u><span lang="EN-GB">Description of selected adverse reactions</span></u></p><p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after: avoid"></p><p align="left" class="Text" style="margin-top:0in;text-align:left;page-break-after: avoid"><i><u><span style="font-size:11.0pt">Immunogenicity</span></u></i></p><p align="left" class="Text" style="margin-top:0in;text-align:left"><span style="font-size:11.0pt">In clinical studies, treatment‑induced anti‑crizanlizumab antibodies were transiently detected in 1 patient (0.9%) among the 111 patients who received Adakveo 5 mg/kg.</span></p><p align="left" class="Text" style="margin-top:0in;text-align:left"></p><p align="left" class="Text" style="margin-top:0in;text-align:left"><span style="font-size:11.0pt">There was no evidence of altered pharmacokinetics or of an altered safety profile with anti‑crizanlizumab antibody development.</span></p><p align="left" class="Text" style="margin-top:0in;text-align:left"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Paediatric population"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="Standard" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p align="left" class="Text" style="margin-top:0in;text-align:left"><span style="font-size:11.0pt">Frequency, type and severity of adverse reactions in patients aged 16 and 17 years are expected to be the same as in adults. The safety of crizanlizumab was evaluated in 3 patients aged &lt;18 years.</span></p><p align="left" class="Text" style="margin-top:0in;text-align:left"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Reporting of suspected adverse reactions"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Reporting suspected adverse reactions after authorisation of the medicinal product is important. It allows continued monitoring of the benefit/risk balance of the medicinal product. Healthcare professionals are asked to report any suspected adverse reactions via <span style="color:black; background:#D9D9D9">the national reporting system listed in </span></span><span lang="EN-GB"><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc"><span style="background:#D9D9D9">Appendix V</span></a></span><span lang="EN-GB">.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.9     Overdose"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">No cases of overdose have been reported in clinical studies.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">General supportive measures and symptomatic treatment should be initiated in cases of suspected overdose.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="5.       PHARMACOLOGICAL PROPERTIES"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="5.1     Pharmacodynamic properties"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Pharmacotherapeutic group: Other haematological agents, ATC code: B06AX01</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Mechanism of action"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Crizanlizumab is a selective IgG2 kappa humanised monoclonal antibody (mAb) that binds to P‑selectin with high affinity and blocks the interaction with its ligands, including P‑selectin glycoprotein ligand 1. </span><span lang="EN-GB">Crizanlizumab can also dissociate preformed P‑selectin/PSGL‑1 complex. </span><span lang="EN-GB">P‑selectin is an adhesion molecule expressed on activated endothelial cells and platelets. It plays an essential role in the initial recruitment of leukocytes and the aggregation of platelets to the site of vascular injury during inflammation. In the chronic pro‑inflammatory state associated with sickle cell disease, P‑selectin is over‑expressed and circulating blood cells and the endothelium are activated and become hyperadhesive. P‑selectin‑mediated multi‑cellular adhesion is a key factor in the pathogenesis of vaso‑occlusion and vaso‑occlusive crises (VOC). Elevated levels of P‑selectin are found in patients with sickle cell disease.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Binding P‑selectin on the surface of the activated endothelium and platelets has been shown to effectively block interactions between endothelial cells, platelets, red blood cells and leukocytes, thereby preventing vaso‑occlusion.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Pharmacodynamic effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Throughout clinical studies, treatment with crizanlizumab 5 mg/kg resulted in dose‑dependent, immediate and sustained P‑selectin inhibition </span><span lang="EN-GB">(as measured <i>ex vivo</i>) </span><span lang="EN-GB">in patients with sickle cell disease.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Clinical efficacy and safety"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">The efficacy of crizanlizumab, with or without HU/HC, was evaluated in the pivotal study SUSTAIN, a 52‑week, randomised, placebo‑controlled, double‑blind, multicentre clinical study in sickle cell disease patients with a history of vaso‑occlusive crises (VOCs).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In this study, VOCs were defined as those leading to a healthcare visit, which captured all acute episodes of pain with no other cause than a vaso‑occlusive event that required a healthcare visit and treatment with oral or parenteral opioids or parenteral non‑steroidal anti‑inflammatory drugs (NSAIDs). Acute chest syndrome, hepatic sequestration, splenic sequestration and priapism (requiring a healthcare visit), by definition, were also considered VOCs.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A total of 198 sickle cell disease patients aged 16 to 63 years (inclusive; mean age 30.1±10.3 years), with any sickle cell disease genotype (including HbSS [71.2%], HbSC [16.2%], HbSbeta0‑thalassaemia [6.1%], HbSbeta+‑thalassaemia [5.1%], and others [1.5%]) and a history of between 2 and 10 VOCs in the previous 12 months (62.6% and 37.4% of the patients had 2‑4 or 5‑10 VOCs, respectively), were randomised 1:1:1 to Adakveo 5 mg/kg, Adakveo 2.5 mg/kg or placebo. The majority of patients were Black or African American (91.9%). Patients received Adakveo with (62.1%) or without (37.9%) HU/HC. Randomisation was stratified by patients already receiving HU/HC (Y/N) and by number of VOCs in the previous 12 months (2 to 4, 5 to 10). Patients were allowed to take medicinal products to relieve pain (i.e. paracetamol, NSAIDs and opioids) and to receive occasional transfusions on an “as needed” basis. Patients participating in a chronic transfusion programme (pre-planned series of transfusions for prophylactic purposes) were excluded from the study.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg resulted in a 45.3% lower median annual rate of VOCs compared to placebo (Hodges‑Lehmann, median absolute difference of ‑1.01 compared with placebo, 95% CI [‑2.00, 0.00]), which was statistically significant (p=0.010). The median annual rates of uncomplicated VOCs (any VOCs as defined above, excluding acute chest syndrome, hepatic sequestration, splenic sequestration or priapism) and days hospitalised were 62.9% and 41.8% lower in the Adakveo 5 mg/kg than in the placebo group, respectively. The VOCs occurring during the study were assessed by an independent review committee.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Main efficacy outcomes of the pivotal SUSTAIN study are summarised in Tables 2 and 3.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><a name="_Toc499550968"></a><a name="_Toc517716326"><b><span lang="EN-GB">Table </span></b></a><b><span lang="EN-GB">2       Results from SUSTAIN clinical study in </span></b><a name="_hd6_Table_12_1_Results_fro16811"></a><b><span lang="EN-GB">sickle cell disease</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="width:98.84%;border-collapse:collapse;border:none" width="98%"> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.16%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Event</span></b></p> </td> <td style="width:23.82%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:11.54%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:10.46%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:21.1%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(95% CI)</span></p> </td> <td style="width:12.9%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">p-value</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(Wilcoxon rank sum)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Primary endpoint</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.63</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.98</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑45.3%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.010</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td colspan="5" style="width:87.1%;border:none;   border-bottom:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="87%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Secondary endpoints</span></b></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of days hospitalised</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">4.00</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">6.87</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑41.8%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑4.36, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.450</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of uncomplicated VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.08</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.91</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑62.9%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.98, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">-</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td colspan="6" style="width:.02%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="0%"> <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt">The primary (annual rate of VOC leading   to healthcare visit) and key secondary (annual rate of days hospitalised)   endpoints were the only ones formally tested for statistical significance   according to protocol.</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal"><span lang="EN-GB">The clinical effect demonstrated in the primary efficacy analysis was supported by multiple supplementary analyses including a negative binomial regression on investigator assessments with a conservative method to handle missing data due to early discontinuation of treatment based on outcomes in the placebo group (RR=0.74, 95% CI=0.52, 1.06).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In the Adakveo 5 mg/kg group, clinically significant reductions in the annual rate of VOCs were observed across important subgroups (</span><span lang="EN-GB">HU/HC use, 2‑4 or 5‑10 VOCs in the previous 12 months, and HbSS or non‑HbSS genotypes; </span><span lang="EN-GB">see Table 3).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB">Table 3       Annual rate of VOCs in patients ‑ subgroup analyses</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="border-collapse:collapse;border:none" width="612"> <tr style="page-break-inside:avoid"> <td style="width:90.45pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Subgroup </span></b></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> <td style="width:70.85pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg (N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo (N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:106.3pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(95% CI)</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HU/HC use</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Yes</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.43</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n= 40</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.58</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑32.1%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.44, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">No</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.02</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:20.2pt"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:20.2pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Number of VOCs in previous   12 months</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2‑4 VOCs</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.14</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=41</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑43.0%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑0.05</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.56, 0.01)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5‑10 VOCs</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=24</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5.32</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑63.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑2.74</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑5.00, ‑0.83)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Sickle cell disease genotypes,   including HbSC</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HbSS</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.01</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑34.6%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.18, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Non‑HbSS</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=20</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.99</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=18</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.5%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.01, 0.00)</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A greater than two‑fold increase in the proportion of patients with no VOC and who completed the study was observed in the Adakveo 5 mg/kg group compared to placebo (22% vs 8%; odds ratio [95% CI]: 3.57 [1.20, 10.63]). A similar difference was also observed across important subgroups (HU/HC use, genotype).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg was also associated with a three‑fold longer Kaplan‑Meier estimated median time to first VOC compared with placebo (4.07 vs 1.38 months; HR=0.495, 95% CI: 0.331, 0.741) (Figure 1) and a two‑fold longer median time from randomisation to second VOC compared to placebo (10.32 vs 5.09 months; HR=0.534, 95% CI: 0.329, 0.866).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Figure 1      Kaplan‑Meier curve of time to first VOC</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"><span style="position:absolute;z-index:251748352;left:0px;margin-left:61px; margin-top:211px;width:13px;height:9px"><img alt="0" height="9" src="#image1" width="13"/></span><span style="position:absolute;z-index:251746304;left:0px;margin-left:63px; margin-top:190px;width:10px;height:10px"><img alt="10" height="10" src="#image2" width="10"/></span><span style="position:absolute;z-index:251744256;left:0px;margin-left:64px; margin-top:169px;width:10px;height:10px"><img alt="20" height="10" src="#image3" width="10"/></span><span style="position:absolute;z-index:251742208;left:0px;margin-left:64px; margin-top:149px;width:10px;height:10px"><img alt="30" height="10" src="#image4" width="10"/></span><span style="position:absolute;z-index:251740160;left:0px;margin-left:65px; margin-top:130px;width:10px;height:10px"><img alt="40" height="10" src="#image5" width="10"/></span><span style="position:absolute;z-index:251738112;left:0px;margin-left:64px; margin-top:110px;width:10px;height:10px"><img alt="50" height="10" src="#image6" width="10"/></span><span style="position:absolute;z-index:251736064;left:0px;margin-left:64px; margin-top:90px;width:10px;height:10px"><img alt="60" height="10" src="#image7" width="10"/></span><span style="position:absolute;z-index:251734016;left:0px;margin-left:64px; margin-top:70px;width:10px;height:10px"><img alt="70" height="10" src="#image8" width="10"/></span><span style="position:absolute;z-index:251731968;left:0px;margin-left:63px; margin-top:48px;width:10px;height:10px"><img alt="80" height="10" src="#image9" width="10"/></span><span style="position:absolute;z-index:251729920;left:0px;margin-left:65px; margin-top:28px;width:10px;height:10px"><img alt="90" height="10" src="#image10" width="10"/></span><span style="position:absolute;z-index:251727872;left:0px;margin-left:60px; margin-top:9px;width:15px;height:10px"><img alt="100" height="10" src="#image11" width="15"/></span><span style="position:absolute;z-index:251781120;left:0px;margin-left:459px; margin-top:8px;width:125px;height:38px"><img height="38" src="#image12" width="125"/></span><span style="position: absolute;z-index:251779072;left:0px;margin-left:494px;margin-top:7px; width:92px;height:26px"><img height="26" src="#image13" width="92"/></span><span style="position: absolute;z-index:251666432;left:0px;margin-left:22px;margin-top:28px; width:32px;height:178px"><img alt="Probability of being free from first VOC (%)" height="178" src="#image14" width="32"/></span><span style="position:absolute;z-index:251725824;left:0px;margin-left:320px; margin-top:242px;width:56px;height:10px"><img alt="Time (months)¬¬¬¬" height="10" src="#image15" width="56"/></span><sub><span style="font-size:11.0pt"> <img border="0" height="223" id="Picture 1243" src="#image16" width="518"/></span></sub></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"> <table align="left" cellpadding="0" cellspacing="0"> <tr> <td height="1" width="3"></td> <td width="36"></td> <td width="33"></td> <td width="2"></td> <td width="2"></td> <td width="5"></td> <td width="10"></td> <td width="3"></td> <td width="23"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="26"></td> <td width="3"></td> <td width="7"></td> <td width="28"></td> <td width="10"></td> <td width="28"></td> <td width="10"></td> <td width="25"></td> <td width="10"></td> <td width="26"></td> <td width="13"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="30"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="18"></td> </tr> <tr> <td height="10"></td> <td colspan="5"></td> <td align="left" valign="top"><img alt="0" height="10" src="#image17" width="10"/></td> <td colspan="2"></td> <td align="left" valign="top"><img alt="1" height="10" src="#image18" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="2" height="10" src="#image19" width="10"/></td> <td></td> <td align="left" colspan="2" valign="top"><img alt="3" height="10" src="#image20" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="4" height="10" src="#image21" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="5" height="10" src="#image22" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="6" height="10" src="#image23" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="7" height="10" src="#image24" width="13"/></td> <td></td> <td align="left" valign="top"><img alt="8" height="10" src="#image25" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="9" height="10" src="#image26" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="10" height="10" src="#image27" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="11" height="10" src="#image28" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="12" height="10" src="#image29" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="13" height="10" src="#image30" width="10"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="9"></td> <td colspan="7"></td> <td align="left" colspan="6" valign="top"><img alt="Number of patients at risk" height="9" src="#image31" width="99"/></td> </tr> <tr> <td height="7"></td> </tr> <tr> <td height="7"></td> <td colspan="4"></td> <td align="left" colspan="31" rowspan="5" valign="top"><img alt="67,49,41,35,30,26,24,20,18,17,16,15,7,65,37,23,21,17,13,12,9,8,6,5,4,1,0,0" height="43" src="#image32" width="513"/></td> </tr> <tr> <td height="10"></td> <td align="left" colspan="3" valign="top"><img alt="Adakveo 5 mg/kg " height="10" src="#image33" width="71"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="10"></td> <td></td> <td align="left" valign="top"><img alt="Placebo" height="10" src="#image34" width="33"/></td> </tr> <tr> <td height="2"></td> </tr> </table> </p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><br clear="ALL"/>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Paediatric population"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The efficacy of crizanlizumab in patients aged 16 and 17 years is expected to be the same as in adults. Three patients (2.7%) aged less than 18 years were treated with crizanlizumab 5 mg/kg in clinical studies.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The European Medicines Agency has deferred the obligation to submit the results of studies with Adakveo in one or more subsets of the paediatric population in the treatment of sickle cell disease (see section 4.2 for information on paediatric use).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Conditional approval</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicinal product has been authorised under a so‑called “conditional approval” scheme. This means that further evidence on this medicinal product is awaited.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The European Medicines Agency will review new information on this medicinal product at least every year and this SmPC will be updated as necessary.</span></p><p class="MsoNormal" style="line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.2     Pharmacokinetic properties"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Absorption"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The median time to reach maximum serum concentration of crizanlizumab (T<sub>max</sub>) was 1.92 hours at steady state following intravenous administration of 5 mg/kg over a period of 30 minutes in sickle cell disease patients.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Distribution"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Crizanlizumab distribution is typical of endogenous human antibodies within the vascular and extracellular spaces. The volume of distribution (V<sub>z</sub>) was 4.26 litres after a single 5 mg/kg intravenous infusion of crizanlizumab in healthy volunteers.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Biotransformation"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Antibodies are primarily eliminated via proteolysis by lysosomal enzymes in the liver to small peptides and amino acids.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Elimination"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In healthy volunteers, the mean terminal elimination half‑life (T<sub>½</sub>) was 10.6 days and the mean clearance was 11.7 ml/h at crizanlizumab dose level 5 mg/kg. In patients with sickle cell disease, the mean elimination T<sub>½</sub> during the dosing interval was 7.5 days.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Linearity/non‑linearity"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The exposure to crizanlizumab (mean C<sub>max</sub>, AUC<sub>last</sub>, or AUC<sub>inf</sub>) increased in non‑linear manner over the dose range of 0.2 to 8 mg/kg in healthy volunteers.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Special populations</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><u><span lang="EN-GB">Renal impairment</span></u></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In a population PK analysis in patients with eGFR ranging from 35 to 202 ml/min/1.73 m<sup>2</sup>, no clinically important differences in the pharmacokinetics of crizanlizumab were found between patients with mild or moderate renal impairment and patients with normal renal function. Data from patients with severe renal impairment are too limited to draw conclusions on this population (see section</span><span lang="EN-GB">4.2).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><u><span lang="EN-GB">Hepatic impairment</span></u></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The safety and efficacy of crizanlizumab in patients with hepatic impairment have not been established. Crizanlizumab is a monoclonal antibody and is cleared via catabolism (i.e. breakdown into peptides and amino acids), and a change in dose is not expected to be required for patients with hepatic impairment.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><u><span lang="EN-GB">Paediatric <a name="_nth_Pediatric_patients__be14752"></a>population</span></u></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Pharmacokinetics in paediatric patients below the age of 16 years have not been investigated.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.3     Preclinical safety data"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">N</span><span lang="EN-GB">on‑clinical data revealed no special hazard for humans based on conventional studies of safety pharmacology, tissue cross‑reactivity and repeated dose toxicity.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In the 26‑week repeated dose toxicity study, administration of crizanlizumab in cynomolgus monkeys at dose levels up to 50 mg/kg/dose once every 4 weeks (at least 13.5 times the human clinical exposure based on AUC in patients with sickle cell disease at 5 mg/kg once every four weeks) was generally well tolerated. There were no primary crizanlizumab‑related findings on any endpoint evaluated. At 50 mg/kg, minimal to moderate inflammation of the vessels in multiple tissues considered to be an antigen‑antibody complex reaction (primate antihuman antibody) was observed in 2 of 10 animals. There was one death attributed to aspiration of gastric contents following a peri‑infusional reaction mediated by anti‑drug‑antibody‑dependent hypersensitivity.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal">Pharmacological effects of crizanlizumab on haemodynamic and electrocardiographic parameters in the cynomolgus monkey were evaluated in the 26‑week repeated dose toxicology study. Respiratory rate and neurological parameters were also assessed. There were no crizanlizumab‑related effects on arterial blood pressure or on heart rate, PR, RR, QRS, QT, and heart rate corrected QT (QTc) intervals on the electrocardiograms (ECG). No rhythm abnormalities or qualitative changes were observed during the qualitative ECG assessment. There were no crizanlizumab‑related effects on respiration rate or any neurological parameter evaluated.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Formal carcinogenicity, genotoxicity and juvenile toxicity studies have not been conducted with crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In a 26‑week repeated dose toxicity study, cynomolgus monkeys were administered crizanlizumab once every 4 weeks at doses up to 50 mg/kg (at least 13.5 times the human clinical exposure based on AUC in patients with sickle cell disease at 5 mg/kg once every four weeks). </span><span lang="EN-GB">There were no adverse effects of crizanlizumab on male and female reproductive organs</span>.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In an enhanced pre‑ and postnatal development study in cynomolgus monkeys, pregnant animals received intravenous crizanlizumab once every two weeks during the period of organogenesis, at doses of 10 and 50 mg/kg (approximately 2.8 and 16 times </span><span lang="EN-GB">the human clinical exposure based on AUC in patients with sickle cell disease at 5 mg/kg/dose once every four weeks, respectively)</span><span lang="EN-GB">. No maternal toxicity was observed. </span><span lang="EN-GB">There was an increase in foetal loss (abortions or stillbirths) at both doses and this was higher in the third trimester. The cause of the foetal losses in monkeys is unknown but may be due to the development of anti‑drug antibodies against crizanlizumab</span><span lang="EN-GB">. There were no effects on infant growth and development during the 6 months postpartum that were attributable to crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Measurable crizanlizumab serum concentrations were observed in the infant monkeys at postnatal day 28, confirming that crizanlizumab, like other IgG antibodies, crosses the placental barrier.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="6.       PHARMACEUTICAL PARTICULARS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="6.1     List of excipients"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Sucrose</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Sodium citrate (E331)</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Citric acid (E330)</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Polysorbate 80 (E433)</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Water for injections</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.2     Incompatibilities"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicinal product</span><span lang="EN-GB"> must not be mixed with other medicinal products except those mentioned in section 6.6.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.3     Shelf life"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Unopened vial</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">18 months</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Diluted solution</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Chemical and physical in‑use stability, from the start of preparation of the diluted solution for infusion until end of infusion, has been demonstrated for up to 8 hours at room temperature (up to 25°C) and at 2°C to 8°C for up to 24 hours overall.</span></p><p class="MsoNormal" style="line-height:normal"></p><p align="left" class="Text" style="margin-top:0in;text-align:left"><span style="font-size:11.0pt">From a microbiological point of view, the diluted solution for infusion should be used immediately. If not used immediately, in‑use storage times and conditions prior to use are the responsibility of the user and would normally not be longer than 24 hours at 2°C to 8°C, including 4.5 hours at room temperature (up to 25°C) from the start of preparation to completion of the infusion, unless dilution has taken place in controlled and validated aseptic conditions.</span></p><p class="MsoNormal" style="line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.4     Special precautions for storage"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Store in a refrigerator (2°C – 8°C).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not freeze.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep the vial in the outer carton in order to protect from light.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">For storage conditions after dilution of the medicinal product, see section 6.3.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.5     Nature and contents of container"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">10 ml concentrate for solution for infusion in a type I glass vial with a coated chlorobutyl rubber stopper sealed with an aluminium cap with a plastic flip‑off disk containing 100 mg crizanlizumab.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Pack of 1 vial.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.6     Special precautions for disposal and other handling"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo vials are for single use only.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Preparing the infusion</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The diluted solution for infusion should be prepared by a healthcare professional using aseptic techniques.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The total dose and required volume of Adakveo depend on the patient’s body weight; 5 mg of crizanlizumab is administered per kg body weight.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">The volume to be used for the preparation of the infusion is calculated according to the following equation:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><table border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:12.5pt;border-collapse:collapse" width="567"> <tr> <td rowspan="2" style="width:85.05pt;padding:0in 5.4pt 0in 5.4pt" width="113"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;   line-height:normal;page-break-after:avoid"><span lang="EN-GB">Volume (ml) =</span></p> </td> <td style="width:269.35pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="359"> <p align="center" class="MsoNormal" style="margin-left:28.35pt;text-align:center;   text-indent:-28.35pt;line-height:normal;page-break-after:avoid"><span lang="EN-GB">Patient’s body weight (kg) x prescribed dose</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="94"> <p align="center" class="MsoNormal" style="margin-left:28.35pt;text-align:center;   text-indent:-28.35pt;line-height:normal;page-break-after:avoid"><span lang="EN-GB">[5 mg/kg]</span></p> </td> </tr> <tr> <td style="width:269.35pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="359"> <p align="center" class="Text" style="margin-top:0in;text-align:center;   page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt">Concentration   of Adakveo</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="94"> <p align="center" class="Text" style="margin-top:0in;text-align:center;   page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt">[10 mg/ml]</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"><a name="_hd6_Table_3_1_Example_of_d12477"></a></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">1.       Obtain the number of vials required to deliver the prescribed dose and bring them to room temperature (for a maximum of 4 hours). One vial is needed for every 10 ml of Adakveo (see below table).</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:28.35pt;border-collapse:collapse;border:none" width="568"> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Body weight (kg)</span></b></p> </td> <td style="width:92.15pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Dose (mg)</span></b></p> </td> <td style="width:114.75pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Volume (ml)</span></b></p> </td> <td style="width:114.75pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Vials (n)</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">40</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">200</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">20</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">2</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">60</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">300</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">30</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">3</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">80</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">400</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">40</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">4</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">100</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">500</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">50</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">5</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">120</span></p> </td> <td style="width:92.15pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">600</span></p> </td> <td style="width:114.75pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">60</span></p> </td> <td style="width:114.75pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">6</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">2.       Visually inspect the vials.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">The solution in the vials should be clear to opalescent. Do not use if particles are present in the solution.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">The solution should be colourless or may have a slight brownish‑yellow tint.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">3.       Withdraw a volume equal to the required volume of Adakveo from a 100 ml infusion bag containing either sodium chloride 9 mg/ml (0.9%) solution for injection or dextrose 5% and discard.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">No incompatibilities between the diluted Adakveo solution and infusion bags composed of polyvinylchloride (PVC), polyethylene (PE) and polypropylene (PP) have been observed.</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">4.       Withdraw the necessary volume of Adakveo from the vials and inject slowly into the previously prepared infusion bag.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">The </span><span lang="EN-GB">solution</span><span lang="EN-GB"> must not be mixed or co‑administered with other medicinal products through the same intravenous line.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">Keep the volume of Adakveo added to the infusion bag in the range of 10 ml to 96 ml to obtain a final concentration in the infusion bag within 1 mg/ml to 9.6 mg/ml.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5.       Mix the diluted solution by gently inverting the infusion bag. DO NOT SHAKE.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Administration</span></u><a name="_nth_Administration25012"></a></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p align="left" class="Text" style="margin-top:0in;text-align:left"><span style="font-size:11.0pt">Adakveo diluted solution must be administered through a sterile, non‑pyrogenic 0.2 micron in‑line filter by intravenous infusion over a period of 30 minutes.</span><span style="font-size:11.0pt"> <span lang="EN-GB">No incompatibilities have been observed between Adakveo and infusion sets composed of PVC, PE‑lined PVC, polyurethane, and in‑line filter membranes composed of polyethersulfone (PES), polyamide (PA) or polysulphone (PSU).</span></span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">After administration of Adakveo, flush the line with at least 25 ml sodium chloride 9 mg/ml (0.9%) solution for injection or dextrose 5%.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Disposal</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Any unused medicinal product or waste material should be disposed of in accordance with local requirements.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="7.       MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="Default" style="page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt;color:windowtext">Novartis Europharm Limited</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="color:black">Vista Building</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="color:black">Elm Park, Merrion Road</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="color:black">Dublin 4</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black">Ireland</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="8.       MARKETING AUTHORISATION NUMBER(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black">EU/1/20/1476/001</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="9.       DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="10.     DATE OF REVISION OF THE TEXT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Detailed information on this medicinal product is available on the website of the European Medicines </span><span lang="EN-GB">Agency <a href="http://www.ema.europa.eu">http://www.ema.europa.eu</a></span><span lang="EN-GB">.<br clear="all" style="page-break-before:always"/> </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

@@ -123,8 +123,8 @@ class parserExtractor:
             text_with_req.extend(txt.find_all(text=True, recursive=False))
 
         for txt in ele_with_text:
-
-            if(re.match(r'\s+', txt) != None):
+            
+            if(re.match(r'\s+', txt) != None or re.match(r'^[0-9]+\.[0-9]?', txt) != None):
                 continue
             if(txt in text_with_req or txt.isupper()):
                 hasStyle = True
@@ -333,7 +333,11 @@ class parserExtractor:
                     dom_data['Uppercased'] = css_in_attr['Uppercased']
 
                 ## Check if List Item
-                if(re.match('.\s+', concatenated_text) != None):
+                
+                if(re.match(re.compile(r"^\u00B7[\s]*"), concatenated_text.encode('utf-8').decode()) != None
+                or
+                   re.match(re.compile(r"^\u2022[\s]*"), concatenated_text.encode('utf-8').decode()) != None
+                ):
                     dom_data['IsListItem'] = True
 
                 ## Check if Indexed
@@ -379,7 +383,7 @@ class parserExtractor:
     ## Function to convert all images, in the html folders created by MS Word, to base64
     def convertImgToBase64(self, input_filename):
         html_folder_name = input_filename.replace('.html','_files')
-        html_folder_name = input_filename.replace('.htm','_files')
+        html_folder_name = html_folder_name.replace('.htm','_files')
         img_base64_dict = defaultdict(list)
         if(os.path.exists(html_folder_name)):
             files_in_dir = [f for f in listdir(html_folder_name) if isfile(join(html_folder_name, f))]
@@ -392,9 +396,23 @@ class parserExtractor:
                 image_file.close()
         return img_base64_dict
 
+    def cleanHTML(self, soup):
+        """
+            Function to remove empty tags in HTML
+        """
+        remove_tags_in = ['span', 'b', 'em', 'i', 'u']
+        for tag in remove_tags_in:
+            for tag_dom in soup.body.find_all(tag):
+                dom_children = tag_dom.findChildren()
+                if(len(dom_children)==0 ):
+                    text_in_tag = "".join(tag_dom.find_all(text=True, recursive=True))
+                    if(text_in_tag.isspace() or len(text_in_tag)==0):
+                        parent = tag_dom.parent
+                        tag_dom.decompose()
+        return soup
     
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
-    def createPIJsonFromHTML(self, input_filepath, output_filepath, img_base64_dict):
+    def createPIJsonFromHTML(self, input_filepath, output_filepath, style_filepath, img_base64_dict):
         html_tags_for_styles = ['h1', 'h2', 'h3', 'h4', 'em']
         section_dict = defaultdict(list)
         for key in self.qrd_section_headings:
@@ -402,6 +420,8 @@ class parserExtractor:
         
         with open(input_filepath, 'rb') as fp:
             soup = BeautifulSoup(fp, "html.parser")
+            
+            soup = self.cleanHTML(soup)
             soup.body['id']=uuid.uuid4()
 
             ## Process images
@@ -413,6 +433,12 @@ class parserExtractor:
                 dom_elements=soup.body.find_all(True) 
             
             css_in_style = str(soup.style)
+
+            with open(style_filepath,'w+') as style_file:
+                style_file.write(css_in_style)
+                style_file.close()
+            self.logger.logFlowCheckpoint('Style Information Stored In File: ' + style_filepath)
+
             css_in_style = self.cleanCssString(css_in_style)
             class_style_dict = self.parseClassesInStyle(css_in_style)
 

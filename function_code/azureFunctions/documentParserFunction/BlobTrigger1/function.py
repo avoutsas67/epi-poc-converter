@@ -41,8 +41,10 @@ def getRandomString(N):
 def convertHtmlToJson(domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv):
 
     if localEnv is True:
+        pathSep = "\\"
         module_path = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'converted_to_html', f'{domain}', f'{procedureType}', f'{languageCode}')
     else:
+        pathSep = "/"
         module_path = os.path.join(f'{fsMountName}', 'data', 'converted_to_html', f'{domain}', f'{procedureType}', f'{languageCode}')
     
     # Generate output folder path
@@ -74,22 +76,33 @@ def convertHtmlToJson(domain, procedureType, languageCode, fileNameHtml, fileNam
         parserObj = parserExtractor(config, logger, styleRulesObj.styleRuleDict,
                                     styleRulesObj.styleFeatureKeyList,
                                     styleRulesObj.qrd_section_headings)
-        print()
+
         for input_filename in filenames:
           # if(input_filename.find('Kalydeco II-86-PI-clean')!=-1):
-            output_filename = input_filename.replace(
-                'converted_to_html', 'outputJSON')
+            output_filename = input_filename.replace('converted_to_html', 'outputJSON')
+            style_filepath =  output_filename.replace('.html','.txt')
+            style_filepath =  style_filepath.replace('.txtl','.txt')
+            style_filepath =  style_filepath.replace('.htm','.txt')
+            print("-------------",style_filepath,"-----------------")
+
             output_filename = output_filename.replace('.html', '.json')
             output_filename = output_filename.replace('.htm', '.json')
             print(input_filename, output_filename)
             parserObj.createPIJsonFromHTML(input_filepath=input_filename,
                                            output_filepath=output_filename,
-                                           img_base64_dict=parserObj.convertImgToBase64(
-                                               input_filename),
+                                           style_filepath = style_filepath,
+                                           img_base64_dict=parserObj.convertImgToBase64(input_filename)
                                            )
+            
+        return output_filename.split(pathSep)[-1], style_filepath
     else:
+        try:    
+            raise FolderNotFoundError(module_path + " not found")
+        except:  
+            logger.logFlowCheckpoint("Folder For Language Code Not Found In Input File")
+            logger.logException("Folder For Language Code Not Found In Input File")
         raise FolderNotFoundError(module_path + " not found")
-    return output_filename.split("\\")[-1]
+        return None
 
 
 def splitJson(domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog, fsMountName, localEnv):
@@ -205,11 +218,11 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
     
     
     
-    flowLogger =  MatchLogger("Flow Logger HTML", fileNameHtml, domain, procedureType, languageCode, "HTML", fileNameLog)
+    flowLogger =  MatchLogger(f"Flow Logger HTML_{getRandomString(1)}", fileNameHtml, domain, procedureType, languageCode, "HTML", fileNameLog)
 
     flowLogger.logFlowCheckpoint("Starting HTML Conversion To Json")
     ###Convert Html to Json
-    fileNameJson = convertHtmlToJson( domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv)
+    fileNameJson, stylesFilePath = convertHtmlToJson( domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv)
     
     flowLogger.logFlowCheckpoint("Completed HTML Conversion To Json")
 
@@ -279,12 +292,14 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
         flowLogger.logFlowCheckpoint("Completed Extracting Content Between Heading")
         
         xmlLogger =  MatchLogger(f'XmlGeneration_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
-        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, pms_oms_annotation_data, fsMountName, localEnv)
+        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, pms_oms_annotation_data, stylesFilePath, medName, fsMountName, localEnv)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
-        #fhirServiceObj = FhirService(generatedXml, fsMountName, localEnv)
-        #fhirServiceObj.submitFhirXml()
+        fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+
+        fhirServiceObj = FhirService(fhirServiceLogger, generatedXml, fsMountName, localEnv)
+        fhirServiceObj.submitFhirXml()
         print(f"Created XML File For :- {fileNamePartitioned}")        
 
         #return df,coll,dfExtractedHierRR
