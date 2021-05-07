@@ -7,12 +7,15 @@ import uuid
 from collections import defaultdict
 from bs4 import BeautifulSoup
 from datetime import datetime
+import base64
 
 
 class FhirXmlGenerator:
     
-    def __init__(self, logger, pms_oms_annotation_data):
+    def __init__(self, logger, pms_oms_annotation_data, styles_file_path, medName):
         self.logger = logger
+        self.medName = medName
+        self.styles_file_path = styles_file_path
         self.pms_oms_annotation_data = pms_oms_annotation_data
 
     def createIdDict(self, row, html_img_embeded = None):
@@ -78,8 +81,6 @@ class FhirXmlGenerator:
         prevSubSecIndex = 0
         root = None
         for i, row in enumerate(df.itertuples(), 0):
-
-              
             img_ref_dict, html_img_embeded = self.createImgRef(row.Html_betw, img_ref_dict)
             df.at[row.Index, 'Html_betw'] = html_img_embeded
             if(i==0):
@@ -104,6 +105,17 @@ class FhirXmlGenerator:
         id_dict_list.append(id_dict)        
         return id_dict_list, root, img_ref_dict
     
+    def processDataInStyleTag(self):
+        style_tag_data = defaultdict(list)
+        
+        with open(self.styles_file_path, "rb") as style_file:
+            style_tag_data['Uri'] =  base64.b64encode(style_file.read()).decode('utf-8')
+            style_file.close()        
+        style_tag_data['Type'] = 'stylesheet/css'
+        style_tag_data['Id'] = 'stylesheet0'
+        return style_tag_data
+       
+    
     def generateXml(self, df, xml_file_name = 'ePI_output_template.xml'):
 
         sys.setrecursionlimit(1000)
@@ -117,14 +129,17 @@ class FhirXmlGenerator:
         TEMPLATE_FILE = 'ePI_jinja_template.xml'
         template = templateEnv.get_template(TEMPLATE_FILE)
 
+        xml_bundle_data = defaultdict(list)
+        xml_bundle_data['medicineName'] = self.medName
+        xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+        xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
+        xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+        xml_bundle_data['styleTagDictionary'] = self.processDataInStyleTag()
+        
         if self.pms_oms_annotation_data:
-            xml_bundle_data = defaultdict(list)
-            xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
-            xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
-            xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-            xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
+            
             xml_bundle_data['authorValue']  = self.pms_oms_annotation_data['Author Value']
-
             xml_bundle_data['listEntryId'] = 'List/'+ str(uuid.uuid4())
             xml_bundle_data['listEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['medicinalProductDict'] = defaultdict(list)
@@ -132,11 +147,6 @@ class FhirXmlGenerator:
             for row in self.pms_oms_annotation_data['Medicinal Product Definitions']:
                 xml_bundle_data['medicinalProductDict'][row[0]] = row[1]
         else:
-            xml_bundle_data = defaultdict(list)
-            xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
-            xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
-            xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-            xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['authorValue']  = ''
             self.logger.logFlowCheckpoint('PMS/OMS Annotation Information Not Retrieved')
 
