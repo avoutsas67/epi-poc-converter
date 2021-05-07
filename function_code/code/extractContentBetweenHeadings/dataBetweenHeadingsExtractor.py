@@ -2,7 +2,9 @@ import pandas as pd
 import os
 import json
 from collections import defaultdict
+from bs4 import NavigableString, BeautifulSoup
 from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
+
 
 class DataBetweenHeadingsExtractor:
     
@@ -32,6 +34,7 @@ class DataBetweenHeadingsExtractor:
 
         dfExtractedHier = pd.DataFrame(matched_collection)
         dfExtractedHier['parent_id'] = dfExtractedHier['parent_id'].apply(lambda x: self.convertToInt(x))
+        dfExtractedHier['doc_parent_id'] = dfExtractedHier['doc_parent_id'].apply(lambda x: self.convertToInt(x))
         dfExtractedHier['id'] = dfExtractedHier['id'].apply(lambda x: self.convertToInt(x))
 
         self.logger.logFlowCheckpoint('Finished Cleaning Match Results')
@@ -93,8 +96,7 @@ class DataBetweenHeadingsExtractor:
 
       
         df = pd.DataFrame(dic_json)
-
-        self.logger.logFlowCheckpoint('Extracting Content Between Headings')
+        html_with_border = ''
         
         ## Appending combined text and html to each row
         for i, row in enumerate(df.itertuples(), 0):
@@ -123,19 +125,41 @@ class DataBetweenHeadingsExtractor:
                 if(row.ID == dfExtractedHierRR.at[idx_qrd, 'htmlId']):
                     combine_content =False
                     dfExtractedHierRR.at[idx_qrd-1, 'Text'] = concatenated_text
+                    if(len(html_with_border)>0):
+                        concatenated_html = concatenated_html.replace(html_with_border, '')
                     dfExtractedHierRR.at[idx_qrd-1, 'Html_betw'] = concatenated_html
                     concatenated_text=''
-                    concatenated_html = ''            
+                    if(len(html_with_border)>0):
+                        
+                        html_with_border = html_with_border.replace(row.Element,'')
+                        html_with_border_dom = BeautifulSoup(html_with_border, "html.parser")
+                        html_with_border_txt = "".join(html_with_border_dom.find_all(text=True, recursive=True))
+                        
+                        if(
+                           len(html_with_border_txt) > 0 and 
+                           html_with_border_txt.isspace()
+                           ):
+                            html_with_border = ''
+                            html_with_border_txt = ''
+
+                        if(len(html_with_border_dom.findChildren())>0 
+                            or len(html_with_border_txt) > 0):
+                            concatenated_html = html_with_border
+                        html_with_border = ''
+                    else:                    
+                        concatenated_html = ''            
                 else:
                     concatenated_text='\n'.join([concatenated_text, str(row.Text)])
                     if(ignore_rows_in_list):
+                           
                         if(row.ID not in id_list_to_ignore):
                             concatenated_html=''.join([concatenated_html, str(row.Element)])
                             ignore_rows_in_list = False
                             id_list_to_ignore = []
-                    else:
+                    elif(not row.HasBorder):
                         concatenated_html=''.join([concatenated_html, str(row.Element)])
                     if(row.HasBorder):
+                        html_with_border= str(row.Element)
                         children_ids = self.getIdListToignore(df, i, row.ID, row.ParentId)
                         if(children_ids and len(children_ids)>0):
                             ignore_rows_in_list = True
@@ -149,15 +173,10 @@ class DataBetweenHeadingsExtractor:
                         concatenated_html=''.join([concatenated_html, str(row.Element)])
                         ignore_rows_in_list = False
                         id_list_to_ignore = []
-                else:
-                    concatenated_html=''.join([concatenated_html, str(row.Element)])
                 if(row.HasBorder):
                     children_ids = self.getIdListToignore(df, i, row.ID, row.ParentId)
                     if(children_ids and len(children_ids)>0):
                         ignore_rows_in_list = True
                         id_list_to_ignore.extend(children_ids)
                 idx_qrd=idx_qrd+1
-        
-        self.logger.logFlowCheckpoint('Finished Extracting Content Between Headings')
-        #display(dfExtractedHierRR)
         return dfExtractedHierRR

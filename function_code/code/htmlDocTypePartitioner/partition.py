@@ -83,7 +83,7 @@ class DocTypePartitioner:
 
         partitioned_df = pd.DataFrame(df.iloc[startPos:endPos],  columns=list(df.columns))
         self.new_dataframe_start = endPos
-        print('*************************** Texts with more than 2 characters**************************************')
+        
         ind = partitioned_df['Text'].apply(lambda x: self.lenCheck(x))
         #display(partitioned_df.loc[ind,:].head(5))
         return partitioned_df
