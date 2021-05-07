@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:2138d267-aa62-4dc8-a61a-1422b0229462"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="951acd0f-1720-4cd3-8e64-577eb0f72e8c"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-05-07T20:23:22Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:ea0d0729-df41-448e-bb7f-2b0b7b3c33ee"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+							<contained>
+                                <Binary>
+                                	<id value="image0"/>
+                                	<!-- example format -->
+                                	<contentType value="Adakveo-4874%20EN%20PI_files/image035.png"/>
+									<!-- data is base 64 encoded, actual bytes of the image png file -->
+                                	<data value="Adakveo-4874%20EN%20PI_files/image035.png"/>
+								</Binary>
+							</contained>
+							<!-- this exension is necessary per image -->
+                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                        		<valueReference>
+                        			<reference value="#image0"/>
+                        		</valueReference>
+                        	</extension>
+							
+							<status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="B. PACKAGE LEAFLET"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Package leaflet: Information for the patient</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal; background:white"></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Adakveo 10 mg/ml concentrate for solution for infusion</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB">crizanlizumab</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><img alt="BT_1000x858px" border="0" height="18" id="Picture 1" src="#image0" width="21"/><span lang="EN-GB">This medicine is subject to additional monitoring. This will allow quick identification of new safety information. You can help by reporting any side effects you may get. See the end of section 4 for how to report side effects.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Read all of this leaflet carefully before you are given this medicine because it contains important information for you.</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">Keep this leaflet. You may need to read it again.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you have any further questions, ask your doctor or nurse.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you get any side effects, talk to your doctor or nurse.</span><span lang="EN-GB"> This includes any possible side effects not listed in this leaflet. See section 4.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="What is in this leaflet"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1.       What Adakveo is and what it is used for</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">2.       What you need to know before you are given Adakveo</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">3.       How Adakveo is given</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">4.       Possible side effects</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5.       How to store Adakveo</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">6.       Contents of the pack and other information</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="1.       What Adakveo is and what it is used for"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">What Adakveo is</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span>contains the active substance crizanlizumab, which belongs to a group of medicines called monoclonal antibodies (mAbs).</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>What Adakveo</b><b>is used for</b></p><p class="MsoNormal" style="line-height:normal">Adakveo is used to prevent recurrent painful crises occurring in patients aged 16 years and over with sickle cell disease. Adakveo can be given in combination with hydroxyurea/hydroxycarbamide, although it may also be used alone.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">Sickle cell disease is an inherited blood disorder. It causes affected red blood cells to become sickle‑shaped and have difficulty passing through small blood vessels. Additionally in sickle cell disease the blood vessels are damaged and sticky due to ongoing chronic inflammation. This leads to blood cells sticking to the blood vessels, causing acute episodes of pain and organ damage.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>How Adakveo works</b></p><p class="MsoNormal" style="line-height:normal">Patients with sickle cell disease have higher levels of a protein called P‑selectin. Adakveo binds P‑selectin. This should stop blood cells sticking to the vessel walls and help prevent painful crises.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">If you have any questions about how Adakveo works or why this medicine has been prescribed for you, ask your <a name="_Toc312231909"></a><span lang="EN-GB">doctor or nurse</span>.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="2.       What you need to know before you are given Adakveo"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">You must not be given Adakveo:</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-        if you are allergic to crizanlizumab or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Warnings and precautions"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Infusion reactions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Medicines of this type (called monoclonal antibodies) are administered into a vein (intravenously) as an infusion. They can cause unwanted reactions (side effects) when they are infused into your body. Such reactions may happen within 24 hours of receiving an infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Tell your doctor or nurse immediately</span></b><span lang="EN-GB"> if you experience any of the following, which may be signs of an infusion reaction:</span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal"><span lang="EN-GB">-</span><span lang="EN-GB">Fever, chills, shivering, nausea, vomiting, tiredness, dizziness, pain where the infusion needle is inserted, blisters, itching, shortness of breath or wheezing. See also section 4, “Possible side effects”.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor or nurse may monitor you for signs and symptoms of such infusion reactions.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Blood tests during Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you need to have any blood tests, tell the doctor or nurse that you are on treatment with Adakveo. This is important because this treatment may interfere with a laboratory test used to measure the number of platelets in your blood.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Children and adolescents"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span>should not be used in children or adolescents below 16 years of age.</p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other medicines and Adakveo"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;text-autospace:none">Tell your doctor or nurse if you are taking, have recently taken or might take any other medicines.</p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Pregnancy and breast‑feeding"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;text-autospace:none">Adakveo has not been tested in pregnant women therefore there is limited information about its safety in pregnant women.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant, or are a woman who could become pregnant and is not using contraception, it is not recommended to use Adakveo.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">It is not known whether <span lang="EN-GB">Adakveo </span>or its individual ingredients pass into breast milk.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant or breast‑feeding, think you may be pregnant or are planning to have a baby, ask your doctor for advice before receiving this medicine. Your doctor will discuss with you the potential risk(s) of <span lang="EN-GB">Adakveo </span>during pregnancy or breast‑feeding.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Driving and using machines"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Adakveo could have a minor effect on your ability to drive and use machines. If you experience tiredness, drowsiness or dizziness, do not drive or use machines until you feel better.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Adakveo contains sodium"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal">This medicine contains less than 1 mmol sodium (23 mg) per vial, that is to say essentially “sodium‑free”.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">3.       How Adakveo is given</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Adakveo will be given to you by a doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any questions about how Adakveo is given, ask the doctor or nurse who is giving you the infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor will tell you when you will have your infusions and follow‑up appointments.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How much Adakveo you will be given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The recommended dose is 5 mg per kilogram of body weight. You will be given the first infusion at Week 0 and the second infusion two weeks later (Week 2). After that you will be given an infusion every 4 weeks.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How the infusion is given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo is administered into a vein (intravenously) as an infusion lasting 30 minutes.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo can be given alone or with hydroxyurea/hydroxycarbamide.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How long Adakveo treatment lasts</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">You should discuss with your doctor how long you will need to receive treatment. Your doctor will regularly monitor your condition to check that the treatment is having the desired effect.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you forget a Adakveo infusion</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">It is very important that you receive all your infusions. If you miss an appointment for an infusion, contact your doctor as soon as possible to reschedule.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you stop Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not stop Adakveo treatment unless your doctor tells you that you can.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any further questions on the use of this medicine, ask your doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="4.       Possible side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Like all medicines, this medicine can cause side effects, although not everybody gets them.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:1.5in;text-indent:-1.5in;line-height: normal;page-break-after:avoid"><b><span lang="EN-GB">Some side effects could be serious</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Tell the doctor or nurse giving you the infusion immediately</span></b><span lang="EN-GB"> if you develop any of the following:</span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal"><span lang="EN-GB">-</span><span lang="EN-GB">Fever, chills, shivering, nausea, vomiting, tiredness, dizziness, pain where the infusion needle is inserted, blisters, itching, shortness of breath or wheezing.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">These symptoms can be signs of infusion reaction, which is a common side effect (this means it may affect up to 1 in every 10 people).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:1.5in;text-indent:-1.5in;line-height: normal;page-break-after:avoid"><b>Other possible side effects</b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid">Other possible side effects include those listed below. If these side effects become severe, tell your doctor or nurse.</p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>Very common (may affect more than 1 in 10 people)</b></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-pain in the joints (arthralgia)</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-nausea</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-back pain</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-fever</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-pain in the lower or upper abdomen, feeling of tenderness in the abdomen and abdominal discomfort</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>Common (may affect up to 1 in every 10 people)</b></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-diarrhoea</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-itching (including vulvovaginal itching)</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-vomiting</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-muscle pain (myalgia)</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-pain in the muscles or bones of the chest (musculoskeletal chest pain)</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-sore throat (oropharyngeal pain)</p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal">-redness or swelling and pain at the site of the infusion</p><p class="MsoNormal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Reporting of side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"><span lang="EN-GB">If you get any side effects, talk to your doctor or nurse. This includes any possible side effects not listed in this leaflet.</span><span lang="EN-GB">You can also report side effects directly via <span style="color:black;background:#D9D9D9">the national reporting system listed in </span></span><span lang="EN-GB"><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc"><span style="background:#D9D9D9">Appendix V</span></a></span><span lang="EN-GB">.</span><span lang="EN-GB"> By reporting side effects you can help provide more information on the safety of this medicine.</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="5.       How to store Adakveo"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep this medicine out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="BodytextAgency" style="margin-bottom:0in;line-height:normal"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>Do not use this medicine after the expiry date which is stated on the outer carton and the label after “EXP”. The expiry date refers to the last day of that month.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep the vial in the outer carton in order to protect from light. Store in a refrigerator (2°C – 8°C). Do not freeze.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Infusion solutions should be used immediately after dilution.</span></p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="6.       Contents of the pack and other information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="What Adakveo contains"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">-</span><span lang="EN-GB">The active substance is crizanlizumab. Each 10 ml vial contains 100 mg of crizanlizumab.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">-</span><span lang="EN-GB">The other ingredients are sucrose, sodium citrate </span>(E331)<span lang="EN-GB">, citric acid (E330), polysorbate 80 (E433) and water for injections.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="What Adakveo looks like and contents of the pack"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo concentrate for solution for infusion is a colourless to slightly brownish‑yellow liquid.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo is available in packs containing 1 vial.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Marketing Authorisation Holder</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Novartis Europharm Limited</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Vista Building</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Elm Park, Merrion Road</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Dublin 4</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Ireland</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Manufacturer</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid">Novartis Pharma GmbH</p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid">Roonstrasse 25</p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid">90429 Nuremberg</p><p class="MsoNormal" style="line-height:normal">Germany</p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="For any information about this medicine, please contact the local representative of the Marketing Authorisation Holder:"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><table border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:-1.7pt;border-collapse:collapse" width="0"> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="FR-BE">België/Belgique/Belgien</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR-BE">Novartis   Pharma N.V.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR-BE">Tél/Tel: +32 2   246 16 11</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="LT">Lietuva</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="ES">SIA Novartis   Baltics Lietuvos filialas</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="LT">Tel: +370 5 269   16 50</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="BG">България</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR">Novartis Pharma   Services Inc.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="BG">Тел:</span>   +359 2 489 98 28</p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="DE-CH">Luxembourg/Luxemburg</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE-CH">Novartis   Pharma N.V.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR-BE">Tél/Tel: +32 2   246 16 11</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SV">Česká   republika</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Novartis s.r.o.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE-CH">Tel: +420 225   775 111</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="HU">Magyarország</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="HU">Novartis Hungária   Kft. Pharma</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="HU">Tel.: +36 1 457   65 00</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b>Danmark</b></p> <p class="MsoNormal" style="line-height:normal">Novartis Healthcare A/S</p> <p class="MsoNormal" style="line-height:normal">Tlf: +45 39 16 84 00</p> <p class="MsoNormal" style="line-height:normal"> </p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="MT">Malta</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="MT">Novartis Pharma   Services Inc.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="MT">Tel: +</span>356 <span lang="FR-CH">2122 2872</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="DE">Deutschland</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE">Novartis Pharma   GmbH</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE">Tel: +49 911 273   0</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="NL">Nederland</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="NL">Novartis Pharma   B.V.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="NL">Tel: +31 88 04 52   555</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="ET">Eesti</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="IT">SIA Novartis   Baltics Eesti filiaal</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="ET">Tel: +372 </span><span lang="EN-GB">66 30 810</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="NO-BOK">Norge</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="NO-BOK">Novartis   Norge AS</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="NO-BOK">Tlf: +47 23   05 20 00</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EL">Ελλάδα</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="ET">Novartis (Hellas)   A.E.B.E.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EL">Τηλ</span><span lang="ET">: +30 210 281 17 12</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="DE-AT">Österreich</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE-AT">Novartis   Pharma GmbH</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="DE-AT">Tel: +43 1 86   6570</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="ES">España</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="ES">Novartis   Farmacéutica, S.A.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="ES">Tel: +34 93 306   42 00</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="PL">Polska</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="PL">Novartis Poland   Sp. z o.o.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="PL">Tel.: +48 22 375   4888</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="FR">France</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR">Novartis Pharma   S.A.S.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR">Tél: +33 1 55 47   66 00</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="PT">Portugal</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="PT">Novartis Farma ‑   Produtos Farmacêuticos, S.A.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="PT">Tel: +351 21 000   8600</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SV">Hrvatska</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Novartis Hrvatska   d.o.o.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Tel. +385 1   6274 220</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal;text-autospace:none"><b><span lang="FR-CH">România</span></b></p> <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="FR-CH">Novartis Pharma Services Romania SRL</span></p> <p class="MsoNormal" style="line-height:normal">Tel: +40 21 31299 01</p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Ireland</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Novartis   Ireland Limited</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Tel: +353 1   260 12 55</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SL">Slovenija</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SL">Novartis Pharma   Services Inc.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="SL">Tel: +386 1 300   75 50</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="IS">Ísland</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="IS">Vistor hf.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sími</span><span lang="IS">: +354 535 7000</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SK">Slovenská   republika</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SK">Novartis Slovakia   s.r.o.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="SK">Tel: +421 2 5542   5439</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="PT">Italia</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="PT">Novartis Farma   S.p.A.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="IT">Tel: +39 02 96 54   1</span></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SV">Suomi/Finland</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Novartis Finland   Oy</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Puh/Tel: +358 </span><span lang="SV">(0)10 6133 200</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EL">Κύπρος</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="FR-CH">Novartis   Pharma Services Inc.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EL">Τηλ:   +357 22 690 690</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="SV">Sverige</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Novartis Sverige   AB</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="SV">Tel: +46 8 732 32   00</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="LV">Latvija</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="IT">SIA Novartis   Baltics</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="LV">Tel: +371 67 887   070</span></p> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:233.9pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="312"> <p class="MsoNormal" style="line-height:normal"><b><span lang="IT">United Kingdom</span></b></p> <p class="MsoNormal" style="line-height:normal"><span lang="IT">Novartis   Pharmaceuticals UK Ltd.</span></p> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Tel: +44 1276   698370</span></p> <p class="MsoNormal" style="line-height:normal"> </p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="This leaflet was last revised in"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicine has been given “conditional approval”. This means that there is more evidence to come about this medicine.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The European Medicines Agency will review new information on this medicine at least every year and this leaflet will be updated as necessary.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Other sources of information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Detailed information on this medicine is available on the European Medicines Agency web site: </span><span lang="EN-GB"><span class="MsoHyperlink">http://www.ema.europa.eu</span></span></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="The following information is intended for healthcare professionals only:"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo vials are for single use only.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Preparing the infusion</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The diluted solution for infusion  should be prepared by a healthcare professional using aseptic techniques.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The total dose and required volume of Adakveo depend on the patient’s body weight; 5 mg of crizanlizumab is administered per kg body weight.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">The volume to be used for the preparation of the infusion is calculated according to the following equation:</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><table border="0" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:12.5pt;border-collapse:collapse" width="567"> <tr> <td rowspan="2" style="width:85.05pt;padding:0in 5.4pt 0in 5.4pt" width="113"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;   line-height:normal;page-break-after:avoid"><span lang="EN-GB">Volume (ml) =</span></p> </td> <td style="width:269.35pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="359"> <p align="center" class="MsoNormal" style="margin-left:28.35pt;text-align:center;   text-indent:-28.35pt;line-height:normal;page-break-after:avoid"><span lang="EN-GB">Patient’s body weight (kg) x prescribed dose</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="94"> <p align="center" class="MsoNormal" style="margin-left:28.35pt;text-align:center;   text-indent:-28.35pt;line-height:normal;page-break-after:avoid"><span lang="EN-GB">[5 mg/kg]</span></p> </td> </tr> <tr> <td style="width:269.35pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="359"> <p align="center" class="Text" style="margin-top:0in;text-align:center;   page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt">Concentration   of Adakveo</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="94"> <p align="center" class="Text" style="margin-top:0in;text-align:center;   page-break-after:avoid"><span lang="EN-GB" style="font-size:11.0pt">[10 mg/ml]</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">1.       Obtain the number of vials required to deliver the prescribed dose and bring them to room temperature (for a maximum of 4 hours). One vial is needed for every 10 ml of Adakveo (see below table).</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:28.35pt;border-collapse:collapse;border:none" width="568"> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Body weight (kg)</span></b></p> </td> <td style="width:92.15pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Dose (mg)</span></b></p> </td> <td style="width:114.75pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Volume (ml)</span></b></p> </td> <td style="width:114.75pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><b><span lang="EN-GB">Vials (n)</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">40</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">200</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">20</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">2</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">60</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">300</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">30</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">3</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">80</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">400</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">40</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">4</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">100</span></p> </td> <td style="width:92.15pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">500</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">50</span></p> </td> <td style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;page-break-after:   avoid;text-autospace:none"><span lang="EN-GB">5</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:104.65pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="140"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">120</span></p> </td> <td style="width:92.15pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="123"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">600</span></p> </td> <td style="width:114.75pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">60</span></p> </td> <td style="width:114.75pt;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="153"> <p class="MsoNormal" style="margin-left:28.35pt;line-height:normal;text-autospace:   none"><span lang="EN-GB">6</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">2.       Visually inspect the vials.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">The solution in the vials should be clear to opalescent. Do not use if particles are present in the solution.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">The solution should be colourless or may have a slight brownish‑yellow tint.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">3.       Withdraw a volume equal to the required volume of Adakveo from a 100 ml infusion bag containing either sodium chloride </span><span lang="EN-GB">9 mg/ml (</span><span lang="EN-GB">0.9%) solution for injection or dextrose 5% and discard.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">No incompatibilities between the diluted Adakveo solution and infusion bags composed of polyvinylchloride (PVC), polyethylene (PE) and polypropylene (PP) have been observed.</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"><span lang="EN-GB">4.       Withdraw the necessary volume of Adakveo from the vials and inject slowly into the previously prepared infusion bag.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">The </span><span lang="EN-GB">solution</span><span lang="EN-GB"> must not be mixed or co‑administered with other medicinal products through the same intravenous line.</span></p><p class="MsoNormal" style="margin-left:56.7pt;text-indent:-28.35pt"><span lang="EN-GB">-</span><span lang="EN-GB">Keep the volume of Adakveo added to the infusion bag in the range of 10 ml to 96 ml to obtain a final concentration in the infusion bag within 1 mg/ml to 9.6 mg/ml.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5.       Mix the diluted solution by gently inverting the infusion bag. DO NOT SHAKE.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Storage of the diluted solution</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Chemical and physical in‑use stability, from the start of preparation of the diluted solution for infusion until end of infusion, has been demonstrated for up to 8 hours at room temperature (up to 25°C) and at 2°C to 8°C for up to 24 hours overall.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">From a microbiological point of view, the diluted solution for infusion should be used immediately. If not used immediately, in‑use storage times and conditions prior to use are the responsibility of the user and would normally not be longer than 24 hours at 2°C to 8°C, including 4.5 hours at room temperature (up to 25°C) from the start of preparation to completion of the infusion, unless dilution has taken place in controlled and validated aseptic conditions.</span></p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Administration</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo diluted </span><span lang="EN-GB">solution must be administered through a sterile, non‑pyrogenic 0.2 micron in‑line filter</span><span lang="EN-GB"> by intravenous infusion over a period of 30 minutes.</span><span lang="EN-GB"> No incompatibilities have been observed between Adakveo and infusion sets composed of PVC, PE‑lined PVC, polyurethane, and in‑line filter membranes composed of polyethersulfone (PES), polyamide (PA) or polysulphone (PSU).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">After administration of Adakveo, flush the line with at least 25 ml sodium chloride 9 mg/ml (0.9%) solution for injection or dextrose 5%.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Disposal</span></u></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Any unused product or waste material should be disposed of in accordance with local requirements.</span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>
