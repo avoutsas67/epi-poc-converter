@@ -12,11 +12,14 @@ import base64
 
 class FhirXmlGenerator:
     
-    def __init__(self, logger, pms_oms_annotation_data, styles_file_path, medName):
+    def __init__(self, logger, pms_oms_annotation_data, styles_file_path, medName, fsMountName, localEnv):
+
         self.logger = logger
         self.medName = medName
         self.styles_file_path = styles_file_path
         self.pms_oms_annotation_data = pms_oms_annotation_data
+        self.fsMountName = fsMountName
+        self.localEnv = localEnv
 
     def createIdDict(self, row, html_img_embeded = None):
         id_dict_item= defaultdict(list)
@@ -118,12 +121,26 @@ class FhirXmlGenerator:
     
     def generateXml(self, df, xml_file_name = 'ePI_output_template.xml'):
 
-        sys.setrecursionlimit(1000)
-        template_path = os.path.abspath(os.path.join('..'))
-        template_path = os.path.join(template_path, 'data')
-        xml_output_path = os.path.join(template_path, 'fhir_messages')
-        template_path = os.path.join(template_path, 'jinja_templates')
+        sys.setrecursionlimit(100000)
+        if self.localEnv is True:
+            template_path = os.path.abspath(os.path.join('..'))
+            template_path = os.path.join(template_path, 'control')
+            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
+            template_path = os.path.join(template_path, 'jinja_templates')
+            
+        else:
+            template_path = os.path.join(f'{self.fsMountName}')
+            template_path = os.path.join(template_path, 'control')
+            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
+            template_path = os.path.join(template_path, 'jinja_templates')
+
+        try:
+            os.makedirs(xml_output_path)
         
+        except Exception:
+            print("Already Exists")
+
+
         templateLoader = jinja2.FileSystemLoader(searchpath=template_path)
         templateEnv = jinja2.Environment(loader=templateLoader)
         TEMPLATE_FILE = 'ePI_jinja_template.xml'

@@ -9,17 +9,20 @@ class LanguageErrorQrdTemplate(Exception):
 
 class StyleRulesDictionary:
 
-    def __init__(self, logger, language, fileName, procedureType):
+    def __init__(self, logger, language, fileName, domain, procedureType, fsMountName, localEnv):
         self.language = language
         self.fileName = fileName
+        self.domain = domain
         self.procedureType = procedureType
+        self.fsMountName = fsMountName
+        self.localEnv = localEnv
 
         self.styleFeatureKeyList = ['Bold', 'Italics', 'Uppercased', 'Underlined', 'Indexed', 'IsListItem', 'HasBorder']
         self.logger = logger
         self.qrd_section_headings = []
         self.styleRuleDict = self.createStyleRuleDict()
 
-    def getTextAtHeadingIdOneOfRequiredQrdSection(self, fileName, procedureType, languageCode):
+    def getTextAtHeadingIdOneOfRequiredQrdSection(self):
 
         """
         Function to:  
@@ -27,20 +30,23 @@ class StyleRulesDictionary:
         2. Extract the text for Annex II and Package leaflet in the required language
 
         """
-        
-        filePath = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'control')
+        if self.localEnv is True:
+            filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'qrdTemplate')
+        else:
+            filePath = os.path.join(f"{self.fsMountName}", 'control', 'qrdTemplate')
 
         filePathQRD = os.path.join(filePath, self.fileName)
 
         qrd_df = pd.read_csv(filePathQRD, encoding= 'utf-8')
         
-        colsofInterest  = ['id', 'Procedure type', 'Document type', 'Language code',
+        colsofInterest  = ['id', 'domain', 'Procedure type', 'Document type', 'Language code',
         'Display code', 'Name', 'parent_id', 'Mandatory','heading_id']
         
         qrd_df=  qrd_df[colsofInterest]
-        ind = (qrd_df['Procedure type'] == procedureType) & \
+        ind = (qrd_df['domain'] == self.domain) & \
+                (qrd_df['Procedure type'] == self.procedureType) & \
                 (qrd_df['heading_id'] == 1) & \
-                (qrd_df['Language code'] == languageCode)
+                (qrd_df['Language code'] == self.language)
         
         ## Filter records with heading_id = 1
         qrd_df = qrd_df.loc[ind, :].reset_index(drop = False)
@@ -65,9 +71,7 @@ class StyleRulesDictionary:
 
         """
         self.qrd_section_headings = []
-        text_with_heading_id_one = self.getTextAtHeadingIdOneOfRequiredQrdSection(self.fileName,
-            self.procedureType,
-            self.language)
+        text_with_heading_id_one = self.getTextAtHeadingIdOneOfRequiredQrdSection()
         if(len(text_with_heading_id_one)>0):
 
             ## Get text for ANNEX II in current language
@@ -227,10 +231,14 @@ class StyleRulesDictionary:
             Function to check if a style dictionary for the language exists.
             If it doesn't exist, to create a default dictionary based on English styles
         """
-        style_dict_path = os.path.abspath(os.path.join('..'))
-        style_dict_path = os.path.join(style_dict_path, 'data')
-        style_dict_path = os.path.join(style_dict_path, 'styleRules')
-
+        if self.localEnv is True:
+            style_dict_path = os.path.abspath(os.path.join('..'))
+            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'styleRules')
+        else:
+            style_dict_path = os.path.join(f"{self.fsMountName}")
+            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'styleRules')
         if(not os.path.exists(style_dict_path)):
             os.mkdir(style_dict_path)
             

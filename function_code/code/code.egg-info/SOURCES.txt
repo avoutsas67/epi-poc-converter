@@ -6,6 +6,8 @@ F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/documentAnnotation/__i
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/documentAnnotation/documentAnnotation.py
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/extractContentBetweenHeadings/__init__.py
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/extractContentBetweenHeadings/dataBetweenHeadingsExtractor.py
+F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/fhirService/__init__.py
+F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/fhirService/fhirService.py
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/fhirXmlGenerator/__init__.py
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/fhirXmlGenerator/fhirXmlGenerator.py
 F:/Projects/EMA/Repository/EMA EPI PoC/function_code/code/htmlDocTypePartitioner/__init__.py

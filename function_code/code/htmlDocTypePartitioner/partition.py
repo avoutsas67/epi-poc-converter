@@ -4,9 +4,10 @@ import pandas as pd
 import json
 
 class DocTypePartitioner:
-    def __init__(self, logger):
+    def __init__(self, logger, localEnv):
         self.logger = logger
         self.new_dataframe_start = 0
+        self.localEnv = localEnv
 
     ## Search for required page break index from list of all indices
     def binary_search(self, arr, low, high, x):
@@ -90,10 +91,15 @@ class DocTypePartitioner:
     def partitionHtmls(self, qrdkeys, path_json):
         qrdkeys[0] = 'SmPC'
 
+        if self.localEnv is True:
+            pathSep = "\\"
+        else:
+            pathSep = "/"
+
         if '.json' in path_json:
             
-            files_json = [path_json.split("\\")[-1]]
-            path_json = "\\".join(path_json.split("\\")[:-1])
+            files_json = [path_json.split(pathSep)[-1]]
+            path_json = pathSep.join(path_json.split(pathSep)[:-1])
             partition_output_folder = path_json.replace('outputJSON', 'partitionedJSONs')            
         else:
             files_json = [i for i in list(os.listdir(path_json)) if ('json' in i)]

@@ -22,6 +22,7 @@ package_name = current_file_folder.stem
 
 modules_to_use = ['documentAnnotation',
     'extractContentBetweenHeadings',
+    'fhirService',
     'fhirXmlGenerator',
     'htmlDocTypePartitioner',
     'languageInfo',

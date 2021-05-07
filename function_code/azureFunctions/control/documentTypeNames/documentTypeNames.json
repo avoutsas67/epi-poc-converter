@@ -1,0 +1,67 @@
+{
+    "en": {
+        "stopWordlanguage": "english",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    },
+    "de": {
+        "stopWordlanguage": "german",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "ANHANG II",
+                "2": "Etikettierung",
+                "3": "Packungsbeilage"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    },
+    "es": {
+        "stopWordlanguage": "spanish",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    },
+    "bg": {
+        "stopWordlanguage": "english",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "AnnexII",
+                "2": "Labelling",
+                "3": "Package leaflet"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    },
+    "el": {
+        "stopWordlanguage": "greek",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "ΠΑΡΑΡΤΗΜΑ ΙΙ",
+                "2": "ΕΠΙΣΗΜΑΝΣΗ",
+                "3": "ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    }
+}

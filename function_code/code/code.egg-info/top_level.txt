@@ -1,6 +1,7 @@
 QrdExtractor
 documentAnnotation
 extractContentBetweenHeadings
+fhirService
 fhirXmlGenerator
 htmlDocTypePartitioner
 languageInfo

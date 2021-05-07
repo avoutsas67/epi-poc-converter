@@ -417,8 +417,8 @@ class parserExtractor:
         section_dict = defaultdict(list)
         for key in self.qrd_section_headings:
             section_dict[key]=False
-
-        with open(input_filepath) as fp:
+        
+        with open(input_filepath, 'rb') as fp:
             soup = BeautifulSoup(fp, "html.parser")
             
             soup = self.cleanHTML(soup)

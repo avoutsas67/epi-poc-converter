@@ -2,14 +2,14 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "name": "myblob",
+      "name": "inputBlob",
       "type": "blobTrigger",
       "direction": "in",
       "path": "data/{htmlFile}",
       "connection": "emateststgacc01_STORAGE"
     },
     {
-      "name": "outputblob",
+      "name": "outputBlob",
       "type": "blob",
       "direction": "out",
       "path": "output/{htmlFile}",
