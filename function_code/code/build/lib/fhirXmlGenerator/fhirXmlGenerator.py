@@ -110,10 +110,13 @@ class FhirXmlGenerator:
     
     def processDataInStyleTag(self):
         style_tag_data = defaultdict(list)
-        
-        with open(self.styles_file_path, "rb") as style_file:
-            style_tag_data['Uri'] =  base64.b64encode(style_file.read()).decode('utf-8')
-            style_file.close()        
+        try:
+            with open(self.styles_file_path, "rb") as style_file:
+                style_tag_data['Uri'] =  base64.b64encode(style_file.read()).decode('utf-8')
+                style_file.close()
+        except:
+            self.logger.logFlowCheckpoint('Style Information Not Retrieved')   
+            style_tag_data = None     
         style_tag_data['Type'] = 'stylesheet/css'
         style_tag_data['Id'] = 'stylesheet0'
         return style_tag_data
