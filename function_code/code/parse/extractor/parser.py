@@ -124,7 +124,7 @@ class parserExtractor:
 
         for txt in ele_with_text:
             
-        if(re.match(r'\s+', txt) != None or re.match(r'^[0-9]+\.[0-9]?', txt) != None):
+            if(re.match(r'\s+', txt) != None or re.match(r'^[0-9]+\.[0-9]?', txt) != None):
                 continue
             if(txt in text_with_req or txt.isupper()):
                 hasStyle = True

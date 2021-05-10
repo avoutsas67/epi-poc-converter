@@ -233,11 +233,11 @@ class StyleRulesDictionary:
         """
         if self.localEnv is True:
             style_dict_path = os.path.abspath(os.path.join('..'))
-            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'control')
             style_dict_path = os.path.join(style_dict_path, 'styleRules')
         else:
             style_dict_path = os.path.join(f"{self.fsMountName}")
-            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'control')
             style_dict_path = os.path.join(style_dict_path, 'styleRules')
         if(not os.path.exists(style_dict_path)):
             os.mkdir(style_dict_path)

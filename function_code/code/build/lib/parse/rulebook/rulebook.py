@@ -87,9 +87,15 @@ class StyleRulesDictionary:
             self.qrd_section_headings.append('B. '+ heading_text)
             for heading in self.qrd_section_headings:
                 heading = heading.encode(encoding='utf-8').decode()
-            self.logger.logFlowCheckpoint(('Qrd Section Keys Generated: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
+            self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
         else:
+            try:
+                raise LanguageErrorQrdTemplate("Language not found in QRD template")
+            except:  
+                self.logger.logException('Language Code Not Found in QRD Template')
+                self.logger.logFlowCheckpoint('Language Code Not Found in QRD Template')
             raise LanguageErrorQrdTemplate("Language not found in QRD template")
+
 
         return self.qrd_section_headings
 
@@ -98,8 +104,18 @@ class StyleRulesDictionary:
         self.getSectionKeys()
         styleRuleDict = {
             self.qrd_section_headings[0]:{
-                'L1':self.createNewFeatureObj(self.styleFeatureKeyList),
-                'L2':self.createNewFeatureObj(self.styleFeatureKeyList),
+                'L1':{
+                        'Either':{
+                            'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet2':self.createNewFeatureObj(self.styleFeatureKeyList),
+                        }
+                    },
+                'L2':{
+                        'Either':{
+                            'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet2':self.createNewFeatureObj(self.styleFeatureKeyList),
+                        }
+                    },
                 'L3':{
                         'Either':{
                             'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
@@ -139,13 +155,23 @@ class StyleRulesDictionary:
         ## Setting features with keys in styleFeatureKeyList
         ## ANNEX I
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Indexed'] = True
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Uppercased'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Indexed'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Uppercased'] = True
+
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Indexed'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Uppercased'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Italics'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Indexed'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet1']['Indexed'] = True
+
+        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Indexed'] = True
+        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Italics'] = True
+
 
         ## Level 3
         styleRuleDict[self.qrd_section_headings[0]]['L3']['Either']['RuleSet1']['Underlined'] = True 
@@ -207,11 +233,11 @@ class StyleRulesDictionary:
         """
         if self.localEnv is True:
             style_dict_path = os.path.abspath(os.path.join('..'))
-            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'control')
             style_dict_path = os.path.join(style_dict_path, 'styleRules')
         else:
             style_dict_path = os.path.join(f"{self.fsMountName}")
-            style_dict_path = os.path.join(style_dict_path, 'data')
+            style_dict_path = os.path.join(style_dict_path, 'control')
             style_dict_path = os.path.join(style_dict_path, 'styleRules')
         if(not os.path.exists(style_dict_path)):
             os.mkdir(style_dict_path)
@@ -219,13 +245,13 @@ class StyleRulesDictionary:
         dictionary_file_name = 'rule_dictionary_' + str(self.language) +'.json'
         style_dict_path = os.path.join(style_dict_path, dictionary_file_name)
         if(os.path.exists(style_dict_path)):
-            self.logger.logFlowCheckpoint('Reading style dictionary in file: ' + style_dict_path)
+            self.logger.logFlowCheckpoint('Reading style dictionary in file: ' + dictionary_file_name)
 
             self.getSectionKeys()
             with open(style_dict_path) as f:
                 return json.load(f)
         else:
-            self.logger.logFlowCheckpoint('Creating default style dictionary in file: ' + style_dict_path)
+            self.logger.logFlowCheckpoint('Creating default style dictionary in file: ' + dictionary_file_name)
 
             return self.createDefaultStyleRuleJson(style_dict_path)
 

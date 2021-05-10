@@ -387,7 +387,7 @@ class MatchDocument():
                                 if (previousHeadingRowFound is not None) and (previousHeadingRowFound['id'] in list(self.dfModelwRulesF.tail(self.bottomHeadingsConsidered).id)):
                                     previousHeadingIsBottom = True
                                 
-                                print(str_['Text'], ' |===| ' , qrd_str)
+                                print(str_['Text'].encode('utf-8','ignore'), ' |===| ' , qrd_str.encode('utf-8','ignore'))
 
                                 # Calling validateMatch function
 
@@ -409,7 +409,7 @@ class MatchDocument():
                                             print(
                                                 "----------------------------------")
                                             print("RemovedByStyle", ' || ', outputString,
-                                                ' || ', str_['Text'], ' || ', qrd_str)
+                                                ' || ', str_['Text'].encode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore'))
                                             print(
                                                 "----------------------------------")
                                             self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
@@ -419,7 +419,7 @@ class MatchDocument():
                                             continue
 
                                     print(found, ' || ', outputString,
-                                          ' || ', str_['Text'], ' || ', qrd_str)
+                                          ' || ', str_['Text'].encode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore'))
 
                                     found_vec.append(qrd_str_row)
                                     # Add entry to final self.collectionFoundHeadings and intermediatary self.subSectionCollectionFoundHeadings

@@ -7,7 +7,8 @@ from datetime import datetime
 from requests.exceptions import HTTPError
 
 class FhirService:
-    def __init__(self, body, fsMountName, localEnv):
+    def __init__(self, logger, body, fsMountName, localEnv):
+        self.insights_logger = logger
         self.body = body
         self.fsMountName = fsMountName
         self.localEnv = localEnv
@@ -59,14 +60,20 @@ class FhirService:
         url = "https://ema-dap-epi-dev-fhir-api.azurewebsites.net/Bundle"
 
         response = requests.post(url, data=self.body, headers={'Content-Type': 'application/fhir+xml; charset=utf-8'})
+        self.insights_logger.logFlowCheckpoint('Initiating Submission To FHIR Server')
         
         try:
             response.raise_for_status()
             response = response.json()
+            self.insights_logger.logFlowCheckpoint('POST sucessful: XML added with id: ' + str(response['id']))
             print('POST sucessful: XML added with id', response['id'])
         except HTTPError as http_err:
             response = response.json()
             print(f'HTTP error occurred: {http_err}')
+            self.insights_logger.logException(f'HTTP error occurred: {http_err}')
+            self.insights_logger.logFlowCheckpoint(f'HTTP error occurred: {http_err}')
             print('Error log:', response['issue'][0]['diagnostics'])
+            self.insights_logger.logException('Error log:'+ response['issue'][0]['diagnostics'])
+            self.insights_logger.logFlowCheckpoint('Error log:'+ response['issue'][0]['diagnostics'])
 
        
