@@ -387,7 +387,7 @@ class MatchDocument():
                                 if (previousHeadingRowFound is not None) and (previousHeadingRowFound['id'] in list(self.dfModelwRulesF.tail(self.bottomHeadingsConsidered).id)):
                                     previousHeadingIsBottom = True
                                 
-                                print(str_['Text'].encode('utf-8','ignore'), ' |===| ' , qrd_str.encode('utf-8','ignore'))
+                                #print(str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' |===| ' , qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
 
                                 # Calling validateMatch function
 
@@ -408,8 +408,9 @@ class MatchDocument():
                                             validated = False
                                             print(
                                                 "----------------------------------")
-                                            print("RemovedByStyle", ' || ', outputString,
-                                                ' || ', str_['Text'].encode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore'))
+                                            print("RemovedByStyle")
+                                            #print("RemovedByStyle", ' || ', outputString,
+                                            #    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
                                             print(
                                                 "----------------------------------")
                                             self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
@@ -418,8 +419,8 @@ class MatchDocument():
                                                 qrd_str)
                                             continue
 
-                                    print(found, ' || ', outputString,
-                                          ' || ', str_['Text'].encode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore'))
+                                    #print(found, ' || ', outputString,
+                                    #      ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
 
                                     found_vec.append(qrd_str_row)
                                     # Add entry to final self.collectionFoundHeadings and intermediatary self.subSectionCollectionFoundHeadings
