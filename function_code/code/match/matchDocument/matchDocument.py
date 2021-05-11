@@ -32,6 +32,8 @@ class MatchDocument():
 
     def __init__(self,
                     logger,
+                    controlBasePath,
+                    basePath,
                     domain,
                     procedureType,
                     languageCode,
@@ -45,59 +47,46 @@ class MatchDocument():
                     stopWordFilterListSize,
                     stopWordlanguage,
                     isPackageLeaflet=False,
-                    medName=None,
-                    fsMountName='/mounted',
-                    localEnv=False
+                    medName=None
                     ):
 
         self.logger = logger
+        self.basePath = basePath
+        self.controlBasePath = controlBasePath
         self.domain = domain
         self.procedureType = procedureType
         self.fileNameDoc = fileNameDoc
         self.languageCode = languageCode
 
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
-
         self.dfHtml = self.createHtmlDataframe()
 
         self.documentNumber = documentNumber
 
-        print(fileNameDocumentTypeNames,
-            languageCode,
-            self.domain,
-            self.procedureType,
-            self.documentNumber,
-            self.fsMountName,
-            self.localEnv)
         self.documentType = DocumentTypeNames(
+            controlBasePath=self.controlBasePath,
             fileNameDocumentTypeNames=fileNameDocumentTypeNames,
             languageCode=languageCode,
             domain=self.domain,
             procedureType=self.procedureType,
-            documentNumber=self.documentNumber,
-            fsMountName=self.fsMountName,
-            localEnv=self.localEnv).extractDocumentTypeName()
+            documentNumber=self.documentNumber).extractDocumentTypeName()
 
         
         print(self.documentType)
         self.dfModelwRulesF = QrdCanonical(
+            controlBasePath=self.controlBasePath,
             fileName=fileNameQrd,
             domain=self.domain,
             procedureType=self.procedureType,
             languageCode=languageCode,
-            documentType=self.documentType,
-            fsMountName=self.fsMountName,
-            localEnv=self.localEnv).ProcessQrdDataframe()
+            documentType=self.documentType).ProcessQrdDataframe()
 
         self.ruleDict = MatchRuleBook(
+            controlBasePath=self.controlBasePath,
             fileNameRuleBook=fileNameMatchRuleBook,
             domain=self.domain,
             procedureType=self.procedureType,
             languageCode=languageCode,
-            documentNumber=self.documentNumber,
-            fsMountName=self.fsMountName,
-            localEnv=self.localEnv).ruleDict
+            documentNumber=self.documentNumber).ruleDict
 
         self.stopWordFilterListSize = stopWordFilterListSize
         self.stopWordlanguage = stopWordlanguage
@@ -129,12 +118,8 @@ class MatchDocument():
         Create dataframe from the partitionedJson files.
 
         '''
+        path_json = os.path.join(self.basePath, 'partitionedJSONs')
         
-        if self.localEnv is True:
-            path_json = os.path.join(os.path.abspath(
-                os.path.join('..')), 'data', 'partitionedJSONs', f'{self.domain}', f'{self.procedureType}', f'{self.languageCode}')
-        else:
-            path_json = os.path.join(f'{self.fsMountName}', 'data', 'partitionedJSONs', f'{self.domain}', f'{self.procedureType}', f'{self.languageCode}')
         output_filename = os.path.join(path_json, self.fileNameDoc)
         print('File being processed: ' + output_filename)
         print("--------------------------------------------")

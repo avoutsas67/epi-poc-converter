@@ -7,13 +7,12 @@ class ErrorInQrdTemplate(Exception):
 
 class QrdCanonical():
 
-    def __init__(self,fileName, domain, procedureType, languageCode, documentType, fsMountName, localEnv):
+    def __init__(self, controlBasePath, fileName, domain, procedureType, languageCode, documentType):
         # r'qrd_canonical_mode_CAP_NAP.csv'
         
-        if localEnv is True:
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'qrdTemplate')
-        else:
-            self.filePath = os.path.join(f'{fsMountName}', 'control', 'qrdTemplate')
+        self.controlBasePath = controlBasePath
+        
+        self.filePath = os.path.join(self.controlBasePath, 'qrdTemplate')
 
         self.fileName = fileName
 
@@ -23,8 +22,6 @@ class QrdCanonical():
         self.procedureType = procedureType
         self.languageCode = languageCode
         self.documentType = documentType
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
 
 
     def createQrdDataframe(self):

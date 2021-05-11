@@ -7,22 +7,15 @@ from datetime import datetime
 from requests.exceptions import HTTPError
 
 class FhirService:
-    def __init__(self, logger, body, fsMountName, localEnv):
+    def __init__(self, logger, basePath, body):
         self.insights_logger = logger
+        self.basePath = self.basePath
         self.body = body
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
 
     def storeXMLIdOnPost(self, post_xml_id):
+        
+        file_path = os.path.join( self.basePath, "fhir_messages", "postMetaData")
 
-        if self.localEnv is True:
-            file_path = os.path.abspath(os.path.join('..'))
-            file_path = os.path.join(file_path, 'data')
-            file_path = os.path.join(file_path, 'fhir_messages')
-            file_path = os.path.join(file_path, 'postMetaData')
-        else:
-            file_path = os.path.join(f"{self.fsMountName}","data","fhir_messages","postMetaData")
-            
         if(not os.path.exists(file_path)):
             os.mkdir(file_path)
             

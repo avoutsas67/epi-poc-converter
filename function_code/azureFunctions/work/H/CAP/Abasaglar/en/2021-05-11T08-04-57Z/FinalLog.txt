@@ -1,0 +1,50 @@
+2021-05-12 04:53:55,315 : Flow Logger HTML_Y : Starting HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:53:55,331 : Style Dictionary_9 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:53:55,385 : Style Dictionary_9 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:53:56,765 : Parser_5 : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.txt | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:54:02,922 : Parser_5 : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:54:03,897 : Flow Logger HTML_Y : Completed HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:54:03,898 : Flow Logger HTML_Y : Starting Json Split | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 04:54:03,905 : Style Dictionary_w : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 04:54:03,934 : Style Dictionary_w : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:02:45,184 : Flow Logger HTML_E : Starting HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:45,200 : Style Dictionary_4 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:45,255 : Style Dictionary_4 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:46,593 : Parser_z : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.txt | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:52,560 : Parser_z : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:53,498 : Flow Logger HTML_E : Completed HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:53,499 : Flow Logger HTML_E : Starting Json Split | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:02:53,506 : Style Dictionary_c : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:02:53,537 : Style Dictionary_c : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:42,239 : Flow Logger HTML_q : Starting HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:42,257 : Style Dictionary_z : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:42,309 : Style Dictionary_z : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:43,731 : Parser_U : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.txt | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:51,102 : Parser_U : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,243 : Flow Logger HTML_q : Completed HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,245 : Flow Logger HTML_q : Starting Json Split | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,254 : Style Dictionary_A : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,290 : Style Dictionary_A : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,301 : Partition_u : Partitioning Json: Abasaglar_clean.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,494 : Partition_u : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\partitionedJSONs\Abasaglar_clean_SmPC.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,546 : Partition_u : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\partitionedJSONs\Abasaglar_clean_ANNEX II.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,660 : Partition_u : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\partitionedJSONs\Abasaglar_clean_ANNEX III.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,677 : Partition_u : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\partitionedJSONs\Abasaglar_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Abasaglar_clean.json
+2021-05-12 05:21:52,719 : Flow Logger HTML_q : ['Abasaglar_clean_SmPC.json', 'Abasaglar_clean_ANNEX II.json', 'Abasaglar_clean_ANNEX III.json', 'Abasaglar_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,721 : Flow Logger HTML_q : Completed Json Split | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,724 : Flow Logger HTML_q : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,726 : Flow Logger HTML_q : 
+
+
+
+||||||||||||||||||||||||||||||||0 ||||| Abasaglar_clean_SmPC.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:21:52,742 : Heading Extraction Abasaglar_clean_SmPC.json_d : Starting Heading Extraction | H | CAP |  en | 0 | Abasaglar_clean_SmPC.json
+2021-05-12 05:21:53,140 : Heading Extraction Abasaglar_clean_SmPC.json_d : Started Extracting Heading | H | CAP |  en | 0 | Abasaglar_clean_SmPC.json
+2021-05-12 05:22:01,188 : Flow Logger HTML_F : Starting HTML Conversion To Json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:22:01,197 : Style Dictionary_G : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:22:01,227 : Style Dictionary_G : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Abasaglar_clean.htm
+2021-05-12 05:22:02,771 : Parser_w : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\azureFunctions\work\H\CAP\Abasaglar\en\2021-05-11T08-04-57Z\outputJSON\Abasaglar_clean.txt | H | CAP |  en | HTML | Abasaglar_clean.htm
