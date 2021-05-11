@@ -7,14 +7,14 @@
 	<type value="collection"/>
 	<!-- Repeat at this level per document -->
 	<entry>
-		<fullUrl value="urn:uuid:2240ea60-3d2a-47a3-b78a-6da0fc36b2f3"/>
+		<fullUrl value="urn:uuid:985311ab-d00a-4dd3-9ad2-04cb72f9a90e"/>
 		<!-- Top level of each document is a also FHIR Bundle, of type "document"
 		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
 	 	 All the other resources for this document are within this. -->
 		<resource>
             <Bundle>
             	<!-- When PUTing, some servers mandate an id here to match the existing id -->
-            	<id value="467f3407-8564-48e1-ae3b-67114c98826f"/>
+            	<id value="62e8fd4a-8492-4eb1-83fb-b246a457ae5e"/>
 				<!-- document bundles must have an identifier (bdl-9) -->
 				<identifier>
 					<!-- possibly different identifier types may be needed here -->
@@ -24,11 +24,11 @@
 				<!-- fixed code -->
 				<type value="document" /> 
             	<!-- document bundles must have a date (bdl-10) -->
-            	<timestamp value="2021-05-10T20:26:21Z"/>
+            	<timestamp value="2021-05-11T19:02:49Z"/>
 				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
 				<entry>
 					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
-					<fullUrl value="urn:uuid:2ac154d1-d7e1-4830-818a-c082297837bd"/>
+					<fullUrl value="urn:uuid:cf54e21f-eb93-43a1-a47f-17a91b1d4781"/>
 					<resource>
 						<!-- the first resource must be Composition (bdl-11) -->
 						<!-- This is the overall document structure. -->
@@ -36,22 +36,6 @@
                         <Composition>
                         	<!-- images if requied within html text of this document -->
 							
-							<contained>
-                                <Binary>
-                                	<id value="image0"/>
-                                	<!-- example format -->
-                                	<contentType value="image/png"/>
-									<!-- data is base 64 encoded, actual bytes of the image png file -->
-                                	<data value="iVBORw0KGgoAAAANSUhEUgAAABUAAAASCAYAAAC0EpUuAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAFDSURBVDhPrZS7TgJBGIWXuI2liS2+gI9graXaYUeMPVSGSDOuBRpLlc4QRUKNlxcwxvgAxlhrrMVOG8Xv6LBZw7AsjJOcnZmd/3z7z84lDIKgg1ZQD/mWnHghjxJaQtO+RPzvqBxGUfRsjDmis/kP0APxlKnKLlpDeQ/wE949+X+g0Ltka2g2PKAGzlsMtaBT6g20MAH4Bs9Z39efvrL9ItkKA9doagzwJ7EV+Qeg9jfcAm7SXh8DegLwLhkfZ5p4uU17Fc1kAL8So/g/ZQBqt5h2w34GaI34l5FQG3BIXUTzKeB7xuqucdf0tWgf/NstDBcp0KriMkPtol0CFnTZYTwHeDXsg85ME8FV2osoeS/ofGsWQ0sqlGweHPeCzvfjxFBr1E4ooDkUn28vqL0XdoAcI7q/59sLas0t6lnUHgXU+Dex+10S7AL+QwAAAABJRU5ErkJggg=="/>
-								</Binary>
-							</contained>
-							<!-- this exension is necessary per image -->
-                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
-                        		<valueReference>
-                        			<reference value="#image0"/>
-                        		</valueReference>
-               </extension>
-              
               
               <contained>
                           <Binary>
@@ -115,11 +99,36 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Package leaflet: Information for the patient</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal; background:white"></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Adakveo 10 mg/ml concentrate for solution for infusion</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB">crizanlizumab</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><img alt="BT_1000x858px" border="0" height="18" id="Picture 1" src="#image0" width="21"/><span lang="EN-GB">This medicine is subject to additional monitoring. This will allow quick identification of new safety information. You can help by reporting any side effects you may get. See the end of section 4 for how to report side effects.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Read all of this leaflet carefully before you are given this medicine because it contains important information for you.</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">Keep this leaflet. You may need to read it again.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you have any further questions, ask your doctor or nurse.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you get any side effects, talk to your doctor or nurse.</span><span lang="EN-GB"> This includes any possible side effects not listed in this leaflet. See section 4.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Package leaflet: Information for the patient</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal; background:white"></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Adakveo 10 mg/ml concentrate for solution for infusion</span></b></p><p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span lang="EN-GB">crizanlizumab</span></p><p class="MsoNormal" style="line-height:normal"></p>
 			</div>
 		</text>
 		
 		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="This medicine is subject to additional monitoring. This will allow quick identification of new safety information. You can help by reporting any side effects you may get. See the end of section 4 for how to report side effects."/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Read all of this leaflet carefully before you are given this medicine because it contains important information for you.</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">Keep this leaflet. You may need to read it again.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you have any further questions, ask your doctor or nurse.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-</span><span lang="EN-GB">If you get any side effects, talk to your doctor or nurse.</span><span lang="EN-GB"> This includes any possible side effects not listed in this leaflet. See section 4.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
     	    
 				
 			    
@@ -137,7 +146,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1.       What Adakveo is and what it is used for</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">2.       What you need to know before you are given Adakveo</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">3.       How Adakveo is given</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">4.       Possible side effects</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5.       How to store Adakveo</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">6.       Contents of the pack and other information</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+		    
 			</div>
 		</text>
 		
@@ -145,6 +154,136 @@
 		
 </section>
 			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="1.       What Adakveo is and what it is used for"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="2.       What you need to know before you are given Adakveo"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">3.       How Adakveo is given</span></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="4.       Possible side effects"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="5.       How to store Adakveo"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="6.       Contents of the pack and other information"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
     	    
 				
 			    
@@ -162,32 +301,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">What Adakveo is</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span>contains the active substance crizanlizumab, which belongs to a group of medicines called monoclonal antibodies (mAbs).</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>What Adakveo</b><b>is used for</b></p><p class="MsoNormal" style="line-height:normal">Adakveo is used to prevent recurrent painful crises occurring in patients aged 16 years and over with sickle cell disease. Adakveo can be given in combination with hydroxyurea/hydroxycarbamide, although it may also be used alone.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">Sickle cell disease is an inherited blood disorder. It causes affected red blood cells to become sickle‑shaped and have difficulty passing through small blood vessels. Additionally in sickle cell disease the blood vessels are damaged and sticky due to ongoing chronic inflammation. This leads to blood cells sticking to the blood vessels, causing acute episodes of pain and organ damage.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>How Adakveo works</b></p><p class="MsoNormal" style="line-height:normal">Patients with sickle cell disease have higher levels of a protein called P‑selectin. Adakveo binds P‑selectin. This should stop blood cells sticking to the vessel walls and help prevent painful crises.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">If you have any questions about how Adakveo works or why this medicine has been prescribed for you, ask your <a name="_Toc312231909"></a><span lang="EN-GB">doctor or nurse</span>.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="2.       What you need to know before you are given Adakveo"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">You must not be given Adakveo:</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-        if you are allergic to crizanlizumab or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"></p>
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">What Adakveo is</span></b></p>
 			</div>
 		</text>
 		
@@ -196,7 +310,7 @@
 			    
 		               
 <section>
-			<title value="Warnings and precautions"/>
+			<title value="Adakveo contains the active substance crizanlizumab, which belongs to a group of medicines called monoclonal antibodies (mAbs)."/>
 				<code>
 					<coding>
 						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
@@ -207,14 +321,10 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Infusion reactions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Medicines of this type (called monoclonal antibodies) are administered into a vein (intravenously) as an infusion. They can cause unwanted reactions (side effects) when they are infused into your body. Such reactions may happen within 24 hours of receiving an infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Tell your doctor or nurse immediately</span></b><span lang="EN-GB"> if you experience any of the following, which may be signs of an infusion reaction:</span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal"><span lang="EN-GB">-</span><span lang="EN-GB">Fever, chills, shivering, nausea, vomiting, tiredness, dizziness, pain where the infusion needle is inserted, blisters, itching, shortness of breath or wheezing. See also section 4, “Possible side effects”.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor or nurse may monitor you for signs and symptoms of such infusion reactions.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Blood tests during Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you need to have any blood tests, tell the doctor or nurse that you are on treatment with Adakveo. This is important because this treatment may interfere with a laboratory test used to measure the number of platelets in your blood.</span></p><p class="MsoNormal" style="line-height:normal"></p>
+		    <p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>What Adakveo</b><b>is used for</b></p><p class="MsoNormal" style="line-height:normal">Adakveo is used to prevent recurrent painful crises occurring in patients aged 16 years and over with sickle cell disease. Adakveo can be given in combination with hydroxyurea/hydroxycarbamide, although it may also be used alone.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">Sickle cell disease is an inherited blood disorder. It causes affected red blood cells to become sickle‑shaped and have difficulty passing through small blood vessels. Additionally in sickle cell disease the blood vessels are damaged and sticky due to ongoing chronic inflammation. This leads to blood cells sticking to the blood vessels, causing acute episodes of pain and organ damage.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b>How Adakveo works</b></p><p class="MsoNormal" style="line-height:normal">Patients with sickle cell disease have higher levels of a protein called P‑selectin. Adakveo binds P‑selectin. This should stop blood cells sticking to the vessel walls and help prevent painful crises.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal">If you have any questions about how Adakveo works or why this medicine has been prescribed for you, ask your <a name="_Toc312231909"></a><span lang="EN-GB">doctor or nurse</span>.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">2.       What you need to know before you are given Adakveo</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">You must not be given Adakveo:</span></b></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">-        if you are allergic to crizanlizumab or any of the other ingredients of this medicine (listed in section 6).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Warnings and precautions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Infusion reactions</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Medicines of this type (called monoclonal antibodies) are administered into a vein (intravenously) as an infusion. They can cause unwanted reactions (side effects) when they are infused into your body. Such reactions may happen within 24 hours of receiving an infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Tell your doctor or nurse immediately</span></b><span lang="EN-GB"> if you experience any of the following, which may be signs of an infusion reaction:</span></p><p class="MsoListParagraph" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal"><span lang="EN-GB">-</span><span lang="EN-GB">Fever, chills, shivering, nausea, vomiting, tiredness, dizziness, pain where the infusion needle is inserted, blisters, itching, shortness of breath or wheezing. See also section 4, “Possible side effects”.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor or nurse may monitor you for signs and symptoms of such infusion reactions.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Blood tests during Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you need to have any blood tests, tell the doctor or nurse that you are on treatment with Adakveo. This is important because this treatment may interfere with a laboratory test used to measure the number of platelets in your blood.</span></p><p class="MsoNormal" style="line-height:normal"></p>
 			</div>
 		</text>
 		
-    	    
-		
-</section>
-			    
     	    
 
 			    
@@ -231,7 +341,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span>should not be used in children or adolescents below 16 years of age.</p><p class="MsoNormal" style="line-height:normal"></p>
+		    <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo </span>should not be used in children or adolescents below 16 years of age.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b>Other medicines and Adakveo</b></p><p class="MsoNormal" style="line-height:normal;text-autospace:none">Tell your doctor or nurse if you are taking, have recently taken or might take any other medicines.</p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Pregnancy and breast‑feeding</span></b></p><p class="MsoNormal" style="line-height:normal;text-autospace:none">Adakveo has not been tested in pregnant women therefore there is limited information about its safety in pregnant women.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant, or are a woman who could become pregnant and is not using contraception, it is not recommended to use Adakveo.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">It is not known whether <span lang="EN-GB">Adakveo </span>or its individual ingredients pass into breast milk.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant or breast‑feeding, think you may be pregnant or are planning to have a baby, ask your doctor for advice before receiving this medicine. Your doctor will discuss with you the potential risk(s) of <span lang="EN-GB">Adakveo </span>during pregnancy or breast‑feeding.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Driving and using machines</span></b></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Adakveo could have a minor effect on your ability to drive and use machines. If you experience tiredness, drowsiness or dizziness, do not drive or use machines until you feel better.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Adakveo contains sodium</span></b></p><p class="MsoNormal" style="line-height:normal">This medicine contains less than 1 mmol sodium (23 mg) per vial, that is to say essentially “sodium‑free”.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">3.       How Adakveo is given</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Adakveo will be given to you by a doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any questions about how Adakveo is given, ask the doctor or nurse who is giving you the infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor will tell you when you will have your infusions and follow‑up appointments.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How much Adakveo you will be given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The recommended dose is 5 mg per kilogram of body weight. You will be given the first infusion at Week 0 and the second infusion two weeks later (Week 2). After that you will be given an infusion every 4 weeks.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How the infusion is given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo is administered into a vein (intravenously) as an infusion lasting 30 minutes.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo can be given alone or with hydroxyurea/hydroxycarbamide.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How long Adakveo treatment lasts</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">You should discuss with your doctor how long you will need to receive treatment. Your doctor will regularly monitor your condition to check that the treatment is having the desired effect.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you forget a Adakveo infusion</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">It is very important that you receive all your infusions. If you miss an appointment for an infusion, contact your doctor as soon as possible to reschedule.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you stop Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not stop Adakveo treatment unless your doctor tells you that you can.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any further questions on the use of this medicine, ask your doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
 			</div>
 		</text>
 		
@@ -239,98 +349,6 @@
 		
 </section>
 			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Other medicines and Adakveo"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none">Tell your doctor or nurse if you are taking, have recently taken or might take any other medicines.</p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Pregnancy and breast‑feeding"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none">Adakveo has not been tested in pregnant women therefore there is limited information about its safety in pregnant women.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant, or are a woman who could become pregnant and is not using contraception, it is not recommended to use Adakveo.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">It is not known whether <span lang="EN-GB">Adakveo </span>or its individual ingredients pass into breast milk.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none">If you are pregnant or breast‑feeding, think you may be pregnant or are planning to have a baby, ask your doctor for advice before receiving this medicine. Your doctor will discuss with you the potential risk(s) of <span lang="EN-GB">Adakveo </span>during pregnancy or breast‑feeding.</p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Driving and using machines"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Adakveo could have a minor effect on your ability to drive and use machines. If you experience tiredness, drowsiness or dizziness, do not drive or use machines until you feel better.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Adakveo contains sodium"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal">This medicine contains less than 1 mmol sodium (23 mg) per vial, that is to say essentially “sodium‑free”.</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">3.       How Adakveo is given</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Adakveo will be given to you by a doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any questions about how Adakveo is given, ask the doctor or nurse who is giving you the infusion.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Your doctor will tell you when you will have your infusions and follow‑up appointments.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How much Adakveo you will be given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The recommended dose is 5 mg per kilogram of body weight. You will be given the first infusion at Week 0 and the second infusion two weeks later (Week 2). After that you will be given an infusion every 4 weeks.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How the infusion is given</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo is administered into a vein (intravenously) as an infusion lasting 30 minutes.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Adakveo can be given alone or with hydroxyurea/hydroxycarbamide.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">How long Adakveo treatment lasts</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">You should discuss with your doctor how long you will need to receive treatment. Your doctor will regularly monitor your condition to check that the treatment is having the desired effect.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you forget a Adakveo infusion</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">It is very important that you receive all your infusions. If you miss an appointment for an infusion, contact your doctor as soon as possible to reschedule.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">If you stop Adakveo treatment</span></b></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not stop Adakveo treatment unless your doctor tells you that you can.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">If you have any further questions on the use of this medicine, ask your doctor or nurse.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
     	    
 		
 </section>

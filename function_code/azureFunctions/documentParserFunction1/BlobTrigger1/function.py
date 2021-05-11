@@ -163,7 +163,7 @@ def extractAndValidateHeadings(domain,
         bottomHeadingsConsidered = 10
 
     print(f"Starting Heading Extraction For File :- {fileNameDoc}")
-    logger = MatchLogger(f"Heading Extraction {fileNameDoc}", fileNameDoc, domain, procedureType, languageCode, documentNumber, fileNameLog)
+    logger = MatchLogger(f"Heading Extraction {fileNameDoc}_{getRandomString(1)}", fileNameDoc, domain, procedureType, languageCode, documentNumber, fileNameLog)
     logger.logFlowCheckpoint("Starting Heading Extraction")
 
     stopWordlanguage = DocumentTypeNames(
@@ -285,19 +285,19 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
         print(f"Starting Extracting Content Between Heading For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Extracting Content Between Heading")
         
-        extractContentlogger =  MatchLogger(f'ExtractContentBetween_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        extractContentlogger =  MatchLogger(f'ExtractContentBetween_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
         extractorObj = DataBetweenHeadingsExtractor(extractContentlogger, coll, domain, procedureType, languageCode, fsMountName, localEnv)
         dfExtractedHierRR = extractorObj.extractContentBetweenHeadings(fileNamePartitioned)
         
         print(f"Completed Extracting Content Between Heading")        
         flowLogger.logFlowCheckpoint("Completed Extracting Content Between Heading")
         
-        xmlLogger =  MatchLogger(f'XmlGeneration_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        xmlLogger =  MatchLogger(f'XmlGeneration_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
         fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, pms_oms_annotation_data, stylesFilePath, medName, fsMountName, localEnv)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
-        fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
 
         fhirServiceObj = FhirService(fhirServiceLogger, generatedXml, fsMountName, localEnv)
         fhirServiceObj.submitFhirXml()

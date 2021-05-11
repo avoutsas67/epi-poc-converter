@@ -63,16 +63,13 @@ class MatchDocument():
 
         self.documentNumber = documentNumber
 
-        print(DocumentTypeNames(
-            fileNameDocumentTypeNames=fileNameDocumentTypeNames,
-            languageCode=languageCode,
-            domain=self.domain,
-            procedureType=self.procedureType,
-            documentNumber=self.documentNumber,
-            fsMountName=self.fsMountName,
-            localEnv=self.localEnv).extractDocumentTypeName())
-
-        
+        print(fileNameDocumentTypeNames,
+            languageCode,
+            self.domain,
+            self.procedureType,
+            self.documentNumber,
+            self.fsMountName,
+            self.localEnv)
         self.documentType = DocumentTypeNames(
             fileNameDocumentTypeNames=fileNameDocumentTypeNames,
             languageCode=languageCode,

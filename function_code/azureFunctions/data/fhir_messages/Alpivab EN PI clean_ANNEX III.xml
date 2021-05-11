@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:f8952c2a-0963-4b8b-85ff-8591803c13ab"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="357f625e-741a-496e-850f-11e31d949a4e"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-05-11T20:26:39Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:1f813230-d5ff-4491-9d06-11d12bd75d48"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+              
+              <contained>
+                          <Binary>
+                            <id value="stylesheet0"/>
+                            <!-- example format -->
+                            <contentType value="stylesheet/css"/>
+                            <!-- data is base 64 encoded, actual bytes of the image png file -->
+                            <data value="PHN0eWxlPg0NCjwhLS0NDQogLyogRm9udCBEZWZpbml0aW9ucyAqLw0NCiBAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpIZWx2ZXRpY2E7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDIgMiAyIDIgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpXaW5nZGluZ3M7DQ0KCXBhbm9zZS0xOjUgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMiA1IDggMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTaW1TdW47DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDYW1icmlhIE1hdGgiOw0NCglwYW5vc2UtMToyIDQgNSAzIDUgNCA2IDMgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpDYWxpYnJpOw0NCglwYW5vc2UtMToyIDE1IDUgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6VmVyZGFuYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlRhaG9tYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQFNpbVN1biI7DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQE1TIE1pbmNobyI7DQ0KCXBhbm9zZS0xOjIgMiA2IDkgNCAyIDUgOCAzIDQ7fQ0NCiAvKiBTdHlsZSBEZWZpbml0aW9ucyAqLw0NCiBwLk1zb05vcm1hbCwgbGkuTXNvTm9ybWFsLCBkaXYuTXNvTm9ybWFsDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMg0NCgl7bXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTMuMHB0Ow0NCglmb250LWZhbWlseToiQ2FsaWJyaSBMaWdodCIsc2Fucy1zZXJpZjsNDQoJY29sb3I6IzJFNzRCNTsNDQoJZm9udC13ZWlnaHQ6bm9ybWFsO30NDQpwLk1zb0Zvb3Rub3RlVGV4dCwgbGkuTXNvRm9vdG5vdGVUZXh0LCBkaXYuTXNvRm9vdG5vdGVUZXh0DQ0KCXttc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQ29tbWVudFRleHQsIGxpLk1zb0NvbW1lbnRUZXh0LCBkaXYuTXNvQ29tbWVudFRleHQNDQoJe21zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHQgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvSGVhZGVyLCBsaS5Nc29IZWFkZXIsIGRpdi5Nc29IZWFkZXINDQoJe21hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1zb0Zvb3RlciwgbGkuTXNvRm9vdGVyLCBkaXYuTXNvRm9vdGVyDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZTo4LjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1zb0NhcHRpb24sIGxpLk1zb0NhcHRpb24sIGRpdi5Nc29DYXB0aW9uDQ0KCXttc28tc3R5bGUtbmFtZToiQ2FwdGlvblwsQmVzY2hyaWZ0dW5nIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhciBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyMVwsQmVzY2hyaWZ0dW5nIENoYXIxXCxCZXNjaHJpZnR1bmcgQ2hhcjEgQ2hhciBDaGFyXCxUYWJcLFRhYlwvRmlnXCxUYWJcL0ZpZyBDaGFyXCxUYWJcL0ZpZyBDaGFyIENoYXJcLFRhYlwvRmlnIENoYXIgQ2hhciBDaGFyIENoYXJcLFRhYlwvRmlnIENoYXIxIENoYXIgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJDYXB0aW9uIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIxIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyMSBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhcjEgQ2hhciBDaGFyIENoYXJcLFRhYiBDaGFyXCxUYWJcL0ZpZyBDaGFyMVwsVGFiXC9GaWcgQ2hhciBDaGFyMSI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjEuMGluOw0NCgl0ZXh0LWluZGVudDotMS4waW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvQm9keVRleHQsIGxpLk1zb0JvZHlUZXh0LCBkaXYuTXNvQm9keVRleHQNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpncmVlbjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCnAuTXNvQm9keVRleHRJbmRlbnQsIGxpLk1zb0JvZHlUZXh0SW5kZW50LCBkaXYuTXNvQm9keVRleHRJbmRlbnQNDQoJe21zby1zdHlsZS1saW5rOiJCb2R5IFRleHQgSW5kZW50IENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo2LjBwdDsNDQoJbWFyZ2luLWxlZnQ6LjI1aW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCmE6bGluaywgc3Bhbi5Nc29IeXBlcmxpbmsNDQoJe2NvbG9yOmJsdWU7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0NCmE6dmlzaXRlZCwgc3Bhbi5Nc29IeXBlcmxpbmtGb2xsb3dlZA0NCgl7Y29sb3I6Izk1NEY3MjsNDQoJdGV4dC1kZWNvcmF0aW9uOnVuZGVybGluZTt9DQ0KcC5Nc29Eb2N1bWVudE1hcCwgbGkuTXNvRG9jdW1lbnRNYXAsIGRpdi5Nc29Eb2N1bWVudE1hcA0NCgl7bXNvLXN0eWxlLWxpbms6IkRvY3VtZW50IE1hcCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjguMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwDQ0KCXttYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWZvbnQtc2l6ZToxMi4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0NvbW1lbnRTdWJqZWN0LCBsaS5Nc29Db21tZW50U3ViamVjdCwgZGl2Lk1zb0NvbW1lbnRTdWJqZWN0DQ0KCXttc28tc3R5bGUtbGluazoiQ29tbWVudCBTdWJqZWN0IENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLk1zb0FjZXRhdGUsIGxpLk1zb0FjZXRhdGUsIGRpdi5Nc29BY2V0YXRlDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZTo4LjBwdDsNDQoJZm9udC1mYW1pbHk6IlRhaG9tYSIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29STVBhbmUsIGxpLk1zb1JNUGFuZSwgZGl2Lk1zb1JNUGFuZQ0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvTGlzdFBhcmFncmFwaCwgbGkuTXNvTGlzdFBhcmFncmFwaCwgZGl2Lk1zb0xpc3RQYXJhZ3JhcGgNDQoJe21hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjguMHB0Ow0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcEZpcnN0LCBsaS5Nc29MaXN0UGFyYWdyYXBoQ3hTcEZpcnN0LCBkaXYuTXNvTGlzdFBhcmFncmFwaEN4U3BGaXJzdA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcE1pZGRsZSwgbGkuTXNvTGlzdFBhcmFncmFwaEN4U3BNaWRkbGUsIGRpdi5Nc29MaXN0UGFyYWdyYXBoQ3hTcE1pZGRsZQ0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcExhc3QsIGxpLk1zb0xpc3RQYXJhZ3JhcGhDeFNwTGFzdCwgZGl2Lk1zb0xpc3RQYXJhZ3JhcGhDeFNwTGFzdA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206OC4wcHQ7DQ0KCW1hcmdpbi1sZWZ0Oi41aW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJbGluZS1oZWlnaHQ6MTUwJTsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1lbW9IZWFkZXJTdHlsZSwgbGkuTWVtb0hlYWRlclN0eWxlLCBkaXYuTWVtb0hlYWRlclN0eWxlDQ0KCXttc28tc3R5bGUtbmFtZTpNZW1vSGVhZGVyU3R5bGU7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NzAuOXB0Ow0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjsNDQoJZm9udC12YXJpYW50OnNtYWxsLWNhcHM7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUVuQm9keVRleHQsIGxpLkVNRUFFbkJvZHlUZXh0LCBkaXYuRU1FQUVuQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEVuIEJvZHkgVGV4dCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Cb2R5dGV4dEFnZW5jeSwgbGkuQm9keXRleHRBZ2VuY3ksIGRpdi5Cb2R5dGV4dEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uQm9keXRleHRBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IHRleHQgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGxpLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGRpdi5EcmFmdGluZ05vdGVzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSI7DQ0KCW1zby1zdHlsZS1saW5rOiJEcmFmdGluZyBOb3RlcyBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7DQ0KCWNvbG9yOiMzMzk5NjY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkRyYWZ0aW5nTm90ZXNBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRyYWZ0aW5nIE5vdGVzIFwoQWdlbmN5XCkiOw0NCglmb250LWZhbWlseToiQ291cmllciBOZXciOw0NCgljb2xvcjojMzM5OTY2Ow0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Ob3JtYWxBZ2VuY3ksIGxpLk5vcm1hbEFnZW5jeSwgZGl2Lk5vcm1hbEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vcm1hbCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6Ik5vcm1hbCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGxpLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGRpdi5UYWJsZWhlYWRpbmdyb3dzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgaGVhZGluZyByb3dzIFwoQWdlbmN5XCkiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuVGFibGV0ZXh0cm93c0FnZW5jeSwgbGkuVGFibGV0ZXh0cm93c0FnZW5jeSwgZGl2LlRhYmxldGV4dHJvd3NBZ2VuY3kNDQoJe21zby1zdHlsZS1uYW1lOiJUYWJsZSB0ZXh0IHJvd3MgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJZm9udC1zaXplOjkuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Ob3JtYWxBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiTm9ybWFsIFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJOb3JtYWwgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgVGV4dCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpzcGFuLkNvbW1lbnRTdWJqZWN0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgU3ViamVjdCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgU3ViamVjdCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLkRlZmF1bHQsIGxpLkRlZmF1bHQsIGRpdi5EZWZhdWx0DQ0KCXttc28tc3R5bGUtbmFtZTpEZWZhdWx0Ow0NCgltYXJnaW46MGluOw0NCgl0ZXh0LWF1dG9zcGFjZTpub25lOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJY29sb3I6YmxhY2s7fQ0NCnAuVGV4dDEsIGxpLlRleHQxLCBkaXYuVGV4dDENDQoJe21zby1zdHlsZS1uYW1lOiJUZXh0IDEiOw0NCgltc28tc3R5bGUtbGluazoiVGV4dCAxIENoYXIiOw0NCgltYXJnaW4tdG9wOjYuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uVGV4dDFDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiVGV4dCAxIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiVGV4dCAxIjsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpzcGFuLkhlYWRpbmcyQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiI7DQ0KCWZvbnQtZmFtaWx5OiJDYWxpYnJpIExpZ2h0IixzYW5zLXNlcmlmOw0NCgljb2xvcjojMkU3NEI1O30NDQpwLkJvbGRIZGdVbm51bWJlcmVkLCBsaS5Cb2xkSGRnVW5udW1iZXJlZCwgZGl2LkJvbGRIZGdVbm51bWJlcmVkDQ0KCXttc28tc3R5bGUtbmFtZToiQm9sZCBIZGcgVW5udW1iZXJlZCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWluZGVudDotLjVpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IkhlbHZldGljYSIsc2Fucy1zZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0Kc3Bhbi5DYXB0aW9uQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNhcHRpb24gQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjEgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIxIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyMSBDaGFyIENoYXIgQ2hhclwsVGFiIENoYXJcLFRhYlwvRmlnIENoYXIxXCxUYWJcL0ZpZyBDaGFyIENoYXIxIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNhcHRpb25cLEJlc2NocmlmdHVuZyBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjFcLEJlc2NocmlmdHVuZyBDaGFyMVwsQmVzY2hyaWZ0dW5nIENoYXIxIENoYXIgQ2hhclwsVGFiXCxUYWJcL0ZpZ1wsVGFiXC9GaWcgQ2hhclwsVGFiXC9GaWcgQ2hhciBDaGFyXCxUYWJcL0ZpZyBDaGFyIENoYXIgQ2hhciBDaGFyXCxUYWJcL0ZpZyBDaGFyMSBDaGFyIENoYXIiOw0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KcC5Oby1udW1oZWFkaW5nNUFnZW5jeSwgbGkuTm8tbnVtaGVhZGluZzVBZ2VuY3ksIGRpdi5Oby1udW1oZWFkaW5nNUFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vLW51bSBoZWFkaW5nIDUgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbi10b3A6MTQuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjExLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpzcGFuLkJvZHlUZXh0SW5kZW50Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgVGV4dCBJbmRlbnQgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IFRleHQgSW5kZW50IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuQy1Cb2R5VGV4dCwgbGkuQy1Cb2R5VGV4dCwgZGl2LkMtQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCI7DQ0KCW1zby1zdHlsZS1saW5rOiJDLUJvZHkgVGV4dCBDaGFyMSI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTQuMHB0Ow0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5DLUJvZHlUZXh0Q2hhcjENDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCBDaGFyMSI7DQ0KCW1zby1zdHlsZS1saW5rOiJDLUJvZHkgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLlJlc3BvbnNlVGV4dCwgbGkuUmVzcG9uc2VUZXh0LCBkaXYuUmVzcG9uc2VUZXh0DQ0KCXttc28tc3R5bGUtbmFtZToiUmVzcG9uc2UgVGV4dCI7DQ0KCW1hcmdpbjowaW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnNwYW4uQy1Cb2R5VGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCBDaGFyIjt9DQ0KcC5UYWJsZVRleHRGb290bm90ZSwgbGkuVGFibGVUZXh0Rm9vdG5vdGUsIGRpdi5UYWJsZVRleHRGb290bm90ZQ0NCgl7bXNvLXN0eWxlLW5hbWU6IlRhYmxlVGV4dCBGb290bm90ZSI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6LjFpbjsNDQoJdGV4dC1pbmRlbnQ6LS4xaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjojMDA3MEMwO30NDQpzcGFuLkZvb3Rub3RlVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpzcGFuLkRvY3VtZW50TWFwQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkRvY3VtZW50IE1hcCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRvY3VtZW50IE1hcCI7DQ0KCWZvbnQtZmFtaWx5OiJUYWhvbWEiLHNhbnMtc2VyaWY7fQ0NCi5Nc29DaHBEZWZhdWx0DQ0KCXtmb250LXNpemU6MTAuMHB0O30NDQogLyogUGFnZSBEZWZpbml0aW9ucyAqLw0NCiBAcGFnZSBXb3JkU2VjdGlvbjENDQoJe3NpemU6NTk1LjM1cHQgODQyLjBwdDsNDQoJbWFyZ2luOjU2LjdwdCA3MC45cHQgNTYuN3B0IDcwLjlwdDt9DQ0KZGl2LldvcmRTZWN0aW9uMQ0NCgl7cGFnZTpXb3JkU2VjdGlvbjE7fQ0NCiAvKiBMaXN0IERlZmluaXRpb25zICovDQ0KIG9sDQ0KCXttYXJnaW4tYm90dG9tOjBpbjt9DQ0KdWwNDQoJe21hcmdpbi1ib3R0b206MGluO30NDQotLT4NDQo8L3N0eWxlPg=="/>
+                          </Binary>
+                        </contained>
+                        <!-- this exension is necessary per image -->
+                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                          <valueReference>
+                            <reference value="#stylesheet0"/>
+                          </valueReference>
+                        </extension>
+              
+              <status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="A. LABELLING"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:black'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal;background:white"></p>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE OUTER PACKAGING "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal;border:none;padding:0in"></p> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">CARTON</span></b></p> </div><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Alpivab 200 mg concentrate for solution for infusion</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">peramivir</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1 mL concentrate contains 10 mg peramivir (anhydrous basis).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each 20 mL vial contains 200 mg peramivir.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium chloride </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Water for injections</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium hydroxide (for pH adjustment)</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Hydrochloric acid (for pH adjustment)</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">Concentrate for solution for infusion</span></p><p class="MsoNormal"><span lang="EN-GB">3 vials</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Intravenous use after dilution</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">Do not refrigerate or freeze.</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">--</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">BioCryst UK Ltd, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5-10 St. Paul's Churchyard, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">London, EC4M 8AL </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">UK</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/18/1269/001 </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#CCCCCC">Justification for not including Braille accepted.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="background:lightgrey">2D barcode carrying the unique identifier included</span><span lang="EN-GB">.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">PC:</span></p><p class="MsoNormal"><span lang="EN-GB">SN: </span></p><p class="MsoNormal"><span lang="EN-GB">NN:</span></p><p class="MsoNormal" style="line-height:normal"></p><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:black;background:#CCCCCC'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="PARTICULARS TO APPEAR ON THE IMMEDIATE PACKAGING"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt"> <p class="MsoNormal" style="line-height:normal;border:none;padding:0in"><b><span lang="EN-GB">VIAL LABEL</span></b></p> </div><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Alpivab 200 mg concentrate for solution for infusion</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">peramivir</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="2.       STATEMENT OF ACTIVE SUBSTANCE(S)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1 mL concentrate contains 10 mg peramivir (anhydrous base).</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each 20 mL vial contains 200</span><span lang="EN-GB">mg peramivir.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="3.       LIST OF EXCIPIENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium chloride </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Water for injections</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium hydroxide (for pH adjustment)</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Hydrochloric acid (for pH adjustment)</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="4.       PHARMACEUTICAL FORM AND CONTENTS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">Concentrate for solution for infusion</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="5.       METHOD AND ROUTE(S) OF ADMINISTRATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Read the package leaflet before use.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Intravenous use after dilution</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="6.       SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Keep out of the sight and reach of children.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="7.       OTHER SPECIAL WARNING(S), IF NECESSARY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="8.       EXPIRY DATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EXP</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="9.       SPECIAL STORAGE CONDITIONS"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB">Do not refrigerate or freeze.</span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="10.     SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">--</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="11.     NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">BioCryst UK Ltd, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5-10 St. Paul's Churchyard, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">London, EC4M 8AL </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">UK</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="12.     MARKETING AUTHORISATION NUMBER(S) "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/18/1269/001 </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="13.     BATCH NUMBER"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Lot</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="14.     GENERAL CLASSIFICATION FOR SUPPLY"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">--</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="15.     INSTRUCTIONS ON USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">--</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="16.     INFORMATION IN BRAILLE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB" style="color:black;background:#CCCCCC">Justification for not including Braille accepted.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="17.     UNIQUE IDENTIFIER – 2D BARCODE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="18.     UNIQUE IDENTIFIER - HUMAN READABLE DATA"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-right:5.65pt;line-height:normal"></p><b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span></b><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>
