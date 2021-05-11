@@ -63,6 +63,16 @@ class MatchDocument():
 
         self.documentNumber = documentNumber
 
+        print(DocumentTypeNames(
+            fileNameDocumentTypeNames=fileNameDocumentTypeNames,
+            languageCode=languageCode,
+            domain=self.domain,
+            procedureType=self.procedureType,
+            documentNumber=self.documentNumber,
+            fsMountName=self.fsMountName,
+            localEnv=self.localEnv).extractDocumentTypeName())
+
+        
         self.documentType = DocumentTypeNames(
             fileNameDocumentTypeNames=fileNameDocumentTypeNames,
             languageCode=languageCode,
@@ -404,20 +414,20 @@ class MatchDocument():
                                         elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
                                             pass
                                         else:
-                                            #print("")
-                                            validated = False
-                                            print(
-                                                "----------------------------------")
-                                            print("RemovedByStyle")
-                                            #print("RemovedByStyle", ' || ', outputString,
-                                            #    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
-                                            print(
-                                                "----------------------------------")
-                                            self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
-                                            
-                                            headingRemovedUsingStyle.append(
-                                                qrd_str)
-                                            continue
+                                            print("")
+                                            #validated = False
+                                            #print(
+                                            #    "----------------------------------")
+                                            #print("RemovedByStyle")
+                                            ##print("RemovedByStyle", ' || ', outputString,
+                                            ##    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
+                                            #print(
+                                            #    "----------------------------------")
+                                            #self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            #
+                                            #headingRemovedUsingStyle.append(
+                                            #    qrd_str)
+                                            #continue
 
                                     #print(found, ' || ', outputString,
                                     #      ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))

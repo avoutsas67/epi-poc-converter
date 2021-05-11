@@ -63,6 +63,7 @@ class FhirService:
         self.insights_logger.logFlowCheckpoint('Initiating Submission To FHIR Server')
         
         try:
+            self.insights_logger.logFlowCheckpoint('Response' + str(response.text[0:500]))
             response.raise_for_status()
             response = response.json()
             self.insights_logger.logFlowCheckpoint('POST sucessful: XML added with id: ' + str(response['id']))

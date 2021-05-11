@@ -1,0 +1,2946 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Tms Rmn";
+	panose-1:2 2 6 3 4 5 5 2 3 4;}
+@font-face
+	{font-family:Helv;
+	panose-1:2 11 6 4 2 2 2 3 2 4;}
+@font-face
+	{font-family:"New York";
+	panose-1:2 4 5 3 6 5 6 2 3 4;}
+@font-face
+	{font-family:System;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+@font-face
+	{font-family:Batang;
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 1 6 1 0 1 1 1 1 1;}
+@font-face
+	{font-family:"MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:Dotum;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:SimHei;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:MingLiU;
+	panose-1:2 1 6 9 0 1 1 1 1 1;}
+@font-face
+	{font-family:Mincho;
+	panose-1:2 2 6 9 4 3 5 8 3 5;}
+@font-face
+	{font-family:Gulim;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:Century;
+	panose-1:2 4 6 4 5 5 5 2 3 4;}
+@font-face
+	{font-family:"Angsana New";
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"Cordia New";
+	panose-1:2 11 3 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Mangal;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Latha;
+	panose-1:2 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Sylfaen;
+	panose-1:1 10 5 2 5 3 6 3 3 3;}
+@font-face
+	{font-family:Vrinda;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Raavi;
+	panose-1:2 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Shruti;
+	panose-1:2 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Sendnya;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Gautami;
+	panose-1:2 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Tunga;
+	panose-1:0 0 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Estrangelo Edessa";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Yu Gothic";
+	panose-1:2 11 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:DengXian;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Palatino Linotype";
+	panose-1:2 4 5 2 5 5 5 3 3 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Segoe UI Emoji";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Segoe UI Symbol";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:BISansCond;}
+@font-face
+	{font-family:Marlett;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Arial Black";
+	panose-1:2 11 10 4 2 1 2 2 2 4;}
+@font-face
+	{font-family:"Bahnschrift Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiLight";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Bahnschrift;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiBold";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift Light SemiCondensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiLight SemiConde";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiCondensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiBold SemiConden";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift Light Condensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiLight Condensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift Condensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bahnschrift SemiBold Condensed";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Candara;
+	panose-1:2 14 5 2 3 3 3 2 2 4;}
+@font-face
+	{font-family:"Candara Light";
+	panose-1:2 14 5 2 3 3 3 2 2 4;}
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Constantia;
+	panose-1:2 3 6 2 5 3 6 3 3 3;}
+@font-face
+	{font-family:Corbel;
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"Corbel Light";
+	panose-1:2 11 3 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:Ebrima;
+	panose-1:2 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Franklin Gothic Medium";
+	panose-1:2 11 6 3 2 1 2 2 2 4;}
+@font-face
+	{font-family:Gabriola;
+	panose-1:4 4 6 5 5 16 2 2 13 2;}
+@font-face
+	{font-family:Gadugi;
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+@font-face
+	{font-family:Impact;
+	panose-1:2 11 8 6 3 9 2 5 2 4;}
+@font-face
+	{font-family:"Ink Free";
+	panose-1:3 8 4 2 0 5 0 0 0 0;}
+@font-face
+	{font-family:"Javanese Text";
+	panose-1:2 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Leelawadee UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Leelawadee UI Semilight";
+	panose-1:2 11 4 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Lucida Console";
+	panose-1:2 11 6 9 4 5 4 2 2 4;}
+@font-face
+	{font-family:"Lucida Sans Unicode";
+	panose-1:2 11 6 2 3 5 4 2 2 4;}
+@font-face
+	{font-family:"Malgun Gothic";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"\@Malgun Gothic";}
+@font-face
+	{font-family:"Malgun Gothic Semilight";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@Malgun Gothic Semilight";}
+@font-face
+	{font-family:"Microsoft Himalaya";
+	panose-1:1 1 1 0 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Microsoft JhengHei";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Microsoft JhengHei";}
+@font-face
+	{font-family:"Microsoft JhengHei UI";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Microsoft JhengHei UI";}
+@font-face
+	{font-family:"Microsoft JhengHei Light";
+	panose-1:2 11 3 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Microsoft JhengHei Light";}
+@font-face
+	{font-family:"Microsoft JhengHei UI Light";
+	panose-1:2 11 3 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Microsoft JhengHei UI Light";}
+@font-face
+	{font-family:"Microsoft New Tai Lue";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Microsoft PhagsPa";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Microsoft Sans Serif";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Microsoft Tai Le";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Microsoft YaHei";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"\@Microsoft YaHei";}
+@font-face
+	{font-family:"Microsoft YaHei UI";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"\@Microsoft YaHei UI";}
+@font-face
+	{font-family:"Microsoft YaHei Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@Microsoft YaHei Light";}
+@font-face
+	{font-family:"Microsoft YaHei UI Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@Microsoft YaHei UI Light";}
+@font-face
+	{font-family:"Microsoft Yi Baiti";
+	panose-1:3 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:MingLiU-ExtB;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@MingLiU-ExtB";}
+@font-face
+	{font-family:PMingLiU-ExtB;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@PMingLiU-ExtB";}
+@font-face
+	{font-family:MingLiU_HKSCS-ExtB;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@MingLiU_HKSCS-ExtB";}
+@font-face
+	{font-family:"Mongolian Baiti";
+	panose-1:3 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:"MS UI Gothic";
+	panose-1:2 11 6 0 7 2 5 8 2 4;}
+@font-face
+	{font-family:"\@MS UI Gothic";}
+@font-face
+	{font-family:"MS PGothic";
+	panose-1:2 11 6 0 7 2 5 8 2 4;}
+@font-face
+	{font-family:"\@MS PGothic";}
+@font-face
+	{font-family:"MV Boli";
+	panose-1:2 0 5 0 3 2 0 9 0 0;}
+@font-face
+	{font-family:"Myanmar Text";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Nirmala UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Nirmala UI Semilight";
+	panose-1:2 11 4 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Segoe MDL2 Assets";
+	panose-1:5 10 1 2 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Segoe Print";
+	panose-1:2 0 6 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Segoe Script";
+	panose-1:3 11 5 4 2 0 0 0 0 3;}
+@font-face
+	{font-family:"Segoe UI Black";
+	panose-1:2 11 10 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Segoe UI Historic";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Segoe UI Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Segoe UI Semibold";
+	panose-1:2 11 7 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Segoe UI Semilight";
+	panose-1:2 11 4 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:NSimSun;
+	panose-1:2 1 6 9 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@NSimSun";}
+@font-face
+	{font-family:SimSun-ExtB;
+	panose-1:2 1 6 9 6 1 1 1 1 1;}
+@font-face
+	{font-family:"\@SimSun-ExtB";}
+@font-face
+	{font-family:"Sitka Small";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Sitka Text";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Sitka Subheading";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Sitka Heading";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Sitka Display";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Sitka Banner";
+	panose-1:2 0 5 5 0 0 0 2 0 4;}
+@font-face
+	{font-family:"Trebuchet MS";
+	panose-1:2 11 6 3 2 2 2 2 2 4;}
+@font-face
+	{font-family:Webdings;
+	panose-1:5 3 1 2 1 5 9 6 7 3;}
+@font-face
+	{font-family:"\@Yu Gothic";
+	panose-1:2 11 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Yu Gothic UI";
+	panose-1:2 11 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic UI";}
+@font-face
+	{font-family:"Yu Gothic UI Semibold";
+	panose-1:2 11 7 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic UI Semibold";}
+@font-face
+	{font-family:"Yu Gothic Light";
+	panose-1:2 11 3 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic Light";}
+@font-face
+	{font-family:"Yu Gothic UI Light";
+	panose-1:2 11 3 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic UI Light";}
+@font-face
+	{font-family:"Yu Gothic Medium";
+	panose-1:2 11 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic Medium";}
+@font-face
+	{font-family:"Yu Gothic UI Semilight";
+	panose-1:2 11 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Yu Gothic UI Semilight";}
+@font-face
+	{font-family:"HoloLens MDL2 Assets";
+	panose-1:5 10 1 2 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Agency FB";
+	panose-1:2 11 5 3 2 2 2 2 2 4;}
+@font-face
+	{font-family:Algerian;
+	panose-1:4 2 7 5 4 10 2 6 7 2;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:"Arial Rounded MT Bold";
+	panose-1:2 15 7 4 3 5 4 3 2 4;}
+@font-face
+	{font-family:"Baskerville Old Face";
+	panose-1:2 2 6 2 8 5 5 2 3 3;}
+@font-face
+	{font-family:"Bauhaus 93";
+	panose-1:4 3 9 5 2 11 2 2 12 2;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+@font-face
+	{font-family:"Bernard MT Condensed";
+	panose-1:2 5 8 6 6 9 5 2 4 4;}
+@font-face
+	{font-family:"Bodoni MT";
+	panose-1:2 7 6 3 8 6 6 2 2 3;}
+@font-face
+	{font-family:"Bodoni MT Black";
+	panose-1:2 7 10 3 8 6 6 2 2 3;}
+@font-face
+	{font-family:"Bodoni MT Condensed";
+	panose-1:2 7 6 6 8 6 6 2 2 3;}
+@font-face
+	{font-family:"Bodoni MT Poster Compressed";
+	panose-1:2 7 7 6 8 6 1 5 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"Bradley Hand ITC";
+	panose-1:3 7 4 2 5 3 2 3 2 3;}
+@font-face
+	{font-family:"Britannic Bold";
+	panose-1:2 11 9 3 6 7 3 2 2 4;}
+@font-face
+	{font-family:"Berlin Sans FB";
+	panose-1:2 14 6 2 2 5 2 2 3 6;}
+@font-face
+	{font-family:"Berlin Sans FB Demi";
+	panose-1:2 14 8 2 2 5 2 2 3 6;}
+@font-face
+	{font-family:Broadway;
+	panose-1:4 4 9 5 8 11 2 2 5 2;}
+@font-face
+	{font-family:"Brush Script MT";
+	panose-1:3 6 8 2 4 4 6 7 3 4;}
+@font-face
+	{font-family:"Bookshelf Symbol 7";
+	panose-1:5 1 1 1 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Californian FB";
+	panose-1:2 7 4 3 6 8 11 3 2 4;}
+@font-face
+	{font-family:"Calisto MT";
+	panose-1:2 4 6 3 5 5 5 3 3 4;}
+@font-face
+	{font-family:Castellar;
+	panose-1:2 10 4 2 6 4 6 1 3 1;}
+@font-face
+	{font-family:"Century Schoolbook";
+	panose-1:2 4 6 4 5 5 5 2 3 4;}
+@font-face
+	{font-family:Centaur;
+	panose-1:2 3 5 4 5 2 5 2 3 4;}
+@font-face
+	{font-family:Chiller;
+	panose-1:4 2 4 4 3 16 7 2 6 2;}
+@font-face
+	{font-family:"Colonna MT";
+	panose-1:4 2 8 5 6 2 2 3 2 3;}
+@font-face
+	{font-family:"Cooper Black";
+	panose-1:2 8 9 4 4 3 11 2 4 4;}
+@font-face
+	{font-family:"Copperplate Gothic Bold";
+	panose-1:2 14 7 5 2 2 6 2 4 4;}
+@font-face
+	{font-family:"Copperplate Gothic Light";
+	panose-1:2 14 5 7 2 2 6 2 4 4;}
+@font-face
+	{font-family:"Curlz MT";
+	panose-1:4 4 4 4 5 7 2 2 2 2;}
+@font-face
+	{font-family:Dubai;
+	panose-1:2 11 5 3 3 4 3 3 2 4;}
+@font-face
+	{font-family:"Dubai Light";
+	panose-1:2 11 3 3 3 4 3 3 2 4;}
+@font-face
+	{font-family:"Dubai Medium";
+	panose-1:2 11 6 3 3 4 3 3 2 4;}
+@font-face
+	{font-family:Elephant;
+	panose-1:2 2 9 4 9 5 5 2 3 3;}
+@font-face
+	{font-family:"Engravers MT";
+	panose-1:2 9 7 7 8 5 5 2 3 4;}
+@font-face
+	{font-family:"Eras Bold ITC";
+	panose-1:2 11 9 7 3 5 4 2 2 4;}
+@font-face
+	{font-family:"Eras Demi ITC";
+	panose-1:2 11 8 5 3 5 4 2 8 4;}
+@font-face
+	{font-family:"Eras Light ITC";
+	panose-1:2 11 4 2 3 5 4 2 8 4;}
+@font-face
+	{font-family:"Eras Medium ITC";
+	panose-1:2 11 6 2 3 5 4 2 8 4;}
+@font-face
+	{font-family:"Felix Titling";
+	panose-1:4 6 5 5 6 2 2 2 10 4;}
+@font-face
+	{font-family:Forte;
+	panose-1:3 6 9 2 4 5 2 7 2 3;}
+@font-face
+	{font-family:"Franklin Gothic Book";
+	panose-1:2 11 5 3 2 1 2 2 2 4;}
+@font-face
+	{font-family:"Franklin Gothic Demi";
+	panose-1:2 11 7 3 2 1 2 2 2 4;}
+@font-face
+	{font-family:"Franklin Gothic Demi Cond";
+	panose-1:2 11 7 6 3 4 2 2 2 4;}
+@font-face
+	{font-family:"Franklin Gothic Heavy";
+	panose-1:2 11 9 3 2 1 2 2 2 4;}
+@font-face
+	{font-family:"Franklin Gothic Medium Cond";
+	panose-1:2 11 6 6 3 4 2 2 2 4;}
+@font-face
+	{font-family:"Freestyle Script";
+	panose-1:3 8 4 2 3 2 5 11 4 4;}
+@font-face
+	{font-family:"French Script MT";
+	panose-1:3 2 4 2 4 6 7 4 6 5;}
+@font-face
+	{font-family:"Footlight MT Light";
+	panose-1:2 4 6 2 6 3 10 2 3 4;}
+@font-face
+	{font-family:Garamond;
+	panose-1:2 2 4 4 3 3 1 1 8 3;}
+@font-face
+	{font-family:Gigi;
+	panose-1:4 4 5 4 6 16 7 2 13 2;}
+@font-face
+	{font-family:"Gill Sans MT";
+	panose-1:2 11 5 2 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Gill Sans MT Condensed";
+	panose-1:2 11 5 6 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Gill Sans Ultra Bold Condensed";
+	panose-1:2 11 10 6 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Gill Sans Ultra Bold";
+	panose-1:2 11 10 2 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Gloucester MT Extra Condensed";
+	panose-1:2 3 8 8 2 6 1 1 1 1;}
+@font-face
+	{font-family:"Gill Sans MT Ext Condensed Bold";
+	panose-1:2 11 9 2 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Century Gothic";
+	panose-1:2 11 5 2 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Goudy Old Style";
+	panose-1:2 2 5 2 5 3 5 2 3 3;}
+@font-face
+	{font-family:"Goudy Stout";
+	panose-1:2 2 9 4 7 3 11 2 4 1;}
+@font-face
+	{font-family:"Harlow Solid Italic";
+	panose-1:4 3 6 4 2 15 2 2 13 2;}
+@font-face
+	{font-family:Harrington;
+	panose-1:4 4 5 5 5 10 2 2 7 2;}
+@font-face
+	{font-family:Haettenschweiler;
+	panose-1:2 11 7 6 4 9 2 6 2 4;}
+@font-face
+	{font-family:"High Tower Text";
+	panose-1:2 4 5 2 5 5 6 3 3 3;}
+@font-face
+	{font-family:"Imprint MT Shadow";
+	panose-1:4 2 6 5 6 3 3 3 2 2;}
+@font-face
+	{font-family:"Informal Roman";
+	panose-1:3 6 4 2 3 4 6 11 2 4;}
+@font-face
+	{font-family:"Blackadder ITC";
+	panose-1:4 2 5 5 5 16 7 2 13 2;}
+@font-face
+	{font-family:"Edwardian Script ITC";
+	panose-1:3 3 3 2 4 7 7 13 8 4;}
+@font-face
+	{font-family:"Kristen ITC";
+	panose-1:3 5 5 2 4 2 2 3 2 2;}
+@font-face
+	{font-family:Jokerman;
+	panose-1:4 9 6 5 6 13 6 2 7 2;}
+@font-face
+	{font-family:"Juice ITC";
+	panose-1:4 4 4 3 4 10 2 2 2 2;}
+@font-face
+	{font-family:"Kunstler Script";
+	panose-1:3 3 4 2 2 6 7 13 13 6;}
+@font-face
+	{font-family:"Wide Latin";
+	panose-1:2 10 10 7 5 5 5 2 4 4;}
+@font-face
+	{font-family:"Lucida Bright";
+	panose-1:2 4 6 2 5 5 5 2 3 4;}
+@font-face
+	{font-family:"Lucida Calligraphy";
+	panose-1:3 1 1 1 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Lucida Fax";
+	panose-1:2 6 6 2 5 5 5 2 2 4;}
+@font-face
+	{font-family:"Lucida Handwriting";
+	panose-1:3 1 1 1 1 1 1 1 1 1;}
+@font-face
+	{font-family:"Lucida Sans";
+	panose-1:2 11 6 2 3 5 4 2 2 4;}
+@font-face
+	{font-family:"Lucida Sans Typewriter";
+	panose-1:2 11 5 9 3 5 4 3 2 4;}
+@font-face
+	{font-family:Magneto;
+	panose-1:4 3 8 5 5 8 2 2 13 2;}
+@font-face
+	{font-family:"Maiandra GD";
+	panose-1:2 14 5 2 3 3 8 2 2 4;}
+@font-face
+	{font-family:"Matura MT Script Capitals";
+	panose-1:3 2 8 2 6 6 2 7 2 2;}
+@font-face
+	{font-family:Mistral;
+	panose-1:3 9 7 2 3 4 7 2 4 3;}
+@font-face
+	{font-family:"Modern No\. 20";
+	panose-1:2 7 7 4 7 5 5 2 3 3;}
+@font-face
+	{font-family:"Monotype Corsiva";
+	panose-1:3 1 1 1 1 2 1 1 1 1;}
+@font-face
+	{font-family:"Niagara Engraved";
+	panose-1:4 2 5 2 7 7 3 3 2 2;}
+@font-face
+	{font-family:"Niagara Solid";
+	panose-1:4 2 5 2 7 7 2 2 2 2;}
+@font-face
+	{font-family:"OCR A Extended";
+	panose-1:2 1 5 9 2 1 2 1 3 3;}
+@font-face
+	{font-family:"Old English Text MT";
+	panose-1:3 4 9 2 4 5 8 3 8 6;}
+@font-face
+	{font-family:Onyx;
+	panose-1:4 5 6 2 8 7 2 2 2 3;}
+@font-face
+	{font-family:"MS Outlook";
+	panose-1:5 1 1 0 1 0 0 0 0 0;}
+@font-face
+	{font-family:"Palace Script MT";
+	panose-1:3 3 3 2 2 6 7 12 11 5;}
+@font-face
+	{font-family:Papyrus;
+	panose-1:3 7 5 2 6 5 2 3 2 5;}
+@font-face
+	{font-family:Parchment;
+	panose-1:3 4 6 2 4 7 8 4 8 4;}
+@font-face
+	{font-family:Perpetua;
+	panose-1:2 2 5 2 6 4 1 2 3 3;}
+@font-face
+	{font-family:"Perpetua Titling MT";
+	panose-1:2 2 5 2 6 5 5 2 8 4;}
+@font-face
+	{font-family:Playbill;
+	panose-1:4 5 6 3 10 6 2 2 2 2;}
+@font-face
+	{font-family:"Poor Richard";
+	panose-1:2 8 5 2 5 5 5 2 7 2;}
+@font-face
+	{font-family:Pristina;
+	panose-1:3 6 4 2 4 4 6 8 2 4;}
+@font-face
+	{font-family:"Rage Italic";
+	panose-1:3 7 5 2 4 5 7 7 3 4;}
+@font-face
+	{font-family:Ravie;
+	panose-1:4 4 8 5 5 8 9 2 6 2;}
+@font-face
+	{font-family:"MS Reference Sans Serif";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"MS Reference Specialty";
+	panose-1:5 0 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Rockwell Condensed";
+	panose-1:2 6 6 3 5 4 5 2 1 4;}
+@font-face
+	{font-family:Rockwell;
+	panose-1:2 6 6 3 2 2 5 2 4 3;}
+@font-face
+	{font-family:"Rockwell Extra Bold";
+	panose-1:2 6 9 3 4 5 5 2 4 3;}
+@font-face
+	{font-family:"Script MT Bold";
+	panose-1:3 4 6 2 4 6 7 8 9 4;}
+@font-face
+	{font-family:"Showcard Gothic";
+	panose-1:4 2 9 4 2 1 2 2 6 4;}
+@font-face
+	{font-family:"Snap ITC";
+	panose-1:4 4 10 7 6 10 2 2 2 2;}
+@font-face
+	{font-family:Stencil;
+	panose-1:4 4 9 5 13 8 2 2 4 4;}
+@font-face
+	{font-family:"Tw Cen MT";
+	panose-1:2 11 6 2 2 1 4 2 6 3;}
+@font-face
+	{font-family:"Tw Cen MT Condensed";
+	panose-1:2 11 6 6 2 1 4 2 2 3;}
+@font-face
+	{font-family:"Tw Cen MT Condensed Extra Bold";
+	panose-1:2 11 8 3 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Tempus Sans ITC";
+	panose-1:4 2 4 4 3 13 7 2 2 2;}
+@font-face
+	{font-family:"Viner Hand ITC";
+	panose-1:3 7 5 2 3 5 2 2 2 3;}
+@font-face
+	{font-family:Vivaldi;
+	panose-1:3 2 6 2 5 5 6 9 8 4;}
+@font-face
+	{font-family:"Vladimir Script";
+	panose-1:3 5 4 2 4 4 7 7 3 5;}
+@font-face
+	{font-family:"Wingdings 2";
+	panose-1:5 2 1 2 1 5 7 7 7 7;}
+@font-face
+	{font-family:"Wingdings 3";
+	panose-1:5 4 1 2 1 8 7 7 7 7;}
+@font-face
+	{font-family:AngsanaUPC;}
+@font-face
+	{font-family:CordiaUPC;}
+@font-face
+	{font-family:Abadi;}
+@font-face
+	{font-family:"Abadi Extra Light";}
+@font-face
+	{font-family:Aharoni;}
+@font-face
+	{font-family:Aldhabi;}
+@font-face
+	{font-family:Aparajita;}
+@font-face
+	{font-family:"Arabic Typesetting";}
+@font-face
+	{font-family:"Arial Nova";}
+@font-face
+	{font-family:"Arial Nova Cond";}
+@font-face
+	{font-family:"Arial Nova Cond Light";}
+@font-face
+	{font-family:"Arial Nova Light";}
+@font-face
+	{font-family:"Avenir Next LT Pro";}
+@font-face
+	{font-family:"Avenir Next LT Pro Light";}
+@font-face
+	{font-family:BatangChe;}
+@font-face
+	{font-family:Bembo;}
+@font-face
+	{font-family:Biome;}
+@font-face
+	{font-family:"Biome Light";}
+@font-face
+	{font-family:"Browallia New";}
+@font-face
+	{font-family:BrowalliaUPC;}
+@font-face
+	{font-family:Cavolini;}
+@font-face
+	{font-family:Dante;}
+@font-face
+	{font-family:DaunPenh;}
+@font-face
+	{font-family:David;}
+@font-face
+	{font-family:Daytona;}
+@font-face
+	{font-family:"Daytona Condensed";}
+@font-face
+	{font-family:"Daytona Condensed Light";}
+@font-face
+	{font-family:"Daytona Light";}
+@font-face
+	{font-family:"DengXian Light";}
+@font-face
+	{font-family:DilleniaUPC;}
+@font-face
+	{font-family:DokChampa;}
+@font-face
+	{font-family:DotumChe;}
+@font-face
+	{font-family:"Elephant Pro";}
+@font-face
+	{font-family:EucrosiaUPC;}
+@font-face
+	{font-family:Euphemia;}
+@font-face
+	{font-family:FangSong;}
+@font-face
+	{font-family:FrankRuehl;}
+@font-face
+	{font-family:FreesiaUPC;}
+@font-face
+	{font-family:"Georgia Pro";}
+@font-face
+	{font-family:"Georgia Pro Black";}
+@font-face
+	{font-family:"Georgia Pro Cond";}
+@font-face
+	{font-family:"Georgia Pro Cond Black";}
+@font-face
+	{font-family:"Georgia Pro Cond Light";}
+@font-face
+	{font-family:"Georgia Pro Cond Semibold";}
+@font-face
+	{font-family:"Georgia Pro Light";}
+@font-face
+	{font-family:"Georgia Pro Semibold";}
+@font-face
+	{font-family:"Gill Sans Nova";}
+@font-face
+	{font-family:"Gill Sans Nova Cond";}
+@font-face
+	{font-family:"Gill Sans Nova Cond Lt";}
+@font-face
+	{font-family:"Gill Sans Nova Cond Ultra Bold";}
+@font-face
+	{font-family:"Gill Sans Nova Cond XBd";}
+@font-face
+	{font-family:"Gill Sans Nova Light";}
+@font-face
+	{font-family:"Gill Sans Nova Ultra Bold";}
+@font-face
+	{font-family:Gisha;}
+@font-face
+	{font-family:Grotesque;}
+@font-face
+	{font-family:"Grotesque Light";}
+@font-face
+	{font-family:GulimChe;}
+@font-face
+	{font-family:Gungsuh;}
+@font-face
+	{font-family:GungsuhChe;}
+@font-face
+	{font-family:"Hadassah Friedlaender";}
+@font-face
+	{font-family:HGGothicE;}
+@font-face
+	{font-family:HGMaruGothicMPRO;}
+@font-face
+	{font-family:HGMinchoE;}
+@font-face
+	{font-family:HGPGothicE;}
+@font-face
+	{font-family:HGPMinchoE;}
+@font-face
+	{font-family:HGPSoeiKakugothicUB;}
+@font-face
+	{font-family:HGSGothicE;}
+@font-face
+	{font-family:HGSMinchoE;}
+@font-face
+	{font-family:HGSoeiKakugothicUB;}
+@font-face
+	{font-family:HGSSoeiKakugothicUB;}
+@font-face
+	{font-family:IrisUPC;}
+@font-face
+	{font-family:"Iskoola Pota";}
+@font-face
+	{font-family:JasmineUPC;}
+@font-face
+	{font-family:KaiTi;}
+@font-face
+	{font-family:Kalinga;}
+@font-face
+	{font-family:Kartika;}
+@font-face
+	{font-family:"Khmer UI";}
+@font-face
+	{font-family:Kigelia;}
+@font-face
+	{font-family:"Kigelia Arabic";}
+@font-face
+	{font-family:"Kigelia Arabic Light";}
+@font-face
+	{font-family:"Kigelia Light";}
+@font-face
+	{font-family:KodchiangUPC;}
+@font-face
+	{font-family:Kokila;}
+@font-face
+	{font-family:"Lao UI";}
+@font-face
+	{font-family:Leelawadee;}
+@font-face
+	{font-family:"Levenim MT";}
+@font-face
+	{font-family:LilyUPC;}
+@font-face
+	{font-family:"Mangal Pro";}
+@font-face
+	{font-family:Meiryo;}
+@font-face
+	{font-family:"Meiryo UI";}
+@font-face
+	{font-family:"Microsoft GothicNeo";}
+@font-face
+	{font-family:"Microsoft GothicNeo Light";}
+@font-face
+	{font-family:"Microsoft Uighur";}
+@font-face
+	{font-family:MingLiU_HKSCS;}
+@font-face
+	{font-family:Miriam;}
+@font-face
+	{font-family:"Miriam Fixed";}
+@font-face
+	{font-family:"Modern Love";}
+@font-face
+	{font-family:"Modern Love Caps";}
+@font-face
+	{font-family:"Modern Love Grunge";}
+@font-face
+	{font-family:MoolBoran;}
+@font-face
+	{font-family:"MS PMincho";}
+@font-face
+	{font-family:"MT Extra";}
+@font-face
+	{font-family:Narkisim;}
+@font-face
+	{font-family:"Neue Haas Grotesk Text Pro";}
+@font-face
+	{font-family:"News Gothic MT";}
+@font-face
+	{font-family:Nyala;}
+@font-face
+	{font-family:OCRB;}
+@font-face
+	{font-family:"Plantagenet Cherokee";}
+@font-face
+	{font-family:Posterama;}
+@font-face
+	{font-family:"Quire Sans";}
+@font-face
+	{font-family:"Quire Sans Light";}
+@font-face
+	{font-family:"Quire Sans Pro Light";}
+@font-face
+	{font-family:"Rockwell Light";}
+@font-face
+	{font-family:"Rockwell Nova";}
+@font-face
+	{font-family:"Rockwell Nova Cond";}
+@font-face
+	{font-family:"Rockwell Nova Cond Light";}
+@font-face
+	{font-family:"Rockwell Nova Extra Bold";}
+@font-face
+	{font-family:"Rockwell Nova Light";}
+@font-face
+	{font-family:Rod;}
+@font-face
+	{font-family:"Sabon Next LT";}
+@font-face
+	{font-family:"Sagona Book";}
+@font-face
+	{font-family:"Sagona ExtraLight";}
+@font-face
+	{font-family:"Sakkal Majalla";}
+@font-face
+	{font-family:"Sanskrit Text";}
+@font-face
+	{font-family:Selawik;}
+@font-face
+	{font-family:"Selawik Light";}
+@font-face
+	{font-family:"Selawik Semibold";}
+@font-face
+	{font-family:"Shonar Bangla";}
+@font-face
+	{font-family:"Simplified Arabic";}
+@font-face
+	{font-family:"Simplified Arabic Fixed";}
+@font-face
+	{font-family:"Sitka Banner Semibold";}
+@font-face
+	{font-family:"Sitka Display Semibold";}
+@font-face
+	{font-family:"Sitka Heading Semibold";}
+@font-face
+	{font-family:"Sitka Small Semibold";}
+@font-face
+	{font-family:"Sitka Subheading Semibold";}
+@font-face
+	{font-family:"Sitka Text Semibold";}
+@font-face
+	{font-family:"Source Sans Pro";}
+@font-face
+	{font-family:"Source Sans Pro Black";}
+@font-face
+	{font-family:"Source Sans Pro ExtraLight";}
+@font-face
+	{font-family:"Source Sans Pro Light";}
+@font-face
+	{font-family:"Source Sans Pro SemiBold";}
+@font-face
+	{font-family:"Speak Pro";}
+@font-face
+	{font-family:"Speak Pro Light";}
+@font-face
+	{font-family:STCaiyun;}
+@font-face
+	{font-family:STFangsong;}
+@font-face
+	{font-family:STHupo;}
+@font-face
+	{font-family:STKaiti;}
+@font-face
+	{font-family:STXihei;}
+@font-face
+	{font-family:STXingkai;}
+@font-face
+	{font-family:STXinwei;}
+@font-face
+	{font-family:STZhongsong;}
+@font-face
+	{font-family:"TH SarabunPSK";}
+@font-face
+	{font-family:"The Hand";}
+@font-face
+	{font-family:"The Hand Black";}
+@font-face
+	{font-family:"The Hand Extrablack";}
+@font-face
+	{font-family:"The Hand Light";}
+@font-face
+	{font-family:"The Serif Hand";}
+@font-face
+	{font-family:"The Serif Hand Black";}
+@font-face
+	{font-family:"The Serif Hand Extrablack";}
+@font-face
+	{font-family:"The Serif Hand Light";}
+@font-face
+	{font-family:"Tisa Offc Serif Pro";}
+@font-face
+	{font-family:"Tisa Offc Serif Pro Thin";}
+@font-face
+	{font-family:"Trade Gothic Next";}
+@font-face
+	{font-family:"Trade Gothic Next Cond";}
+@font-face
+	{font-family:"Trade Gothic Next Cond Hv";}
+@font-face
+	{font-family:"Trade Gothic Next Heavy";}
+@font-face
+	{font-family:"Trade Gothic Next Light";}
+@font-face
+	{font-family:"Traditional Arabic";}
+@font-face
+	{font-family:"UD Digi Kyokasho N-B";}
+@font-face
+	{font-family:"UD Digi Kyokasho N-R";}
+@font-face
+	{font-family:"UD Digi Kyokasho NK-B";}
+@font-face
+	{font-family:"UD Digi Kyokasho NK-R";}
+@font-face
+	{font-family:"UD Digi Kyokasho NP-B";}
+@font-face
+	{font-family:"UD Digi Kyokasho NP-R";}
+@font-face
+	{font-family:Univers;}
+@font-face
+	{font-family:"Univers Condensed";}
+@font-face
+	{font-family:"Univers Condensed Light";}
+@font-face
+	{font-family:"Univers Light";}
+@font-face
+	{font-family:"Urdu Typesetting";}
+@font-face
+	{font-family:Utsaah;}
+@font-face
+	{font-family:Vani;}
+@font-face
+	{font-family:"Verdana Pro";}
+@font-face
+	{font-family:"Verdana Pro Black";}
+@font-face
+	{font-family:"Verdana Pro Cond";}
+@font-face
+	{font-family:"Verdana Pro Cond Black";}
+@font-face
+	{font-family:"Verdana Pro Cond Light";}
+@font-face
+	{font-family:"Verdana Pro Cond SemiBold";}
+@font-face
+	{font-family:"Verdana Pro Light";}
+@font-face
+	{font-family:"Verdana Pro SemiBold";}
+@font-face
+	{font-family:Vijaya;}
+@font-face
+	{font-family:"Walbaum Display";}
+@font-face
+	{font-family:"Walbaum Display Heavy";}
+@font-face
+	{font-family:"Walbaum Display Light";}
+@font-face
+	{font-family:"Walbaum Display SemiBold";}
+@font-face
+	{font-family:"Walbaum Heading";}
+@font-face
+	{font-family:"Walbaum Text";}
+@font-face
+	{font-family:"Yu Mincho";}
+@font-face
+	{font-family:"Yu Mincho Demibold";}
+@font-face
+	{font-family:"Yu Mincho Light";}
+@font-face
+	{font-family:"TimesNewRoman\,Italic";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:TimesNewRoman;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Arial\,Italic";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:TimesNewRomanPSMT;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Times New Roman Bold";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:PraxisCom-Regular;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Arial Bold";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:EUAlbertina;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+@font-face
+	{font-family:"\@TimesNewRoman\,Italic";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@Arial\,Italic";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri",sans-serif;
+	font-weight:bold;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin:0in;
+	page-break-after:avoid;
+	background:#993366;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	color:white;
+	layout-grid-mode:line;
+	font-weight:bold;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin:0in;
+	page-break-after:avoid;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin:0in;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Cambria",serif;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex2, li.MsoIndex2, div.MsoIndex2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex3, li.MsoIndex3, div.MsoIndex3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex4, li.MsoIndex4, div.MsoIndex4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex5, li.MsoIndex5, div.MsoIndex5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex6, li.MsoIndex6, div.MsoIndex6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex7, li.MsoIndex7, div.MsoIndex7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex8, li.MsoIndex8, div.MsoIndex8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:88.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex9, li.MsoIndex9, div.MsoIndex9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:99.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:88.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-name:"Comment Text\,- H19\,Annotationtext\,Char\,Comment Text Char Char\,Comment Text Char Char Char Char\,Comment Text Char Char1\,Comment Text Char Char1 Char\,Comment Text Char1 Char\,Comment Text Char1 Char Char\,Comment Text Char2 Char\,Tekst opmerking";
+	mso-style-link:"Comment Text Char\,- H19 Char\,Annotationtext Char\,Char Char\,Comment Text Char Char Char\,Comment Text Char Char Char Char Char\,Comment Text Char Char1 Char1\,Comment Text Char Char1 Char Char\,Comment Text Char1 Char Char1\,Comment Text Char1 Char Char Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:8.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoIndexHeading, li.MsoIndexHeading, div.MsoIndexHeading
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoTof, li.MsoTof, div.MsoTof
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoEnvelopeAddress, li.MsoEnvelopeAddress, div.MsoEnvelopeAddress
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:2.0in;
+	line-height:13.0pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;}
+p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;}
+span.MsoCommentReference
+	{mso-style-name:"Comment Reference\,Annotationmark";}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin:0in;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToa, li.MsoToa, div.MsoToa
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	text-indent:-11.0pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoToaHeading, li.MsoToaHeading, div.MsoToaHeading
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	line-height:13.0pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpFirst, li.MsoListBulletCxSpFirst, div.MsoListBulletCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpMiddle, li.MsoListBulletCxSpMiddle, div.MsoListBulletCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpLast, li.MsoListBulletCxSpLast, div.MsoListBulletCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumberCxSpFirst, li.MsoListNumberCxSpFirst, div.MsoListNumberCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumberCxSpMiddle, li.MsoListNumberCxSpMiddle, div.MsoListNumberCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumberCxSpLast, li.MsoListNumberCxSpLast, div.MsoListNumberCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList2, li.MsoList2, div.MsoList2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList2CxSpFirst, li.MsoList2CxSpFirst, div.MsoList2CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList2CxSpMiddle, li.MsoList2CxSpMiddle, div.MsoList2CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList2CxSpLast, li.MsoList2CxSpLast, div.MsoList2CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList3, li.MsoList3, div.MsoList3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList3CxSpFirst, li.MsoList3CxSpFirst, div.MsoList3CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList3CxSpMiddle, li.MsoList3CxSpMiddle, div.MsoList3CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList3CxSpLast, li.MsoList3CxSpLast, div.MsoList3CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList4, li.MsoList4, div.MsoList4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList4CxSpFirst, li.MsoList4CxSpFirst, div.MsoList4CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList4CxSpMiddle, li.MsoList4CxSpMiddle, div.MsoList4CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList4CxSpLast, li.MsoList4CxSpLast, div.MsoList4CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList5, li.MsoList5, div.MsoList5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList5CxSpFirst, li.MsoList5CxSpFirst, div.MsoList5CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList5CxSpMiddle, li.MsoList5CxSpMiddle, div.MsoList5CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList5CxSpLast, li.MsoList5CxSpLast, div.MsoList5CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	text-indent:-14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet2CxSpFirst, li.MsoListBullet2CxSpFirst, div.MsoListBullet2CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet2CxSpMiddle, li.MsoListBullet2CxSpMiddle, div.MsoListBullet2CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet2CxSpLast, li.MsoListBullet2CxSpLast, div.MsoListBullet2CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet3CxSpFirst, li.MsoListBullet3CxSpFirst, div.MsoListBullet3CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet3CxSpMiddle, li.MsoListBullet3CxSpMiddle, div.MsoListBullet3CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet3CxSpLast, li.MsoListBullet3CxSpLast, div.MsoListBullet3CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet4CxSpFirst, li.MsoListBullet4CxSpFirst, div.MsoListBullet4CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet4CxSpMiddle, li.MsoListBullet4CxSpMiddle, div.MsoListBullet4CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet4CxSpLast, li.MsoListBullet4CxSpLast, div.MsoListBullet4CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet5, li.MsoListBullet5, div.MsoListBullet5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet5CxSpFirst, li.MsoListBullet5CxSpFirst, div.MsoListBullet5CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet5CxSpMiddle, li.MsoListBullet5CxSpMiddle, div.MsoListBullet5CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet5CxSpLast, li.MsoListBullet5CxSpLast, div.MsoListBullet5CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber2CxSpFirst, li.MsoListNumber2CxSpFirst, div.MsoListNumber2CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber2CxSpMiddle, li.MsoListNumber2CxSpMiddle, div.MsoListNumber2CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber2CxSpLast, li.MsoListNumber2CxSpLast, div.MsoListNumber2CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:32.15pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber3CxSpFirst, li.MsoListNumber3CxSpFirst, div.MsoListNumber3CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber3CxSpMiddle, li.MsoListNumber3CxSpMiddle, div.MsoListNumber3CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber3CxSpLast, li.MsoListNumber3CxSpLast, div.MsoListNumber3CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.3pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber4, li.MsoListNumber4, div.MsoListNumber4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber4CxSpFirst, li.MsoListNumber4CxSpFirst, div.MsoListNumber4CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber4CxSpMiddle, li.MsoListNumber4CxSpMiddle, div.MsoListNumber4CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber4CxSpLast, li.MsoListNumber4CxSpLast, div.MsoListNumber4CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.45pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber5, li.MsoListNumber5, div.MsoListNumber5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber5CxSpFirst, li.MsoListNumber5CxSpFirst, div.MsoListNumber5CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber5CxSpMiddle, li.MsoListNumber5CxSpMiddle, div.MsoListNumber5CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber5CxSpLast, li.MsoListNumber5CxSpLast, div.MsoListNumber5CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:74.6pt;
+	text-indent:-.25in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:13.0pt;
+	font-size:16.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+p.MsoClosing, li.MsoClosing, div.MsoClosing
+	{mso-style-link:"Closing Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:212.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSignature, li.MsoSignature, div.MsoSignature
+	{mso-style-link:"Signature Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:212.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:green;
+	font-style:italic;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue, li.MsoListContinue, div.MsoListContinue
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinueCxSpFirst, li.MsoListContinueCxSpFirst, div.MsoListContinueCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinueCxSpMiddle, li.MsoListContinueCxSpMiddle, div.MsoListContinueCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinueCxSpLast, li.MsoListContinueCxSpLast, div.MsoListContinueCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:28.3pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue2CxSpFirst, li.MsoListContinue2CxSpFirst, div.MsoListContinue2CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue2CxSpMiddle, li.MsoListContinue2CxSpMiddle, div.MsoListContinue2CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:28.3pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue2CxSpLast, li.MsoListContinue2CxSpLast, div.MsoListContinue2CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:28.3pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:42.45pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue3CxSpFirst, li.MsoListContinue3CxSpFirst, div.MsoListContinue3CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue3CxSpMiddle, li.MsoListContinue3CxSpMiddle, div.MsoListContinue3CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.45pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue3CxSpLast, li.MsoListContinue3CxSpLast, div.MsoListContinue3CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:42.45pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue4, li.MsoListContinue4, div.MsoListContinue4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:56.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue4CxSpFirst, li.MsoListContinue4CxSpFirst, div.MsoListContinue4CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue4CxSpMiddle, li.MsoListContinue4CxSpMiddle, div.MsoListContinue4CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue4CxSpLast, li.MsoListContinue4CxSpLast, div.MsoListContinue4CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:56.6pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue5, li.MsoListContinue5, div.MsoListContinue5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:70.75pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue5CxSpFirst, li.MsoListContinue5CxSpFirst, div.MsoListContinue5CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue5CxSpMiddle, li.MsoListContinue5CxSpMiddle, div.MsoListContinue5CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.75pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListContinue5CxSpLast, li.MsoListContinue5CxSpLast, div.MsoListContinue5CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:70.75pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMessageHeader, li.MsoMessageHeader, div.MsoMessageHeader
+	{mso-style-link:"Message Header Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.7pt;
+	text-indent:-56.7pt;
+	line-height:13.0pt;
+	background:#CCCCCC;
+	border:none;
+	padding:0in;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:13.0pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;}
+p.MsoSalutation, li.MsoSalutation, div.MsoSalutation
+	{mso-style-link:"Salutation Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoDate, li.MsoDate, div.MsoDate
+	{mso-style-link:"Date Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
+	{mso-style-link:"Body Text First Indent Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-indent:10.5pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextFirstIndent2, li.MsoBodyTextFirstIndent2, div.MsoBodyTextFirstIndent2
+	{mso-style-link:"Body Text First Indent 2 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	text-indent:10.5pt;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoNoteHeading, li.MsoNoteHeading, div.MsoNoteHeading
+	{mso-style-link:"Note Heading Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	font-size:8.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{mso-style-link:"Body Text Indent 2 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{mso-style-link:"Body Text Indent 3 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	line-height:13.0pt;
+	font-size:8.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:.8in;
+	margin-bottom:0in;
+	margin-left:.8in;
+	line-height:13.0pt;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#4F81BD;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+em
+	{font-weight:bold;
+	font-style:normal;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoAutoSig, li.MsoAutoSig, div.MsoAutoSig
+	{mso-style-link:"E-mail Signature Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+address
+	{mso-style-link:"HTML Address Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Comment Subject Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Quote Char";
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;
+	font-style:italic;}
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
+	{mso-style-link:"Intense Quote Char";
+	margin-top:10.0pt;
+	margin-right:.65in;
+	margin-bottom:14.0pt;
+	margin-left:.65in;
+	line-height:13.0pt;
+	border:none;
+	padding:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	line-height:13.0pt;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+p.MemoHeaderStyle, li.MemoHeaderStyle, div.MemoHeaderStyle
+	{mso-style-name:MemoHeaderStyle;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.9pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	font-variant:small-caps;
+	font-weight:bold;}
+p.EMEAEnBodyText, li.EMEAEnBodyText, div.EMEAEnBodyText
+	{mso-style-name:"EMEA En Body Text";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.BodytextAgency, li.BodytextAgency, div.BodytextAgency
+	{mso-style-name:"Body text \(Agency\)";
+	mso-style-link:"Body text \(Agency\) Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.0pt;
+	margin-left:0in;
+	line-height:14.0pt;
+	font-size:9.0pt;
+	font-family:"Verdana",sans-serif;}
+span.BodytextAgencyChar
+	{mso-style-name:"Body text \(Agency\) Char";
+	mso-style-link:"Body text \(Agency\)";
+	font-family:"Verdana",sans-serif;}
+p.DraftingNotesAgency, li.DraftingNotesAgency, div.DraftingNotesAgency
+	{mso-style-name:"Drafting Notes \(Agency\)";
+	mso-style-link:"Drafting Notes \(Agency\) Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.0pt;
+	margin-left:0in;
+	line-height:14.0pt;
+	font-size:11.0pt;
+	font-family:"Courier New";
+	color:#339966;
+	font-style:italic;}
+span.DraftingNotesAgencyChar
+	{mso-style-name:"Drafting Notes \(Agency\) Char";
+	mso-style-link:"Drafting Notes \(Agency\)";
+	font-family:"Courier New";
+	color:#339966;
+	font-style:italic;}
+p.NormalAgency, li.NormalAgency, div.NormalAgency
+	{mso-style-name:"Normal \(Agency\)";
+	mso-style-link:"Normal \(Agency\) Char";
+	margin:0in;
+	font-size:9.0pt;
+	font-family:"Verdana",sans-serif;}
+p.TableheadingrowsAgency, li.TableheadingrowsAgency, div.TableheadingrowsAgency
+	{mso-style-name:"Table heading rows \(Agency\)";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:7.0pt;
+	margin-left:0in;
+	line-height:14.0pt;
+	page-break-after:avoid;
+	font-size:9.0pt;
+	font-family:"Verdana",sans-serif;
+	font-weight:bold;}
+p.TabletextrowsAgency, li.TabletextrowsAgency, div.TabletextrowsAgency
+	{mso-style-name:"Table text rows \(Agency\)";
+	margin:0in;
+	line-height:14.0pt;
+	font-size:9.0pt;
+	font-family:"Verdana",sans-serif;}
+span.NormalAgencyChar
+	{mso-style-name:"Normal \(Agency\) Char";
+	mso-style-link:"Normal \(Agency\)";
+	font-family:"Verdana",sans-serif;}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char\,- H19 Char\,Annotationtext Char\,Char Char\,Comment Text Char Char Char\,Comment Text Char Char Char Char Char\,Comment Text Char Char1 Char1\,Comment Text Char Char1 Char Char\,Comment Text Char1 Char Char1\,Comment Text Char1 Char Char Char";
+	mso-style-link:"Comment Text\,- H19\,Annotationtext\,Char\,Comment Text Char Char\,Comment Text Char Char Char Char\,Comment Text Char Char1\,Comment Text Char Char1 Char\,Comment Text Char1 Char\,Comment Text Char1 Char Char\,Comment Text Char2 Char\,Tekst opmerking";
+	font-family:"Times New Roman",serif;}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-link:"Comment Subject";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";
+	font-family:"Times New Roman",serif;}
+p.PIbodytext, li.PIbodytext, div.PIbodytext
+	{mso-style-name:"PI body text";
+	mso-style-link:"PI body text Char";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+span.PIbodytextChar
+	{mso-style-name:"PI body text Char";
+	mso-style-link:"PI body text";
+	font-family:"Times New Roman",serif;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Arial",sans-serif;
+	color:white;
+	background:#993366;
+	layout-grid-mode:both;
+	font-weight:bold;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.TableText, li.TableText, div.TableText
+	{mso-style-name:"Table Text";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Arial",sans-serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:28.35pt;
+	text-indent:-28.35pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.TitleA, li.TitleA, div.TitleA
+	{mso-style-name:"Title A";
+	margin:0in;
+	text-align:center;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.Default, li.Default, div.Default
+	{mso-style-name:Default;
+	margin:0in;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Verdana",sans-serif;
+	color:black;}
+p.IFUBodyText, li.IFUBodyText, div.IFUBodyText
+	{mso-style-name:"IFU Body Text";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+p.IFUBulletedBodyText, li.IFUBulletedBodyText, div.IFUBulletedBodyText
+	{mso-style-name:"IFU Bulleted Body Text";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.IFUBulletedBodyText2, li.IFUBulletedBodyText2, div.IFUBulletedBodyText2
+	{mso-style-name:"IFU Bulleted Body Text 2";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.TittleB, li.TittleB, div.TittleB
+	{mso-style-name:"Tittle B";
+	mso-style-link:"Tittle B Char";
+	margin-top:0in;
+	margin-right:6.0pt;
+	margin-bottom:0in;
+	margin-left:6.35pt;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;
+	font-weight:bold;}
+span.TittleBChar
+	{mso-style-name:"Tittle B Char";
+	mso-style-link:"Tittle B";
+	font-family:"Times New Roman",serif;
+	color:black;
+	font-weight:bold;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;
+	color:green;
+	font-style:italic;}
+span.BodyTextFirstIndentChar
+	{mso-style-name:"Body Text First Indent Char";
+	mso-style-link:"Body Text First Indent";
+	font-family:"Times New Roman",serif;
+	color:green;
+	font-style:normal;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.BodyTextFirstIndent2Char
+	{mso-style-name:"Body Text First Indent 2 Char";
+	mso-style-link:"Body Text First Indent 2";
+	font-family:"Times New Roman",serif;}
+span.BodyTextIndent2Char
+	{mso-style-name:"Body Text Indent 2 Char";
+	mso-style-link:"Body Text Indent 2";
+	font-family:"Times New Roman",serif;}
+span.BodyTextIndent3Char
+	{mso-style-name:"Body Text Indent 3 Char";
+	mso-style-link:"Body Text Indent 3";
+	font-family:"Times New Roman",serif;}
+span.ClosingChar
+	{mso-style-name:"Closing Char";
+	mso-style-link:Closing;
+	font-family:"Times New Roman",serif;}
+span.DateChar
+	{mso-style-name:"Date Char";
+	mso-style-link:Date;
+	font-family:"Times New Roman",serif;}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;}
+span.E-mailSignatureChar
+	{mso-style-name:"E-mail Signature Char";
+	mso-style-link:"E-mail Signature";
+	font-family:"Times New Roman",serif;}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";
+	font-family:"Times New Roman",serif;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Calibri",sans-serif;
+	font-weight:bold;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Calibri",sans-serif;
+	font-weight:bold;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-link:"HTML Address";
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+span.IntenseQuoteChar
+	{mso-style-name:"Intense Quote Char";
+	mso-style-link:"Intense Quote";
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.MessageHeaderChar
+	{mso-style-name:"Message Header Char";
+	mso-style-link:"Message Header";
+	font-family:"Cambria",serif;
+	background:#CCCCCC;}
+span.NoteHeadingChar
+	{mso-style-name:"Note Heading Char";
+	mso-style-link:"Note Heading";
+	font-family:"Times New Roman",serif;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.QuoteChar
+	{mso-style-name:"Quote Char";
+	mso-style-link:Quote;
+	font-family:"Times New Roman",serif;
+	color:black;
+	font-style:italic;}
+span.SalutationChar
+	{mso-style-name:"Salutation Char";
+	mso-style-link:Salutation;
+	font-family:"Times New Roman",serif;}
+span.SignatureChar
+	{mso-style-name:"Signature Char";
+	mso-style-link:Signature;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Cambria",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Cambria",serif;
+	font-weight:bold;}
+p.mdTblEntry, li.mdTblEntry, div.mdTblEntry
+	{mso-style-name:"md_Tbl Entry";
+	margin:0in;
+	line-height:12.95pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.IFUHeading1, li.IFUHeading1, div.IFUHeading1
+	{mso-style-name:"IFU Heading 1";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	layout-grid-mode:line;
+	font-weight:bold;}
+p.a, li.a, div.a
+	{mso-style-name:a;
+	margin:0in;
+	line-height:13.0pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+span.KommentarerChar
+	{mso-style-name:"Kommentarer Char";}
+span.msoIns
+	{mso-style-name:"";
+	text-decoration:underline;
+	color:teal;}
+span.msoDel
+	{mso-style-name:"";
+	text-decoration:line-through;
+	color:red;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.35pt 842.0pt;
+	margin:56.7pt 70.9pt 56.7pt 70.9pt;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.35pt 842.0pt;
+	margin:56.7pt 70.9pt 56.7pt 70.9pt;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:595.35pt 842.0pt;
+	margin:56.7pt 70.9pt 56.7pt 70.9pt;}
+div.WordSection3
+	{page:WordSection3;}
+@page WordSection4
+	{size:595.35pt 842.0pt;
+	margin:56.7pt 70.9pt 56.7pt 70.9pt;}
+div.WordSection4
+	{page:WordSection4;}
+@page WordSection5
+	{size:595.35pt 842.0pt;
+	margin:56.7pt 70.9pt 56.7pt 70.9pt;}
+div.WordSection5
+	{page:WordSection5;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>

@@ -224,6 +224,7 @@ def parseDocument(htmlDocPath, fileNameQrd, fileNameMatchRuleBook, fileNameDocum
     ###Convert Html to Json
     fileNameJson, stylesFilePath = convertHtmlToJson( domain, procedureType, languageCode, fileNameHtml, fileNameQrd, fileNameLog, fsMountName, localEnv)
     
+    print(stylesFilePath)
     flowLogger.logFlowCheckpoint("Completed HTML Conversion To Json")
 
     flowLogger.logFlowCheckpoint("Starting Json Split")
