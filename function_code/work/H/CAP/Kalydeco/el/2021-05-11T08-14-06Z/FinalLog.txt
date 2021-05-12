@@ -1,0 +1,50 @@
+2021-05-12 17:25:13,182 : Flow Logger HTML_b : Starting HTML Conversion To Json | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:13,189 : Style Dictionary_m : Reading style dictionary in file: rule_dictionary_el.json | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:13,229 : Style Dictionary_m : Qrd Section Keys Retrieved For Style Dictionary: ΠΑΡΑΡΤΗΜΑ Ι, ΠΑΡΑΡΤΗΜΑ ΙΙ, ΠΑΡΑΡΤΗΜΑ ΙΙΙ, B. ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:15,102 : Parser_f : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\el\2021-05-11T08-14-06Z\outputJSON\Kalydeco_clean.txt | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:22,699 : Parser_f : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\el\2021-05-11T08-14-06Z\outputJSON\Kalydeco_clean.json | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,115 : Flow Logger HTML_b : Completed HTML Conversion To Json | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,117 : Flow Logger HTML_b : Starting Json Split | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,121 : Style Dictionary_u : Reading style dictionary in file: rule_dictionary_el.json | H | CAP |  el | Json | Kalydeco_clean.json
+2021-05-12 17:25:23,160 : Style Dictionary_u : Qrd Section Keys Retrieved For Style Dictionary: ΠΑΡΑΡΤΗΜΑ Ι, ΠΑΡΑΡΤΗΜΑ ΙΙ, ΠΑΡΑΡΤΗΜΑ ΙΙΙ, B. ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ | H | CAP |  el | Json | Kalydeco_clean.json
+2021-05-12 17:25:23,165 : Partition_D : Partitioning Json: Kalydeco_clean.json | H | CAP |  el | Json | Kalydeco_clean.json
+2021-05-12 17:25:23,427 : Partition_D : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\el\2021-05-11T08-14-06Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  el | Json | Kalydeco_clean.json
+2021-05-12 17:25:23,514 : Flow Logger HTML_b : ['Kalydeco_clean_SmPC.json'] | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,516 : Flow Logger HTML_b : Completed Json Split | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,517 : Flow Logger HTML_b : Started Processing Partitioned Jsons | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,518 : Flow Logger HTML_b : 
+
+
+
+||||||||||||||||||||||||||||||||0 ||||| Kalydeco_clean_SmPC.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  el | HTML | Kalydeco_clean.htm
+2021-05-12 17:25:23,522 : Heading Extraction Kalydeco_clean_SmPC.json_H : Starting Heading Extraction | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json
+2021-05-12 17:25:23,834 : Heading Extraction Kalydeco_clean_SmPC.json_H : Started Extracting Heading | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json
+2021-05-12 17:25:24,019 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- 'ΠΕΡΙΛΗΨΗ ΤΩΝ ΧΑΡΑΚΤΗΡΙΣΤΙΚΩΝ ΤΟΥ ΠΡΟΪΟΝΤΟΣ' | Qrd txt :- 'ΠΕΡΙΛΗΨΗ ΤΩΝ ΧΑΡΑΚΤΗΡΙΣΤΙΚΩΝ ΤΟΥ ΠΡΟΪΟΝΤΟΣ' | Matched :- 'True'
+2021-05-12 17:25:24,024 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed As This The First Heading | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16001' | currParentHeadId :- 'nan' | prevParentHeadId :- ''
+2021-05-12 17:25:24,051 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '1.       ΟΝΟΜΑΣΙΑ ΤΟΥ ΦΑΡΜΑΚΕΥΤΙΚΟΥ ΠΡΟΪΟΝΤΟΣ' | Qrd txt :- '1. ΟΝΟΜΑΣΙΑ ΤΟΥ ΦΑΡΜΑΚΕΥΤΙΚΟΥ ΠΡΟΪΟΝΤΟΣ' | Matched :- 'True'
+2021-05-12 17:25:24,059 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Flow Is Broken | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16003' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16001'
+2021-05-12 17:25:24,062 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16003' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16001'
+2021-05-12 17:25:24,627 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '2.       ΠΟΙΟΤΙΚΗ ΚΑΙ ΠΟΣΟΤΙΚΗ ΣΥΝΘΕΣΗ' | Qrd txt :- '2. ΠΟΙΟΤΙΚΗ ΚΑΙ ΠΟΣΟΤΙΚΗ ΣΥΝΘΕΣΗ' | Matched :- 'True'
+2021-05-12 17:25:24,634 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16004' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16003'
+2021-05-12 17:25:25,172 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- 'Έκδοχο με γνωστή δράση:' | Qrd txt :- 'Έκδοχο(α) με γνωστή δράση' | Matched :- 'True'
+2021-05-12 17:25:25,181 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Flow Is Broken | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16007' | currParentHeadId :- '16006.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:25,189 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16007' | currParentHeadId :- '16006.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:25,980 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- 'Έκδοχο με γνωστή δράση:' | Qrd txt :- 'Έκδοχο(α) με γνωστή δράση' | Matched :- 'True'
+2021-05-12 17:25:25,992 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Flow Is Broken | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16007' | currParentHeadId :- '16006.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:26,003 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16007' | currParentHeadId :- '16006.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:26,501 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '3.       ΦΑΡΜΑΚΟΤΕΧΝΙΚΗ ΜΟΡΦΗ' | Qrd txt :- '3. ΦΑΡΜΑΚΟΤΕΧΝΙΚΗ ΜΟΡΦΗ' | Matched :- 'True'
+2021-05-12 17:25:26,514 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Flow Is Broken | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16008' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:26,518 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16008' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16004'
+2021-05-12 17:25:27,623 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '4.       ΚΛΙΝΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ' | Qrd txt :- '4. ΚΛΙΝΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ' | Matched :- 'True'
+2021-05-12 17:25:27,630 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16009' | currParentHeadId :- '16001.0' | prevParentHeadId :- '16008'
+2021-05-12 17:25:27,676 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '4.1     Θεραπευτικές ενδείξεις' | Qrd txt :- '4.1 Θεραπευτικές ενδείξεις' | Matched :- 'True'
+2021-05-12 17:25:27,683 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16010' | currParentHeadId :- '16009.0' | prevParentHeadId :- '16009'
+2021-05-12 17:25:28,024 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- '4.2    Δοσολογία και τρόπος χορήγησης' | Qrd txt :- '4.2 Δοσολογία και τρόπος χορήγησης' | Matched :- 'True'
+2021-05-12 17:25:28,034 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16011' | currParentHeadId :- '16009.0' | prevParentHeadId :- '16010'
+2021-05-12 17:25:28,065 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Failed In Lowercase | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- 'Δοσολογία' | Qrd txt :- '4.2 Δοσολογία και τρόπος χορήγησης' | Matched :- 'False'
+2021-05-12 17:25:28,066 : Heading Extraction Kalydeco_clean_SmPC.json_H : Match Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | Doc txt :- 'Δοσολογία' | Qrd txt :- 'Δοσολογία' | Matched :- 'True'
+2021-05-12 17:25:28,080 : Heading Extraction Kalydeco_clean_SmPC.json_H : Validation Passed | H | CAP |  el | 0 | Kalydeco_clean_SmPC.json | currHeadId :- '16012' | currParentHeadId :- '16011.0' | prevParentHeadId :- '16011'
