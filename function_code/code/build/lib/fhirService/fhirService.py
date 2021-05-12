@@ -9,7 +9,7 @@ from requests.exceptions import HTTPError
 class FhirService:
     def __init__(self, logger, basePath, body):
         self.insights_logger = logger
-        self.basePath = self.basePath
+        self.basePath = basePath
         self.body = body
 
     def storeXMLIdOnPost(self, post_xml_id):
