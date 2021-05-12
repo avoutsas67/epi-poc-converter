@@ -27,7 +27,7 @@ def main(inputBlob: func.InputStream,
     inputZipFileName = inputZipFilePath.split('/')[-1]
     inputZipFolderPath = '/'.join(inputZipFilePath.split('/')[0:-1])
 
-    info = inputZipFileName.split("_")
+    info = inputZipFileName.split("~")
     try:
         medName = info[0]
         domain = info[1]
