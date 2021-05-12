@@ -1,0 +1,268 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "serviceName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 24,
+            "metadata": {
+                "description": "Name of the FHIR service Web App."
+            }
+        },
+        "appServicePlanName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Name of App Service Plan (existing or new). If empty, a name will be generated."
+            }
+        },
+        "appServicePlanSku": {
+            "type": "string",
+            "allowedValues": [
+                "F1",
+                "D1",
+                "B1",
+                "B2",
+                "B3",
+                "S1",
+                "S2",
+                "S3",
+                "P1",
+                "P2",
+                "P3",
+                "P4"
+            ],
+            "defaultValue": "S1"
+        },
+        "appInsightsKey": {
+            "type": "string"
+        },
+        "dbName": {
+            "type": "string"
+        },
+        "keyVaultName": {
+            "type": "string"
+        },
+        "securityAuthenticationAuthority": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "OAuth Authority"
+            }
+        },
+        "securityAuthenticationAudience": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Audience (aud) to validate in JWT"
+            }
+        },
+        "enableAadSmartOnFhirProxy": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Enable Azure AAD SMART on FHIR Proxy"
+            }
+        },
+        "fhirVersion": {
+            "type": "string",
+            "allowedValues": [
+                "Stu3",
+                "R4",
+                "R5"
+            ],
+            "metadata": {
+                "description": "Only applies when MsdeployPackageUrl is not specified."
+            }
+        },
+        "resourceTags": {
+            "type": "object"
+        }
+    },
+    "variables": {
+        "appServiceResourceId": "[resourceId('Microsoft.Web/sites', parameters('serviceName'))]",
+        "securityAuthenticationEnabled": "[and(not(empty(parameters('securityAuthenticationAuthority'))),not(empty(parameters('securityAuthenticationAudience'))))]",
+        "fhirServerConfigProperties": {
+            "ApplicationInsights:InstrumentationKey": "[parameters('appInsightsKey')]",
+            "APPINSIGHTS_PORTALINFO": "ASP.NETCORE",
+            "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+            "APPINSIGHTS_SNAPSHOTFEATURE_VERSION": "1.0.0",
+            "WEBSITE_NODE_DEFAULT_VERSION": "6.9.4",
+            "KeyVault:Endpoint": "[concat('https://', parameters('keyVaultName'), '.vault.azure.net/')]",
+            "FhirServer:CosmosDb:InitialCollectionThroughput": "1000",
+            "FhirServer:Security:Enabled": "[variables('securityAuthenticationEnabled')]",
+            "FhirServer:Security:EnableAadSmartOnFhirProxy": "[parameters('enableAadSmartOnFhirProxy')]",
+            "FhirServer:Security:Authentication:Authority": "[parameters('securityAuthenticationAuthority')]",
+            "FhirServer:Security:Authentication:Audience": "[parameters('securityAuthenticationAudience')]",
+            "CosmosDb:ContinuationTokenSizeLimitInKb": "1",
+            "SqlServer:Initialize": "false",
+            "SqlServer:SchemaOptions:AutomaticUpdatesEnabled": "false",
+            "DataStore": "CosmosDb",
+            "FhirServer:Operations:Export:Enabled": "false",
+            "FhirServer:Operations:Export:StorageAccountUri": "null",
+            "FhirServer:Operations:ConvertData:Enabled": "false",
+            "FhirServer:Operations:ConvertData:ContainerRegistryServers:0": "null",
+            "FhirServer:Operations:Reindex:Enabled": "false"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('appServicePlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "[parameters('appServicePlanSku')]"
+            },
+            "properties": {
+                "name": "[parameters('appServicePlanName')]"
+            },
+            "tags": "[parameters('resourceTags')]"
+        },
+        {
+            "name": "[parameters('serviceName')]",
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "name": "[parameters('serviceName')]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]",
+                "siteConfig": {
+                    "defaultDocuments": [
+                    ],
+                    "alwaysOn": true,
+                    "ftpsState": "Disabled",
+                    "phpVersion": "off"
+                },
+                "clientAffinityEnabled": false,
+                "httpsOnly": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('dbName'))]"
+            ],
+            "tags": "[parameters('resourceTags')]",
+            "resources": [
+                {
+                    "name": "appsettings",
+                    "type": "config",
+                    "apiVersion": "2018-11-01",
+                    "dependsOn": [
+                        "[variables('appServiceResourceId')]",
+                        "[concat(variables('appServiceResourceId'), '/Extensions/MSDeploy')]",
+                        "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
+                    ],
+                    "properties": "[variables('fhirServerConfigProperties')]"
+                },
+                {
+                    "name": "MSDeploy",
+                    "type": "extensions",
+                    "apiVersion": "2018-11-01",
+                    "dependsOn": [
+                        "[variables('appServiceResourceId')]",
+                        "[concat(variables('appServiceResourceId'), '/siteextensions/AspNetCoreRuntime.5.0.x86')]",
+                        "[resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), 'CosmosDb--Host')]"
+                    ],
+                    "properties": {
+                        "packageUri": "[concat('https://fhirserverforazure.blob.core.windows.net/builds/ci/Microsoft.Health.Fhir.', parameters('fhirVersion'),'.Web.zip')]"
+                    }
+                },
+                {
+                    "name": "AspNetCoreRuntime.5.0.x86",
+                    "type": "siteextensions",
+                    "apiVersion": "2018-11-01",
+                    "location": "[resourceGroup().location]",
+                    "properties": {
+                        "version": "5.0.5"
+                    },
+                    "dependsOn": [
+                        "[variables('appServiceResourceId')]",
+                        "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "[parameters('dbName')]",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "apiVersion": "2019-12-12",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[parameters('dbName')]",
+                "databaseAccountOfferType": "Standard",
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Strong"
+                },
+                "locations": [
+                    {
+                        "locationName": "[resourceGroup().location]",
+                        "failoverPriority": 0
+                    }
+                ]
+            },
+            "tags": "[parameters('resourceTags')]"
+        },
+        {
+            "name": "[parameters('keyVaultName')]",
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2018-02-14",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "family": "A",
+                    "name": "Standard"
+                },
+                "tenantId": "[reference(variables('appServiceResourceId'), '2015-08-01', 'Full').Identity.tenantId]",
+                "accessPolicies": [
+                    {
+                        "tenantId": "[reference(variables('appServiceResourceId'), '2015-08-01', 'Full').Identity.tenantId]",
+                        "objectId": "[reference(variables('appServiceResourceId'), '2015-08-01', 'Full').Identity.principalId]",
+                        "permissions": {
+                            "secrets": [
+                                "get",
+                                "list",
+                                "set"
+                            ]
+                        }
+                    }
+                ],
+                "enableSoftDelete": true,
+                "softDeleteRetentionInDays": 90
+            },
+            "tags": "[parameters('resourceTags')]",
+            "dependsOn": [
+                "[variables('appServiceResourceId')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('keyVaultName'), '/CosmosDb--Host')]",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "contentType": "text/plain",
+                "value": "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', parameters('dbName'))).documentEndpoint]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+                "[resourceId('Microsoft.DocumentDb/databaseAccounts', parameters('dbName'))]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('keyVaultName'), '/CosmosDb--Key')]",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "contentType": "text/plain",
+                "value": "[listKeys(resourceId('Microsoft.DocumentDb/databaseAccounts', parameters('dbName')), '2015-04-08').primaryMasterKey]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+                "[resourceId('Microsoft.DocumentDb/databaseAccounts', parameters('dbName'))]"
+            ]
+        }
+    ]
+}

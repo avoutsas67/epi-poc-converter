@@ -1,0 +1,211 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apimName": {
+            "type": "string"
+        },
+        "resourceTags": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ApiManagement/service",
+            "apiVersion": "2020-12-01",
+            "name": "[parameters('apimName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Developer",
+                "capacity": 1
+            },
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "publisherEmail": "christian.leitner@ext.ema.europa.eu",
+                "publisherName": "EMA-ePI",
+                "notificationSenderEmail": "christian.leitner@ext.ema.europa.eu",
+                "hostnameConfigurations": [
+                    {
+                        "type": "Proxy",
+                        "hostName": "[concat(parameters('apimName'), '.azure-api.net')]",
+                        "negotiateClientCertificate": false,
+                        "defaultSslBinding": true
+                    }
+                ],
+                "customProperties": {
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30": "False",
+                    "Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2": "False"
+                },
+                "virtualNetworkType": "None",
+                "disableGateway": false,
+                "apiVersionConstraint": {}
+            },
+            "tags": "[parameters('resourceTags')]"
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apiVersionSets",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI-read",
+                "versioningScheme": "Segment"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apiVersionSets",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-write')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI-write",
+                "versioningScheme": "Segment"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI read",
+                "description": "Users can read ePI documents",
+                "subscriptionRequired": true,
+                "approvalRequired": true,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI read/write",
+                "description": "Users can read and write ePI documents",
+                "subscriptionRequired": true,
+                "approvalRequired": true,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]",
+                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read')]"
+            ],
+            "properties": {
+                "displayName": "ePI-read",
+                "apiRevision": "1",
+                "description": "API to read electronic product information",
+                "subscriptionRequired": true,
+                "serviceUrl": "https://ema-dap-epi-dev-fhir-api.azurewebsites.net",
+                "path": "epi",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true,
+                "apiVersion": "v1",
+                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read')]"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-write')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]",
+                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write')]"
+            ],
+            "properties": {
+                "displayName": "ePI-write",
+                "apiRevision": "1",
+                "description": "API to write electronic product information",
+                "subscriptionRequired": true,
+                "serviceUrl": "https://ema-dap-epi-dev-fhir-api.azurewebsites.net",
+                "path": "epi-w",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true,
+                "apiVersion": "v1",
+                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write')]"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read/epi-read')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write/epi-read')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write/epi-write')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/policies",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <redirect-content-urls />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/policies",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-write/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <redirect-content-urls />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        }
+    ]
+}

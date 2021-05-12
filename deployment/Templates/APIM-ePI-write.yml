@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: ePI-write
+  description: "API to write electronic product information"
+  version: v1
+servers:
+  - url: https://ema-dap-epi-dev-fhir-api.azurewebsites.net
+paths:
+  /Bundle:
+    post:
+      operationId: EP101
+      summary: "Create Document"
+      description: "Create one document, that is not linked to any others"
+      requestBody:
+        required: true
+        description: "A single document Bundle, with no assigned id. A document Bundle must have a Composition, and a List resource with a list of MedicinalProductDefinitions, and optionally Binary resources contained in the Composition, for images."
+        content:
+          application/xml:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: "The document is created and the id returned. It has no associated to a document set (until a List is created or updated to point to it)."
+  /Bundle/{id}:
+    put:
+      operationId: EP103
+      summary: "Update Document"
+      description: "Edit a document. Links, or linked documents, are unaffected."
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the document to update"
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: "A single document Bundle, with a known id, and with an changes to text or images, or the list of products."
+        content:
+          application/xml:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: "The document is updated. There is no impact on the document set that this document is in (the List of documents)"
+    delete:
+      operationId: EP104
+      summary: "Delete Document"
+      description: "Remove a document from the server. May still be accessed via 'history'? (TBD)"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the document to delete"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Document is deleted (soft delete - exactly what the consequences of this are TBD)"
+
+  /List:
+    post:
+      operationId: EP121
+      summary: "Create Document List"
+      description: "Create a List that makes a set of documents. Does not create or affect the documents themselves. Must contain a list of at least one existing document. Cannot be created empty (or is that ok?)"
+      requestBody:
+        required: true
+        description: "A List resource with references to one of more document Bundles, by id (which must be known in advance)"
+        content:
+          application/xml:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: "The List is created on the server, and any links that are sent become active and usable. Links are checked for validity (move this to a conditions col?)"
+  /List/{id}:
+    put:
+      operationId: EP123
+      summary: "Update Document List"
+      description: "Make a change to a List, typically to add or remove a document from the list or change the list type. Doesn't create or delete any documents, only references to them."
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the list to update"
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: "A updated copy of a List resource, previously created, which reflects the desired type and set of existing document Bundles that are now in this document set List"
+        content:
+          application/xml:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: "The List, and document set that it represents, is updated on the server"
+    delete:
+      operationId: EP124
+      summary: "Delete Document List"
+      description: "Deletes the list that defines a set of documents. Does not delete the documents themselves"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the list to delete"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Deletes the List, leaving any referenced documents untouched (but now unconnected via this List)"
+
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

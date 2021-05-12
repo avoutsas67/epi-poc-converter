@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logAnalyticsWsName": {
+            "type": "string"
+        },
+        "appInsightsName": {
+            "type": "string"
+        },
+        "resourceTags": {
+            "type": "object"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('logAnalyticsWsName')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "PerGB2018"
+                }
+            },
+            "tags": "[parameters('resourceTags')]"
+        },
+        {
+            "name": "[parameters('appInsightsName')]",
+            "type": "microsoft.insights/components",
+            "apiVersion": "2020-02-02-preview",
+            "location": "[resourceGroup().location]",
+            "kind": "web",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWsName'))]"
+            ],
+            "properties": {
+                "Application_Type": "web",
+                "ApplicationId": "[parameters('appInsightsName')]",
+                "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWsName'))]"
+            },
+            "tags": "[parameters('resourceTags')]"
+        }
+    ]
+}
