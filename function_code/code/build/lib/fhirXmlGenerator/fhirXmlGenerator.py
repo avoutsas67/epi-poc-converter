@@ -12,14 +12,14 @@ import base64
 
 class FhirXmlGenerator:
     
-    def __init__(self, logger, pms_oms_annotation_data, styles_file_path, medName, fsMountName, localEnv):
+    def __init__(self, logger, controlBasePath, basePath, pms_oms_annotation_data, styles_file_path, medName):
 
         self.logger = logger
+        self.basePath = basePath
+        self.controlBasePath = controlBasePath
         self.medName = medName
         self.styles_file_path = styles_file_path
         self.pms_oms_annotation_data = pms_oms_annotation_data
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
 
     def createIdDict(self, row, html_img_embeded = None):
         id_dict_item= defaultdict(list)
@@ -110,32 +110,22 @@ class FhirXmlGenerator:
     
     def processDataInStyleTag(self):
         style_tag_data = defaultdict(list)
-        try:
-            with open(self.styles_file_path, "rb") as style_file:
-                style_tag_data['Uri'] =  base64.b64encode(style_file.read()).decode('utf-8')
-                style_file.close()
-        except:
-            self.logger.logFlowCheckpoint('Style Information Not Retrieved')   
-            style_tag_data = None     
+        
+        with open(self.styles_file_path, "rb") as style_file:
+            style_tag_data['Uri'] =  base64.b64encode(style_file.read()).decode('utf-8')
+            style_file.close()        
         style_tag_data['Type'] = 'stylesheet/css'
         style_tag_data['Id'] = 'stylesheet0'
         return style_tag_data
        
     
     def generateXml(self, df, xml_file_name = 'ePI_output_template.xml'):
-
+        
         sys.setrecursionlimit(100000)
-        if self.localEnv is True:
-            template_path = os.path.abspath(os.path.join('..'))
-            template_path = os.path.join(template_path, 'control')
-            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
-            template_path = os.path.join(template_path, 'jinja_templates')
-            
-        else:
-            template_path = os.path.join(f'{self.fsMountName}')
-            template_path = os.path.join(template_path, 'control')
-            xml_output_path = os.path.join(template_path, 'fhir_messages').replace('control','data')
-            template_path = os.path.join(template_path, 'jinja_templates')
+        
+        xml_output_path = os.path.join(self.basePath,'fhir_messages')
+
+        template_path = os.path.join(self.controlBasePath,'jinja_templates')
 
         try:
             os.makedirs(xml_output_path)

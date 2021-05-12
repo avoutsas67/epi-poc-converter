@@ -9,16 +9,15 @@ class LanguageErrorQrdTemplate(Exception):
 
 class StyleRulesDictionary:
 
-    def __init__(self, logger, language, fileName, domain, procedureType, fsMountName, localEnv):
+    def __init__(self, logger, controlBasePath, language, fileName, domain, procedureType):
         self.language = language
         self.fileName = fileName
         self.domain = domain
         self.procedureType = procedureType
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
 
         self.styleFeatureKeyList = ['Bold', 'Italics', 'Uppercased', 'Underlined', 'Indexed', 'IsListItem', 'HasBorder']
         self.logger = logger
+        self.controlBasePath = controlBasePath
         self.qrd_section_headings = []
         self.styleRuleDict = self.createStyleRuleDict()
 
@@ -30,10 +29,8 @@ class StyleRulesDictionary:
         2. Extract the text for Annex II and Package leaflet in the required language
 
         """
-        if self.localEnv is True:
-            filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'qrdTemplate')
-        else:
-            filePath = os.path.join(f"{self.fsMountName}", 'control', 'qrdTemplate')
+
+        filePath = os.path.join(self.controlBasePath, 'qrdTemplate')
 
         filePathQRD = os.path.join(filePath, self.fileName)
 
@@ -231,14 +228,9 @@ class StyleRulesDictionary:
             Function to check if a style dictionary for the language exists.
             If it doesn't exist, to create a default dictionary based on English styles
         """
-        if self.localEnv is True:
-            style_dict_path = os.path.abspath(os.path.join('..'))
-            style_dict_path = os.path.join(style_dict_path, 'control')
-            style_dict_path = os.path.join(style_dict_path, 'styleRules')
-        else:
-            style_dict_path = os.path.join(f"{self.fsMountName}")
-            style_dict_path = os.path.join(style_dict_path, 'control')
-            style_dict_path = os.path.join(style_dict_path, 'styleRules')
+
+        style_dict_path = os.path.join(self.controlBasePath, 'styleRules')
+        
         if(not os.path.exists(style_dict_path)):
             os.mkdir(style_dict_path)
             

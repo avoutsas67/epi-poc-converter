@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:9c006163-a468-468b-b48d-4b61c01e745f"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="d0e69c2f-07c3-48a8-af40-9fb3c7a30b2f"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-05-12T13:19:04Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:766cb09f-cd52-4454-9614-9e171d534d9e"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+              
+              <contained>
+                          <Binary>
+                            <id value="stylesheet0"/>
+                            <!-- example format -->
+                            <contentType value="stylesheet/css"/>
+                            <!-- data is base 64 encoded, actual bytes of the image png file -->
+                            <data value="PHN0eWxlPg0NCjwhLS0NDQogLyogRm9udCBEZWZpbml0aW9ucyAqLw0NCiBAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpXaW5nZGluZ3M7DQ0KCXBhbm9zZS0xOjUgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMiA1IDggMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTaW1TdW47DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlBNaW5nTGlVOw0NCglwYW5vc2UtMToyIDEgNiAxIDAgMSAxIDEgMSAxO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiTVMgR290aGljIjsNDQoJcGFub3NlLTE6MiAxMSA2IDkgNyAyIDUgOCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDYW1icmlhIE1hdGgiOw0NCglwYW5vc2UtMToyIDQgNSAzIDUgNCA2IDMgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpDYWxpYnJpOw0NCglwYW5vc2UtMToyIDE1IDUgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6IkNhbGlicmkgTGlnaHQiOw0NCglwYW5vc2UtMToyIDE1IDMgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6VmVyZGFuYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlRhaG9tYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4gQm9sZCI7DQ0KCXBhbm9zZS0xOjAgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQE1TIE1pbmNobyI7DQ0KCXBhbm9zZS0xOjIgMiA2IDkgNCAyIDUgOCAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQFNpbVN1biI7DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQFBNaW5nTGlVIjsNDQoJcGFub3NlLTE6MiAxIDYgMSAwIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6IlxATVMgR290aGljIjsNDQoJcGFub3NlLTE6MiAxMSA2IDkgNyAyIDUgOCAyIDQ7fQ0NCiAvKiBTdHlsZSBEZWZpbml0aW9ucyAqLw0NCiBwLk1zb05vcm1hbCwgbGkuTXNvTm9ybWFsLCBkaXYuTXNvTm9ybWFsDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMQ0NCgl7bXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMSBDaGFyIjsNDQoJbWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206My4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTYuMHB0Ow0NCglmb250LWZhbWlseToiQ2FsaWJyaSBMaWdodCIsc2Fucy1zZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KaDYNDQoJe21zby1zdHlsZS1saW5rOiJIZWFkaW5nIDYgQ2hhciI7DQ0KCW1hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvSGVhZGluZzcsIGxpLk1zb0hlYWRpbmc3LCBkaXYuTXNvSGVhZGluZzcNDQoJe21zby1zdHlsZS1saW5rOiJIZWFkaW5nIDcgQ2hhciI7DQ0KCW1hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7fQ0NCnAuTXNvRm9vdG5vdGVUZXh0LCBsaS5Nc29Gb290bm90ZVRleHQsIGRpdi5Nc29Gb290bm90ZVRleHQNDQoJe21zby1zdHlsZS1saW5rOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0NvbW1lbnRUZXh0LCBsaS5Nc29Db21tZW50VGV4dCwgZGl2Lk1zb0NvbW1lbnRUZXh0DQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBUZXh0XCwgQ2FyMTdcLCBDYXIxNyBDYXJcLC0gSDE5XCxBbm5vdGF0aW9udGV4dFwsQ2FyMTdcLENhcjZcLENoYXJcLENoYXIgQ2hhciBDaGFyXCxDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMSBDaGFyXCxDb21tZW50IFRleHQgQ2hhcjIgQ2hhclwsS29tbWVudGFydGV4dCI7DQ0KCW1zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHQgQ2hhclwsIENhcjE3IENoYXJcLCBDYXIxNyBDYXIgQ2hhclwsLSBIMTkgQ2hhclwsQW5ub3RhdGlvbnRleHQgQ2hhclwsQ2FyMTcgQ2hhclwsQ2FyNiBDaGFyXCxDaGFyIENoYXJcLENoYXIgQ2hhciBDaGFyIENoYXJcLENoYXIgQ2hhcjEgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIxIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0hlYWRlciwgbGkuTXNvSGVhZGVyLCBkaXYuTXNvSGVhZGVyDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29Gb290ZXIsIGxpLk1zb0Zvb3RlciwgZGl2Lk1zb0Zvb3Rlcg0NCgl7bWFyZ2luOjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglmb250LXNpemU6OC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Nc29Gb290bm90ZVJlZmVyZW5jZQ0NCgl7dmVydGljYWwtYWxpZ246c3VwZXI7fQ0NCnNwYW4uTXNvRW5kbm90ZVJlZmVyZW5jZQ0NCgl7dmVydGljYWwtYWxpZ246c3VwZXI7fQ0NCnAuTXNvRW5kbm90ZVRleHQsIGxpLk1zb0VuZG5vdGVUZXh0LCBkaXYuTXNvRW5kbm90ZVRleHQNDQoJe21zby1zdHlsZS1saW5rOiJFbmRub3RlIFRleHQgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQm9keVRleHQsIGxpLk1zb0JvZHlUZXh0LCBkaXYuTXNvQm9keVRleHQNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpncmVlbjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCmE6bGluaywgc3Bhbi5Nc29IeXBlcmxpbmsNDQoJe2NvbG9yOmJsdWU7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0NCmE6dmlzaXRlZCwgc3Bhbi5Nc29IeXBlcmxpbmtGb2xsb3dlZA0NCgl7Y29sb3I6Izk1NEY3MjsNDQoJdGV4dC1kZWNvcmF0aW9uOnVuZGVybGluZTt9DQ0KcC5Nc29QbGFpblRleHQsIGxpLk1zb1BsYWluVGV4dCwgZGl2Lk1zb1BsYWluVGV4dA0NCgl7bXNvLXN0eWxlLWxpbms6IlBsYWluIFRleHQgQ2hhciI7DQ0KCW1hcmdpbi10b3A6Mi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7fQ0NCnANDQoJe21hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQ29tbWVudFN1YmplY3QsIGxpLk1zb0NvbW1lbnRTdWJqZWN0LCBkaXYuTXNvQ29tbWVudFN1YmplY3QNDQoJe21zby1zdHlsZS1saW5rOiJDb21tZW50IFN1YmplY3QgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvQWNldGF0ZSwgbGkuTXNvQWNldGF0ZSwgZGl2Lk1zb0FjZXRhdGUNDQoJe21hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjguMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwLk1zb1JNUGFuZSwgbGkuTXNvUk1QYW5lLCBkaXYuTXNvUk1QYW5lDQ0KCXttYXJnaW46MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoLCBsaS5Nc29MaXN0UGFyYWdyYXBoLCBkaXYuTXNvTGlzdFBhcmFncmFwaA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1lbW9IZWFkZXJTdHlsZSwgbGkuTWVtb0hlYWRlclN0eWxlLCBkaXYuTWVtb0hlYWRlclN0eWxlDQ0KCXttc28tc3R5bGUtbmFtZTpNZW1vSGVhZGVyU3R5bGU7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NzAuOXB0Ow0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjsNDQoJZm9udC12YXJpYW50OnNtYWxsLWNhcHM7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUVuQm9keVRleHQsIGxpLkVNRUFFbkJvZHlUZXh0LCBkaXYuRU1FQUVuQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEVuIEJvZHkgVGV4dCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Cb2R5dGV4dEFnZW5jeSwgbGkuQm9keXRleHRBZ2VuY3ksIGRpdi5Cb2R5dGV4dEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uQm9keXRleHRBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IHRleHQgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGxpLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGRpdi5EcmFmdGluZ05vdGVzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSI7DQ0KCW1zby1zdHlsZS1saW5rOiJEcmFmdGluZyBOb3RlcyBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7DQ0KCWNvbG9yOiMzMzk5NjY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkRyYWZ0aW5nTm90ZXNBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRyYWZ0aW5nIE5vdGVzIFwoQWdlbmN5XCkiOw0NCglmb250LWZhbWlseToiQ291cmllciBOZXciOw0NCgljb2xvcjojMzM5OTY2Ow0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Ob3JtYWxBZ2VuY3ksIGxpLk5vcm1hbEFnZW5jeSwgZGl2Lk5vcm1hbEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vcm1hbCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6Ik5vcm1hbCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGxpLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGRpdi5UYWJsZWhlYWRpbmdyb3dzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgaGVhZGluZyByb3dzIFwoQWdlbmN5XCkiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuVGFibGV0ZXh0cm93c0FnZW5jeSwgbGkuVGFibGV0ZXh0cm93c0FnZW5jeSwgZGl2LlRhYmxldGV4dHJvd3NBZ2VuY3kNDQoJe21zby1zdHlsZS1uYW1lOiJUYWJsZSB0ZXh0IHJvd3MgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJZm9udC1zaXplOjkuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Ob3JtYWxBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiTm9ybWFsIFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJOb3JtYWwgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgVGV4dCBDaGFyXCwgQ2FyMTcgQ2hhclwsIENhcjE3IENhciBDaGFyXCwtIEgxOSBDaGFyXCxBbm5vdGF0aW9udGV4dCBDaGFyXCxDYXIxNyBDaGFyXCxDYXI2IENoYXJcLENoYXIgQ2hhclwsQ2hhciBDaGFyIENoYXIgQ2hhclwsQ2hhciBDaGFyMSBDaGFyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhcjEgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHRcLCBDYXIxN1wsIENhcjE3IENhclwsLSBIMTlcLEFubm90YXRpb250ZXh0XCxDYXIxN1wsQ2FyNlwsQ2hhclwsQ2hhciBDaGFyIENoYXJcLENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIxIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyMiBDaGFyXCxLb21tZW50YXJ0ZXh0IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnNwYW4uQ29tbWVudFN1YmplY3RDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBTdWJqZWN0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiQ29tbWVudCBTdWJqZWN0IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzFDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyAxIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyAxIjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkgTGlnaHQiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzZDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyA2IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyA2IjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzdDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyA3IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyA3IjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7fQ0NCnAuVGV4dCwgbGkuVGV4dCwgZGl2LlRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJUZXh0XCxHcmFwaGljXCxHcmFwaGljIENoYXIgQ2hhclwsR3JhcGhpYyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXJcLEdyYXBoaWMgQ2hhciBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhciBDXCxJdGFsaWNcLEpQIEJvZHkgVGV4dFwsVGV4dF8xMDM5NFwsZ3JhcGhpY3NcLG5vbiB0b2NoaWNcLG5vdGljXCxcNjcyQ1w2NTg3IjsNDQoJbXNvLXN0eWxlLWxpbms6IlRleHQgQ2hhclwsR3JhcGhpYyBDaGFyIjsNDQoJbWFyZ2luLXRvcDo2LjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5UZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IlRleHQgQ2hhclwsR3JhcGhpYyBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IlRleHRcLEdyYXBoaWNcLEdyYXBoaWMgQ2hhciBDaGFyXCxHcmFwaGljIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhclwsR3JhcGhpYyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhciBDaGFyIENcLEl0YWxpY1wsSlAgQm9keSBUZXh0XCxUZXh0XzEwMzk0XCxncmFwaGljc1wsbm9uIHRvY2hpY1wsbm90aWNcLFw2NzJDXDY1ODciOw0NCglmb250LWZhbWlseToiTVMgTWluY2hvIjt9DQ0KcC5UYWJsZSwgbGkuVGFibGUsIGRpdi5UYWJsZQ0NCgl7bXNvLXN0eWxlLW5hbWU6IlRhYmxlXCwxMCBwdFwsMTAgcHQgIEJvbGRcLDkgcHQiOw0NCgltc28tc3R5bGUtbGluazoiVGFibGUgQ2hhclwsMTAgcHQgIEJvbGQgQ2hhclwsMTAgcHQgQ2hhclwsOSBwdCBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbToxLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglmb250LXNpemU6MTAuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uVGFibGVDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgQ2hhclwsMTAgcHQgIEJvbGQgQ2hhclwsMTAgcHQgQ2hhclwsOSBwdCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IlRhYmxlXCwxMCBwdFwsMTAgcHQgIEJvbGRcLDkgcHQiOw0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnAuRGVmYXVsdCwgbGkuRGVmYXVsdCwgZGl2LkRlZmF1bHQNDQoJe21zby1zdHlsZS1uYW1lOkRlZmF1bHQ7DQ0KCW1hcmdpbjowaW47DQ0KCXRleHQtYXV0b3NwYWNlOm5vbmU7DQ0KCWZvbnQtc2l6ZToxMi4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpibGFjazt9DQ0KcC5Db21tZW50LCBsaS5Db21tZW50LCBkaXYuQ29tbWVudA0NCgl7bXNvLXN0eWxlLW5hbWU6Q29tbWVudDsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgQ2hhciI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWNvbG9yOiNCRjMwQjU7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkNvbW1lbnRDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6Q29tbWVudDsNDQoJZm9udC1mYW1pbHk6Ik1TIE1pbmNobyI7DQ0KCWNvbG9yOiNCRjMwQjU7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLlBsYWluVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJQbGFpbiBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiUGxhaW4gVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7fQ0NCnAuRGVkaWNhdGVkbnVtYmVyLCBsaS5EZWRpY2F0ZWRudW1iZXIsIGRpdi5EZWRpY2F0ZWRudW1iZXINDQoJe21zby1zdHlsZS1uYW1lOkRlZGljYXRlZG51bWJlcjsNDQoJbWFyZ2luLXRvcDouNWluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCgl0ZXh0LWFsaWduOmNlbnRlcjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjE0LjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpzcGFuLkVuZG5vdGVUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkVuZG5vdGUgVGV4dCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkVuZG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLkxpc3RsZXZlbDEsIGxpLkxpc3RsZXZlbDEsIGRpdi5MaXN0bGV2ZWwxDQ0KCXttc28tc3R5bGUtbmFtZToiTGlzdCBsZXZlbCAxIjsNDQoJbXNvLXN0eWxlLWxpbms6Ikxpc3QgbGV2ZWwgMSBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjIxLjI1cHQ7DQ0KCXRleHQtaW5kZW50Oi0yMS4yNXB0Ow0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5MaXN0bGV2ZWwxQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6Ikxpc3QgbGV2ZWwgMSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6Ikxpc3QgbGV2ZWwgMSI7DQ0KCWZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iO30NDQpzcGFuLkZvb3Rub3RlVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLlN0YW5kYXJkLCBsaS5TdGFuZGFyZCwgZGl2LlN0YW5kYXJkDQ0KCXttc28tc3R5bGUtbmFtZTpTdGFuZGFyZDsNDQoJbWFyZ2luOjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5Lb21tZW50YXJ6ZWljaGVuDQ0KCXttc28tc3R5bGUtbmFtZTpLb21tZW50YXJ6ZWljaGVuO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcjINDQoJe21zby1zdHlsZS1uYW1lOiJDb21tZW50IFRleHQgQ2hhcjJcLC0gSDE5IENoYXIxXCxBbm5vdGF0aW9udGV4dCBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyMSBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIxIENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMSBDaGFyMlwsQ29tbWVudCBUZXh0IENoYXIyIENoYXIgQ2hhcjFcLEtvbW1lbnRhcnRleHQgQ2hhciI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQouTXNvQ2hwRGVmYXVsdA0NCgl7Zm9udC1zaXplOjEwLjBwdDt9DQ0KIC8qIFBhZ2UgRGVmaW5pdGlvbnMgKi8NDQogQHBhZ2UgV29yZFNlY3Rpb24xDQ0KCXtzaXplOjU5NS4zNXB0IDg0Mi4wcHQ7DQ0KCW1hcmdpbjo1Ni43cHQgNzAuOXB0IDU2LjdwdCA3MC45cHQ7fQ0NCmRpdi5Xb3JkU2VjdGlvbjENDQoJe3BhZ2U6V29yZFNlY3Rpb24xO30NDQogLyogTGlzdCBEZWZpbml0aW9ucyAqLw0NCiBvbA0NCgl7bWFyZ2luLWJvdHRvbTowaW47fQ0NCnVsDQ0KCXttYXJnaW4tYm90dG9tOjBpbjt9DQ0KLS0+DQ0KPC9zdHlsZT4="/>
+                          </Binary>
+                        </contained>
+                        <!-- this exension is necessary per image -->
+                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                          <valueReference>
+                            <reference value="#stylesheet0"/>
+                          </valueReference>
+                        </extension>
+              
+              <status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="ANNEX II"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.8pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="A.      MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="B.      CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="C.      OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:77.9pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="D.      conditions or restrictions with regard to the safe and effective use of the medicinal PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.8pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="E.      SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR THE CONDITIONAL MARKETING AUTHORISATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="A.      MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.8pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="Name and address of the manufacturer(s) of the biological active substance(s)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.8pt;line-height:normal;page-break-after: avoid"></p><p class="Standard" style="line-height:normal"><span lang="DE-CH">Novartis Pharma AG</span></p><p class="Standard" style="line-height:normal"><span lang="DE-CH">Lichtstrasse 35</span></p><p class="Standard" style="line-height:normal"><span lang="DE-CH">4056 Basel</span></p><p class="MsoNormal" style="line-height:normal"><span lang="DE-CH">Switzerland</span></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+
+			    
+		               
+<section>
+			<title value="Name and address of the manufacturer(s) responsible for batch release"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="Standard" style="line-height:normal">Novartis Pharma GmbH</p><p class="Standard" style="line-height:normal">Roonstrasse 25</p><p class="Standard" style="line-height:normal">90429 Nuremberg</p><p class="MsoNormal" style="line-height:normal">Germany</p><p class="MsoNormal" style="line-height:normal"> </p><p class="MsoNormal" style="line-height:normal"> </p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="B.      CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="C.      OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.05pt;line-height:normal;page-break-after: avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·Periodic safety update reports (PSURs)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:28.35pt;line-height:normal;page-break-after: avoid"></p><p class="MsoNormal" style="margin-right:28.35pt;line-height:normal"><span lang="EN-GB">The requirements for submission of PSURs for this medicinal product are set out in the list of Union reference dates (EURD list) </span><span lang="EN-GB">provided for under Article 107c(7) of Directive 2001/83</span><span lang="EN-GB">/EC</span><span lang="EN-GB"> and </span><span lang="EN-GB">any subsequent updates published on the European medicines web‑portal.</span></p><p class="MsoNormal" style="margin-right:28.35pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The marketing authorisation holder (MAH) shall submit the first PSUR for this product within 6 months following authorisation.</span></p><p class="MsoNormal" style="margin-right:-.05pt;line-height:normal"></p><p class="MsoNormal" style="margin-right:-.05pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="D.      CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.05pt;line-height:normal;page-break-after: avoid"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·Risk management plan (RMP)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:-.05pt;line-height:normal;page-break-after: avoid"></p><p class="MsoNormal" style="margin-right:28.35pt;line-height:normal"><span lang="EN-GB">The </span><span lang="EN-GB">marketing</span><span lang="EN-GB"> authorisation holder (</span><span lang="EN-GB">MAH) shall perform the required pharmacovigilance activities and interventions detailed in the agreed RMP presented in Module 1.8.2 of the marketing authorisation and any agreed subsequent updates of the RMP.</span></p><p class="MsoNormal" style="margin-right:-.05pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">An updated RMP should be submitted:</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB">At the request of the European Medicines Agency;</span></p><p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:28.35pt;margin-bottom:.0001pt;text-indent:-28.35pt;line-height: normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB">Whenever the risk management system is modified, especially as the result of new information being received that may lead to a significant change to the benefit/risk profile or as the result of an important (pharmacovigilance or risk minimisation) milestone being reached.</span></p><p class="MsoNormal" style="margin-right:-.05pt;line-height:normal"></p><p class="Standard" style="margin-right:-.05pt;line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="E.      SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR THE CONDITIONAL MARKETING AUTHORISATION"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="Standard" style="line-height:normal;page-break-after:avoid"></p><p class="Standard" style="margin-right:-.05pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">This being a conditional marketing authorisation and pursuant to Article 14a(4) of Regulation (EC) No 726/2004, the MAH shall complete, within the stated timeframe, the following measures:</span></p><p class="Standard" style="margin-right:-.05pt;line-height:normal;page-break-after: avoid"></p><table border="1" cellpadding="0" cellspacing="0" class="NormaleTabelle" style="border-collapse:collapse;border:none" width="100%"> <tr style="page-break-inside:avoid"> <td style="width:82.18%;border:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="82%"> <p class="Standard" style="margin-right:-.05pt;line-height:normal;page-break-after:   avoid"><b><span lang="EN-GB">Description</span></b></p> </td> <td style="width:17.82%;border:solid windowtext 1.0pt;   border-left:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="17%"> <p class="Standard" style="margin-right:-.05pt;line-height:normal;page-break-after:   avoid"><b><span lang="EN-GB">Due date</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:82.18%;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="82%"> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>In   order to confirm the efficacy and safety of crizanlizumab, the MAH should   submit the results of the primary analysis of a phase III CSEG101A2301 study   of crizanlizumab with or without hydroxyurea/hydroxycarbamide in adolescent   and adult sickle cell disease patients with vaso-occlusive crises</span></p> </td> <td style="width:17.82%;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="17%"> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>Clinical   study report primary analysis:</span></p> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>December   2025</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:82.18%;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="82%"> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>In   order to confirm the efficacy and safety of crizanlizumab, the MAH should   submit the final results of the phase II CSEG101A2202 study of   crizanlizumab with or without hydroxyurea/hydroxycarbamide in sickle cell   disease patients with vaso‑occlusive crisis.</span></p> </td> <td style="width:17.82%;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="17%"> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>Clinical   study report:</span></p> <p class="TabletextrowsAgency" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'>December   2025</span></p> </td> </tr> </table><span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif'><br clear="all" style="page-break-before:always"/> </span>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

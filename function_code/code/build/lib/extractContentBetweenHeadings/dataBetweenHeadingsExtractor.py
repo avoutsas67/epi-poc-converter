@@ -8,14 +8,11 @@ from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
 
 class DataBetweenHeadingsExtractor:
     
-    def __init__(self, logger, matched_collection, domain, procedureType, languageCode, fsMountName='/mounted', localEnv=False):
+    def __init__(self, logger, basePath, matched_collection):
         self.matched_collection = matched_collection
         self.logger = logger
-        self.languageCode = languageCode
-        self.procedureType = procedureType
-        self.domain = domain
-        self.fsMountName = fsMountName
-        self.localEnv = localEnv
+        self.basePath = basePath
+        
         
         
     def convertToInt(self, x):
@@ -76,10 +73,7 @@ class DataBetweenHeadingsExtractor:
         dfExtractedHierRR['Html_betw']=''
         dfExtractedHierRR = dfExtractedHierRR.reset_index(drop=True)
 
-        if self.localEnv is True:
-            path_partition_json = os.path.join(os.path.abspath(os.path.join('..')), 'data', 'partitionedJSONs', f'{self.domain}', f'{self.procedureType}', f'{self.languageCode}')
-        else:
-            path_partition_json = os.path.join(f'{self.fsMountName}', 'data', 'partitionedJSONs', f'{self.domain}', f'{self.procedureType}', f'{self.languageCode}')
+        path_partition_json = os.path.join(self.basePath,'partitionedJSONs')
         
         partitioned_filename = os.path.join(path_partition_json , input_filename)
         

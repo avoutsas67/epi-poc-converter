@@ -2,12 +2,11 @@ import json
 import os
 class MatchRuleBook():
 
-    def __init__(self, fileNameRuleBook, domain, procedureType, languageCode, documentNumber, fsMountName, localEnv):
+    def __init__(self, controlBasePath, fileNameRuleBook, domain, procedureType, languageCode, documentNumber):
         
-        if localEnv is True:
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'matchRulebook')
-        else:
-            self.filePath = os.path.join(f'{fsMountName}', 'control', 'matchRulebook')
+        self.controlBasePath = controlBasePath
+        
+        self.filePath = os.path.join(self.controlBasePath, 'matchRulebook')
 
         self.fileName = fileNameRuleBook
 

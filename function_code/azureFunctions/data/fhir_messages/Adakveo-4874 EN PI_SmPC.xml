@@ -7,14 +7,14 @@
 	<type value="collection"/>
 	<!-- Repeat at this level per document -->
 	<entry>
-		<fullUrl value="urn:uuid:58ea388c-3f3b-4e1b-8780-23c0b39c59bb"/>
+		<fullUrl value="urn:uuid:c300ab33-422a-446d-8362-bb94256c0942"/>
 		<!-- Top level of each document is a also FHIR Bundle, of type "document"
 		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
 	 	 All the other resources for this document are within this. -->
 		<resource>
             <Bundle>
             	<!-- When PUTing, some servers mandate an id here to match the existing id -->
-            	<id value="b8631c1f-b9cd-4012-b216-925d18da8cec"/>
+            	<id value="ea53feab-d319-4088-a6f8-623be6c9e2a5"/>
 				<!-- document bundles must have an identifier (bdl-9) -->
 				<identifier>
 					<!-- possibly different identifier types may be needed here -->
@@ -24,11 +24,11 @@
 				<!-- fixed code -->
 				<type value="document" /> 
             	<!-- document bundles must have a date (bdl-10) -->
-            	<timestamp value="2021-05-07T20:21:24Z"/>
+            	<timestamp value="2021-05-11T20:11:15Z"/>
 				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
 				<entry>
 					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
-					<fullUrl value="urn:uuid:46eebb9f-12a4-418d-bbe1-bfce14bb840f"/>
+					<fullUrl value="urn:uuid:d58a1613-a389-4430-9708-b210fb3246a9"/>
 					<resource>
 						<!-- the first resource must be Composition (bdl-11) -->
 						<!-- This is the overall document structure. -->
@@ -40,37 +40,21 @@
                                 <Binary>
                                 	<id value="image0"/>
                                 	<!-- example format -->
-                                	<contentType value="Adakveo-4874%20EN%20PI_files/image001.png"/>
-									<!-- data is base 64 encoded, actual bytes of the image png file -->
-                                	<data value="Adakveo-4874%20EN%20PI_files/image001.png"/>
-								</Binary>
-							</contained>
-							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
-                        		<valueReference>
-                        			<reference value="#image0"/>
-                        		</valueReference>
-                        	</extension>
-							
-							<contained>
-                                <Binary>
-                                	<id value="image1"/>
-                                	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image002.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
                                 	<data value="Adakveo-4874%20EN%20PI_files/image002.png"/>
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image1"/>
+                        			<reference value="#image0"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image2"/>
+                                	<id value="image1"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image003.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -78,15 +62,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image2"/>
+                        			<reference value="#image1"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image3"/>
+                                	<id value="image2"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image004.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -94,15 +78,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image3"/>
+                        			<reference value="#image2"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image4"/>
+                                	<id value="image3"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image005.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -110,15 +94,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image4"/>
+                        			<reference value="#image3"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image5"/>
+                                	<id value="image4"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image006.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -126,15 +110,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image5"/>
+                        			<reference value="#image4"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image6"/>
+                                	<id value="image5"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image007.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -142,15 +126,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image6"/>
+                        			<reference value="#image5"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image7"/>
+                                	<id value="image6"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image008.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -158,15 +142,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image7"/>
+                        			<reference value="#image6"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image8"/>
+                                	<id value="image7"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image009.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -174,15 +158,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image8"/>
+                        			<reference value="#image7"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image9"/>
+                                	<id value="image8"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image010.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -190,15 +174,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image9"/>
+                        			<reference value="#image8"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image10"/>
+                                	<id value="image9"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image011.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -206,15 +190,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image10"/>
+                        			<reference value="#image9"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image11"/>
+                                	<id value="image10"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image012.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -222,15 +206,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image11"/>
+                        			<reference value="#image10"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image12"/>
+                                	<id value="image11"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image013.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -238,15 +222,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image12"/>
+                        			<reference value="#image11"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image13"/>
+                                	<id value="image12"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image014.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -254,15 +238,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image13"/>
+                        			<reference value="#image12"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image14"/>
+                                	<id value="image13"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image015.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -270,15 +254,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image14"/>
+                        			<reference value="#image13"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image15"/>
+                                	<id value="image14"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image016.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -286,15 +270,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image15"/>
+                        			<reference value="#image14"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image16"/>
+                                	<id value="image15"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image017.jpg"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -302,15 +286,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image16"/>
+                        			<reference value="#image15"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image17"/>
+                                	<id value="image16"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image018.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -318,15 +302,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image17"/>
+                        			<reference value="#image16"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image18"/>
+                                	<id value="image17"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image019.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -334,15 +318,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image18"/>
+                        			<reference value="#image17"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image19"/>
+                                	<id value="image18"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image020.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -350,15 +334,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image19"/>
+                        			<reference value="#image18"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image20"/>
+                                	<id value="image19"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image021.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -366,15 +350,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image20"/>
+                        			<reference value="#image19"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image21"/>
+                                	<id value="image20"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image022.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -382,15 +366,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image21"/>
+                        			<reference value="#image20"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image22"/>
+                                	<id value="image21"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image023.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -398,15 +382,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image22"/>
+                        			<reference value="#image21"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image23"/>
+                                	<id value="image22"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image024.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -414,15 +398,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image23"/>
+                        			<reference value="#image22"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image24"/>
+                                	<id value="image23"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image025.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -430,15 +414,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image24"/>
+                        			<reference value="#image23"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image25"/>
+                                	<id value="image24"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image026.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -446,15 +430,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image25"/>
+                        			<reference value="#image24"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image26"/>
+                                	<id value="image25"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image027.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -462,15 +446,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image26"/>
+                        			<reference value="#image25"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image27"/>
+                                	<id value="image26"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image003.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -478,15 +462,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image27"/>
+                        			<reference value="#image26"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image28"/>
+                                	<id value="image27"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image028.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -494,15 +478,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image28"/>
+                        			<reference value="#image27"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image29"/>
+                                	<id value="image28"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image029.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -510,15 +494,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image29"/>
+                        			<reference value="#image28"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image30"/>
+                                	<id value="image29"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image030.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -526,15 +510,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image30"/>
+                        			<reference value="#image29"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image31"/>
+                                	<id value="image30"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image031.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -542,15 +526,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image31"/>
+                        			<reference value="#image30"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image32"/>
+                                	<id value="image31"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image032.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -558,15 +542,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image32"/>
+                        			<reference value="#image31"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image33"/>
+                                	<id value="image32"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image033.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -574,15 +558,15 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image33"/>
+                        			<reference value="#image32"/>
                         		</valueReference>
-                        	</extension>
-							
+               </extension>
+              
 							<contained>
                                 <Binary>
-                                	<id value="image34"/>
+                                	<id value="image33"/>
                                 	<!-- example format -->
                                 	<contentType value="Adakveo-4874%20EN%20PI_files/image034.png"/>
 									<!-- data is base 64 encoded, actual bytes of the image png file -->
@@ -590,13 +574,30 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
-                        			<reference value="#image34"/>
+                        			<reference value="#image33"/>
                         		</valueReference>
-                        	</extension>
-							
-							<status value="final"/>
+               </extension>
+              
+              
+              <contained>
+                          <Binary>
+                            <id value="stylesheet0"/>
+                            <!-- example format -->
+                            <contentType value="stylesheet/css"/>
+                            <!-- data is base 64 encoded, actual bytes of the image png file -->
+                            <data value="PHN0eWxlPg0NCjwhLS0NDQogLyogRm9udCBEZWZpbml0aW9ucyAqLw0NCiBAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpXaW5nZGluZ3M7DQ0KCXBhbm9zZS0xOjUgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMiA1IDggMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTaW1TdW47DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlBNaW5nTGlVOw0NCglwYW5vc2UtMToyIDEgNiAxIDAgMSAxIDEgMSAxO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiTVMgR290aGljIjsNDQoJcGFub3NlLTE6MiAxMSA2IDkgNyAyIDUgOCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDYW1icmlhIE1hdGgiOw0NCglwYW5vc2UtMToyIDQgNSAzIDUgNCA2IDMgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpDYWxpYnJpOw0NCglwYW5vc2UtMToyIDE1IDUgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6IkNhbGlicmkgTGlnaHQiOw0NCglwYW5vc2UtMToyIDE1IDMgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6VmVyZGFuYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlRhaG9tYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQE1TIEdvdGhpYyI7DQ0KCXBhbm9zZS0xOjIgMTEgNiA5IDcgMiA1IDggMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiXEBTaW1TdW4iOw0NCglwYW5vc2UtMToyIDEgNiAwIDMgMSAxIDEgMSAxO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIEJvbGQiOw0NCglwYW5vc2UtMTowIDAgMCAwIDAgMCAwIDAgMCAwO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiXEBNUyBNaW5jaG8iOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMiA1IDggMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiXEBQTWluZ0xpVSI7DQ0KCXBhbm9zZS0xOjIgMSA2IDEgMCAxIDEgMSAxIDE7fQ0NCiAvKiBTdHlsZSBEZWZpbml0aW9ucyAqLw0NCiBwLk1zb05vcm1hbCwgbGkuTXNvTm9ybWFsLCBkaXYuTXNvTm9ybWFsDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMQ0NCgl7bXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMSBDaGFyIjsNDQoJbWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206My4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTYuMHB0Ow0NCglmb250LWZhbWlseToiQ2FsaWJyaSBMaWdodCIsc2Fucy1zZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KaDYNDQoJe21zby1zdHlsZS1saW5rOiJIZWFkaW5nIDYgQ2hhciI7DQ0KCW1hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvSGVhZGluZzcsIGxpLk1zb0hlYWRpbmc3LCBkaXYuTXNvSGVhZGluZzcNDQoJe21zby1zdHlsZS1saW5rOiJIZWFkaW5nIDcgQ2hhciI7DQ0KCW1hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7fQ0NCnAuTXNvRm9vdG5vdGVUZXh0LCBsaS5Nc29Gb290bm90ZVRleHQsIGRpdi5Nc29Gb290bm90ZVRleHQNDQoJe21zby1zdHlsZS1saW5rOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0NvbW1lbnRUZXh0LCBsaS5Nc29Db21tZW50VGV4dCwgZGl2Lk1zb0NvbW1lbnRUZXh0DQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBUZXh0XCwgQ2FyMTdcLCBDYXIxNyBDYXJcLC0gSDE5XCxBbm5vdGF0aW9udGV4dFwsQ2FyMTdcLENhcjZcLENoYXJcLENoYXIgQ2hhciBDaGFyXCxDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMSBDaGFyXCxDb21tZW50IFRleHQgQ2hhcjIgQ2hhclwsS29tbWVudGFydGV4dCI7DQ0KCW1zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHQgQ2hhclwsIENhcjE3IENoYXJcLCBDYXIxNyBDYXIgQ2hhclwsLSBIMTkgQ2hhclwsQW5ub3RhdGlvbnRleHQgQ2hhclwsQ2FyMTcgQ2hhclwsQ2FyNiBDaGFyXCxDaGFyIENoYXJcLENoYXIgQ2hhciBDaGFyIENoYXJcLENoYXIgQ2hhcjEgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIxIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0hlYWRlciwgbGkuTXNvSGVhZGVyLCBkaXYuTXNvSGVhZGVyDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29Gb290ZXIsIGxpLk1zb0Zvb3RlciwgZGl2Lk1zb0Zvb3Rlcg0NCgl7bWFyZ2luOjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglmb250LXNpemU6OC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Nc29Gb290bm90ZVJlZmVyZW5jZQ0NCgl7dmVydGljYWwtYWxpZ246c3VwZXI7fQ0NCnNwYW4uTXNvRW5kbm90ZVJlZmVyZW5jZQ0NCgl7dmVydGljYWwtYWxpZ246c3VwZXI7fQ0NCnAuTXNvRW5kbm90ZVRleHQsIGxpLk1zb0VuZG5vdGVUZXh0LCBkaXYuTXNvRW5kbm90ZVRleHQNDQoJe21zby1zdHlsZS1saW5rOiJFbmRub3RlIFRleHQgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQm9keVRleHQsIGxpLk1zb0JvZHlUZXh0LCBkaXYuTXNvQm9keVRleHQNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpncmVlbjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCmE6bGluaywgc3Bhbi5Nc29IeXBlcmxpbmsNDQoJe2NvbG9yOmJsdWU7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0NCmE6dmlzaXRlZCwgc3Bhbi5Nc29IeXBlcmxpbmtGb2xsb3dlZA0NCgl7Y29sb3I6Izk1NEY3MjsNDQoJdGV4dC1kZWNvcmF0aW9uOnVuZGVybGluZTt9DQ0KcC5Nc29QbGFpblRleHQsIGxpLk1zb1BsYWluVGV4dCwgZGl2Lk1zb1BsYWluVGV4dA0NCgl7bXNvLXN0eWxlLWxpbms6IlBsYWluIFRleHQgQ2hhciI7DQ0KCW1hcmdpbi10b3A6Mi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7fQ0NCnANDQoJe21hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQ29tbWVudFN1YmplY3QsIGxpLk1zb0NvbW1lbnRTdWJqZWN0LCBkaXYuTXNvQ29tbWVudFN1YmplY3QNDQoJe21zby1zdHlsZS1saW5rOiJDb21tZW50IFN1YmplY3QgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvQWNldGF0ZSwgbGkuTXNvQWNldGF0ZSwgZGl2Lk1zb0FjZXRhdGUNDQoJe21hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjguMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwLk1zb1JNUGFuZSwgbGkuTXNvUk1QYW5lLCBkaXYuTXNvUk1QYW5lDQ0KCXttYXJnaW46MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoLCBsaS5Nc29MaXN0UGFyYWdyYXBoLCBkaXYuTXNvTGlzdFBhcmFncmFwaA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1lbW9IZWFkZXJTdHlsZSwgbGkuTWVtb0hlYWRlclN0eWxlLCBkaXYuTWVtb0hlYWRlclN0eWxlDQ0KCXttc28tc3R5bGUtbmFtZTpNZW1vSGVhZGVyU3R5bGU7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NzAuOXB0Ow0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjsNDQoJZm9udC12YXJpYW50OnNtYWxsLWNhcHM7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUVuQm9keVRleHQsIGxpLkVNRUFFbkJvZHlUZXh0LCBkaXYuRU1FQUVuQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEVuIEJvZHkgVGV4dCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Cb2R5dGV4dEFnZW5jeSwgbGkuQm9keXRleHRBZ2VuY3ksIGRpdi5Cb2R5dGV4dEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uQm9keXRleHRBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IHRleHQgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGxpLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGRpdi5EcmFmdGluZ05vdGVzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSI7DQ0KCW1zby1zdHlsZS1saW5rOiJEcmFmdGluZyBOb3RlcyBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7DQ0KCWNvbG9yOiMzMzk5NjY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkRyYWZ0aW5nTm90ZXNBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRyYWZ0aW5nIE5vdGVzIFwoQWdlbmN5XCkiOw0NCglmb250LWZhbWlseToiQ291cmllciBOZXciOw0NCgljb2xvcjojMzM5OTY2Ow0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Ob3JtYWxBZ2VuY3ksIGxpLk5vcm1hbEFnZW5jeSwgZGl2Lk5vcm1hbEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vcm1hbCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6Ik5vcm1hbCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGxpLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGRpdi5UYWJsZWhlYWRpbmdyb3dzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgaGVhZGluZyByb3dzIFwoQWdlbmN5XCkiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuVGFibGV0ZXh0cm93c0FnZW5jeSwgbGkuVGFibGV0ZXh0cm93c0FnZW5jeSwgZGl2LlRhYmxldGV4dHJvd3NBZ2VuY3kNDQoJe21zby1zdHlsZS1uYW1lOiJUYWJsZSB0ZXh0IHJvd3MgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJZm9udC1zaXplOjkuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Ob3JtYWxBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiTm9ybWFsIFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJOb3JtYWwgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgVGV4dCBDaGFyXCwgQ2FyMTcgQ2hhclwsIENhcjE3IENhciBDaGFyXCwtIEgxOSBDaGFyXCxBbm5vdGF0aW9udGV4dCBDaGFyXCxDYXIxNyBDaGFyXCxDYXI2IENoYXJcLENoYXIgQ2hhclwsQ2hhciBDaGFyIENoYXIgQ2hhclwsQ2hhciBDaGFyMSBDaGFyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhcjEgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHRcLCBDYXIxN1wsIENhcjE3IENhclwsLSBIMTlcLEFubm90YXRpb250ZXh0XCxDYXIxN1wsQ2FyNlwsQ2hhclwsQ2hhciBDaGFyIENoYXJcLENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyIENoYXIgQ2hhclwsQ29tbWVudCBUZXh0IENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIxIENoYXJcLENvbW1lbnQgVGV4dCBDaGFyMiBDaGFyXCxLb21tZW50YXJ0ZXh0IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnNwYW4uQ29tbWVudFN1YmplY3RDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBTdWJqZWN0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiQ29tbWVudCBTdWJqZWN0IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzFDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyAxIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyAxIjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkgTGlnaHQiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzZDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyA2IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyA2IjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uSGVhZGluZzdDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiSGVhZGluZyA3IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiSGVhZGluZyA3IjsNDQoJZm9udC1mYW1pbHk6IkNhbGlicmkiLHNhbnMtc2VyaWY7fQ0NCnAuVGV4dCwgbGkuVGV4dCwgZGl2LlRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJUZXh0XCxHcmFwaGljXCxHcmFwaGljIENoYXIgQ2hhclwsR3JhcGhpYyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXJcLEdyYXBoaWMgQ2hhciBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhciBDXCxJdGFsaWNcLEpQIEJvZHkgVGV4dFwsVGV4dF8xMDM5NFwsZ3JhcGhpY3NcLG5vbiB0b2NoaWNcLG5vdGljXCxcNjcyQ1w2NTg3IjsNDQoJbXNvLXN0eWxlLWxpbms6IlRleHQgQ2hhclwsR3JhcGhpYyBDaGFyIjsNDQoJbWFyZ2luLXRvcDo2LjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5UZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IlRleHQgQ2hhclwsR3JhcGhpYyBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IlRleHRcLEdyYXBoaWNcLEdyYXBoaWMgQ2hhciBDaGFyXCxHcmFwaGljIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhclwsR3JhcGhpYyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhciBDaGFyIENcLEl0YWxpY1wsSlAgQm9keSBUZXh0XCxUZXh0XzEwMzk0XCxncmFwaGljc1wsbm9uIHRvY2hpY1wsbm90aWNcLFw2NzJDXDY1ODciOw0NCglmb250LWZhbWlseToiTVMgTWluY2hvIjt9DQ0KcC5UYWJsZSwgbGkuVGFibGUsIGRpdi5UYWJsZQ0NCgl7bXNvLXN0eWxlLW5hbWU6IlRhYmxlXCwxMCBwdFwsMTAgcHQgIEJvbGRcLDkgcHQiOw0NCgltc28tc3R5bGUtbGluazoiVGFibGUgQ2hhclwsMTAgcHQgIEJvbGQgQ2hhclwsMTAgcHQgQ2hhclwsOSBwdCBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbToxLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglmb250LXNpemU6MTAuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uVGFibGVDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgQ2hhclwsMTAgcHQgIEJvbGQgQ2hhclwsMTAgcHQgQ2hhclwsOSBwdCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IlRhYmxlXCwxMCBwdFwsMTAgcHQgIEJvbGRcLDkgcHQiOw0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnAuRGVmYXVsdCwgbGkuRGVmYXVsdCwgZGl2LkRlZmF1bHQNDQoJe21zby1zdHlsZS1uYW1lOkRlZmF1bHQ7DQ0KCW1hcmdpbjowaW47DQ0KCXRleHQtYXV0b3NwYWNlOm5vbmU7DQ0KCWZvbnQtc2l6ZToxMi4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpibGFjazt9DQ0KcC5Db21tZW50LCBsaS5Db21tZW50LCBkaXYuQ29tbWVudA0NCgl7bXNvLXN0eWxlLW5hbWU6Q29tbWVudDsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgQ2hhciI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWNvbG9yOiNCRjMwQjU7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkNvbW1lbnRDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQ29tbWVudCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6Q29tbWVudDsNDQoJZm9udC1mYW1pbHk6Ik1TIE1pbmNobyI7DQ0KCWNvbG9yOiNCRjMwQjU7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLlBsYWluVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJQbGFpbiBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiUGxhaW4gVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7fQ0NCnAuRGVkaWNhdGVkbnVtYmVyLCBsaS5EZWRpY2F0ZWRudW1iZXIsIGRpdi5EZWRpY2F0ZWRudW1iZXINDQoJe21zby1zdHlsZS1uYW1lOkRlZGljYXRlZG51bWJlcjsNDQoJbWFyZ2luLXRvcDouNWluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCgl0ZXh0LWFsaWduOmNlbnRlcjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjE0LjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpzcGFuLkVuZG5vdGVUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkVuZG5vdGUgVGV4dCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkVuZG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLkxpc3RsZXZlbDEsIGxpLkxpc3RsZXZlbDEsIGRpdi5MaXN0bGV2ZWwxDQ0KCXttc28tc3R5bGUtbmFtZToiTGlzdCBsZXZlbCAxIjsNDQoJbXNvLXN0eWxlLWxpbms6Ikxpc3QgbGV2ZWwgMSBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjIxLjI1cHQ7DQ0KCXRleHQtaW5kZW50Oi0yMS4yNXB0Ow0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5MaXN0bGV2ZWwxQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6Ikxpc3QgbGV2ZWwgMSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6Ikxpc3QgbGV2ZWwgMSI7DQ0KCWZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iO30NDQpzcGFuLkZvb3Rub3RlVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLlN0YW5kYXJkLCBsaS5TdGFuZGFyZCwgZGl2LlN0YW5kYXJkDQ0KCXttc28tc3R5bGUtbmFtZTpTdGFuZGFyZDsNDQoJbWFyZ2luOjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5Lb21tZW50YXJ6ZWljaGVuDQ0KCXttc28tc3R5bGUtbmFtZTpLb21tZW50YXJ6ZWljaGVuO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcjINDQoJe21zby1zdHlsZS1uYW1lOiJDb21tZW50IFRleHQgQ2hhcjJcLC0gSDE5IENoYXIxXCxBbm5vdGF0aW9udGV4dCBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIgQ2hhciBDaGFyIENoYXIxXCxDb21tZW50IFRleHQgQ2hhciBDaGFyIENoYXIyXCxDb21tZW50IFRleHQgQ2hhciBDaGFyMSBDaGFyMVwsQ29tbWVudCBUZXh0IENoYXIxIENoYXIgQ2hhcjFcLENvbW1lbnQgVGV4dCBDaGFyMSBDaGFyMlwsQ29tbWVudCBUZXh0IENoYXIyIENoYXIgQ2hhcjFcLEtvbW1lbnRhcnRleHQgQ2hhciI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQouTXNvQ2hwRGVmYXVsdA0NCgl7Zm9udC1zaXplOjEwLjBwdDt9DQ0KIC8qIFBhZ2UgRGVmaW5pdGlvbnMgKi8NDQogQHBhZ2UgV29yZFNlY3Rpb24xDQ0KCXtzaXplOjU5NS4zNXB0IDg0Mi4wcHQ7DQ0KCW1hcmdpbjo1Ni43cHQgNzAuOXB0IDU2LjdwdCA3MC45cHQ7fQ0NCmRpdi5Xb3JkU2VjdGlvbjENDQoJe3BhZ2U6V29yZFNlY3Rpb24xO30NDQogLyogTGlzdCBEZWZpbml0aW9ucyAqLw0NCiBvbA0NCgl7bWFyZ2luLWJvdHRvbTowaW47fQ0NCnVsDQ0KCXttYXJnaW4tYm90dG9tOjBpbjt9DQ0KLS0+DQ0KPC9zdHlsZT4="/>
+                          </Binary>
+                        </contained>
+                        <!-- this exension is necessary per image -->
+                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                          <valueReference>
+                            <reference value="#stylesheet0"/>
+                          </valueReference>
+                        </extension>
+              
+              <status value="final"/>
 							<!-- document type -->
 							<type>
 								<coding>
@@ -642,11 +643,36 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:green'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/><p class="MsoNormal" style="line-height:normal"><img height="18" src="#image0" width="21"/><span lang="EN-GB">This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:green'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/>
 			</div>
 		</text>
 		
 		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions."/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
     	    
 				
 			    
@@ -1284,7 +1310,7 @@
 		<text>
 			<status value="additional"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">The efficacy of crizanlizumab, with or without HU/HC, was evaluated in the pivotal study SUSTAIN, a 52‑week, randomised, placebo‑controlled, double‑blind, multicentre clinical study in sickle cell disease patients with a history of vaso‑occlusive crises (VOCs).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In this study, VOCs were defined as those leading to a healthcare visit, which captured all acute episodes of pain with no other cause than a vaso‑occlusive event that required a healthcare visit and treatment with oral or parenteral opioids or parenteral non‑steroidal anti‑inflammatory drugs (NSAIDs). Acute chest syndrome, hepatic sequestration, splenic sequestration and priapism (requiring a healthcare visit), by definition, were also considered VOCs.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A total of 198 sickle cell disease patients aged 16 to 63 years (inclusive; mean age 30.1±10.3 years), with any sickle cell disease genotype (including HbSS [71.2%], HbSC [16.2%], HbSbeta0‑thalassaemia [6.1%], HbSbeta+‑thalassaemia [5.1%], and others [1.5%]) and a history of between 2 and 10 VOCs in the previous 12 months (62.6% and 37.4% of the patients had 2‑4 or 5‑10 VOCs, respectively), were randomised 1:1:1 to Adakveo 5 mg/kg, Adakveo 2.5 mg/kg or placebo. The majority of patients were Black or African American (91.9%). Patients received Adakveo with (62.1%) or without (37.9%) HU/HC. Randomisation was stratified by patients already receiving HU/HC (Y/N) and by number of VOCs in the previous 12 months (2 to 4, 5 to 10). Patients were allowed to take medicinal products to relieve pain (i.e. paracetamol, NSAIDs and opioids) and to receive occasional transfusions on an “as needed” basis. Patients participating in a chronic transfusion programme (pre-planned series of transfusions for prophylactic purposes) were excluded from the study.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg resulted in a 45.3% lower median annual rate of VOCs compared to placebo (Hodges‑Lehmann, median absolute difference of ‑1.01 compared with placebo, 95% CI [‑2.00, 0.00]), which was statistically significant (p=0.010). The median annual rates of uncomplicated VOCs (any VOCs as defined above, excluding acute chest syndrome, hepatic sequestration, splenic sequestration or priapism) and days hospitalised were 62.9% and 41.8% lower in the Adakveo 5 mg/kg than in the placebo group, respectively. The VOCs occurring during the study were assessed by an independent review committee.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Main efficacy outcomes of the pivotal SUSTAIN study are summarised in Tables 2 and 3.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><a name="_Toc499550968"></a><a name="_Toc517716326"><b><span lang="EN-GB">Table </span></b></a><b><span lang="EN-GB">2       Results from SUSTAIN clinical study in </span></b><a name="_hd6_Table_12_1_Results_fro16811"></a><b><span lang="EN-GB">sickle cell disease</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="width:98.84%;border-collapse:collapse;border:none" width="98%"> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.16%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Event</span></b></p> </td> <td style="width:23.82%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:11.54%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:10.46%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:21.1%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(95% CI)</span></p> </td> <td style="width:12.9%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">p-value</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(Wilcoxon rank sum)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Primary endpoint</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.63</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.98</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑45.3%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.010</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td colspan="5" style="width:87.1%;border:none;   border-bottom:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="87%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Secondary endpoints</span></b></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of days hospitalised</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">4.00</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">6.87</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑41.8%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑4.36, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.450</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of uncomplicated VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.08</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.91</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑62.9%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.98, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">-</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td colspan="6" style="width:.02%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="0%"> <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt">The primary (annual rate of VOC leading   to healthcare visit) and key secondary (annual rate of days hospitalised)   endpoints were the only ones formally tested for statistical significance   according to protocol.</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal"><span lang="EN-GB">The clinical effect demonstrated in the primary efficacy analysis was supported by multiple supplementary analyses including a negative binomial regression on investigator assessments with a conservative method to handle missing data due to early discontinuation of treatment based on outcomes in the placebo group (RR=0.74, 95% CI=0.52, 1.06).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In the Adakveo 5 mg/kg group, clinically significant reductions in the annual rate of VOCs were observed across important subgroups (</span><span lang="EN-GB">HU/HC use, 2‑4 or 5‑10 VOCs in the previous 12 months, and HbSS or non‑HbSS genotypes; </span><span lang="EN-GB">see Table 3).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB">Table 3       Annual rate of VOCs in patients ‑ subgroup analyses</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="border-collapse:collapse;border:none" width="612"> <tr style="page-break-inside:avoid"> <td style="width:90.45pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Subgroup </span></b></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> <td style="width:70.85pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg (N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo (N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:106.3pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(95% CI)</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HU/HC use</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Yes</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.43</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n= 40</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.58</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑32.1%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.44, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">No</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.02</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:20.2pt"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:20.2pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Number of VOCs in previous   12 months</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2‑4 VOCs</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.14</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=41</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑43.0%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑0.05</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.56, 0.01)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5‑10 VOCs</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=24</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5.32</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑63.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑2.74</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑5.00, ‑0.83)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Sickle cell disease genotypes,   including HbSC</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HbSS</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.01</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑34.6%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.18, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Non‑HbSS</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=20</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.99</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=18</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.5%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.01, 0.00)</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A greater than two‑fold increase in the proportion of patients with no VOC and who completed the study was observed in the Adakveo 5 mg/kg group compared to placebo (22% vs 8%; odds ratio [95% CI]: 3.57 [1.20, 10.63]). A similar difference was also observed across important subgroups (HU/HC use, genotype).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg was also associated with a three‑fold longer Kaplan‑Meier estimated median time to first VOC compared with placebo (4.07 vs 1.38 months; HR=0.495, 95% CI: 0.331, 0.741) (Figure 1) and a two‑fold longer median time from randomisation to second VOC compared to placebo (10.32 vs 5.09 months; HR=0.534, 95% CI: 0.329, 0.866).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Figure 1      Kaplan‑Meier curve of time to first VOC</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"><span style="position:absolute;z-index:251748352;left:0px;margin-left:61px; margin-top:211px;width:13px;height:9px"><img alt="0" height="9" src="#image1" width="13"/></span><span style="position:absolute;z-index:251746304;left:0px;margin-left:63px; margin-top:190px;width:10px;height:10px"><img alt="10" height="10" src="#image2" width="10"/></span><span style="position:absolute;z-index:251744256;left:0px;margin-left:64px; margin-top:169px;width:10px;height:10px"><img alt="20" height="10" src="#image3" width="10"/></span><span style="position:absolute;z-index:251742208;left:0px;margin-left:64px; margin-top:149px;width:10px;height:10px"><img alt="30" height="10" src="#image4" width="10"/></span><span style="position:absolute;z-index:251740160;left:0px;margin-left:65px; margin-top:130px;width:10px;height:10px"><img alt="40" height="10" src="#image5" width="10"/></span><span style="position:absolute;z-index:251738112;left:0px;margin-left:64px; margin-top:110px;width:10px;height:10px"><img alt="50" height="10" src="#image6" width="10"/></span><span style="position:absolute;z-index:251736064;left:0px;margin-left:64px; margin-top:90px;width:10px;height:10px"><img alt="60" height="10" src="#image7" width="10"/></span><span style="position:absolute;z-index:251734016;left:0px;margin-left:64px; margin-top:70px;width:10px;height:10px"><img alt="70" height="10" src="#image8" width="10"/></span><span style="position:absolute;z-index:251731968;left:0px;margin-left:63px; margin-top:48px;width:10px;height:10px"><img alt="80" height="10" src="#image9" width="10"/></span><span style="position:absolute;z-index:251729920;left:0px;margin-left:65px; margin-top:28px;width:10px;height:10px"><img alt="90" height="10" src="#image10" width="10"/></span><span style="position:absolute;z-index:251727872;left:0px;margin-left:60px; margin-top:9px;width:15px;height:10px"><img alt="100" height="10" src="#image11" width="15"/></span><span style="position:absolute;z-index:251781120;left:0px;margin-left:459px; margin-top:8px;width:125px;height:38px"><img height="38" src="#image12" width="125"/></span><span style="position: absolute;z-index:251779072;left:0px;margin-left:494px;margin-top:7px; width:92px;height:26px"><img height="26" src="#image13" width="92"/></span><span style="position: absolute;z-index:251666432;left:0px;margin-left:22px;margin-top:28px; width:32px;height:178px"><img alt="Probability of being free from first VOC (%)" height="178" src="#image14" width="32"/></span><span style="position:absolute;z-index:251725824;left:0px;margin-left:320px; margin-top:242px;width:56px;height:10px"><img alt="Time (months)¬¬¬¬" height="10" src="#image15" width="56"/></span><sub><span style="font-size:11.0pt"> <img border="0" height="223" id="Picture 1243" src="#image16" width="518"/></span></sub></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"> <table align="left" cellpadding="0" cellspacing="0"> <tr> <td height="1" width="3"></td> <td width="36"></td> <td width="33"></td> <td width="2"></td> <td width="2"></td> <td width="5"></td> <td width="10"></td> <td width="3"></td> <td width="23"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="26"></td> <td width="3"></td> <td width="7"></td> <td width="28"></td> <td width="10"></td> <td width="28"></td> <td width="10"></td> <td width="25"></td> <td width="10"></td> <td width="26"></td> <td width="13"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="30"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="18"></td> </tr> <tr> <td height="10"></td> <td colspan="5"></td> <td align="left" valign="top"><img alt="0" height="10" src="#image17" width="10"/></td> <td colspan="2"></td> <td align="left" valign="top"><img alt="1" height="10" src="#image18" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="2" height="10" src="#image19" width="10"/></td> <td></td> <td align="left" colspan="2" valign="top"><img alt="3" height="10" src="#image20" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="4" height="10" src="#image21" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="5" height="10" src="#image22" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="6" height="10" src="#image23" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="7" height="10" src="#image24" width="13"/></td> <td></td> <td align="left" valign="top"><img alt="8" height="10" src="#image25" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="9" height="10" src="#image26" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="10" height="10" src="#image27" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="11" height="10" src="#image28" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="12" height="10" src="#image29" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="13" height="10" src="#image30" width="10"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="9"></td> <td colspan="7"></td> <td align="left" colspan="6" valign="top"><img alt="Number of patients at risk" height="9" src="#image31" width="99"/></td> </tr> <tr> <td height="7"></td> </tr> <tr> <td height="7"></td> <td colspan="4"></td> <td align="left" colspan="31" rowspan="5" valign="top"><img alt="67,49,41,35,30,26,24,20,18,17,16,15,7,65,37,23,21,17,13,12,9,8,6,5,4,1,0,0" height="43" src="#image32" width="513"/></td> </tr> <tr> <td height="10"></td> <td align="left" colspan="3" valign="top"><img alt="Adakveo 5 mg/kg " height="10" src="#image33" width="71"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="10"></td> <td></td> <td align="left" valign="top"><img alt="Placebo" height="10" src="#image34" width="33"/></td> </tr> <tr> <td height="2"></td> </tr> </table> </p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><br clear="ALL"/>
+		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">The efficacy of crizanlizumab, with or without HU/HC, was evaluated in the pivotal study SUSTAIN, a 52‑week, randomised, placebo‑controlled, double‑blind, multicentre clinical study in sickle cell disease patients with a history of vaso‑occlusive crises (VOCs).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In this study, VOCs were defined as those leading to a healthcare visit, which captured all acute episodes of pain with no other cause than a vaso‑occlusive event that required a healthcare visit and treatment with oral or parenteral opioids or parenteral non‑steroidal anti‑inflammatory drugs (NSAIDs). Acute chest syndrome, hepatic sequestration, splenic sequestration and priapism (requiring a healthcare visit), by definition, were also considered VOCs.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A total of 198 sickle cell disease patients aged 16 to 63 years (inclusive; mean age 30.1±10.3 years), with any sickle cell disease genotype (including HbSS [71.2%], HbSC [16.2%], HbSbeta0‑thalassaemia [6.1%], HbSbeta+‑thalassaemia [5.1%], and others [1.5%]) and a history of between 2 and 10 VOCs in the previous 12 months (62.6% and 37.4% of the patients had 2‑4 or 5‑10 VOCs, respectively), were randomised 1:1:1 to Adakveo 5 mg/kg, Adakveo 2.5 mg/kg or placebo. The majority of patients were Black or African American (91.9%). Patients received Adakveo with (62.1%) or without (37.9%) HU/HC. Randomisation was stratified by patients already receiving HU/HC (Y/N) and by number of VOCs in the previous 12 months (2 to 4, 5 to 10). Patients were allowed to take medicinal products to relieve pain (i.e. paracetamol, NSAIDs and opioids) and to receive occasional transfusions on an “as needed” basis. Patients participating in a chronic transfusion programme (pre-planned series of transfusions for prophylactic purposes) were excluded from the study.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg resulted in a 45.3% lower median annual rate of VOCs compared to placebo (Hodges‑Lehmann, median absolute difference of ‑1.01 compared with placebo, 95% CI [‑2.00, 0.00]), which was statistically significant (p=0.010). The median annual rates of uncomplicated VOCs (any VOCs as defined above, excluding acute chest syndrome, hepatic sequestration, splenic sequestration or priapism) and days hospitalised were 62.9% and 41.8% lower in the Adakveo 5 mg/kg than in the placebo group, respectively. The VOCs occurring during the study were assessed by an independent review committee.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Main efficacy outcomes of the pivotal SUSTAIN study are summarised in Tables 2 and 3.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><a name="_Toc499550968"></a><a name="_Toc517716326"><b><span lang="EN-GB">Table </span></b></a><b><span lang="EN-GB">2       Results from SUSTAIN clinical study in </span></b><a name="_hd6_Table_12_1_Results_fro16811"></a><b><span lang="EN-GB">sickle cell disease</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="width:98.84%;border-collapse:collapse;border:none" width="98%"> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.16%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Event</span></b></p> </td> <td style="width:23.82%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:11.54%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:10.46%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:21.1%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(95% CI)</span></p> </td> <td style="width:12.9%;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">p-value</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(Wilcoxon rank sum)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Primary endpoint</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.63</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.98</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑45.3%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.010</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td colspan="5" style="width:87.1%;border:none;   border-bottom:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" valign="top" width="87%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Secondary endpoints</span></b></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of days hospitalised</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">4.00</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">6.87</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑41.8%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑4.36, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.450</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td style="width:20.18%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="20%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Annual rate of uncomplicated VOCs</span></p> </td> <td style="width:23.82%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="23%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.08</span></p> </td> <td style="width:11.54%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="11%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.91</span></p> </td> <td style="width:10.46%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="10%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑62.9%</span></p> </td> <td style="width:21.1%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="21%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.00</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.98, 0.00)</span></p> </td> <td style="width:12.9%;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="12%"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">-</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:1.0pt"> <td colspan="6" style="width:.02%;border:none;border-bottom:   solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:1.0pt" valign="top" width="0%"> <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB" style="font-size:10.0pt">The primary (annual rate of VOC leading   to healthcare visit) and key secondary (annual rate of days hospitalised)   endpoints were the only ones formally tested for statistical significance   according to protocol.</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal"><span lang="EN-GB">The clinical effect demonstrated in the primary efficacy analysis was supported by multiple supplementary analyses including a negative binomial regression on investigator assessments with a conservative method to handle missing data due to early discontinuation of treatment based on outcomes in the placebo group (RR=0.74, 95% CI=0.52, 1.06).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"> </p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">In the Adakveo 5 mg/kg group, clinically significant reductions in the annual rate of VOCs were observed across important subgroups (</span><span lang="EN-GB">HU/HC use, 2‑4 or 5‑10 VOCs in the previous 12 months, and HbSS or non‑HbSS genotypes; </span><span lang="EN-GB">see Table 3).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><b><span lang="EN-GB">Table 3       Annual rate of VOCs in patients ‑ subgroup analyses</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="border-collapse:collapse;border:none" width="612"> <tr style="page-break-inside:avoid"> <td style="width:90.45pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Subgroup </span></b></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"></p> </td> <td style="width:70.85pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Adakveo 5 mg/kg (N=67)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Placebo (N=65)</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(standard median)</span></p> </td> <td style="width:63.8pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Change vs placebo</span></b></p> </td> <td style="width:106.3pt;border-top:solid windowtext 1.0pt;   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">Hodges‑Lehmann median   difference</span></b></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><b><span lang="EN-GB">(95% CI)</span></b></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HU/HC use</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Yes</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.43</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n= 40</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.58</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑32.1%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.44, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">No</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.02</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.00, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid;height:20.2pt"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:20.2pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Number of VOCs in previous   12 months</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2‑4 VOCs</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=42</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.14</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=41</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑43.0%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:20.2pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑0.05</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑1.56, 0.01)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5‑10 VOCs</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=25</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=24</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">5.32</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑63.0%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑2.74</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑5.00, ‑0.83)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td rowspan="2" style="width:90.45pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="121"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Sickle cell disease genotypes,   including HbSC</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">HbSS</span></p> </td> <td style="width:70.85pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">1.97</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=47</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">3.01</span></p> </td> <td style="width:63.8pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑34.6%</span></p> </td> <td style="width:106.3pt;border:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.18, 0.00)</span></p> </td> </tr> <tr style="page-break-inside:avoid"> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">Non‑HbSS</span></p> </td> <td style="width:70.85pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="94"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=20</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">0.99</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">n=18</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">2.00</span></p> </td> <td style="width:63.8pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="85"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑50.5%</span></p> </td> <td style="width:106.3pt;border:none;border-bottom:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="142"> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">‑1.01</span></p> <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;   text-autospace:none"><span lang="EN-GB">(‑2.01, 0.00)</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">A greater than two‑fold increase in the proportion of patients with no VOC and who completed the study was observed in the Adakveo 5 mg/kg group compared to placebo (22% vs 8%; odds ratio [95% CI]: 3.57 [1.20, 10.63]). A similar difference was also observed across important subgroups (HU/HC use, genotype).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Treatment with Adakveo 5 mg/kg was also associated with a three‑fold longer Kaplan‑Meier estimated median time to first VOC compared with placebo (4.07 vs 1.38 months; HR=0.495, 95% CI: 0.331, 0.741) (Figure 1) and a two‑fold longer median time from randomisation to second VOC compared to placebo (10.32 vs 5.09 months; HR=0.534, 95% CI: 0.329, 0.866).</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><b><span lang="EN-GB">Figure 1      Kaplan‑Meier curve of time to first VOC</span></b></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"><span style="position:absolute;z-index:251748352;left:0px;margin-left:61px; margin-top:211px;width:13px;height:9px"><img alt="0" height="9" src="#image0" width="13"/></span><span style="position:absolute;z-index:251746304;left:0px;margin-left:63px; margin-top:190px;width:10px;height:10px"><img alt="10" height="10" src="#image1" width="10"/></span><span style="position:absolute;z-index:251744256;left:0px;margin-left:64px; margin-top:169px;width:10px;height:10px"><img alt="20" height="10" src="#image2" width="10"/></span><span style="position:absolute;z-index:251742208;left:0px;margin-left:64px; margin-top:149px;width:10px;height:10px"><img alt="30" height="10" src="#image3" width="10"/></span><span style="position:absolute;z-index:251740160;left:0px;margin-left:65px; margin-top:130px;width:10px;height:10px"><img alt="40" height="10" src="#image4" width="10"/></span><span style="position:absolute;z-index:251738112;left:0px;margin-left:64px; margin-top:110px;width:10px;height:10px"><img alt="50" height="10" src="#image5" width="10"/></span><span style="position:absolute;z-index:251736064;left:0px;margin-left:64px; margin-top:90px;width:10px;height:10px"><img alt="60" height="10" src="#image6" width="10"/></span><span style="position:absolute;z-index:251734016;left:0px;margin-left:64px; margin-top:70px;width:10px;height:10px"><img alt="70" height="10" src="#image7" width="10"/></span><span style="position:absolute;z-index:251731968;left:0px;margin-left:63px; margin-top:48px;width:10px;height:10px"><img alt="80" height="10" src="#image8" width="10"/></span><span style="position:absolute;z-index:251729920;left:0px;margin-left:65px; margin-top:28px;width:10px;height:10px"><img alt="90" height="10" src="#image9" width="10"/></span><span style="position:absolute;z-index:251727872;left:0px;margin-left:60px; margin-top:9px;width:15px;height:10px"><img alt="100" height="10" src="#image10" width="15"/></span><span style="position:absolute;z-index:251781120;left:0px;margin-left:459px; margin-top:8px;width:125px;height:38px"><img height="38" src="#image11" width="125"/></span><span style="position: absolute;z-index:251779072;left:0px;margin-left:494px;margin-top:7px; width:92px;height:26px"><img height="26" src="#image12" width="92"/></span><span style="position: absolute;z-index:251666432;left:0px;margin-left:22px;margin-top:28px; width:32px;height:178px"><img alt="Probability of being free from first VOC (%)" height="178" src="#image13" width="32"/></span><span style="position:absolute;z-index:251725824;left:0px;margin-left:320px; margin-top:242px;width:56px;height:10px"><img alt="Time (months)¬¬¬¬" height="10" src="#image14" width="56"/></span><sub><span style="font-size:11.0pt"> <img border="0" height="223" id="Picture 1243" src="#image15" width="518"/></span></sub></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"> <table align="left" cellpadding="0" cellspacing="0"> <tr> <td height="1" width="3"></td> <td width="36"></td> <td width="33"></td> <td width="2"></td> <td width="2"></td> <td width="5"></td> <td width="10"></td> <td width="3"></td> <td width="23"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="26"></td> <td width="3"></td> <td width="7"></td> <td width="28"></td> <td width="10"></td> <td width="28"></td> <td width="10"></td> <td width="25"></td> <td width="10"></td> <td width="26"></td> <td width="13"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="30"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="26"></td> <td width="10"></td> <td width="27"></td> <td width="10"></td> <td width="18"></td> </tr> <tr> <td height="10"></td> <td colspan="5"></td> <td align="left" valign="top"><img alt="0" height="10" src="#image16" width="10"/></td> <td colspan="2"></td> <td align="left" valign="top"><img alt="1" height="10" src="#image17" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="2" height="10" src="#image18" width="10"/></td> <td></td> <td align="left" colspan="2" valign="top"><img alt="3" height="10" src="#image19" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="4" height="10" src="#image20" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="5" height="10" src="#image21" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="6" height="10" src="#image22" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="7" height="10" src="#image23" width="13"/></td> <td></td> <td align="left" valign="top"><img alt="8" height="10" src="#image24" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="9" height="10" src="#image25" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="10" height="10" src="#image26" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="11" height="10" src="#image27" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="12" height="10" src="#image28" width="10"/></td> <td></td> <td align="left" valign="top"><img alt="13" height="10" src="#image29" width="10"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="9"></td> <td colspan="7"></td> <td align="left" colspan="6" valign="top"><img alt="Number of patients at risk" height="9" src="#image30" width="99"/></td> </tr> <tr> <td height="7"></td> </tr> <tr> <td height="7"></td> <td colspan="4"></td> <td align="left" colspan="31" rowspan="5" valign="top"><img alt="67,49,41,35,30,26,24,20,18,17,16,15,7,65,37,23,21,17,13,12,9,8,6,5,4,1,0,0" height="43" src="#image31" width="513"/></td> </tr> <tr> <td height="10"></td> <td align="left" colspan="3" valign="top"><img alt="Adakveo 5 mg/kg " height="10" src="#image32" width="71"/></td> </tr> <tr> <td height="14"></td> </tr> <tr> <td height="10"></td> <td></td> <td align="left" valign="top"><img alt="Placebo" height="10" src="#image33" width="33"/></td> </tr> <tr> <td height="2"></td> </tr> </table> </p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="Text" style="margin-top:0in;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><br clear="ALL"/>
 			</div>
 		</text>
 		

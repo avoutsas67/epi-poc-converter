@@ -60,5 +60,5 @@ setuptools.setup(
     packages=packages,
     package_dir=package_dir,
     install_requires=requirements,
-    python_requires='~=3.7.3'
+    python_requires='>=3.7'
 )

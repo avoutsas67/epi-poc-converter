@@ -2,13 +2,12 @@ import json
 import os
 class DocumentTypeNames():
 
-    def __init__(self, fileNameDocumentTypeNames, languageCode, domain, procedureType, documentNumber, fsMountName, localEnv):
+    def __init__(self, controlBasePath, fileNameDocumentTypeNames, languageCode, domain, procedureType, documentNumber):
         
-        if localEnv is True:
+        self.controlBasePath = controlBasePath
 
-            self.filePath = os.path.join(os.path.abspath(os.path.join('..')), 'control', 'documentTypeNames')
-        else:
-            self.filePath = os.path.join(f'{fsMountName}', 'control', 'documentTypeNames')
+        self.filePath = os.path.join( self.controlBasePath,'documentTypeNames')
+
         self.fileName = fileNameDocumentTypeNames
 
         with open(f'{os.path.join(self.filePath,self.fileName)}', encoding='utf-8') as f:
