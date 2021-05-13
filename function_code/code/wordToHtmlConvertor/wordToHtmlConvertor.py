@@ -58,8 +58,7 @@ class WordToHtmlConvertor:
         context_json['Language']=str(in_file_meta[3])
         
         folder_path = os.path.abspath(os.path.join('..'))
-        folder_path = os.path.join(folder_path, 'data')
-        folder_path = os.path.join(folder_path, 'converted_to_html')
+        folder_path = os.path.join(folder_path, 'work')
         folder_path = os.path.join(folder_path, in_file_meta[1])
         if not os.path.exists(folder_path):
             os.mkdir(folder_path)
@@ -173,19 +172,16 @@ class WordToHtmlConvertor:
             word.Quit()
 
             zip_path = os.path.abspath(os.path.join('..'))
-            zip_path = os.path.join(zip_path, 'data')
 
-            process_word_files_path = os.path.join(zip_path, 'processedWordPI')
+            process_word_files_path = os.path.join(zip_path, 'data')
+            process_word_files_path = os.path.join(process_word_files_path, 'processedWordPI')
             process_word_files_path = os.path.join(process_word_files_path, in_file_name)
 
-            zip_path = os.path.join(zip_path, 'zippedPI')
-            zip_file_name = os.path.join(zip_path, in_file_name_meta+'-'+timestamp)
+            zip_path = os.path.join(zip_path, 'inputblob')
+            zip_file_name = os.path.join(zip_path, in_file_name_meta+'~'+timestamp)
 
             try:
                 zip_file_name = shutil.make_archive(zip_file_name, 'zip', out_folder_path)
-            except:
-                print('Zip not created')
-            finally:
                 connection_str = 'DefaultEndpointsProtocol=https;AccountName=emateststgacc01;AccountKey=lJzoBFmZM+Yh1jdIfsU88XHvDWp8pBByKgGlCfT2aJHG/5MePd8m+j3lNPHg9tB2Z9u55VavzHhFX9upONbygw==;EndpointSuffix=core.windows.net'
 
                 blob_service_client = BlobServiceClient.from_connection_string(connection_str)
@@ -198,6 +194,11 @@ class WordToHtmlConvertor:
                 data.close()
 
                 shutil.copyfile(in_file, process_word_files_path)
+            except:
+                print('Zip not created')
+                raise
+                
+                
         except:
             doc.Save()
             doc.Close()
@@ -209,7 +210,7 @@ class WordToHtmlConvertor:
         in_folder_path = os.path.join(in_folder_path, 'data')
         in_folder_path = os.path.join(in_folder_path, 'Ingest')
         doc_file_list = [i for i in list(os.listdir(in_folder_path)) if ('docx' in i or 'doc' in i)]
-        print(doc_file_list)
+        print('Word Files in folder: ', doc_file_list)
         for filename in doc_file_list:
              if(not filename.startswith('~')):
                 self.cleanWordAndGenerateHtml(in_folder_path, filename)
