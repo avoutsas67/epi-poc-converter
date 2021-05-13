@@ -283,16 +283,12 @@ class MatchStrings():
             return True, outputString
 
         else:
+            lowerCaseCheckFuzzyScoreThreshhold = ruleDict1['lowerCaseWeightedFuzzyScore']
+            if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
 
-            if self.documentNumber == 1: ### Annex II
-                lowerCaseCheckFuzzyScoreThreshhold = 85
-            else:
-                lowerCaseCheckFuzzyScoreThreshhold = 90
-
-            if (fuzzyScoreOutput[2] >= lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
-
-                print(
-                    f"\nOriginalCheck\n{outputString,textOriginal,textToMatch}\n")
+                print("\nOriginalCheck\n")
+                #print(
+                #    f"\nOriginalCheck\n{outputString,textOriginal.encode('utf-8','ignore').decode('utf-8','ignore'), textToMatch.encode('utf-8','ignore').decode('utf-8','ignore')}\n")
 
                 # print(textOriginal.lower(),textToMatch.lower(),outputString)
 

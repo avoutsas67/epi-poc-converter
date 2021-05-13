@@ -46,13 +46,30 @@
 								</Binary>
 							</contained>
 							<!-- this exension is necessary per image -->
-                        	<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
                         		<valueReference>
                         			<reference value="#{{key}}"/>
                         		</valueReference>
-                        	</extension>
-							{% endfor %}
-							<status value="final"/>
+               </extension>
+              {% endfor %}
+              {% if xml_bundle_data['styleTagDictionary'] %}
+              <contained>
+                          <Binary>
+                            <id value="{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
+                            <!-- example format -->
+                            <contentType value="{{xml_bundle_data['styleTagDictionary']['Type']}}"/>
+                            <!-- data is base 64 encoded, actual bytes of the image png file -->
+                            <data value="{{xml_bundle_data['styleTagDictionary']['Uri']}}"/>
+                          </Binary>
+                        </contained>
+                        <!-- this exension is necessary per image -->
+                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                          <valueReference>
+                            <reference value="#{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
+                          </valueReference>
+                        </extension>
+              {% endif %}
+              <status value="final"/>
 							<!-- document type -->
 							<type>
 								<coding>

@@ -1,6 +1,0 @@
-# DO NOT include azure-functions-worker in this file
-# The Python Worker is managed by Azure Functions platform
-# Manually managing azure-functions-worker may cause unexpected issues
-
-azure-functions
-wheelhouse/code-20210508.post14855-py2.py3-none-any.whl
