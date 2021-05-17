@@ -1,4 +1,3 @@
-from tkinter.filedialog import askopenfilename
 import comtypes.client
 import os
 import uuid
