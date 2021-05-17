@@ -1,0 +1,38 @@
+2021-05-13 20:46:43,476 : WordToHtmlLoggerW : Input file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:46:43,478 : WordToHtmlLoggerW : Output file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\work\H\CAP\ABASAGLAR\en\2021-05-13T15-16-43Z\ABASAGLAR_clean | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:46:47,786 : WordToHtmlLoggerW : Opened file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:46:48,979 : WordToHtmlLoggerW : Starting document cleaning process | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:47,364 : WordToHtmlLoggerW : Completed document cleaning process | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:47,367 : WordToHtmlLoggerW : Preparing zip file | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:49,206 : WordToHtmlLoggerW : Zip file created with name: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-16-43Z.zip | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:49,210 : WordToHtmlLoggerW : Uploading to Azure Storage as blob:
+	C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-16-43Z.zip | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:54,019 : WordToHtmlLoggerW : UploadedC:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-16-43Z.zipsuccessfully | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:47:54,020 : WordToHtmlLoggerW : Deleting input word file: ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:49:36,277 : WordToHtmlLoggerI : Input file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:49:36,279 : WordToHtmlLoggerI : Output file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\work\H\CAP\ABASAGLAR\en\2021-05-13T15-19-36Z\ABASAGLAR_clean | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:49:39,948 : WordToHtmlLoggerI : Opened file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:49:41,482 : WordToHtmlLoggerI : Starting document cleaning process | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:49:43,079 : WordToHtmlLoggerI : Killing Word processes as exception was raised | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:50:08,853 : WordToHtmlLoggerS : Input file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:50:08,856 : WordToHtmlLoggerS : Output file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\work\H\CAP\ABASAGLAR\en\2021-05-13T15-20-08Z\ABASAGLAR_clean | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:50:12,704 : WordToHtmlLoggerS : Opened file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:50:13,899 : WordToHtmlLoggerS : Starting document cleaning process | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:08,369 : WordToHtmlLoggerS : Completed document cleaning process | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:08,371 : WordToHtmlLoggerS : Preparing zip file | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:10,179 : WordToHtmlLoggerS : Zip file created: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-20-08Z.zip | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:10,183 : WordToHtmlLoggerS : Uploading to Azure Storage as blob:
+	C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-20-08Z.zip | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:14,440 : WordToHtmlLoggerS : UploadedC:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\ABASAGLAR~H~CAP~en~2021-05-13T15-20-08Z.zipsuccessfully | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:14,443 : WordToHtmlLoggerS : Deleting input word file: ABASAGLAR~H~CAP~en.docx | H | CAP |  en | .docx | ABASAGLAR~H~CAP~en.docx
+2021-05-13 20:51:14,482 : WordToHtmlLoggerJ : Input file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\Abilify Maintena~H~CAP~en.doc | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:14,484 : WordToHtmlLoggerJ : Output file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-13T15-21-14Z\Abilify Maintena_clean | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:16,606 : WordToHtmlLoggerJ : Opened file: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\data\Ingest\Abilify Maintena~H~CAP~en.doc | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:18,264 : WordToHtmlLoggerJ : Starting document cleaning process | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:54,714 : WordToHtmlLoggerJ : Completed document cleaning process | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:54,718 : WordToHtmlLoggerJ : Preparing zip file | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:55,869 : WordToHtmlLoggerJ : Zip file created: C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\Abilify Maintena~H~CAP~en~2021-05-13T15-21-14Z.zip | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:51:55,872 : WordToHtmlLoggerJ : Uploading to Azure Storage as blob:
+	C:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\Abilify Maintena~H~CAP~en~2021-05-13T15-21-14Z.zip | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:52:09,002 : WordToHtmlLoggerJ : UploadedC:\Users\psaga\source\repos\EMA\EMA%20EPI%20PoC\function_code\inputblob\Abilify Maintena~H~CAP~en~2021-05-13T15-21-14Z.zipsuccessfully | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
+2021-05-13 20:52:09,004 : WordToHtmlLoggerJ : Deleting input word file: Abilify Maintena~H~CAP~en.doc | H | CAP |  en | .doc | Abilify Maintena~H~CAP~en.doc
