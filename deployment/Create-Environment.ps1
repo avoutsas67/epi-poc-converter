@@ -227,10 +227,10 @@ if ($DeployAPIM) {
     }
 
     Write-Host "Importing epi-read API in APIM '$fhirAPIMName'"
-    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-read" -ApiVersionSetId "epi-read" -ApiVersion "v1" -Path "epi" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-read.yml"
+    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-read-api" -ApiVersionSetId "epi-read-apiset" -ApiVersion "v1" -Path "epi" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-read.yml"
 
     Write-Host "Importing epi-write API in APIM '$fhirAPIMName'"
-    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-write" -ApiVersionSetId "epi-write" -ApiVersion "v1" -Path "epi-w" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
+    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-write-api" -ApiVersionSetId "epi-write-apiset" -ApiVersion "v1" -Path "epi-w" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
 }
 
 #endregion
