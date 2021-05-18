@@ -54,7 +54,7 @@
         {
             "type": "Microsoft.ApiManagement/service/apiVersionSets",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "name": "[concat(parameters('apimName'), '/epi-read-apiset')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
@@ -66,7 +66,7 @@
         {
             "type": "Microsoft.ApiManagement/service/apiVersionSets",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-write')]",
+            "name": "[concat(parameters('apimName'), '/epi-write-apiset')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
@@ -76,15 +76,80 @@
             }
         },
         {
-            "type": "Microsoft.ApiManagement/service/products",
+            "type": "Microsoft.ApiManagement/service/groups",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "name": "[concat(parameters('apimName'), '/administrators')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
             "properties": {
-                "displayName": "ePI read",
-                "description": "Users can read ePI documents",
+                "displayName": "Administrators",
+                "description": "Administrators is a built-in group. Its membership is managed by the system. Microsoft Azure subscription administrators fall into this group.",
+                "type": "system"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/developers')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "Developers",
+                "description": "Developers is a built-in group. Its membership is managed by the system. Signed-in users fall into this group.",
+                "type": "system"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/guests')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "Guests",
+                "description": "Guests is a built-in group. Its membership is managed by the system. Unauthenticated users visiting the developer portal fall into this group.",
+                "type": "system"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/portalsettings",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/signin')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "enabled": true
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/portalsettings",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/signup')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "enabled": true,
+                "termsOfService": {
+                    "enabled": false,
+                    "consentRequired": false
+                }
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-ext')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI read (external)",
+                "description": "Users can read ePI documents. The product is rate-limited and has a usage quota.",
                 "subscriptionRequired": true,
                 "approvalRequired": true,
                 "state": "published"
@@ -93,13 +158,28 @@
         {
             "type": "Microsoft.ApiManagement/service/products",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read-write')]",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
             "properties": {
-                "displayName": "ePI read/write",
-                "description": "Users can read and write ePI documents",
+                "displayName": "ePI read/write (external)",
+                "description": "Users can read and write ePI documents. The product is rate-limited and has a usage quota.",
+                "subscriptionRequired": true,
+                "approvalRequired": true,
+                "state": "published"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-bulk')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI read/write (bulk)",
+                "description": "Users can read and write ePI documents. This product is uses for bulk import of ePIs.",
                 "subscriptionRequired": true,
                 "approvalRequired": true,
                 "state": "published"
@@ -108,10 +188,10 @@
         {
             "type": "Microsoft.ApiManagement/service/apis",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read')]",
+            "name": "[concat(parameters('apimName'), '/epi-read-api')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]",
-                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read')]"
+                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read-apiset')]"
             ],
             "properties": {
                 "displayName": "ePI-read",
@@ -125,16 +205,16 @@
                 ],
                 "isCurrent": true,
                 "apiVersion": "v1",
-                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read')]"
+                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-read-apiset')]"
             }
         },
         {
             "type": "Microsoft.ApiManagement/service/apis",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-write')]",
+            "name": "[concat(parameters('apimName'), '/epi-write-api')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]",
-                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write')]"
+                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write-apiset')]"
             ],
             "properties": {
                 "displayName": "ePI-write",
@@ -148,45 +228,15 @@
                 ],
                 "isCurrent": true,
                 "apiVersion": "v1",
-                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write')]"
+                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-write-apiset')]"
             }
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/products/apis",
-            "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read/epi-read')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
-                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/products/apis",
-            "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read-write/epi-read')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
-                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.ApiManagement/service/products/apis",
-            "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read-write/epi-write')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write')]",
-                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
-            ]
         },
         {
             "type": "Microsoft.ApiManagement/service/apis/policies",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read/policy')]",
+            "name": "[concat(parameters('apimName'), '/epi-read-api/policy')]",
             "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read-api')]",
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
             "properties": {
@@ -197,13 +247,143 @@
         {
             "type": "Microsoft.ApiManagement/service/apis/policies",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-write/policy')]",
+            "name": "[concat(parameters('apimName'), '/epi-write-api/policy')]",
             "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write-api')]",
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ],
             "properties": {
                 "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n    <redirect-content-urls />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-ext/epi-read-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext/epi-read-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext/epi-write-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-bulk/epi-read-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-bulk')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-bulk/epi-write-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-bulk')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-write-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-ext/administrators')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext/administrators')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-bulk/administrators')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-bulk')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-ext/developers')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext/developers')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/groups",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-bulk/developers')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-bulk')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/policies",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-ext/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <rate-limit calls=\"20\" renewal-period=\"60\" remaining-calls-variable-name=\"remainingCallsPerSubscription\" />\r\n    <quota calls=\"20000\" renewal-period=\"2629800\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/products/policies",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-read-write-ext/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-write-ext')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "value": "<!--\r\n    IMPORTANT:\r\n    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.\r\n    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.\r\n    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.\r\n    - To remove a policy, delete the corresponding policy statement from the policy document.\r\n    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.\r\n    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.\r\n    - Policies are applied in the order of their appearance, from the top down.\r\n    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.\r\n-->\r\n<policies>\r\n  <inbound>\r\n    <base />\r\n    <rate-limit calls=\"20\" renewal-period=\"60\" remaining-calls-variable-name=\"remainingCallsPerSubscription\" />\r\n    <quota calls=\"20000\" renewal-period=\"2629800\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>",
                 "format": "xml"
             }
         }
