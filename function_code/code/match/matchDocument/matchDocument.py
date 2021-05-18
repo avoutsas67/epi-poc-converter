@@ -223,13 +223,13 @@ class MatchDocument():
         '''
 
         # print("update")
-        if currentHeadingRow['Heading Level'] == 'H0':
+        if currentHeadingRow['Heading Level'] == 'L0':
             return currentHeadingRow, None, None
 
-        if currentHeadingRow['Heading Level'] == 'H1':
+        if currentHeadingRow['Heading Level'] == 'L1':
             return currentHeadingRow, currentHeadingRow, None
 
-        if currentHeadingRow['Heading Level'] == 'H2':
+        if currentHeadingRow['Heading Level'] == 'L2':
             return currentHeadingRow, previousH1HeadingRowFound, currentHeadingRow
 
         return previousHeadingRowFound, previousH1HeadingRowFound, previousH2HeadingRowFound
@@ -325,7 +325,7 @@ class MatchDocument():
 
         matchStringObj = MatchStrings(
 
-            self.logger, self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
+            self.logger, self.domain, self.procedureType, self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
 
         validateMatchObk = ValidateMatch(self.logger)
 

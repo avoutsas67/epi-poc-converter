@@ -49,37 +49,37 @@ class QrdCanonical():
             
         if self.documentType == 'SmPC':    
             if row['Name'] in topCateories:
-                return 'H0'
+                return 'L0'
             elif pd.isna(row['Display code']):
-                return 'H3'
+                return 'L3'
             elif '.' in str(row['Display code']):
-                return 'H2'
+                return 'L2'
             else:
-                return 'H1'
+                return 'L1'
         
         if self.documentType == 'AnnexII':
             if row['Name'] in topCateories:
-                return 'H0'
+                return 'L0'
             elif pd.isna(row['Display code']):
-                return 'H2'
+                return 'L2'
             else:
-                return 'H1'
+                return 'L1'
 
         if self.documentType == 'Labelling':
             if row['Name'] in topCateories:
-                return 'H0'
+                return 'L0'
             elif pd.isna(row['Display code']):
-                return 'H1'
+                return 'L1'
             else:
-                return 'H2'
+                return 'L2'
         
         if self.documentType == 'Package leaflet':
             if row['Name'] in topCateories:
-                return 'H0'
+                return 'L0'
             elif pd.isna(row['Display code']):
-                return 'H1'
+                return 'L1'
             else:
-                return 'H2'
+                return 'L2'
 
 
     # def createHeadingLevelColumn(self, dfQrd):
@@ -98,7 +98,7 @@ class QrdCanonical():
         '''
         Assign Heading level to the Qrd dataframe as a new column using the parent_id and its heading level.
         '''
-        dfQrd['Heading Level'] = dfQrd.apply(lambda row : 'H0' if pd.isna(row['parent_id']) else None,axis = 1)
+        dfQrd['Heading Level'] = dfQrd.apply(lambda row : 'L0' if pd.isna(row['parent_id']) else None,axis = 1)
 
 
         for index,_ in dfQrd.iterrows():
@@ -106,7 +106,7 @@ class QrdCanonical():
 
             headingLevel = dfQrd.loc[index]['Heading Level']
             parentId = dfQrd.loc[index]['parent_id']
-            if headingLevel == 'H0':
+            if headingLevel == 'L0':
                 continue
             
             parentHeadingLevel = list(dfQrd[dfQrd['id'] == int(parentId)]['Heading Level'])[0]
@@ -116,15 +116,15 @@ class QrdCanonical():
                 print("None found")
                 raise ErrorInQrdTemplate("Heading Not Assigned")
 
-            if parentHeadingLevel == 'H0':
-                dfQrd.at[index,'Heading Level'] = 'H1'
+            if parentHeadingLevel == 'L0':
+                dfQrd.at[index,'Heading Level'] = 'L1'
 
-            if parentHeadingLevel == 'H1':
-                dfQrd.at[index,'Heading Level'] = 'H2'
-            if parentHeadingLevel == 'H2':
-                dfQrd.at[index,'Heading Level'] = 'H3'
-            if parentHeadingLevel == 'H3':
-                dfQrd.at[index,'Heading Level'] = 'H3'
+            if parentHeadingLevel == 'L1':
+                dfQrd.at[index,'Heading Level'] = 'L2'
+            if parentHeadingLevel == 'L2':
+                dfQrd.at[index,'Heading Level'] = 'L3'
+            if parentHeadingLevel == 'L3':
+                dfQrd.at[index,'Heading Level'] = 'L3'
                     
         return dfQrd    
                 

@@ -138,7 +138,7 @@ class ValidateMatch():
 
         And previousHeadingRow == previousHeadingRowFound, 
 
-        Check if the currentHeadingRow is 'H3', Find all the H3 headings which are unders the previous H1 or H2.
+        Check if the currentHeadingRow is 'L3', Find all the H3 headings which are unders the previous H1 or H2.
 
         check if this current H3 is part of this list or not. if it is not return False, else True.
 
@@ -214,7 +214,7 @@ class ValidateMatch():
 
             if previousHeadingRow['id'] == previousHeadingRowFound['id']:
 
-                if currentHeadingRow['Heading Level'] == 'H3':
+                if currentHeadingRow['Heading Level'] == 'L3':
 
                     previousHeadingRowActual = self.findPreviousHeading(
                         currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)
