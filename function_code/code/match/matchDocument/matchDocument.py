@@ -405,7 +405,7 @@ class MatchDocument():
                                             #    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
                                             print(
                                                 "----------------------------------")
-                                            self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                                             
                                             headingRemovedUsingStyle.append(
                                                 qrd_str)
