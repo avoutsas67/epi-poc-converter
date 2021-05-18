@@ -102,9 +102,10 @@ class MatchLogger():
         self.logger.info(message, extra = properties)
 
 
-    def logValidateCheckpoint(self, message, currentHeadingRow, previousHeadingFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, status):
+    def logValidateCheckpoint(self, message, currentHeadingRow, previousHeadingQrd,  previousHeadingFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, status):
         
         currentHeadingRow = currentHeadingRow[['id','Name','parent_id','heading_id']].to_dict() if currentHeadingRow is not None else ""
+        previousHeadingQrd = previousHeadingQrd[['id','Name','parent_id','heading_id']].to_dict() if previousHeadingQrd is not None else ""
         previousHeadingFound = previousHeadingFound[['id','Name','parent_id','heading_id']].to_dict() if previousHeadingFound is not None else ""
         previousH1HeadingRowFound = previousH1HeadingRowFound[['id','Name','parent_id','heading_id']].to_dict() if previousH1HeadingRowFound is not None else ""
         previousH2HeadingRowFound = previousH2HeadingRowFound[['id','Name','parent_id','heading_id']].to_dict() if previousH2HeadingRowFound is not None else ""
@@ -116,6 +117,7 @@ class MatchLogger():
                                 'Lanaguage Code': self.languageCode,
                                 'Document Type': self.documentType,
                                 'Current Heading': str(currentHeadingRow),
+                                'Previous Heading Qrd': str(previousHeadingQrd),
                                 'Previous Heading Found': str(previousHeadingFound),
                                 'Previous H1 Heading Found': str(previousH1HeadingRowFound),
                                 'Previous H2 Heading Found': str(previousH2HeadingRowFound),
@@ -124,7 +126,7 @@ class MatchLogger():
 
         properties  = {'custom_dimensions': customDimensionValidate}
 
-        extraMessage = f" | {self.domain} | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | currHeadId :- '{str(currentHeadingRow['id']) if currentHeadingRow != '' else ''}' | currParentHeadId :- '{str(currentHeadingRow['parent_id']) if currentHeadingRow != '' else ''}' | prevParentHeadId :- '{str(previousHeadingFound['id']) if previousHeadingFound != '' else ''}'"
+        extraMessage = f" | {self.domain} | {self.procedureType} |  {self.languageCode} | {self.documentType} | {self.fileNameDoc} | currHeadId :- '{str(currentHeadingRow['id']) if currentHeadingRow != '' else ''}' | prevHeadingCurrId :- '{str(previousHeadingQrd['id']) if previousHeadingQrd != '' else ''}' | prevHeadingFoundId :- '{str(previousHeadingFound['id']) if previousHeadingFound != '' else ''}'"
         message = message + extraMessage
         
         self.logger.info(message, extra = properties)
