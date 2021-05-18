@@ -1,0 +1,43 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    .ema-footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding:28px 0px;
+        border-top: 5px solid $ema-secondary;
+        &-links {
+            list-style: none;
+            margin: 0px 0px 28px 0px;
+            padding: 0px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            li {
+                color: $ema-text-bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+        &-logos{
+            list-style: none;
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        @media (min-width: 576px) { 
+            .ema-footer {
+                position: static;
+            }
+         }
+    }
+
+}

@@ -1,0 +1,11 @@
+:host {
+    .ema-document-view {
+        height: calc(100vh - 284px);
+        overflow: auto;
+        @media (max-width: 576px) {
+            & {
+                height: 100%;
+            }
+        }
+    }
+}
