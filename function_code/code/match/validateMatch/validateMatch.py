@@ -151,7 +151,7 @@ class ValidateMatch():
             # print(previousHeadingRowFound['id'],previousHeadingRowFound['id'],previousHeadingRowFound['id'])
             if currentHeadingRow['id'] == previousHeadingRowFound['id']:
 
-                self.logger.logValidateCheckpoint("Validation Passed As Previous Heading Same As Current", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                self.logger.logValidateCheckpoint("Validation Passed As Previous Heading Same As Current", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                 return True
 
         if currentHeadingRow is not None and previousH1HeadingRowFound is not None:
@@ -159,12 +159,12 @@ class ValidateMatch():
                 if currentHeadingIsTop == True and previousHeadingIsBottom == True:
                     print("-------------------Here1------------------------")
 
-                    self.logger.logValidateCheckpoint("Validation Failed Top Heading Found After Bottom Headings", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                    self.logger.logValidateCheckpoint("Validation Failed Top Heading Found After Bottom Headings", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
 
                     return False
                 else:
 
-                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
                     return True
 
         if currentHeadingRow is not None and previousH2HeadingRowFound is not None:
@@ -172,11 +172,11 @@ class ValidateMatch():
                 if currentHeadingIsTop == True and previousHeadingIsBottom == True:
                     print("-------------------Here2------------------------")
                     
-                    self.logger.logValidateCheckpoint("Validation Failed Top Heading Found After Bottom Headings", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                    self.logger.logValidateCheckpoint("Validation Failed Top Heading Found After Bottom Headings", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
                     
                     return False
                 else:
-                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H2 Heading", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H2 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                     return True
 
         # Find previous heading
@@ -187,7 +187,7 @@ class ValidateMatch():
 
             if previousHeadingRowFound is None:
 
-                self.logger.logValidateCheckpoint("Validation Passed As This The First Heading", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                self.logger.logValidateCheckpoint("Validation Passed As This The First Heading", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                 return True
 
             previousHeadingRowQrd = self.findPreviousHeading(
@@ -198,14 +198,14 @@ class ValidateMatch():
 
                 #print(f"\n\nHeading Not Found {previousHeadingRow} \n\n")
                 
-                self.logger.logValidateCheckpoint("Validation Flow Is Broken", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                self.logger.logValidateCheckpoint("Validation Flow Is Broken", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                 
                 previousHeadingRow = previousHeadingRowFound
                 
 
             else:
                 
-                self.logger.logValidateCheckpoint("Validation Failed As Wrong Heading Found", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                self.logger.logValidateCheckpoint("Validation Failed As Wrong Heading Found", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                 
                 return False
 
@@ -225,28 +225,28 @@ class ValidateMatch():
                     if currentHeadingRow['id'] not in childH3HeadingsIdList:
                         #print("\n\nException 2 \n\n")
 
-                        self.logger.logValidateCheckpoint("Validation Failed As Current H3 Heading Is Not Part Of Valid H3 Headings in Previous H2", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                        self.logger.logValidateCheckpoint("Validation Failed As Current H3 Heading Is Not Part Of Valid H3 Headings in Previous H2", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
 
                         return False
 
                     else:
     
-                        self.logger.logValidateCheckpoint("Validation Passed", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                        self.logger.logValidateCheckpoint("Validation Passed", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
 
                         return True
                 else:
         
-                    self.logger.logValidateCheckpoint("Validation Passed", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                    self.logger.logValidateCheckpoint("Validation Passed", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                     
                     return True
             else:
                 #print("\n\nMismatch\n\n")
                 #logger.warning(f"Heading Mismatch : {currentHeadingRow} ------------- {previousHeadingRow} -------------  {previousHeadingRowFound}")
 
-                self.logger.logValidateCheckpoint("Validation Failed As Previous Heading Found is not matching", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                self.logger.logValidateCheckpoint("Validation Failed As Previous Heading Found is not matching", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
                 return False
         else:
             
-            self.logger.logValidateCheckpoint("Validation Passed As This The First Heading", currentHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+            self.logger.logValidateCheckpoint("Validation Passed As This The First Heading", currentHeadingRow, previousHeadingRow, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
             
             return True
