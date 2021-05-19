@@ -1,3 +1,5 @@
+import tracemalloc
+import psutil
 import pprint
 import pandas as pd
 import uuid
@@ -10,6 +12,7 @@ from bs4 import NavigableString, BeautifulSoup
 from collections import defaultdict
 import random
 import string
+import time
 
 from utils.config import config
 from utils.logger.logger import loggerCreator
@@ -31,6 +34,80 @@ from languageInfo.documentTypeNames.documentTypeNames import DocumentTypeNames
 class FolderNotFoundError(Exception):
     pass
 
+class Metrics:
+    
+    def __init__(self, logFileName, logger):
+        self.logFileName = logFileName
+        self.start()
+        self.writer = open(self.logFileName, 'a')
+        self.writer.write("StepName,Time,Current Memory,Peak Memory,Used Ram Percentage\n")
+        self.finalPeak = 0
+        self.finalTotalTime = 0
+        self.finalUsedRamPerc = 0
+        self.logger = logger
+    
+    def start(self):
+        self.startTime = time.time()
+        tracemalloc.start()
+    
+    def getMetric(self, msg):
+        
+        self.endTime = time.time()
+        
+        self.totalTime = self.endTime - self.startTime
+        
+        
+        current, peak = tracemalloc.get_traced_memory()
+        current = current / 10**6
+        peak = peak / 10**6
+        
+        usedRamPerc = psutil.virtual_memory()[2]
+        
+        self.finalPeak = max(self.finalPeak, peak)
+        self.finalUsedRamPerc = max(self.finalUsedRamPerc, usedRamPerc)
+
+        self.finalTotalTime = self.finalTotalTime + self.totalTime
+        #self.finalTotalTime = round(self.finalTotalTime/60,3)
+        
+        outputString = f"{msg},{round(self.totalTime/60,4)} Min,{current} MB,{peak} MB,{usedRamPerc}%\n"
+        
+        self.logger.logFlowCheckpoint(f"{outputString}")
+        
+        print(f"Metrics : {outputString}")
+        self.writer.write(outputString)
+        tracemalloc.stop()
+        tracemalloc.start()
+        self.startTime = time.time()
+    def end(self):
+        
+        current, peak = tracemalloc.get_traced_memory()
+        current = current / 10**6
+        outputString = f"Final Metrics,{round(self.finalTotalTime/60,4)} Min,{current} MB,{self.finalPeak} MB,{self.finalUsedRamPerc}%\n"
+        print(f"Metrics : {outputString}")
+        self.logger.logFlowCheckpoint(f"{outputString}")
+        self.writer.write(outputString)
+        self.writer.close()
+        tracemalloc.stop()
+        
+        
+
+
+def convertToInt(x):
+    try:
+        return str(int(x))
+    except:
+        return x
+
+
+def convertCollectionToDataFrame(collection):
+
+    dfExtractedHier = pd.DataFrame(collection)
+    dfExtractedHier['parent_id'] = dfExtractedHier['parent_id'].apply(
+        lambda x: convertToInt(x))
+    dfExtractedHier['id'] = dfExtractedHier['id'].apply(
+        lambda x: convertToInt(x))
+
+    return dfExtractedHier
 
 def getRandomString(N):
     str_ = ''.join(random.choice(string.ascii_uppercase + string.digits
@@ -191,12 +268,13 @@ def extractAndValidateHeadings(controlBasePath,
         stopWordlanguage,
         isPackageLeaflet,
         medName)
-    df, coll = matchDocObj.matchHtmlHeaddingsWithQrd()
+    df, coll, documentType = matchDocObj.matchHtmlHeaddingsWithQrd()
 
-    return df, coll
+    return df, coll, documentType
 
 
 def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, medName = None):
+    
     
     if "/" in basePath:
         pathSep = "/"        
@@ -216,13 +294,17 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
     print(timestamp, languageCode, medName, procedureType, domain)
         
     flowLogger =  MatchLogger(f"Flow Logger HTML_{getRandomString(1)}", htmlDocName, domain, procedureType, languageCode, "HTML", fileNameLog)
-
+    
+    metrics = Metrics(os.path.join(basePath,'Metrics.csv'),flowLogger)
+    
+    
     flowLogger.logFlowCheckpoint("Starting HTML Conversion To Json")
     ###Convert Html to Json
     fileNameJson, stylesFilePath = convertHtmlToJson(controlBasePath, basePath, domain, procedureType, languageCode, htmlDocName, fileNameQrd, fileNameLog)
     
     print("stylePath:-",stylesFilePath)
     flowLogger.logFlowCheckpoint("Completed HTML Conversion To Json")
+    metrics.getMetric("HTML Conversion To Json")
 
     flowLogger.logFlowCheckpoint("Starting Json Split")
 
@@ -233,11 +315,11 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
     flowLogger.logFlowCheckpoint(str(partitionedJsonPaths))
     
     flowLogger.logFlowCheckpoint("Completed Json Split")
+    metrics.getMetric("Split Json")
     
     flowLogger.logFlowCheckpoint("Started Processing Partitioned Jsons")
     
     for index, fileNamePartitioned in enumerate(partitionedJsonPaths):
-        
         flowLogger.logFlowCheckpoint(f"\n\n\n\n||||||||||||||||||||||||||||||||{str(index)} ||||| {str(fileNamePartitioned)}||||||||||||||||||||||||||||||||\n\n\n\n")
         
         if index == 3:
@@ -247,7 +329,7 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
             stopWordFilterLen = 6
             isPackageLeaflet = False
             
-        df, coll = extractAndValidateHeadings(controlBasePath,
+        df, coll, documentType = extractAndValidateHeadings(controlBasePath,
                                     basePath,
                                     domain,
                                     procedureType,
@@ -265,7 +347,8 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
         
         print(f"Completed Heading Extraction For File")
         flowLogger.logFlowCheckpoint("Completed Heading Extraction For File")
-        
+        metrics.getMetric(f"{index}: Heading Extraction")
+
         print(f"Starting Document Annotation For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Document Annotation For File")
         documentAnnotationObj = DocumentAnnotation(fileNamePartitioned,'c20835db4b1b4e108828a8537ff41506','https://spor-sit.azure-api.net/pms/api/v2/',df,coll)
@@ -278,6 +361,7 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
             
         print(f"Completed Document Annotation")        
         flowLogger.logFlowCheckpoint("Completed Document Annotation")
+        metrics.getMetric(f"{index}: Document Annotation")
         
         print(f"Starting Extracting Content Between Heading For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Extracting Content Between Heading")
@@ -288,18 +372,27 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
         
         print(f"Completed Extracting Content Between Heading")        
         flowLogger.logFlowCheckpoint("Completed Extracting Content Between Heading")
+        metrics.getMetric(f"{index}: Content Extraction")
         
         xmlLogger =  MatchLogger(f'XmlGeneration_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
         fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, controlBasePath, basePath, pms_oms_annotation_data, stylesFilePath, medName)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
+        metrics.getMetric(f"{index}: Generate XML")
+        
         fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
 
         fhirServiceObj = FhirService(fhirServiceLogger, basePath, generatedXml)
         fhirServiceObj.submitFhirXml()
+        
+        metrics.getMetric(f"{index}: Submit FHIR Msg")
+        
         print(f"Created XML File For :- {fileNamePartitioned}")      
-
+        
         #return df,coll,dfExtractedHierRR
     
+    
     flowLogger.logFlowCheckpoint("Completed Processing Partitioned Jsons")
+    metrics.getMetric(f"{index}: Completed")
+    metrics.end()

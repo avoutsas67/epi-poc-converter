@@ -28,9 +28,11 @@ nltk.download('stopwords')
 
 class MatchStrings():
 
-    def __init__(self, logger, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
+    def __init__(self, logger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
         self.logger = logger
+        self.domain = domain
+        self.procedureType = procedureType
         self.documentNumber = int(documentNumber)
         self.ruleDict = ruleDict
         self.stopWordFilterListSize = stopWordFilterListSize
@@ -128,13 +130,13 @@ class MatchStrings():
         textToMatch1 = self.preprocessStr(textToMatch)
 
         if len(textOriginal1) >= 2*len(textToMatch1):
-            if self.documentNumber != 3 and qrdRowHeadingId != 13:
+            if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber != 3 and qrdRowHeadingId != 13:
                 return False, ""
             
 
         #print(textOriginal1," : ",textToMatch1)
         if textOriginal1 == textToMatch1:
-            self.logger.logMatchCheckpoint('Match Passed',textOriginal, textToMatch, True)
+            self.logger.logMatchCheckpoint('Match Passed',textOriginal1, textToMatch1, True)
             return True, ""
 
         noWordstextOriginal1 = len(textOriginal1.split())
@@ -207,7 +209,7 @@ class MatchStrings():
             key = ">7"
             ruleDict1 = self.ruleDict[key]
 
-        if self.documentNumber == 0: ## SmPC
+        if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 0: ## SmPC
             if (qrdRowHeadingId == 52):
                 key = "SpecialCase1"
                 ruleDict1 = self.ruleDict[key]
@@ -215,7 +217,7 @@ class MatchStrings():
                 key = "SpecialCase2"
                 ruleDict1 = self.ruleDict[key]
 
-        if self.documentNumber == 3: ## Package Leaflet
+        if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 3: ## Package Leaflet
             
             if(qrdRowHeadingId == 13):
                 key = "<=4"
@@ -261,7 +263,7 @@ class MatchStrings():
         #print(f"jaro_winkler_similarity: {jellyfish.jaro_winkler_similarity(textOriginal1,textToMatch1,long_tolerance=True)}")
         jaroWinklerScore = jellyfish.jaro_winkler_similarity(
             textOriginal1, textToMatch1, long_tolerance=True)
-        outputString = outputString + str(round(jaroWinklerScore, 2)) + "|"
+        outputString = outputString + str(round(jaroWinklerScore, 3)) + "|"
 
         if jaroWinklerScore >= ruleDict1['jaroWinklerSimCut']:
             resultSum = resultSum + 1
@@ -279,34 +281,38 @@ class MatchStrings():
 
         if resultSum == 3:
             
-            self.logger.logMatchCheckpoint('Match Passed',textOriginal, textToMatch, True)
+            self.logger.logMatchCheckpoint(f'Match Passed : {outputString}',textOriginal, textToMatch, True)
             return True, outputString
 
         else:
             lowerCaseCheckFuzzyScoreThreshhold = ruleDict1['lowerCaseWeightedFuzzyScore']
             if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
-
+                
                 print("\nOriginalCheck\n")
                 #print(
                 #    f"\nOriginalCheck\n{outputString,textOriginal.encode('utf-8','ignore').decode('utf-8','ignore'), textToMatch.encode('utf-8','ignore').decode('utf-8','ignore')}\n")
 
                 # print(textOriginal.lower(),textToMatch.lower(),outputString)
+                if textOriginal1.istitle() is True:
 
-                foundMatchLowerCase, outputString1 = self.matchStrings(
-                    textOriginal.lower(), textToMatch.lower(), qrdRowHeadingId, avoidLowerCaseMatch=True)
-
+                    foundMatchLowerCase, outputString1 = self.matchStrings(
+                        textOriginal1, textToMatch1.title(), qrdRowHeadingId, avoidLowerCaseMatch=True)
+                else:
+                    foundMatchLowerCase, outputString1 = self.matchStrings(
+                        textOriginal1.lower(), textToMatch1.lower(), qrdRowHeadingId, avoidLowerCaseMatch=True)
+                    
                 # print(f"\nLowerCaseCheck\n{foundMatchLowerCase,outputString1,textOriginal.lower(),textToMatch.lower()}\n")
 
                 if foundMatchLowerCase:
-                    self.logger.logMatchCheckpoint('Match Passed In Lowercase',textOriginal, textToMatch, True)
+                    self.logger.logMatchCheckpoint(f'Match Passed In Lowercase  : {outputString1}',textOriginal, textToMatch, True)
                     return foundMatchLowerCase, outputString1
 
                 else:
-                    self.logger.logMatchCheckpoint('Match Failed In Lowercase',textOriginal, textToMatch, False)
+                    self.logger.logMatchCheckpoint(f'Match Failed In Lowercase : {outputString}',textOriginal, textToMatch, False)
                     return False, outputString1
 
-            if resultSum == 2:
-                self.logger.logMatchCheckpoint('Match Failed',textOriginal, textToMatch, False)
+            #if resultSum == 2:
+            #    self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
                 
 
             return False, outputString

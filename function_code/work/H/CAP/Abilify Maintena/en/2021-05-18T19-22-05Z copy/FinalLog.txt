@@ -1,0 +1,50 @@
+2021-05-20 00:52:06,550 : Flow Logger HTML_M : Starting HTML Conversion To Json | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:06,556 : Style Dictionary_9 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:06,605 : Style Dictionary_9 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:08,866 : Parser_A : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\outputJSON\Abilify Maintena_clean.txt | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:16,399 : Parser_A : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\outputJSON\Abilify Maintena_clean.json | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:16,887 : Flow Logger HTML_M : Completed HTML Conversion To Json | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:16,888 : Flow Logger HTML_M : HTML Conversion To Json,0.1723 Min,11.652623 MB,20.953432 MB,66.7%
+ | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:16,910 : Flow Logger HTML_M : Starting Json Split | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:16,915 : Style Dictionary_d : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:16,971 : Style Dictionary_d : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:16,987 : Partition_j : Partitioning Json: Abilify Maintena_clean.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:17,257 : Partition_j : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\partitionedJSONs\Abilify Maintena_clean_SmPC.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:17,386 : Partition_j : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\partitionedJSONs\Abilify Maintena_clean_ANNEX II.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:17,559 : Partition_j : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\partitionedJSONs\Abilify Maintena_clean_ANNEX III.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:17,586 : Partition_j : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Abilify Maintena\en\2021-05-18T19-22-05Z copy\partitionedJSONs\Abilify Maintena_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Abilify Maintena_clean.json
+2021-05-20 00:52:17,617 : Flow Logger HTML_M : ['Abilify Maintena_clean_SmPC.json', 'Abilify Maintena_clean_ANNEX II.json', 'Abilify Maintena_clean_ANNEX III.json', 'Abilify Maintena_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:17,619 : Flow Logger HTML_M : Completed Json Split | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:17,621 : Flow Logger HTML_M : Split Json,0.0119 Min,0.3015 MB,16.901375 MB,66.6%
+ | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:17,624 : Flow Logger HTML_M : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:17,626 : Flow Logger HTML_M : 
+
+
+
+||||||||||||||||||||||||||||||||0 ||||| Abilify Maintena_clean_SmPC.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 00:52:17,631 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Starting Heading Extraction | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json
+2021-05-20 00:52:18,184 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Started Extracting Heading | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json
+2021-05-20 00:52:18,376 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- 'SUMMARY OF PRODUCT CHARACTERISTICS' | Qrd txt :- 'SUMMARY OF PRODUCT CHARACTERISTICS' | Matched :- 'True'
+2021-05-20 00:52:18,383 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed As This The First Heading | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-05-20 00:52:18,418 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Qrd txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-05-20 00:52:18,433 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Flow Is Broken | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20003' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '20001'
+2021-05-20 00:52:18,440 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20003' | prevHeadingCurrId :- '20001' | prevHeadingFoundId :- '20001'
+2021-05-20 00:52:19,469 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '2. QUALITATIVE AND QUANTITATIVE COMPOSITION' | Qrd txt :- '2. QUALITATIVE AND QUANTITATIVE COMPOSITION' | Matched :- 'True'
+2021-05-20 00:52:19,482 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20004' | prevHeadingCurrId :- '20003' | prevHeadingFoundId :- '20003'
+2021-05-20 00:52:22,167 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '3. PHARMACEUTICAL FORM' | Qrd txt :- '3. PHARMACEUTICAL FORM' | Matched :- 'True'
+2021-05-20 00:52:22,178 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Flow Is Broken | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20008' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '20004'
+2021-05-20 00:52:22,186 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20008' | prevHeadingCurrId :- '20004' | prevHeadingFoundId :- '20004'
+2021-05-20 00:52:22,868 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '4. CLINICAL PARTICULARS' | Qrd txt :- '4. CLINICAL PARTICULARS' | Matched :- 'True'
+2021-05-20 00:52:22,877 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20009' | prevHeadingCurrId :- '20008' | prevHeadingFoundId :- '20008'
+2021-05-20 00:52:22,936 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '4.1 Therapeutic indications' | Qrd txt :- '4.1 Therapeutic indications' | Matched :- 'True'
+2021-05-20 00:52:22,946 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20010' | prevHeadingCurrId :- '20009' | prevHeadingFoundId :- '20009'
+2021-05-20 00:52:23,189 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- '4.2 Posology and method of administration' | Qrd txt :- '4.2 Posology and method of administration' | Matched :- 'True'
+2021-05-20 00:52:23,198 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20011' | prevHeadingCurrId :- '20010' | prevHeadingFoundId :- '20010'
+2021-05-20 00:52:23,227 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Match Passed | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | Doc txt :- 'Posology' | Qrd txt :- 'Posology' | Matched :- 'True'
+2021-05-20 00:52:23,241 : Heading Extraction Abilify Maintena_clean_SmPC.json_i : Validation Failed As Current H3 Heading Is Not Part Of Valid H3 Headings in Previous H2 | H | CAP |  en | 0 | Abilify Maintena_clean_SmPC.json | currHeadId :- '20012' | prevHeadingCurrId :- '20011' | prevHeadingFoundId :- '20011'

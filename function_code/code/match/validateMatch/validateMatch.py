@@ -138,7 +138,7 @@ class ValidateMatch():
 
         And previousHeadingRow == previousHeadingRowFound, 
 
-        Check if the currentHeadingRow is 'H3', Find all the H3 headings which are unders the previous H1 or H2.
+        Check if the currentHeadingRow is 'L3', Find all the H3 headings which are unders the previous H1 or H2.
 
         check if this current H3 is part of this list or not. if it is not return False, else True.
 
@@ -163,8 +163,12 @@ class ValidateMatch():
 
                     return False
                 else:
+                    if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'CAP' and currentHeadingRow['document_number'] == 0 and currentHeadingRow['heading_id'] == 4:
+                        self.logger.logValidateCheckpoint("Validation Failed SmPc Special Case", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
 
-                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                        return False
+                    self.logger.logValidateCheckpoint(f"{currentHeadingRow['heading_id'], currentHeadingRow['document_number'], currentHeadingRow['Procedure type'] } Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                    
                     return True
 
         if currentHeadingRow is not None and previousH2HeadingRowFound is not None:
@@ -214,7 +218,7 @@ class ValidateMatch():
 
             if previousHeadingRow['id'] == previousHeadingRowFound['id']:
 
-                if currentHeadingRow['Heading Level'] == 'H3':
+                if currentHeadingRow['Heading Level'] == 'L3':
 
                     previousHeadingRowActual = self.findPreviousHeading(
                         currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)

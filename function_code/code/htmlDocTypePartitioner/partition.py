@@ -58,6 +58,20 @@ class DocTypePartitioner:
         styleStr = 'page-break-before:always'
         return str==styleStr
 
+    def remove_escape_ansi(self, line):
+
+        """
+
+        Function to remove escape characters in string
+
+        """
+
+        escapes = ''.join([chr(char) for char in range(1, 32)])
+
+        translator = str.maketrans('', '', escapes)
+
+        return line.translate(translator)
+
     ## Function to split document based on document type
     def splitHtmlBasedOnDoc(self, df, nextkey, page_break_indices, ignore_page_break_check):
         startPos = self.new_dataframe_start
@@ -65,7 +79,7 @@ class DocTypePartitioner:
 
         if(not ignore_page_break_check):
             for i, row in enumerate(df.itertuples(), 0):
-                if(row.Text.lower() == nextkey.lower()):
+                if(self.remove_escape_ansi(row.Text).lower() == nextkey.lower()):
                     endPos = i
             temp_df = pd.DataFrame(df.iloc[startPos:endPos], columns=list(df.columns))
             ## Getting last occurrence of text in dataframe
