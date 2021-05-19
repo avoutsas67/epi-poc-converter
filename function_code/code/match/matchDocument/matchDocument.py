@@ -78,7 +78,8 @@ class MatchDocument():
             domain=self.domain,
             procedureType=self.procedureType,
             languageCode=languageCode,
-            documentType=self.documentType).ProcessQrdDataframe()
+            documentType=self.documentType,
+            documentNumber=self.documentNumber).ProcessQrdDataframe()
 
         self.ruleDict = MatchRuleBook(
             controlBasePath=self.controlBasePath,
@@ -479,4 +480,4 @@ class MatchDocument():
 
         print(Counter(headingRemovedUsingStyle).keys())
 
-        return self.dfHtml, self.collectionFoundHeadings
+        return self.dfHtml, self.collectionFoundHeadings, self.documentType

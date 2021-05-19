@@ -7,7 +7,7 @@ class ErrorInQrdTemplate(Exception):
 
 class QrdCanonical():
 
-    def __init__(self, controlBasePath, fileName, domain, procedureType, languageCode, documentType):
+    def __init__(self, controlBasePath, fileName, domain, procedureType, languageCode, documentType, documentNumber):
         # r'qrd_canonical_mode_CAP_NAP.csv'
         
         self.controlBasePath = controlBasePath
@@ -22,6 +22,7 @@ class QrdCanonical():
         self.procedureType = procedureType
         self.languageCode = languageCode
         self.documentType = documentType
+        self.documentNumber = documentNumber
 
 
     def createQrdDataframe(self):
@@ -31,7 +32,10 @@ class QrdCanonical():
         colsofInterest  = ['id','domain','Procedure type', 'Document type', 'Language code',
         'Display code', 'Name', 'parent_id', 'Mandatory','heading_id']
         
-        return dfCanonicalModel[colsofInterest]
+        dfCanonicalModel = dfCanonicalModel[colsofInterest]
+        dfCanonicalModel['document_number'] = dfCanonicalModel.apply(lambda row: self.documentNumber if row['Document type'] == self.documentType else None, axis= 1    )
+        
+        return dfCanonicalModel
 
         
     ## Assign Heading level to the Qrd dataframe.

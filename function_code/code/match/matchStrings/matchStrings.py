@@ -288,8 +288,6 @@ class MatchStrings():
             lowerCaseCheckFuzzyScoreThreshhold = ruleDict1['lowerCaseWeightedFuzzyScore']
             if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
                 
-                if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 0 and qrdRowHeadingId == 4:
-                    return False, outputString
                 print("\nOriginalCheck\n")
                 #print(
                 #    f"\nOriginalCheck\n{outputString,textOriginal.encode('utf-8','ignore').decode('utf-8','ignore'), textToMatch.encode('utf-8','ignore').decode('utf-8','ignore')}\n")

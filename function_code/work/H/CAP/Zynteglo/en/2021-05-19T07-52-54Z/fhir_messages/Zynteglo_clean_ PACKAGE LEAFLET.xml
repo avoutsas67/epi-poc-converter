@@ -7,14 +7,14 @@
 	<type value="collection"/>
 	<!-- Repeat at this level per document -->
 	<entry>
-		<fullUrl value="urn:uuid:1dac9f6e-0f09-4246-a421-a42c2247f7d6"/>
+		<fullUrl value="urn:uuid:e70ed86c-e92a-4dc1-ab29-f56758656a93"/>
 		<!-- Top level of each document is a also FHIR Bundle, of type "document"
 		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
 	 	 All the other resources for this document are within this. -->
 		<resource>
             <Bundle>
             	<!-- When PUTing, some servers mandate an id here to match the existing id -->
-            	<id value="dd13ccb5-13c9-41a9-9156-2eb20d813ae8"/>
+            	<id value="70c4c12a-bbc5-4008-a3b4-dfc01d978960"/>
 				<!-- document bundles must have an identifier (bdl-9) -->
 				<identifier>
 					<!-- possibly different identifier types may be needed here -->
@@ -24,11 +24,11 @@
 				<!-- fixed code -->
 				<type value="document" /> 
             	<!-- document bundles must have a date (bdl-10) -->
-            	<timestamp value="2021-05-18T18:02:19Z"/>
+            	<timestamp value="2021-05-19T18:56:04Z"/>
 				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
 				<entry>
 					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
-					<fullUrl value="urn:uuid:155e8fce-8b26-4892-9bd0-9be496a88e0f"/>
+					<fullUrl value="urn:uuid:25afa732-ab1e-4b52-9fd0-0158116dcde9"/>
 					<resource>
 						<!-- the first resource must be Composition (bdl-11) -->
 						<!-- This is the overall document structure. -->

@@ -163,8 +163,12 @@ class ValidateMatch():
 
                     return False
                 else:
+                    if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'CAP' and currentHeadingRow['document_number'] == 0 and currentHeadingRow['heading_id'] == 4:
+                        self.logger.logValidateCheckpoint("Validation Failed SmPc Special Case", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
 
-                    self.logger.logValidateCheckpoint("Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                        return False
+                    self.logger.logValidateCheckpoint(f"{currentHeadingRow['heading_id'], currentHeadingRow['document_number'], currentHeadingRow['Procedure type'] } Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
+                    
                     return True
 
         if currentHeadingRow is not None and previousH2HeadingRowFound is not None:
