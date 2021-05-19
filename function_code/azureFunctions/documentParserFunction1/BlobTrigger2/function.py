@@ -54,7 +54,7 @@ class Metrics:
         
         self.endTime = time.time()
         
-        self.totalTime = round((self.endTime - self.startTime)/60,3)
+        self.totalTime = self.endTime - self.startTime
         
         
         current, peak = tracemalloc.get_traced_memory()
@@ -67,9 +67,9 @@ class Metrics:
         self.finalUsedRamPerc = max(self.finalUsedRamPerc, usedRamPerc)
 
         self.finalTotalTime = self.finalTotalTime + self.totalTime
-        self.finalTotalTime = round(self.finalTotalTime/60,3)
+        #self.finalTotalTime = round(self.finalTotalTime/60,3)
         
-        outputString = f"{msg},{self.totalTime} Min,{current} MB,{peak} MB,{usedRamPerc}%\n"
+        outputString = f"{msg},{round(self.totalTime/60,4)} Min,{current} MB,{peak} MB,{usedRamPerc}%\n"
         
         self.logger.logFlowCheckpoint(f"{outputString}")
         
@@ -82,7 +82,7 @@ class Metrics:
         
         current, peak = tracemalloc.get_traced_memory()
         current = current / 10**6
-        outputString = f"Final Metrics,{self.finalTotalTime} Min,{current} MB,{self.finalPeak} MB,{self.finalUsedRamPerc}%\n"
+        outputString = f"Final Metrics,{round(self.finalTotalTime/60,4)} Min,{current} MB,{self.finalPeak} MB,{self.finalUsedRamPerc}%\n"
         print(f"Metrics : {outputString}")
         self.logger.logFlowCheckpoint(f"{outputString}")
         self.writer.write(outputString)
@@ -320,10 +320,6 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
     flowLogger.logFlowCheckpoint("Started Processing Partitioned Jsons")
     
     for index, fileNamePartitioned in enumerate(partitionedJsonPaths):
-        #print("Index", index)
-        #if index == 0:
-        #    print("Asdddddddddddddddddddddddddd")
-        #    continue
         flowLogger.logFlowCheckpoint(f"\n\n\n\n||||||||||||||||||||||||||||||||{str(index)} ||||| {str(fileNamePartitioned)}||||||||||||||||||||||||||||||||\n\n\n\n")
         
         if index == 3:
