@@ -2,9 +2,25 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
+## Pre-requisites for installation
+
+1. Install NPM 
+Angular requires Node.js in your system. You can download Node.js from here if you do not have it installed [Node.js](https://nodejs.org/en/)
+
+2. Install Angular CLI 
+Check @angular/cli version in your system.
+If you already have it installed, make sure it uses the same version as that of the project.
+Otherwise, run the following command in command prompt:
+npm install -g @angular/cli@11.0.2
+
+3. Install all required npm packages for the project
+Navigate to the project folder in command prompt.
+Run the following command in command prompt:
+npm install
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

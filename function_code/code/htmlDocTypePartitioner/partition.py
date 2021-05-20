@@ -59,9 +59,9 @@ class DocTypePartitioner:
         return str==styleStr
 
     def remove_escape_ansi(self, line):
-    """
+        """
         Function to remove escape characters in string
-    """
+        """
         escapes = ''.join([chr(char) for char in range(1, 32)])
         translator = str.maketrans('', '', escapes)
         return line.translate(translator)

@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EmaComponentLibraryModule } from 'projects/ema-component-library/src/lib/ema-component-library.module';
-import { DocumentViewModule } from './document-view/document-view.module';
 import { RouterModule, Routes } from '@angular/router';
-import { DocumentViewComponent } from './document-view/document-view/document-view.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DocumentViewComponent } from './pages/document-view/document-view/document-view.component';
+import { DocumentViewModule } from './pages/document-view/document-view.module';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/View', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     EmaComponentLibraryModule,
+    HttpClientModule,
     DocumentViewModule,
     RouterModule.forRoot(routes)
 

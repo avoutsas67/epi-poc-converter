@@ -1,9 +1,9 @@
 @import "../../ema-theme-variables.scss";
 :host {
     .ema-footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        // position: fixed;
+        // left: 0;
+        // bottom: 0;
         width: 100%;
         padding:28px 0px;
         border-top: 5px solid $ema-secondary;
@@ -14,6 +14,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            .col-xs-4,  .col-sm-4, .col-md-4, .col-lg-4{
+                padding:0px;
+            }
             li {
                 color: $ema-text-bold;
                 display: flex;
@@ -23,18 +26,34 @@
                 font-weight: bold;
                 font-size: 18px;
                 line-height: 24px;
+                max-width: 200px;
+                @media (max-width: 576px) { 
+                    & {
+                        max-width: 100%;
+                        width:100%;
+                    }
+                 }
             }
         }
         &-logos{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             list-style: none;
+            padding: 0px 80px;
+            margin-bottom:0px;
             li {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                svg{
+                max-width: 150px;
+
+                }
             }
         }
-        @media (min-width: 576px) { 
-            .ema-footer {
+        @media (max-width: 576px) { 
+            & {
                 position: static;
             }
          }

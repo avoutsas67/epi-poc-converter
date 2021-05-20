@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": "https://ema-dap-epi-dev-fhir-api.azurewebsites.net",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+    
+  }
+}
