@@ -59,13 +59,19 @@ class DocTypePartitioner:
         return str==styleStr
 
     def remove_escape_ansi(self, line):
+
         """
+
         Function to remove escape characters in string
+
         """
+
         escapes = ''.join([chr(char) for char in range(1, 32)])
+
         translator = str.maketrans('', '', escapes)
+
         return line.translate(translator)
-        
+
     ## Function to split document based on document type
     def splitHtmlBasedOnDoc(self, df, nextkey, page_break_indices, ignore_page_break_check):
         startPos = self.new_dataframe_start

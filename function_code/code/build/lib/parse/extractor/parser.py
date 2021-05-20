@@ -192,6 +192,20 @@ class parserExtractor:
                 dom_data['IsPossibleHeading'] = True
         return dom_data
             
+    def remove_escape_ansi(self, line):
+
+        """
+
+        Function to remove escape characters in string
+
+        """
+
+        escapes = ''.join([chr(char) for char in range(1, 32)])
+
+        translator = str.maketrans('', '', escapes)
+
+        return line.translate(translator)
+
     def createDomEleData(self,
                          ele, 
                          get_immediate_text, 
@@ -344,10 +358,11 @@ class parserExtractor:
                 dom_data['Indexed'] = re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None
 
         dom_data['Text']=concatenated_text
+        
 
         ## Tracking which section is being parsed using section_dict    
         for key in list(reversed(self.qrd_section_headings)):
-            if(dom_data['Text'].encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
+            if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
                 dom_data['IsHeadingType'] = 'L1'
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True

@@ -1,0 +1,25 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.1723 Min,11.652623 MB,20.953432 MB,66.7%
+Split Json,0.0119 Min,0.3015 MB,16.901375 MB,66.6%
+0: Heading Extraction,0.7921 Min,2.98723 MB,6.964493 MB,65.3%
+0: Document Annotation,0.0295 Min,0.180831 MB,0.216368 MB,65.3%
+0: Content Extraction,0.0012 Min,0.705728 MB,6.972807 MB,65.3%
+0: Generate XML,0.004 Min,3.110207 MB,5.000758 MB,65.3%
+0: Submit FHIR Msg,0.1039 Min,0.234999 MB,1.49248 MB,65.3%
+1: Heading Extraction,0.0292 Min,0.275606 MB,2.853726 MB,65.3%
+1: Document Annotation,0.0002 Min,0.016258 MB,0.164618 MB,65.3%
+1: Content Extraction,0.0004 Min,0.091781 MB,0.396637 MB,65.3%
+1: Generate XML,0.0008 Min,0.454368 MB,1.116539 MB,65.3%
+1: Submit FHIR Msg,0.0561 Min,0.05885 MB,0.591089 MB,65.3%
+2: Heading Extraction,1.4909 Min,2.222112 MB,3.903221 MB,65.4%
+2: Document Annotation,0.0002 Min,0.179202 MB,0.251333 MB,65.4%
+2: Content Extraction,0.0133 Min,0.6078 MB,3.364107 MB,65.3%
+2: Generate XML,0.0044 Min,2.885789 MB,5.046195 MB,65.4%
+2: Submit FHIR Msg,0.096 Min,0.240714 MB,1.667133 MB,65.3%
+3: Heading Extraction,4.221 Min,1.814944 MB,3.999567 MB,67.5%
+3: Document Annotation,0.0002 Min,0.16213 MB,0.163658 MB,67.5%
+3: Content Extraction,0.0014 Min,1.204574 MB,3.642405 MB,67.5%
+3: Generate XML,0.0067 Min,5.128425 MB,9.214675 MB,67.5%
+3: Submit FHIR Msg,0.071 Min,0.220663 MB,2.995691 MB,67.5%
+3: Completed,0.0 Min,0.004175 MB,0.152433 MB,67.5%
+Final Metrics,7.1068 Min,0.0 MB,20.953432 MB,67.5%

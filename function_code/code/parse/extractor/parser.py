@@ -201,6 +201,20 @@ class parserExtractor:
         return line.translate(translator)
         
             
+    def remove_escape_ansi(self, line):
+
+        """
+
+        Function to remove escape characters in string
+
+        """
+
+        escapes = ''.join([chr(char) for char in range(1, 32)])
+
+        translator = str.maketrans('', '', escapes)
+
+        return line.translate(translator)
+
     def createDomEleData(self,
                          ele, 
                          get_immediate_text, 
@@ -357,6 +371,7 @@ class parserExtractor:
                 dom_data['Indexed'] = re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None
 
         dom_data['Text']=concatenated_text
+        
 
         ## Tracking which section is being parsed using section_dict    
         for key in list(reversed(self.qrd_section_headings)):

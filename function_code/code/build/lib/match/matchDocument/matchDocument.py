@@ -78,7 +78,8 @@ class MatchDocument():
             domain=self.domain,
             procedureType=self.procedureType,
             languageCode=languageCode,
-            documentType=self.documentType).ProcessQrdDataframe()
+            documentType=self.documentType,
+            documentNumber=self.documentNumber).ProcessQrdDataframe()
 
         self.ruleDict = MatchRuleBook(
             controlBasePath=self.controlBasePath,
@@ -223,13 +224,13 @@ class MatchDocument():
         '''
 
         # print("update")
-        if currentHeadingRow['Heading Level'] == 'H0':
+        if currentHeadingRow['Heading Level'] == 'L0':
             return currentHeadingRow, None, None
 
-        if currentHeadingRow['Heading Level'] == 'H1':
+        if currentHeadingRow['Heading Level'] == 'L1':
             return currentHeadingRow, currentHeadingRow, None
 
-        if currentHeadingRow['Heading Level'] == 'H2':
+        if currentHeadingRow['Heading Level'] == 'L2':
             return currentHeadingRow, previousH1HeadingRowFound, currentHeadingRow
 
         return previousHeadingRowFound, previousH1HeadingRowFound, previousH2HeadingRowFound
@@ -325,7 +326,7 @@ class MatchDocument():
 
         matchStringObj = MatchStrings(
 
-            self.logger, self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
+            self.logger, self.domain, self.procedureType, self.documentNumber, self.ruleDict, self.stopWordFilterListSize, self.stopWordlanguage)
 
         validateMatchObk = ValidateMatch(self.logger)
 
@@ -396,20 +397,20 @@ class MatchDocument():
                                         elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
                                             pass
                                         else:
-                                            print("")
-                                            #validated = False
-                                            #print(
-                                            #    "----------------------------------")
-                                            #print("RemovedByStyle")
-                                            ##print("RemovedByStyle", ' || ', outputString,
-                                            ##    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
-                                            #print(
-                                            #    "----------------------------------")
-                                            #self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
-                                            #
-                                            #headingRemovedUsingStyle.append(
-                                            #    qrd_str)
-                                            #continue
+                                            #print("")
+                                            validated = False
+                                            print(
+                                                "----------------------------------")
+                                            print("RemovedByStyle")
+                                            #print("RemovedByStyle", ' || ', outputString,
+                                            #    ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
+                                            print(
+                                                "----------------------------------")
+                                            self.logger.logValidateCheckpoint("Validation Failed By Style", qrd_str_row, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            
+                                            headingRemovedUsingStyle.append(
+                                                qrd_str)
+                                            continue
 
                                     #print(found, ' || ', outputString,
                                     #      ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
@@ -479,4 +480,4 @@ class MatchDocument():
 
         print(Counter(headingRemovedUsingStyle).keys())
 
-        return self.dfHtml, self.collectionFoundHeadings
+        return self.dfHtml, self.collectionFoundHeadings, self.documentType
