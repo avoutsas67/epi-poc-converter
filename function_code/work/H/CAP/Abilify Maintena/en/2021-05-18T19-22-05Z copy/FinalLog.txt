@@ -1205,3 +1205,6 @@
  | H | CAP |  en | HTML | Abilify Maintena_clean.htm
 2021-05-20 00:59:13,031 : Flow Logger HTML_M : Final Metrics,7.1068 Min,0.0 MB,20.953432 MB,67.5%
  | H | CAP |  en | HTML | Abilify Maintena_clean.htm
+2021-05-20 16:48:03,919 : XML Submission Logger_0_P : Initiating Submission To FHIR Server | H | CAP |  en | 0 | Kalydeco_clean_SmPC.json
+2021-05-20 16:48:03,928 : XML Submission Logger_0_P : Response{"resourceType":"Bundle","id":"fa99ec51-5f70-49ce-865f-3873818dea29","meta":{"versionId":"1","lastUpdated":"2021-05-20T11:18:02.38+00:00"},"type":"collection","entry":[{"fullUrl":"urn:uuid:f723b134-302e-4f33-8a8d-df341e6a5f94","resource":{"resourceType":"Bundle","id":"cdc4f992-b18a-4840-82f3-483ac243cd5c","identifier":{"system":"http://ema.europa.eu/fhir/identifier/documentid","value":"${instance.bundle[n].Identifier}"},"type":"document","timestamp":"2021-05-20T11:17:57+00:00","entry":[{"fullUrl | H | CAP |  en | 0 | Kalydeco_clean_SmPC.json
+2021-05-20 16:48:03,948 : XML Submission Logger_0_P : POST sucessful: XML added with id: fa99ec51-5f70-49ce-865f-3873818dea29 | H | CAP |  en | 0 | Kalydeco_clean_SmPC.json
