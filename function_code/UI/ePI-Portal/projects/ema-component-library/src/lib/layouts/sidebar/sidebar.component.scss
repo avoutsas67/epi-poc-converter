@@ -1,0 +1,30 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    .ema-sidebar {
+        width: 100%;
+        height: 100%;
+        padding: 16px;
+        border-right: 1px solid $ema-border;
+
+        &-title {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 24px;
+            color: $ema-text-bold;
+            background-color: white;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 576px) {
+            & {
+                border-right: none;
+                position: static;
+            }
+        }
+        &-menu {
+            overflow: auto;
+            ul {
+                list-style: none;
+            }
+        }
+    }
+}

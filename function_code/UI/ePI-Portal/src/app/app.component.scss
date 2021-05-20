@@ -1,0 +1,10 @@
+
+html, body{
+    font-family:'Segoe UI', 'Times New Roman', sans-serif !important;
+    overflow: hidden;
+    @media (max-width: 576px) {
+        & {
+            overflow: hidden;
+        }
+    }
+}

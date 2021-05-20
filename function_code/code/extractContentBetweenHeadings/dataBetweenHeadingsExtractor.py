@@ -104,7 +104,7 @@ class DataBetweenHeadingsExtractor:
                         id_list_to_ignore = []
                 else:
                     concatenated_html=''.join([concatenated_html, str(row.Element)])
-                if(row.HasBorder):
+                if(row.HasBorder or row.IsULTag):
                     children_ids = self.getIdListToignore(df, i, row.ID, row.ParentId)
                     if(children_ids and len(children_ids)>0):
                         ignore_rows_in_list = True
@@ -150,10 +150,11 @@ class DataBetweenHeadingsExtractor:
                             concatenated_html=''.join([concatenated_html, str(row.Element)])
                             ignore_rows_in_list = False
                             id_list_to_ignore = []
-                    elif(not row.HasBorder):
+                    elif(not row.HasBorder or not row.IsULTag):
                         concatenated_html=''.join([concatenated_html, str(row.Element)])
-                    if(row.HasBorder):
-                        html_with_border= str(row.Element)
+                    if(row.HasBorder or row.IsULTag):
+                        if(row.HasBorder):
+                            html_with_border= str(row.Element)
                         children_ids = self.getIdListToignore(df, i, row.ID, row.ParentId)
                         if(children_ids and len(children_ids)>0):
                             ignore_rows_in_list = True
@@ -167,7 +168,7 @@ class DataBetweenHeadingsExtractor:
                         concatenated_html=''.join([concatenated_html, str(row.Element)])
                         ignore_rows_in_list = False
                         id_list_to_ignore = []
-                if(row.HasBorder):
+                if(row.HasBorder or row.IsULTag):
                     children_ids = self.getIdListToignore(df, i, row.ID, row.ParentId)
                     if(children_ids and len(children_ids)>0):
                         ignore_rows_in_list = True

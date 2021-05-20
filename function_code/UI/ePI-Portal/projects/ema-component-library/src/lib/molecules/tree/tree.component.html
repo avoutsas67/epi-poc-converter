@@ -1,0 +1,7 @@
+<ul class="ema-tree">
+    <li *ngFor="let node of treeData">
+        <!-- <span *ngIf="node.children != 0"><b>></b></span> -->
+        <span class="ema-tree-node" (click)="toggleChild(node)" > {{ node.title }} </span>
+        <ema-tree  [treeData]="node.section"></ema-tree>
+    </li>  
+  </ul>
