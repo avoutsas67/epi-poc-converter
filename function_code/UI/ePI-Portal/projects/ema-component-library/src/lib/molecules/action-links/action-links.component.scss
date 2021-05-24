@@ -1,0 +1,27 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    .ema-action {
+        &-links {
+            padding: 0px;
+            border-bottom: 1px solid $ema-border;
+            ul{
+                padding:0px;
+                margin:0px;
+            }
+        }
+        &-item {
+            padding: 0px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 21px;
+        }
+        &-link {
+            color: $ema-text-focused;
+            padding: 24px 40px !important;
+            &-active {
+                color: $ema-text-focused;
+                border-bottom: 4px solid $ema-primary;
+            }
+        }
+    }
+}

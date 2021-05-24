@@ -3,8 +3,21 @@
     .ema-dropdown{
         border: 1px solid $ema-border;
         color: $ema-text-bold;
+        min-width:120px;
+        background: #FAFAFA;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &:focus{
             box-shadow: 0 0 0 1px rgb(13 110 253 / 25%)
+        }
+        &::after{
+            content: "";
+            display: block;
+            width:14px;
+            height:9px;
+            background: url('.././../../.././../../src/assets/arrow-down.svg');
+            border:none;
         }
     }
 }

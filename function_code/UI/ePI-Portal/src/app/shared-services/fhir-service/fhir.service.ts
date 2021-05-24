@@ -10,7 +10,7 @@ export class FhirService {
 
   constructor(private http: HttpClient) { }
 
-  getBundle(){
+  getBundle(id){
     let bundleId = '72f82a5e-dee3-4e3e-a65e-0332e8a03691';
     const httpOptions = {
     
@@ -19,6 +19,6 @@ export class FhirService {
         "Access-Control-Allow-Origin": "*"
       })
     };
-    return this.http.get<FhirMessageBundle>(this.url+bundleId,httpOptions)
+    return this.http.get<FhirMessageBundle>(this.url + id,httpOptions)
   }
 }

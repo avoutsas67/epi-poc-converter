@@ -1,0 +1,65 @@
+@import "../../../../projects/ema-component-library/src/lib/ema-theme-variables.scss";
+:host {
+    .ema-search-page{
+        height: calc(100vh - 80px);
+        @media (max-width: 576px) {
+            & {
+                height: calc(100vh - 80px);
+                overflow: auto;
+            }
+        }
+    }
+    .ema-search {
+        &-view{
+            height: inherit;
+            overflow-y: auto;
+            .row{
+                padding:0px;
+                margin:0px;
+                width:100%;
+            }
+            p {
+                margin: 0px;
+                width:100%;
+            }
+            @media (max-width: 576px) {
+                & {
+                    max-width:100%;
+                    width:100%;
+                    height:100%;
+                }
+            }
+           
+        }
+        &-main{
+            min-height:calc(100% - 188px);
+
+        }
+        &-nav{
+            max-width:300px;
+            width:100%;
+            padding:0px;
+            border-right: 1px solid $ema-border;
+            @media (max-width: 576px) {
+                & {
+                    max-width:100%;
+                    width:100%;
+                }
+            }
+        }
+        &-body{
+          
+            padding:40px;
+
+            @media (max-width: 576px) {
+                & {
+                    max-width:100%;
+                    width:100%;
+                    height:100%;
+                }
+            }
+
+        }
+    }
+   
+}

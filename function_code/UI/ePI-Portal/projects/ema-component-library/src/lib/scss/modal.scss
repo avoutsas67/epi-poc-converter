@@ -1,0 +1,20 @@
+@import '../ema-theme-variables.scss';
+.modal-header{
+    border-bottom: 1px solid $ema-border;
+    color:$ema-primary;
+}
+.modal-btn{
+    border: 1px solid $ema-primary;
+    color: $ema-primary;
+    &:hover{
+        color: $ema-primary;
+        border: 1px solid $ema-primary;
+    }
+    &:focus{
+        box-shadow:none;
+    }
+
+}
+.modal-footer{
+    border-top: 1px solid $ema-border;
+}

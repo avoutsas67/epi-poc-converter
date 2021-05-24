@@ -4,16 +4,18 @@ import { EuropeanCommissionComponent } from './european-commission/european-comm
 import { EmaLogoComponent } from './ema-logo/ema-logo.component';
 import { HmaLogoComponent } from './hma-logo/hma-logo.component';
 import { ShareComponent } from './share/share.component';
+import { EmaHeaderLogoComponent } from './ema-header-logo/ema-header-logo.component';
 
 
 
 @NgModule({
-  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent],
+  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent, EmaHeaderLogoComponent],
   imports: [
     CommonModule,
     
   ],
-  exports:[EuropeanCommissionComponent, 
+  exports:[EuropeanCommissionComponent,
+    EmaHeaderLogoComponent, 
     EmaLogoComponent,
     HmaLogoComponent,
     ShareComponent]

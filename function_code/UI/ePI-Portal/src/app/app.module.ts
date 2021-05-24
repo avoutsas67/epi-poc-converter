@@ -7,10 +7,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { DocumentViewComponent } from './pages/document-view/document-view/document-view.component';
 import { DocumentViewModule } from './pages/document-view/document-view.module';
+import { SearchPageModule } from './pages/search-page/search-page.module';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/View', pathMatch: 'full' },
-  { path: 'View', component: DocumentViewComponent }
+  { path: '',   redirectTo: '/Search', pathMatch: 'full' },
+  {path: 'Search' , component: SearchPageComponent},
+  { path: 'View/:id', component: DocumentViewComponent },
+  { path: 'View',  redirectTo: '/Search', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -19,10 +23,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     EmaComponentLibraryModule,
     HttpClientModule,
     DocumentViewModule,
-    RouterModule.forRoot(routes)
+    SearchPageModule,
 
     
   ],

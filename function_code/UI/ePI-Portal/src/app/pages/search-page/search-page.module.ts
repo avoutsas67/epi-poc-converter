@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DocumentViewComponent } from './document-view/document-view.component';
+import { SearchPageComponent } from './search-page.component';
 import { EmaComponentLibraryModule } from 'projects/ema-component-library/src/lib/ema-component-library.module';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @NgModule({
-  declarations: [DocumentViewComponent],
+  declarations: [SearchPageComponent],
   imports: [
     CommonModule,
-    HttpClientModule,
-    RouterModule,
     EmaComponentLibraryModule,
+    RouterModule,
     NgbModule
   ],
-  exports:[DocumentViewComponent]
+  exports:[SearchPageComponent]
 })
-export class DocumentViewModule { }
+export class SearchPageModule { }

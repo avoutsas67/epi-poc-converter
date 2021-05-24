@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg ema-navbar">
     <div class="container-fluid">
-      <a class="ema-navbar-logo" href="#">ePI</a>
+      <a class="ema-navbar-logo" href="#"><ema-header-logo></ema-header-logo></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,13 +8,13 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
           <li class="nav-item ema-navbar-item">
-            <a class="nav-link ema-navbar-link ema-navbar-link-active" href="#">Search</a>
+            <a class="nav-link ema-navbar-link ema-navbar-link-active" [routerLink]="['/Search']">Search</a>
           </li>
           <li class="nav-item ema-navbar-item">
-            <a class="nav-link ema-navbar-link" href="#">Catelog</a>
+            <a class="nav-link ema-navbar-link ema-navbar-link-disabled">Catalog</a>
           </li>
           <li class="nav-item ema-navbar-item">
-            <a class="nav-link ema-navbar-link" href="#">Contact</a>
+            <a class="nav-link ema-navbar-link ema-navbar-link-disabled">Contact</a>
           </li>
           
         </ul>
