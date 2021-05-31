@@ -1,0 +1,30 @@
+name: $(Build.DefinitionName)_$(Date:yyyy.MM.dd).$(Rev:r)
+
+trigger:
+  batch: true
+  
+pool:
+  # For Azure Pipelines we specify the image of the build agent
+  # See https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- checkout: self
+  clean: true
+
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '14.17.0'
+
+- task: Npm@1
+  displayName: 'Install NPM packages'
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  displayName: 'NPM build'
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
