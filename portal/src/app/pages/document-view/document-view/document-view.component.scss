@@ -1,0 +1,66 @@
+:host {
+    .ema-view-page {
+        height: calc(100vh - 80px);
+        @media (max-width: 576px) {
+            & {
+                height: calc(100vh - 80px);
+                overflow: auto;
+            }
+        }
+    }
+    .ema-document {
+        &-view {
+            height: inherit;
+            overflow-y: auto;
+            .row {
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+            p {
+                margin: 0px;
+                width: 100%;
+            }
+            @media (max-width: 576px) {
+                & {
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        &-main {
+            min-height: calc(100% - 188px);
+        }
+        &-nav {
+            padding: 0px;
+            @media (max-width: 576px) {
+                & {
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        &-body {
+            padding: 0px;
+            overflow: auto;
+            @media (max-width: 576px) {
+                & {
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .ema-medView {
+        &-body {
+            padding: 40px;
+            // height:calc(100% - 154px);
+            background-image: url("../../../../assets/WatermarkDisclaimer..png");
+            background-repeat: no-repeat space;
+            background-position: center;
+            background-size: 80%;
+        }
+    }
+}
