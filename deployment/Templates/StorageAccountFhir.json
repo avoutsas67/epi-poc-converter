@@ -36,41 +36,7 @@
 				"accessTier": "Hot",
 				"supportsHttpsTrafficOnly": true
 			},
-			"tags": "[parameters('resourceTags')]",
-			"resources": [
-				{
-					"name": "default/templates",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
-						"[parameters('storageAccountName')]"
-					]
-				},
-				{
-					"name": "default/ingest",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
-						"[parameters('storageAccountName')]"
-					]
-				},
-				{
-					"name": "default/converted",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
-						"[parameters('storageAccountName')]"
-					]
-				},
-				{
-					"name": "default/extracted",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
-						"[parameters('storageAccountName')]"
-					]
-				}
-			]
+			"tags": "[parameters('resourceTags')]"
 		}
 	]
 }

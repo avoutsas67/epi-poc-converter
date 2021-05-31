@@ -87,6 +87,7 @@ $global:fhirLogAnalyticsWsName = $fhirResourceNamePrefix + "-laws"
 $global:fhirAppInsightsName = $fhirResourceNamePrefix + "-appinsight"
 
 $global:convStorageAccountName = $convResourceNamePrefix.Replace("-", "") + "sa"
+$global:fhirStorageAccountName = $fhirResourceNamePrefix.Replace("-", "") + "sa"
 
 $global:convASPName = $convResourceNamePrefix + "-asp"
 $global:convAppName = $convResourceNamePrefix + "-app"
@@ -96,6 +97,7 @@ $global:fhirAPIName = $fhirResourceNamePrefix + "-api"
 $global:fhirAPIMName = $fhirResourceNamePrefix + "-apim"
 $global:fhirDBName = $fhirResourceNamePrefix + "-cosmosdb"
 $global:fhirKeyVaultName = $fhirResourceNamePrefix + "-kv"
+$global:fhirSPAName = $fhirResourceNamePrefix + "-web"
 
 #
 # Names for KeyVault secrets
