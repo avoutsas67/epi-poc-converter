@@ -18,6 +18,7 @@
         &-link {
             color: $ema-text-focused;
             padding: 24px 40px !important;
+            text-decoration: none;
             &-active {
                 color: $ema-text-focused;
                 border-bottom: 4px solid $ema-primary;

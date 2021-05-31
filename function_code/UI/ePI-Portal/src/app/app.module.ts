@@ -23,7 +23,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // or 'top'
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 64], 
+    }),
     EmaComponentLibraryModule,
     HttpClientModule,
     DocumentViewModule,

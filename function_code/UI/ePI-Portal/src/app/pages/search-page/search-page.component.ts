@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DisclaimerModalComponent } from 'projects/ema-component-library/src/lib/molecules/disclaimer-modal/disclaimer-modal.component';
 import { DisclaimerServiceService } from 'src/app/shared-services/disclaimer-service/disclaimer-service.service';
@@ -8,7 +8,7 @@ import { DisclaimerServiceService } from 'src/app/shared-services/disclaimer-ser
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent implements OnInit, AfterViewInit {
+export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor( private modalService: NgbModal,
     modalConfig: NgbModalConfig,

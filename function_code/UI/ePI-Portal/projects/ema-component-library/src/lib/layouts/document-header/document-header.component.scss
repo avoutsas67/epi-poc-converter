@@ -84,10 +84,16 @@
                 }
             }
         }
+        &-share{
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
         &-share-icon {
             display: block;
             margin-right: 8px;
             margin-bottom: 0px;
+            
         }
         &-lang-label {
             margin-right: 8px;

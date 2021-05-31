@@ -5,17 +5,23 @@ import { EmaComponentLibraryModule } from 'projects/ema-component-library/src/li
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DocumentBodyTreeComponent } from './document-body-tree/document-body-tree.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { PipesModule } from 'src/app/shared-pipes/pipes.module';
 
 
 @NgModule({
-  declarations: [DocumentViewComponent],
+  declarations: [DocumentViewComponent, DocumentBodyTreeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     EmaComponentLibraryModule,
-    NgbModule
+    NgbModule,
+    BrowserModule,
+    PipesModule
   ],
-  exports:[DocumentViewComponent]
+  exports:[DocumentViewComponent,
+    DocumentBodyTreeComponent]
 })
 export class DocumentViewModule { }

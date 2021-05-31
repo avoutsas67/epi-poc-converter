@@ -1,7 +1,8 @@
 <ul class="ema-tree">
-    <li *ngFor="let node of treeData">
+    <li *ngFor="let node of treeData" >
+        
         <!-- <span *ngIf="node.children != 0"><b>></b></span> -->
-        <span class="ema-tree-node" (click)="toggleChild(node)" > {{ node.title }} </span>
+        <a class="ema-tree-node" [routerLink]="['.']" [fragment]="node.id?.value" (click)="scrollToAnchor(node.id?.value)"> {{ node.title }} </a>
         <ema-tree  [treeData]="node.section"></ema-tree>
     </li>  
   </ul>
