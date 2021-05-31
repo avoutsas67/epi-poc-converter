@@ -23,12 +23,14 @@ param(
     [bool]$DeployFhirLogAnalyticsWs = $true,
 
     [bool]$DeployConvStorageAccount = $true,
+    [bool]$DeployFhirStorageAccount = $true,
 
     [bool]$DeployConvASP = $true,
     [bool]$DeployConvFunctionApp = $true,
 
     [bool]$DeployFhirServer = $true,
-    [bool]$DeployAPIM = $true
+    [bool]$DeployAPIM = $true,
+    [bool]$DeploySPA = $true
 )
 
 Clear-Host
@@ -136,6 +138,22 @@ if ($DeployConvStorageAccount) {
 
 #endregion
 
+#region DeployFhirStorageAccount
+
+if ($DeployFhirStorageAccount) {
+    $storageAccountParams = @{
+        storageAccountName = $fhirStorageAccountName 
+        storageAccountType = "Standard_LRS"
+        resourceTags       = $resourceTags
+    }
+    New-ArmDeployment -BaseName "FhirStorageAccount" `
+        -ResourceGroupName $fhirResourceGroupName `
+        -TemplateFilePath "$PSScriptRoot\Templates\StorageAccountFhir.json" `
+        -TemplateParams $storageAccountParams
+}
+
+#endregion
+
 #region DeployConvASP
 
 if ($DeployConvASP) {
@@ -196,9 +214,123 @@ if ($DeployFhirServer) {
 #region DeployAPIM
 
 if ($DeployAPIM) {
+    $policyApiRead = @"
+<policies>
+    <inbound>
+        <base />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <!-- Change FHIR-API urls in response to APIM urls -->
+        <redirect-content-urls />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+"@
+
+    $policyApiWrite = @"
+<policies>
+    <inbound>
+        <base />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <!-- Change FHIR-API urls in response to APIM urls -->
+        <redirect-content-urls />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+"@
+
+    $policyProductExternalRead = @"
+<policies>
+    <inbound>
+        <base />
+        <!-- Limit calls per subscription to 20 per minute and 20.000 per month -->
+        <rate-limit calls="20" renewal-period="60" remaining-calls-variable-name="remainingCallsPerSubscription" />
+        <quota calls="20000" renewal-period="2629800" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+"@
+
+$policyProductExternalWrite = @"
+<policies>
+    <inbound>
+        <base />
+        <!-- Limit calls per subscription to 20 per minute and 20.000 per month -->
+        <rate-limit calls="20" renewal-period="60" remaining-calls-variable-name="remainingCallsPerSubscription" />
+        <quota calls="20000" renewal-period="2629800" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+"@
+
+$policyProductWebRead = @"
+<policies>
+    <inbound>
+        <base />
+        <!-- Limit calls per ip-address to 20 per minute and 20.000 per month -->
+        <rate-limit-by-key calls="20"
+                           renewal-period="60"
+                           counter-key="@(context.Request.IpAddress)"
+                           remaining-calls-variable-name="remainingCallsPerIP" />
+        <quota-by-key calls="20000"
+                      renewal-period="2629800"
+                      counter-key="@(context.Request.IpAddress)" />
+        <!-- Configure CORS for SPA -->
+        <cors allow-credentials="true">
+            <allowed-origins>
+                <origin>https://$($fhirSPAName).azurewebsites.net</origin>
+            </allowed-origins>
+        </cors>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+"@
+
     $apimParams = @{
-        apimName     = $fhirAPIMName 
-        resourceTags = $resourceTags
+        apimName                   = $fhirAPIMName
+        policyApiRead              = $policyApiRead
+        policyApiWrite             = $policyApiWrite
+        policyProductExternalRead  = $policyProductExternalRead
+        policyProductExternalWrite = $policyProductExternalWrite
+        policyProductWebRead       = $policyProductWebRead
+        resourceTags               = $resourceTags
     }
     New-ArmDeployment -BaseName "APIM" `
         -ResourceGroupName $fhirResourceGroupName `
@@ -231,6 +363,24 @@ if ($DeployAPIM) {
 
     Write-Host "Importing epi-write API in APIM '$fhirAPIMName'"
     Import-AzApiManagementApi -Context $apimContext -ApiId "epi-write-api" -ApiVersionSetId "epi-write-apiset" -ApiVersion "v1" -Path "epi-w" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
+}
+
+#endregion
+
+#region DeploySPA
+
+if ($DeploySPA) {
+    $appParams = @{
+        appName            = $fhirSPAName
+        appServicePlanName = $fhirASPName
+        appInsightsName    = $fhirAppInsightsName
+        storageAccountName = $fhirStorageAccountName
+        resourceTags       = $resourceTags
+    }
+    New-ArmDeployment -BaseName "FhirSPA" `
+        -ResourceGroupName $fhirResourceGroupName `
+        -TemplateFilePath "$PSScriptRoot\Templates\AppServiceWeb.json" `
+        -TemplateParams $appParams
 }
 
 #endregion
