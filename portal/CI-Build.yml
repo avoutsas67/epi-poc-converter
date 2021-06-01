@@ -22,9 +22,11 @@ steps:
   displayName: 'Install NPM packages'
   inputs:
     command: 'install'
+    workingDir: 'portal'
 
 - task: Npm@1
   displayName: 'NPM build'
   inputs:
     command: 'custom'
     customCommand: 'run build'
+    workingDir: 'portal'
