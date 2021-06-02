@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
+<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
+<!-- 2020-02-22 -->
+<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="collection"/>
+	<!-- Repeat at this level per document -->
+	<entry>
+		<fullUrl value="urn:uuid:8e682db0-b830-4aa4-890a-2edc9ee644ee"/>
+		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
+	 	 All the other resources for this document are within this. -->
+		<resource>
+            <Bundle>
+            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+            	<id value="89060896-91af-493b-a8bd-dbcee9937fd1"/>
+				<!-- document bundles must have an identifier (bdl-9) -->
+				<identifier>
+					<!-- possibly different identifier types may be needed here -->
+					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+					<value value="${instance.bundle[n].Identifier}"/>
+				</identifier>
+				<!-- fixed code -->
+				<type value="document" /> 
+            	<!-- document bundles must have a date (bdl-10) -->
+            	<timestamp value="2021-06-02T22:53:11Z"/>
+				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+				<entry>
+					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+					<fullUrl value="urn:uuid:61ae4ab5-cdaa-42b5-a131-2868386f96fc"/>
+					<resource>
+						<!-- the first resource must be Composition (bdl-11) -->
+						<!-- This is the overall document structure. -->
+						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+                        <Composition>
+                        	<!-- images if requied within html text of this document -->
+							
+              
+              <contained>
+                          <Binary>
+                            <id value="stylesheet0"/>
+                            <!-- example format -->
+                            <contentType value="stylesheet/css"/>
+                            <!-- data is base 64 encoded, actual bytes of the image png file -->
+                            <data value="PHN0eWxlPg0NCjwhLS0NDQogLyogRm9udCBEZWZpbml0aW9ucyAqLw0NCiBAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpIZWx2ZXRpY2E7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDIgMiAyIDIgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpDb3VyaWVyOw0NCglwYW5vc2UtMToyIDcgNCA5IDIgMiA1IDIgNCA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiVG1zIFJtbiI7DQ0KCXBhbm9zZS0xOjIgMiA2IDMgNCA1IDUgMiAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OkhlbHY7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDIgMiAyIDMgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiTmV3IFlvcmsiOw0NCglwYW5vc2UtMToyIDQgNSAzIDYgNSA2IDIgMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTeXN0ZW07DQ0KCXBhbm9zZS0xOjAgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OldpbmdkaW5nczsNDQoJcGFub3NlLTE6NSAwIDAgMCAwIDAgMCAwIDAgMDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6Ik1TIE1pbmNobyI7DQ0KCXBhbm9zZS0xOjIgMiA2IDkgNCAyIDUgOCAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OkJhdGFuZzsNDQoJcGFub3NlLTE6MiAzIDYgMCAwIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6U2ltU3VuOw0NCglwYW5vc2UtMToyIDEgNiAwIDMgMSAxIDEgMSAxO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpQTWluZ0xpVTsNDQoJcGFub3NlLTE6MiAxIDYgMSAwIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6Ik1TIEdvdGhpYyI7DQ0KCXBhbm9zZS0xOjIgMTEgNiA5IDcgMiA1IDggMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpEb3R1bTsNDQoJcGFub3NlLTE6MiAxMSA2IDAgMCAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlNpbUhlaTsNDQoJcGFub3NlLTE6MiAxIDYgMCAzIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6TWluZ0xpVTsNDQoJcGFub3NlLTE6MiAxIDYgOSAwIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6TWluY2hvOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMyA1IDggMyA1O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpHdWxpbTsNDQoJcGFub3NlLTE6MiAxMSA2IDAgMCAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OkNlbnR1cnk7DQ0KCXBhbm9zZS0xOjIgNCA2IDQgNSA1IDUgMiAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJBbmdzYW5hIE5ldyI7DQ0KCXBhbm9zZS0xOjIgMiA2IDMgNSA0IDUgMiAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDb3JkaWEgTmV3IjsNDQoJcGFub3NlLTE6MiAxMSAzIDQgMiAyIDIgMiAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5Ok1hbmdhbDsNDQoJcGFub3NlLTE6MCAwIDQgMCAwIDAgMCAwIDAgMDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6TGF0aGE7DQ0KCXBhbm9zZS0xOjIgMCA0IDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlN5bGZhZW47DQ0KCXBhbm9zZS0xOjEgMTAgNSAyIDUgMyA2IDMgMyAzO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpWcmluZGE7DQ0KCXBhbm9zZS0xOjAgMCA0IDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlJhYXZpOw0NCglwYW5vc2UtMToyIDAgNSAwIDAgMCAwIDAgMCAwO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTaHJ1dGk7DQ0KCXBhbm9zZS0xOjIgMCA1IDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlNlbmRueWE7DQ0KCXBhbm9zZS0xOjAgMCA0IDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OkdhdXRhbWk7DQ0KCXBhbm9zZS0xOjIgMCA1IDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlR1bmdhOw0NCglwYW5vc2UtMTowIDAgNCAwIDAgMCAwIDAgMCAwO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiRXN0cmFuZ2VsbyBFZGVzc2EiOw0NCglwYW5vc2UtMTowIDAgMCAwIDAgMCAwIDAgMCAwO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiQ2FtYnJpYSBNYXRoIjsNDQoJcGFub3NlLTE6MiA0IDUgMyA1IDQgNiAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6Ill1IEdvdGhpYyI7DQ0KCXBhbm9zZS0xOjIgMTEgNCAwIDAgMCAwIDAgMCAwO30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpEZW5nWGlhbjsNDQoJcGFub3NlLTE6MiAxIDYgMCAzIDEgMSAxIDEgMTt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6Q2FsaWJyaTsNDQoJcGFub3NlLTE6MiAxNSA1IDIgMiAyIDQgMyAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDYWxpYnJpIExpZ2h0IjsNDQoJcGFub3NlLTE6MiAxNSAzIDIgMiAyIDQgMyAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJQYWxhdGlubyBMaW5vdHlwZSI7DQ0KCXBhbm9zZS0xOjIgNCA1IDIgNSA1IDUgMyAzIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlZlcmRhbmE7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDMgNSA0IDQgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiQXJpYWwgVW5pY29kZSBNUyI7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDIgMiAyIDIgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseToiU2Vnb2UgVUkgRW1vamkiOw0NCglwYW5vc2UtMToyIDExIDUgMiA0IDIgNCAyIDIgMzt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6VGFob21hOw0NCglwYW5vc2UtMToyIDExIDYgNCAzIDUgNCA0IDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6IlxAU2ltU3VuIjsNDQoJcGFub3NlLTE6MiAxIDYgMCAzIDEgMSAxIDEgMTt9DQ0KIC8qIFN0eWxlIERlZmluaXRpb25zICovDQ0KIHAuTXNvTm9ybWFsLCBsaS5Nc29Ob3JtYWwsIGRpdi5Nc29Ob3JtYWwNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMQ0NCgl7bWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1pbmRlbnQ6MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJdGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO30NDQpoMg0NCgl7bXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbWFyZ2luLXRvcDo2LjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo2LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCgl0ZXh0LWluZGVudDowaW47DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMw0NCgl7bWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206My4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1pbmRlbnQ6MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KaDQNDQoJe21hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCXRleHQtaW5kZW50OjBpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpoNQ0NCgl7bWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206My4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1pbmRlbnQ6MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0Om5vcm1hbDt9DQ0KaDYNDQoJe21hcmdpbi10b3A6MTIuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjMuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCXRleHQtaW5kZW50OjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmOw0NCglmb250LXdlaWdodDpub3JtYWw7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpwLk1zb0hlYWRpbmc3LCBsaS5Nc29IZWFkaW5nNywgZGl2Lk1zb0hlYWRpbmc3DQ0KCXttYXJnaW4tdG9wOjEyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTozLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCgl0ZXh0LWluZGVudDowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29IZWFkaW5nOCwgbGkuTXNvSGVhZGluZzgsIGRpdi5Nc29IZWFkaW5nOA0NCgl7bWFyZ2luLXRvcDoxMi4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206My4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1pbmRlbnQ6MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpwLk1zb0hlYWRpbmc5LCBsaS5Nc29IZWFkaW5nOSwgZGl2Lk1zb0hlYWRpbmc5DQ0KCXttYXJnaW4tdG9wOjEyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTozLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCgl0ZXh0LWluZGVudDowaW47DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmOw0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Nc29Ub2MxLCBsaS5Nc29Ub2MxLCBkaXYuTXNvVG9jMQ0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvVG9jMiwgbGkuTXNvVG9jMiwgZGl2Lk1zb1RvYzINDQoJe21hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MTEuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29Ub2MzLCBsaS5Nc29Ub2MzLCBkaXYuTXNvVG9jMw0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDoyMi4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb1RvYzQsIGxpLk1zb1RvYzQsIGRpdi5Nc29Ub2M0DQ0KCXttYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjMzLjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvVG9jNSwgbGkuTXNvVG9jNSwgZGl2Lk1zb1RvYzUNDQoJe21hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NDQuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29Ub2M2LCBsaS5Nc29Ub2M2LCBkaXYuTXNvVG9jNg0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDo1NS4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb1RvYzcsIGxpLk1zb1RvYzcsIGRpdi5Nc29Ub2M3DQ0KCXttYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjY2LjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvVG9jOCwgbGkuTXNvVG9jOCwgZGl2Lk1zb1RvYzgNDQoJe21hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NzcuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29Ub2M5LCBsaS5Nc29Ub2M5LCBkaXYuTXNvVG9jOQ0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDo4OC4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0Zvb3Rub3RlVGV4dCwgbGkuTXNvRm9vdG5vdGVUZXh0LCBkaXYuTXNvRm9vdG5vdGVUZXh0DQ0KCXttc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQ29tbWVudFRleHQsIGxpLk1zb0NvbW1lbnRUZXh0LCBkaXYuTXNvQ29tbWVudFRleHQNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0hlYWRlciwgbGkuTXNvSGVhZGVyLCBkaXYuTXNvSGVhZGVyDQ0KCXttYXJnaW46MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Nc29Gb290ZXIsIGxpLk1zb0Zvb3RlciwgZGl2Lk1zb0Zvb3Rlcg0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnNwYW4uTXNvRm9vdG5vdGVSZWZlcmVuY2UNDQoJe2ZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmOw0NCgl2ZXJ0aWNhbC1hbGlnbjpzdXBlcjt9DQ0KcC5Nc29FbmRub3RlVGV4dCwgbGkuTXNvRW5kbm90ZVRleHQsIGRpdi5Nc29FbmRub3RlVGV4dA0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCmE6bGluaywgc3Bhbi5Nc29IeXBlcmxpbmsNDQoJe2NvbG9yOmJsdWU7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0NCmE6dmlzaXRlZCwgc3Bhbi5Nc29IeXBlcmxpbmtGb2xsb3dlZA0NCgl7Y29sb3I6Izk1NEY3MjsNDQoJdGV4dC1kZWNvcmF0aW9uOnVuZGVybGluZTt9DQ0KcC5Nc29Eb2N1bWVudE1hcCwgbGkuTXNvRG9jdW1lbnRNYXAsIGRpdi5Nc29Eb2N1bWVudE1hcA0NCgl7bWFyZ2luOjBpbjsNDQoJYmFja2dyb3VuZDpuYXZ5Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwLk1zb0NvbW1lbnRTdWJqZWN0LCBsaS5Nc29Db21tZW50U3ViamVjdCwgZGl2Lk1zb0NvbW1lbnRTdWJqZWN0DQ0KCXttYXJnaW46MGluOw0NCglmb250LXNpemU6MTAuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KcC5Nc29BY2V0YXRlLCBsaS5Nc29BY2V0YXRlLCBkaXYuTXNvQWNldGF0ZQ0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjguMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwLk1zb1JNUGFuZSwgbGkuTXNvUk1QYW5lLCBkaXYuTXNvUk1QYW5lDQ0KCXttYXJnaW46MGluOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5FTUVBVGFibGVDZW50ZXJlZCwgbGkuRU1FQVRhYmxlQ2VudGVyZWQsIGRpdi5FTUVBVGFibGVDZW50ZXJlZA0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgVGFibGUgQ2VudGVyZWQiOw0NCgltYXJnaW46MGluOw0NCgl0ZXh0LWFsaWduOmNlbnRlcjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuRU1FQVRhYmxlTGVmdCwgbGkuRU1FQVRhYmxlTGVmdCwgZGl2LkVNRUFUYWJsZUxlZnQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIFRhYmxlIExlZnQiOw0NCgltYXJnaW46MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5FTUVBQm9keVRleHRJbmRlbnQsIGxpLkVNRUFCb2R5VGV4dEluZGVudCwgZGl2LkVNRUFCb2R5VGV4dEluZGVudA0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgQm9keSBUZXh0IEluZGVudCI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6LjI1aW47DQ0KCXRleHQtaW5kZW50Oi0uMjVpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuRU1FQUJvZHlUZXh0LCBsaS5FTUVBQm9keVRleHQsIGRpdi5FTUVBQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEJvZHkgVGV4dCI7DQ0KCW1zby1zdHlsZS1saW5rOiJFTUVBIEJvZHkgVGV4dCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuRU1FQVRpdGxlLCBsaS5FTUVBVGl0bGUsIGRpdi5FTUVBVGl0bGUNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIFRpdGxlIjsNDQoJbWFyZ2luOjBpbjsNDQoJdGV4dC1hbGlnbjpjZW50ZXI7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLkVNRUFIZWFkaW5nMU5vSW5kZW50LCBsaS5FTUVBSGVhZGluZzFOb0luZGVudCwgZGl2LkVNRUFIZWFkaW5nMU5vSW5kZW50DQ0KCXttc28tc3R5bGUtbmFtZToiRU1FQSBIZWFkaW5nIDEgTm8gSW5kZW50IjsNDQoJbWFyZ2luOjBpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCXRleHQtdHJhbnNmb3JtOnVwcGVyY2FzZTsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KcC5FTUVBSGVhZGluZzMsIGxpLkVNRUFIZWFkaW5nMywgZGl2LkVNRUFIZWFkaW5nMw0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgSGVhZGluZyAzIjsNDQoJbWFyZ2luOjBpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUhlYWRpbmcxLCBsaS5FTUVBSGVhZGluZzEsIGRpdi5FTUVBSGVhZGluZzENDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEhlYWRpbmcgMSI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MjguMzVwdDsNDQoJdGV4dC1pbmRlbnQ6LTI4LjM1cHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgl0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUhlYWRpbmcyLCBsaS5FTUVBSGVhZGluZzIsIGRpdi5FTUVBSGVhZGluZzINDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEhlYWRpbmcgMiI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MjguMzVwdDsNDQoJdGV4dC1pbmRlbnQ6LTI4LjM1cHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLkVNRUFBZGRyZXNzLCBsaS5FTUVBQWRkcmVzcywgZGl2LkVNRUFBZGRyZXNzDQ0KCXttc28tc3R5bGUtbmFtZToiRU1FQSBBZGRyZXNzIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuRU1FQUNvbW1lbnQsIGxpLkVNRUFDb21tZW50LCBkaXYuRU1FQUNvbW1lbnQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIENvbW1lbnQiOw0NCgltYXJnaW46MGluOw0NCglmb250LXNpemU6MTAuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCnAuRU1FQUhpZGRlblRpdGxlUElMLCBsaS5FTUVBSGlkZGVuVGl0bGVQSUwsIGRpdi5FTUVBSGlkZGVuVGl0bGVQSUwNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEhpZGRlbiBUaXRsZSBQSUwiOw0NCgltYXJnaW46MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCnAuRU1FQUhpZGRlblRpdGxlUEFDLCBsaS5FTUVBSGlkZGVuVGl0bGVQQUMsIGRpdi5FTUVBSGlkZGVuVGl0bGVQQUMNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEhpZGRlbiBUaXRsZSBQQUMiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjI4LjM1cHQ7DQ0KCXRleHQtaW5kZW50Oi0yOC4zNXB0Ow0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJdGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlOw0NCglmb250LXdlaWdodDpib2xkO30NDQpzcGFuLkJNU0luc3RydWN0aW9uVGV4dA0NCgl7bXNvLXN0eWxlLW5hbWU6IkJNUyBJbnN0cnVjdGlvbiBUZXh0IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWNvbG9yOnJlZDsNDQoJZGlzcGxheTpub25lOw0NCglmb250LXN0eWxlOml0YWxpYzsNDQoJdGV4dC1kZWNvcmF0aW9uOm5vbmUgbm9uZTsNDQoJdmVydGljYWwtYWxpZ246YmFzZWxpbmU7fQ0NCnNwYW4uRU1FQVN1YnNjcmlwdA0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgU3Vic2NyaXB0IjsNDQoJdmVydGljYWwtYWxpZ246c3ViO30NDQpzcGFuLkVNRUFTdXBlcnNjcmlwdA0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgU3VwZXJzY3JpcHQiOw0NCgl2ZXJ0aWNhbC1hbGlnbjpzdXBlcjt9DQ0KcC5FTUVBVGFibGVIZWFkZXIsIGxpLkVNRUFUYWJsZUhlYWRlciwgZGl2LkVNRUFUYWJsZUhlYWRlcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgVGFibGUgSGVhZGVyIjsNDQoJbWFyZ2luOjBpbjsNDQoJdGV4dC1hbGlnbjpjZW50ZXI7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLkVNRUFUaXRsZVBBQywgbGkuRU1FQVRpdGxlUEFDLCBkaXYuRU1FQVRpdGxlUEFDDQ0KCXttc28tc3R5bGUtbmFtZToiRU1FQSBUaXRsZSBQQUMiOw0NCgltYXJnaW46MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglib3JkZXI6bm9uZTsNDQoJcGFkZGluZzowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgl0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uRU1FQUJvZHlUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkVNRUEgQm9keSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRU1FQSBCb2R5IFRleHQiO30NDQpzcGFuLkhlYWRpbmcyQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiI7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnNwYW4uaHBzDQ0KCXttc28tc3R5bGUtbmFtZTpocHM7fQ0NCnNwYW4uc2hvcnR0ZXh0DQ0KCXttc28tc3R5bGUtbmFtZTpzaG9ydF90ZXh0O30NDQpzcGFuLkZvb3Rub3RlVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCI7fQ0NCnAubmV3cy1kYXRlLCBsaS5uZXdzLWRhdGUsIGRpdi5uZXdzLWRhdGUNDQoJe21zby1zdHlsZS1uYW1lOm5ld3MtZGF0ZTsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsYXlvdXQtZ3JpZC1tb2RlOmNoYXI7DQ0KCWZvbnQtc2l6ZToxMi4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLkJvZHl0ZXh0QWdlbmN5LCBsaS5Cb2R5dGV4dEFnZW5jeSwgZGl2LkJvZHl0ZXh0QWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkiOw0NCgltc28tc3R5bGUtbGluazoiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjcuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJZm9udC1zaXplOjkuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjsNDQoJbGF5b3V0LWdyaWQtbW9kZTpsaW5lO30NDQpwLk5vLW51bWhlYWRpbmczQWdlbmN5LCBsaS5Oby1udW1oZWFkaW5nM0FnZW5jeSwgZGl2Lk5vLW51bWhlYWRpbmczQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiTm8tbnVtIGhlYWRpbmcgMyBcKEFnZW5jeVwpIjsNDQoJbWFyZ2luLXRvcDoxNC4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MTEuMHB0Ow0NCgltYXJnaW4tbGVmdDowaW47DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmOw0NCglsYXlvdXQtZ3JpZC1tb2RlOmxpbmU7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuYm9keXRleHRhZ2VuY3kwLCBsaS5ib2R5dGV4dGFnZW5jeTAsIGRpdi5ib2R5dGV4dGFnZW5jeTANDQoJe21zby1zdHlsZS1uYW1lOmJvZHl0ZXh0YWdlbmN5Ow0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnAuTm8tbnVtaGVhZGluZzFBZ2VuY3ksIGxpLk5vLW51bWhlYWRpbmcxQWdlbmN5LCBkaXYuTm8tbnVtaGVhZGluZzFBZ2VuY3kNDQoJe21zby1zdHlsZS1uYW1lOiJOby1udW0gaGVhZGluZyAxIFwoQWdlbmN5XCkiOw0NCgltYXJnaW4tdG9wOjE0LjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbToxMS4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEzLjVwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7DQ0KCWxheW91dC1ncmlkLW1vZGU6bGluZTsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KcC5EcmFmdGluZ05vdGVzQWdlbmN5LCBsaS5EcmFmdGluZ05vdGVzQWdlbmN5LCBkaXYuRHJhZnRpbmdOb3Rlc0FnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6IkRyYWZ0aW5nIE5vdGVzIFwoQWdlbmN5XCkiOw0NCgltc28tc3R5bGUtbGluazoiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSBDaGFyIjsNDQoJbWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ny4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTQuMHB0Ow0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiQ291cmllciBOZXciOw0NCgljb2xvcjojMzM5OTY2Ow0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Oby1udW1oZWFkaW5nMkFnZW5jeSwgbGkuTm8tbnVtaGVhZGluZzJBZ2VuY3ksIGRpdi5Oby1udW1oZWFkaW5nMkFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vLW51bSBoZWFkaW5nIDIgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbi10b3A6MTQuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjExLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCnNwYW4uRHJhZnRpbmdOb3Rlc0FnZW5jeUNoYXINDQoJe21zby1zdHlsZS1uYW1lOiJEcmFmdGluZyBOb3RlcyBcKEFnZW5jeVwpIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7DQ0KCWNvbG9yOiMzMzk5NjY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkJvZHl0ZXh0QWdlbmN5Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiQm9keSB0ZXh0IFwoQWdlbmN5XCkiOw0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjsNDQoJbGF5b3V0LWdyaWQtbW9kZTpib3RoO30NDQpwLkJvZHl0ZXh0QWdlbmN5Q2FyYXR0ZXJlLCBsaS5Cb2R5dGV4dEFnZW5jeUNhcmF0dGVyZSwgZGl2LkJvZHl0ZXh0QWdlbmN5Q2FyYXR0ZXJlDQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2FyYXR0ZXJlIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENhcmF0dGVyZSBDYXJhdHRlcmUiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uQm9keXRleHRBZ2VuY3lDYXJhdHRlcmVDYXJhdHRlcmUNDQoJe21zby1zdHlsZS1uYW1lOiJCb2R5IHRleHQgXChBZ2VuY3lcKSBDYXJhdHRlcmUgQ2FyYXR0ZXJlIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENhcmF0dGVyZSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpzcGFuLm1zb0lucw0NCgl7bXNvLXN0eWxlLW5hbWU6IiI7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7DQ0KCWNvbG9yOnRlYWw7fQ0NCnNwYW4ubXNvRGVsDQ0KCXttc28tc3R5bGUtbmFtZToiIjsNDQoJdGV4dC1kZWNvcmF0aW9uOmxpbmUtdGhyb3VnaDsNDQoJY29sb3I6cmVkO30NDQogLyogUGFnZSBEZWZpbml0aW9ucyAqLw0NCiBAcGFnZSBXb3JkU2VjdGlvbjENDQoJe3NpemU6NTk1LjM1cHQgODQxLjk1cHQ7DQ0KCW1hcmdpbjo1Ni43cHQgNzAuODVwdCA1Ni43cHQgNzAuODVwdDt9DQ0KZGl2LldvcmRTZWN0aW9uMQ0NCgl7cGFnZTpXb3JkU2VjdGlvbjE7fQ0NCiAvKiBMaXN0IERlZmluaXRpb25zICovDQ0KIG9sDQ0KCXttYXJnaW4tYm90dG9tOjBpbjt9DQ0KdWwNDQoJe21hcmdpbi1ib3R0b206MGluO30NDQotLT4NDQo8L3N0eWxlPg=="/>
+                          </Binary>
+                        </contained>
+                        <!-- this exension is necessary per image -->
+                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+                          <valueReference>
+                            <reference value="#stylesheet0"/>
+                          </valueReference>
+                        </extension>
+              
+              <status value="final"/>
+							<!-- document type -->
+							<type>
+								<coding>
+									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+									<code value="${document[n].documentTypeCode}"/>
+									<display value="${document[n].documentTypeDisplay}"/>
+								</coding>
+							</type>
+							<subject>
+								<!-- links to the List resource in this bundle - local url format -->
+								<reference value="[]"/> <!-- local url format -->
+								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
+							</subject>
+                        	<!-- mandatory date of the document -->
+                        	<date value="2021-02-01"/>
+							<author>
+								<identifier>
+									<system value="http://spor.ema.europa.eu/v1/locations" />
+									<value value="" />
+								</identifier>
+							</author>
+                        	<title value="${document[n].title}"/>
+							<relatesTo>
+								<code value="appends"/>
+								<targetReference>
+									<!-- reference to another Composition -->
+									<reference value="${document[n].relatesTo}"/>
+								</targetReference>
+							</relatesTo>
+							<!-- main sections of the document, to follow the QRD template -->
+	               			
+<section>
+	
+		
+			<title value="BILAG II"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="EMEABodyText"></p>
+			</div>
+		</text>
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="A.      FREMSTILLERE ANSVARLIGE FOR BATCHFRIGIVELSE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.5pt"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="B.      BETINGELSER ELLER BEGRÆNSNINGER VEDRØRENDE UDLEVERING OG ANVENDELSE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-right:70.5pt"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="C.      ANDRE FORHOLD OG BETINGELSER FOR MARKEDSFØRINGSTILLADELSEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="D.      BETINGELSER ELLER BEGRÆNSNINGER MED HENSYN TIL SIKKER OG EFFEKTIV ANVENDELSE AF LÆGEMIDLET"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="MsoNormal" style="margin-top:0in;margin-right:70.9pt;margin-bottom: 0in;margin-left:85.05pt;margin-bottom:.0001pt;text-indent:-28.35pt"></p><p class="EMEAHeading1"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+		
+		
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="A.      FREMSTILLERE ANSVARLIGE FOR BATCHFRIGIVELSE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="EMEABodyText"></p><p class="EMEABodyText"><u><span lang="DA">Navn og adresse på de fremstillere, der er ansvarlige for batchfrigivelse</span></u></p><p class="EMEABodyText"></p><p class="EMEAAddress"><span lang="FR">Sanofi Winthrop Industrie<br/> 1 rue de la Vierge<br/> Ambarès &amp; Lagrave<br/> F-33565 Carbon Blanc Cedex<br/> Frankrig</span></p><p class="EMEABodyText"></p><p class="EMEAAddress"><span lang="FR">Sanofi Winthrop Industrie<br/> 30-36 Avenue Gustave Eiffel, BP 7166<br/> F-37071 Tours Cedex 2<br/> Frankrig</span></p><p class="EMEABodyText"></p><p class="EMEAAddress"><span lang="FR">Chinoin Private Co. Ltd.<br/> Lévai u.5.<br/> 2112 Veresegyhaz<br/> Ungarn</span></p><p class="EMEABodyText"></p><p class="MsoNormal"><span lang="EN-GB">Sanofi-Aventis, S.A.</span></p><p class="MsoNormal"><span lang="EN-GB">Ctra. C-35 (La Batlloria-Hostalric), km. 63.09</span></p><p class="MsoNormal"><span lang="DA">17404 Riells i Viabrea (Girona)</span></p><p class="MsoNormal"><span lang="DA">Spanien</span></p><p class="EMEABodyText"></p><p class="EMEABodyText"><span lang="DA" style="color:black;layout-grid-mode:line">På lægemidlets trykte indlægsseddel skal der anføres navn og adresse på den fremstiller, som er ansvarlig for frigivelsen af det pågældende batch.</span></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="B.      BETINGELSER ELLER BEGRÆNSNINGER VEDRØRENDE UDLEVERING OG ANVENDELSE"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"></p><p class="MsoNormal"><span lang="DA">Lægemidlet er receptpligtigt</span><span lang="NL-BE">.</span></p><p class="MsoNormal"></p><p class="MsoNormal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="C.ANDRE FORHOLD OG BETINGELSER FOR MARKEDSFØRINGSTILLADELSEN"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:35.45pt"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·Periodiske, opdaterede sikkerhedsindberetninger (PSUR’er)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-top:0in;margin-right:-.05pt;margin-bottom: 0in;margin-left:.5in;margin-bottom:.0001pt"></p><p class="MsoNormal"><span lang="DA">Kravene for fremsendelse af PSUR´er for dette lægemiddel fremgår af listen over EU-referencedatoer (EURD list), som fastsat i artikel 107c, stk. 7, i direktiv 2001/83/EF, og alle efterfølgende opdateringer offentliggjort på Det Europæiske Lægemiddelagenturs hjemmeside http://www.ema.europa.eu.</span></p><p class="MsoNormal"></p><p class="MsoNormal"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+				
+			    
+						
+		               
+<section>
+			<title value="D.      BETINGELSER ELLER BEGRÆNSNINGER MED HENSYN TIL SIKKER OG EFFEKTIV ANVENDELSE AF LÆGEMIDLET "/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal"></p>
+			</div>
+		</text>
+		
+    	    
+
+			    
+		               
+<section>
+			<title value="·Risikostyringsplan (RMP)"/>
+				<code>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
+						<code value="${document[n].section[n].subsection[n].typeCode}"/>
+						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+					</coding>
+				</code>
+		<text>
+			<status value="additional"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+		    <p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt"></p><p class="MsoNormal"><u><span lang="DA">Ikke relevant</span></u></p><p class="EMEABodyText"><u><span lang="DA"></span></u></p><p class="EMEABodyText"><u><span lang="DA"></span></u></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEABodyText"></p><p class="EMEATitle"></p><p class="EMEATitle"></p><p class="EMEATitle"></p><p class="EMEATitle"></p>
+			</div>
+		</text>
+		
+    	    
+		
+</section>
+			    
+    	    
+		
+</section>
+			    
+    	    
+		
+	
+</section>
+							<!-- sections can repeat as necessary -->
+						</Composition>
+					</resource>
+				</entry>
+				
+			</Bundle>
+		</resource>
+	</entry>
+</Bundle>

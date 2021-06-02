@@ -23,4 +23,8 @@ class MatchRuleBook():
         '''
         Extract specific section of the rule Book
         '''
+        if  self.languageCode not in ruleDict[self.domain][self.procedureType].keys():
+            
+            return ruleDict[self.domain][self.procedureType]['default'][self.documentNumber]
+            
         return ruleDict[self.domain][self.procedureType][self.languageCode][self.documentNumber]

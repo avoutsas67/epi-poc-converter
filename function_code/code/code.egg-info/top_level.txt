@@ -5,6 +5,7 @@ fhirService
 fhirXmlGenerator
 htmlDocTypePartitioner
 languageInfo
+listBundle
 match
 parse
 scripts

@@ -28,6 +28,7 @@ class DocumentAnnotation:
         self._apiMgmtApiBaseUrl = apiMgmtApiBaseUrl
         self._dfHtml = dfHtml
         self._matchCollection = matchCollection
+        self.listRegulatedAuthorizationIdentifiers = None
 
     def convertToInt(self, x):
         try:
@@ -114,7 +115,6 @@ class DocumentAnnotation:
         if len(uniqueFinalListAuthIdentifiers) > 1:
             print(
                 f"Warning: Multiple Authorization Token Found In The Document {self._fileName} :- \n {uniqueFinalListAuthIdentifiers}")
-
         return uniqueFinalListAuthIdentifiers
 
     def processRegulatedAuthorization(self, authorizationIdentifier):
@@ -321,6 +321,10 @@ class DocumentAnnotation:
             raise NoAuthorizationCodesFoundInDoc(
                 f"No Authorization Code Found In The Document {self._fileName}")
 
+        self.listRegulatedAuthorizationIdentifiers = listRegulatedAuthorizationIdentifiers
+        print("\n====================================== ", self.listRegulatedAuthorizationIdentifiers," =========================\n\n")
+
+        
         finalOutput = []
 
         for authIdentifier in listRegulatedAuthorizationIdentifiers:

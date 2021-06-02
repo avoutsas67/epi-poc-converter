@@ -1,0 +1,58 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.0863 Min,6.532826 MB,16.255976 MB,48.0%
+Split Json,0.0099 Min,0.284713 MB,17.647774 MB,48.1%
+0: Heading Extraction,0.7867 Min,3.416796 MB,7.492415 MB,48.0%
+0: Document Annotation,0.0185 Min,0.160223 MB,0.194994 MB,48.1%
+0: Content Extraction,0.0017 Min,0.805308 MB,7.496511 MB,48.2%
+0: Generate XML,0.0056 Min,2.58398 MB,5.765116 MB,48.4%
+0: Submit FHIR Msg,0.0697 Min,0.049503 MB,2.322284 MB,48.3%
+0: Update/Add List Bundle,0.1617 Min,0.259441 MB,0.341611 MB,48.1%
+1: Heading Extraction,0.0572 Min,0.356965 MB,2.954103 MB,48.2%
+1: Document Annotation,0.0002 Min,0.155807 MB,0.164808 MB,48.2%
+1: Content Extraction,0.0006 Min,0.21385 MB,0.396487 MB,48.2%
+1: Generate XML,0.0014 Min,0.411592 MB,0.642341 MB,48.2%
+1: Submit FHIR Msg,0.0197 Min,0.18568 MB,0.289792 MB,48.2%
+1: Update/Add List Bundle,0.1456 Min,0.119955 MB,0.376784 MB,48.1%
+2: Heading Extraction,1.1958 Min,1.653371 MB,3.843834 MB,48.0%
+2: Document Annotation,0.0003 Min,0.168434 MB,0.229773 MB,47.9%
+2: Content Extraction,0.0149 Min,0.5627 MB,2.838218 MB,48.3%
+2: Generate XML,0.008 Min,2.459889 MB,4.070558 MB,48.2%
+2: Submit FHIR Msg,0.0405 Min,0.204787 MB,1.26583 MB,48.0%
+2: Update/Add List Bundle,0.1526 Min,0.168838 MB,0.758995 MB,48.0%
+3: Heading Extraction,0.8209 Min,0.981993 MB,3.548096 MB,48.0%
+3: Document Annotation,0.0002 Min,0.009844 MB,0.168669 MB,48.0%
+3: Content Extraction,0.0007 Min,0.605489 MB,2.021867 MB,48.0%
+3: Generate XML,0.0021 Min,1.381706 MB,5.239579 MB,48.0%
+3: Submit FHIR Msg,0.0607 Min,0.196456 MB,2.437 MB,47.9%
+3: Update/Add List Bundle,0.1575 Min,0.321271 MB,0.385246 MB,47.9%
+3: Completed,0.0 Min,0.002895 MB,0.151197 MB,47.9%
+Final Metrics,3.8187 Min,0.0 MB,17.647774 MB,48.4%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.1431 Min,8.221273 MB,17.944946 MB,49.2%
+Split Json,0.0235 Min,0.274088 MB,17.647631 MB,49.1%
+0: Heading Extraction,1.2796 Min,3.534551 MB,7.492122 MB,48.7%
+0: Document Annotation,0.0182 Min,0.167303 MB,0.347052 MB,48.7%
+0: Content Extraction,0.0014 Min,0.655815 MB,7.494551 MB,48.7%
+0: Generate XML,0.005 Min,2.585003 MB,5.766139 MB,48.7%
+0: Submit FHIR Msg,0.0501 Min,0.056062 MB,2.185731 MB,48.7%
+0: Update/Add List Bundle,0.1592 Min,0.267927 MB,0.330067 MB,48.7%
+1: Heading Extraction,0.0377 Min,0.406945 MB,2.961494 MB,48.8%
+1: Document Annotation,0.0001 Min,0.155143 MB,0.164976 MB,48.8%
+1: Content Extraction,0.0004 Min,0.084973 MB,0.414519 MB,48.8%
+1: Generate XML,0.0009 Min,0.432694 MB,0.652445 MB,48.8%
+1: Submit FHIR Msg,0.0209 Min,0.187931 MB,0.310441 MB,48.8%
+1: Update/Add List Bundle,0.1545 Min,0.126418 MB,0.447526 MB,48.7%
+2: Heading Extraction,3.4004 Min,1.512452 MB,3.8392 MB,50.1%
+2: Document Annotation,0.0006 Min,0.02299 MB,0.230189 MB,50.1%
+2: Content Extraction,0.0535 Min,0.440108 MB,2.871641 MB,50.1%
+2: Generate XML,0.023 Min,2.460191 MB,4.07058 MB,50.1%
+2: Submit FHIR Msg,0.0488 Min,0.057 MB,1.120075 MB,50.0%
+2: Update/Add List Bundle,0.1907 Min,0.283066 MB,0.371878 MB,50.0%
+3: Heading Extraction,3.0352 Min,0.811713 MB,3.569932 MB,49.1%
+3: Document Annotation,0.0004 Min,0.010039 MB,0.16916 MB,49.2%
+3: Content Extraction,0.0023 Min,0.603308 MB,2.023131 MB,49.2%
+3: Generate XML,0.006 Min,1.375413 MB,5.233286 MB,49.2%
+3: Submit FHIR Msg,0.0571 Min,0.196056 MB,2.43732 MB,49.2%
+3: Update/Add List Bundle,0.1698 Min,0.277635 MB,0.386525 MB,49.1%
+3: Completed,0.0001 Min,0.003383 MB,0.151589 MB,49.1%
+Final Metrics,8.8825 Min,0.0 MB,17.944946 MB,50.1%

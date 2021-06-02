@@ -7,10 +7,13 @@ from datetime import datetime
 from requests.exceptions import HTTPError
 
 class FhirService:
-    def __init__(self, logger, basePath, body):
+    def __init__(self, logger, submitFhirUrl, basePath, body):
         self.insights_logger = logger
         self.basePath = basePath
         self.body = body
+        self.submitFhirUrl = submitFhirUrl
+        
+        self.SubmittedFhirMsgRefId = None 
 
     def storeXMLIdOnPost(self, post_xml_id):
         
@@ -50,9 +53,9 @@ class FhirService:
             outfile.close()
 
     def submitFhirXml(self):
-        url = "https://ema-dap-epi-dev-fhir-api.azurewebsites.net/Bundle"
+        #url = "https://ema-dap-epi-dev-fhir-api.azurewebsites.net/Bundle"
 
-        response = requests.post(url, data=self.body, headers={'Content-Type': 'application/fhir+xml; charset=utf-8'})
+        response = requests.post(self.submitFhirUrl, data=self.body, headers={'Content-Type': 'application/fhir+xml; charset=utf-8'})
         self.insights_logger.logFlowCheckpoint('Initiating Submission To FHIR Server')
         
         try:
@@ -61,6 +64,8 @@ class FhirService:
             response = response.json()
             self.insights_logger.logFlowCheckpoint('POST sucessful: XML added with id: ' + str(response['id']))
             print('POST sucessful: XML added with id', response['id'])
+            self.SubmittedFhirMsgRefId = response['id']
+
         except HTTPError as http_err:
             response = response.json()
             print(f'HTTP error occurred: {http_err}')
@@ -69,5 +74,3 @@ class FhirService:
             print('Error log:', response['issue'][0]['diagnostics'])
             self.insights_logger.logException('Error log:'+ response['issue'][0]['diagnostics'])
             self.insights_logger.logFlowCheckpoint('Error log:'+ response['issue'][0]['diagnostics'])
-
-       
