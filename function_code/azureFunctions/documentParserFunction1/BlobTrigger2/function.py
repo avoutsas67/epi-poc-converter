@@ -29,7 +29,7 @@ from fhirXmlGenerator.fhirXmlGenerator import FhirXmlGenerator
 from fhirService.fhirService import FhirService
 from utils.logger.matchLogger import MatchLogger
 from languageInfo.documentTypeNames.documentTypeNames import DocumentTypeNames
-
+from listBundle.addAndUpdateListBundle.addAndUpdateListBundle import ListBundleHandler
 
 class FolderNotFoundError(Exception):
     pass
@@ -273,8 +273,22 @@ def extractAndValidateHeadings(controlBasePath,
     return df, coll, documentType
 
 
-def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameMatchRuleBook, fileNameDocumentTypeNames, medName = None):
+def parseDocument(controlBasePath,
+                  basePath,
+                  htmlDocName,
+                  fileNameQrd,
+                  fileNameMatchRuleBook,
+                  fileNameDocumentTypeNames,
+                  jsonTempFileName,
+                  listBundleDocumentTypeCodesFileName,
+                  apiMmgtBaseUrl,
+                  getListApiEndPointUrlSuffix,
+                  addUpdateListApiEndPointUrlSuffix,
+                  apiMmgtSubsKey,
+                  submitFhirUrl,
+                  medName = None):
     
+    listRegulatedAuthCodesAccrossePI = []
     
     if "/" in basePath:
         pathSep = "/"        
@@ -320,6 +334,9 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
     flowLogger.logFlowCheckpoint("Started Processing Partitioned Jsons")
     
     for index, fileNamePartitioned in enumerate(partitionedJsonPaths):
+        print("Index", index)
+        if index in [0]:
+            continue
         flowLogger.logFlowCheckpoint(f"\n\n\n\n||||||||||||||||||||||||||||||||{str(index)} ||||| {str(fileNamePartitioned)}||||||||||||||||||||||||||||||||\n\n\n\n")
         
         if index == 3:
@@ -343,7 +360,7 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
                                     stopWordFilterLen=stopWordFilterLen,
                                     isPackageLeaflet=isPackageLeaflet,
                                     medName=medName)
-        
+    
         
         print(f"Completed Heading Extraction For File")
         flowLogger.logFlowCheckpoint("Completed Heading Extraction For File")
@@ -351,13 +368,13 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
 
         print(f"Starting Document Annotation For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Document Annotation For File")
-        documentAnnotationObj = DocumentAnnotation(fileNamePartitioned,'c20835db4b1b4e108828a8537ff41506','https://spor-sit.azure-api.net/pms/api/v2/',df,coll)
+        documentAnnotationObj = DocumentAnnotation(fileNamePartitioned,'c20835db4b1b4e108828a8537ff41506','https://spor-sit.azure-api.net/pms/api/v2/',df,coll, index)
         try:
             pms_oms_annotation_data = documentAnnotationObj.processRegulatedAuthorizationForDoc()
             print(pms_oms_annotation_data)
-        except:
+        except Exception as e:
             pms_oms_annotation_data = None
-            print("Error Found")
+            print("Error Found", str(e))
             
         print(f"Completed Document Annotation")        
         flowLogger.logFlowCheckpoint("Completed Document Annotation")
@@ -374,6 +391,7 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
         flowLogger.logFlowCheckpoint("Completed Extracting Content Between Heading")
         metrics.getMetric(f"{index}: Content Extraction")
         
+        
         xmlLogger =  MatchLogger(f'XmlGeneration_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
         fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, controlBasePath, basePath, pms_oms_annotation_data, stylesFilePath, medName)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
@@ -383,15 +401,51 @@ def parseDocument(controlBasePath, basePath ,htmlDocName, fileNameQrd, fileNameM
         
         fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
 
-        fhirServiceObj = FhirService(fhirServiceLogger, basePath, generatedXml)
+        fhirServiceObj = FhirService(fhirServiceLogger, submitFhirUrl, basePath, generatedXml)
         fhirServiceObj.submitFhirXml()
+        
+        
+        
         
         metrics.getMetric(f"{index}: Submit FHIR Msg")
         
-        print(f"Created XML File For :- {fileNamePartitioned}")      
+        print(f"Created XML File For :- {fileNamePartitioned}")
         
-        #return df,coll,dfExtractedHierRR
-    
+        flowLogger.logFlowCheckpoint("Starting list bundle update/addition")
+        if documentAnnotationObj.listRegulatedAuthorizationIdentifiers != None:
+            for id in documentAnnotationObj.listRegulatedAuthorizationIdentifiers:
+                listRegulatedAuthCodesAccrossePI.append(id)
+        listBundleLogger =  MatchLogger(f'List Bundle Creation Logger_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
+        print("\nlistRegulatedAuthCodesAccrossePI",listRegulatedAuthCodesAccrossePI)
+        try:
+            listBundleHandler = ListBundleHandler(listBundleLogger,
+                     domain,
+                     procedureType,
+                     index,
+                     documentType,
+                     languageCode,
+                     medName,
+                     controlBasePath,
+                     jsonTempFileName,
+                     listBundleDocumentTypeCodesFileName,
+                     fileNameDocumentTypeNames,
+                     listRegulatedAuthCodesAccrossePI,
+                     apiMmgtBaseUrl,
+                     getListApiEndPointUrlSuffix,
+                     addUpdateListApiEndPointUrlSuffix,
+                     apiMmgtSubsKey)
+
+            listBundleXml = listBundleHandler.addOrUpdateDocumentItem(str(fhirServiceObj.SubmittedFhirMsgRefId))
+            listBundleHandler.submitListXmLToServer(listBundleXml)
+
+            flowLogger.logFlowCheckpoint("Completed list bundle update/addition")
+            metrics.getMetric(f"{index}: Update/Add List Bundle")
+            #return df,coll,dfExtractedHierRR
+        except Exception as e:
+            print(str(e))
+            if 'No MAN Code found' in str(e):
+                flowLogger.logFlowCheckpoint("Skipping list bundle addtion/update as no MAN found")
+            
     
     flowLogger.logFlowCheckpoint("Completed Processing Partitioned Jsons")
     metrics.getMetric(f"{index}: Completed")

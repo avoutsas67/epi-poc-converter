@@ -22,12 +22,14 @@ class IncorrectReference(Exception):
 
 class DocumentAnnotation:
 
-    def __init__(self, fileName, subscriptionKey, apiMgmtApiBaseUrl, dfHtml, matchCollection):
+    def __init__(self, fileName, subscriptionKey, apiMgmtApiBaseUrl, dfHtml, matchCollection, documentNumber):
         self._fileName = fileName
         self._subscriptionKey = subscriptionKey
         self._apiMgmtApiBaseUrl = apiMgmtApiBaseUrl
         self._dfHtml = dfHtml
         self._matchCollection = matchCollection
+        self.documentNumber = documentNumber
+        self.listRegulatedAuthorizationIdentifiers = None
 
     def convertToInt(self, x):
         try:
@@ -94,7 +96,14 @@ class DocumentAnnotation:
         coll = self._matchCollection
         dfHeadings = self.convertCollectionToDataFrame(coll)
 
-        dfAuthHeadingsSmPC = dfHeadings[dfHeadings['id'].str.contains('056')]
+        heading_id = "InvalidId"
+
+        if self.documentNumber == 0:
+            heading_id = 56
+        if self.documentNumber == 2:
+            heading_id = 14
+        dfAuthHeadingsSmPC = dfHeadings[dfHeadings['heading_id'] == heading_id]
+
         finalListAuthIdentifiers = []
         for index, authHeading in dfAuthHeadingsSmPC.iterrows():
 
@@ -114,7 +123,6 @@ class DocumentAnnotation:
         if len(uniqueFinalListAuthIdentifiers) > 1:
             print(
                 f"Warning: Multiple Authorization Token Found In The Document {self._fileName} :- \n {uniqueFinalListAuthIdentifiers}")
-
         return uniqueFinalListAuthIdentifiers
 
     def processRegulatedAuthorization(self, authorizationIdentifier):
@@ -321,6 +329,10 @@ class DocumentAnnotation:
             raise NoAuthorizationCodesFoundInDoc(
                 f"No Authorization Code Found In The Document {self._fileName}")
 
+        self.listRegulatedAuthorizationIdentifiers = listRegulatedAuthorizationIdentifiers
+        print("\n====================================== ", self.listRegulatedAuthorizationIdentifiers," =========================\n\n")
+
+        
         finalOutput = []
 
         for authIdentifier in listRegulatedAuthorizationIdentifiers:

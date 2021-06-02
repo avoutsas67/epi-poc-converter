@@ -30,7 +30,8 @@ modules_to_use = ['documentAnnotation',
     'parse',
     'QrdExtractor',
     'utils',
-    'scripts'
+    'scripts',
+    'listBundle'
     ]
 
 path_requirements = os.path.join(current_file_folder,'requirements.txt')
