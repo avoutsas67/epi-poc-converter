@@ -311,8 +311,8 @@ class MatchStrings():
                     self.logger.logMatchCheckpoint(f'Match Failed In Lowercase : {outputString}',textOriginal, textToMatch, False)
                     return False, outputString1
 
-            if resultSum == 2:
-                self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
+            #if resultSum == 2:
+            #    self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
                 
 
             return False, outputString

@@ -304,12 +304,6 @@ $policyProductWebRead = @"
         <quota-by-key calls="20000"
                       renewal-period="2629800"
                       counter-key="@(context.Request.IpAddress)" />
-        <!-- Configure CORS for SPA -->
-        <cors allow-credentials="true">
-            <allowed-origins>
-                <origin>https://$($fhirSPAName).azurewebsites.net</origin>
-            </allowed-origins>
-        </cors>
     </inbound>
     <backend>
         <base />

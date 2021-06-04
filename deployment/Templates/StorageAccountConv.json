@@ -39,14 +39,6 @@
 			"tags": "[parameters('resourceTags')]",
 			"resources": [
 				{
-					"name": "default/templates",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
-						"[parameters('storageAccountName')]"
-					]
-				},
-				{
 					"name": "default/ingest",
 					"type": "blobServices/containers",
 					"apiVersion": "2019-04-01",
@@ -54,22 +46,45 @@
 						"[parameters('storageAccountName')]"
 					]
 				},
-				{
-					"name": "default/converted",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
+		        {
+		            "name": "/default/control",
+		            "type": "fileServices/shares",
+		            "apiVersion": "2021-04-01",
+		            "dependsOn": [
 						"[parameters('storageAccountName')]"
-					]
-				},
-				{
-					"name": "default/extracted",
-					"type": "blobServices/containers",
-					"apiVersion": "2019-04-01",
-					"dependsOn": [
+		            ],
+		            "properties": {
+		                "accessTier": "Hot",
+		                "shareQuota": 5120,
+		                "enabledProtocols": "SMB"
+		            }
+		        },
+		        {
+		            "name": "/default/ingest",
+		            "type": "fileServices/shares",
+		            "apiVersion": "2021-04-01",
+		            "dependsOn": [
 						"[parameters('storageAccountName')]"
-					]
-				}
+		            ],
+		            "properties": {
+		                "accessTier": "Hot",
+		                "shareQuota": 5120,
+		                "enabledProtocols": "SMB"
+		            }
+		        },
+		        {
+		            "name": "/default/work",
+		            "type": "fileServices/shares",
+		            "apiVersion": "2021-04-01",
+		            "dependsOn": [
+						"[parameters('storageAccountName')]"
+		            ],
+		            "properties": {
+		                "accessTier": "Hot",
+		                "shareQuota": 5120,
+		                "enabledProtocols": "SMB"
+		            }
+		        },
 			]
 		}
 	]

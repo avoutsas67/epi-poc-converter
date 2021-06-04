@@ -250,6 +250,7 @@ class MatchDocument():
         collection_ = addjson(collection_, 'htmlId', str_['ID'])
         collection_ = addjson(collection_, 'SubSectionIndex', subSectionIndex)
         collection_ = addjson(collection_, 'doc_parent_id', doc_parent_id)
+        collection_ = addjson(collection_, 'heading_id', qrd_str_row['heading_id'])
 
         return collection_
 

@@ -191,6 +191,15 @@ class parserExtractor:
             if(dom_data['IsHeadingType']):
                 dom_data['IsPossibleHeading'] = True
         return dom_data
+    
+    def remove_escape_ansi(self, line):
+        """
+        Function to remove escape characters in string
+        """
+        escapes = ''.join([chr(char) for char in range(1, 32)])
+        translator = str.maketrans('', '', escapes)
+        return line.translate(translator)
+        
             
     def remove_escape_ansi(self, line):
 
@@ -230,8 +239,12 @@ class parserExtractor:
 
         dom_data['IsPossibleHeading'] = False
         dom_data['IsHeadingType'] = None
+        dom_data['IsULTag'] = None
         css_in_attr = self.parseCssInStr(self.cleanCssString(dom_data['Styles']))
 
+        if(ele.name == 'ul'):
+            dom_data['IsULTag'] = True
+        
         ## Extracting text of element 
         if(get_immediate_text):
 

@@ -18,7 +18,7 @@ $ErrorActionPreference = "Stop"
 
 if ([string]::IsNullOrWhiteSpace($Environment)) {
     $message = "Select the environment to configure:"
-    $options = [System.Management.Automation.Host.ChoiceDescription[]] @("&DEV")
+    $options = [System.Management.Automation.Host.ChoiceDescription[]] @("&DEV", "&TST")
 
     $result = $host.UI.PromptForChoice("Environment", $message, $options, 0) 
     $Environment = $options[$result].Label.Replace("&", "")
@@ -61,6 +61,15 @@ switch ($Environment) {
         $global:fhirResourceGroupName = "dev-dap-epi-proto-00002-rg"
 
         $global:fhirAppServicePlanSku = "B1"
+    }
+    "TST" {
+        $global:tenantId = "4efbf65c-4a81-4f2d-835a-e8630de67663" # EMA test tenant
+        $global:subscriptionId = "cbc0681b-7fea-4d32-ac52-6276bb0c2996" # EMA test subscription
+        
+        $global:convResourceGroupName = "test-dap-epi-proto-00001-rg"
+        $global:fhirResourceGroupName = "test-dap-epi-proto-00002-rg"
+
+        $global:fhirAppServicePlanSku = "S1"
     }
     default {
         Write-Host

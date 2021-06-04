@@ -1,5 +1,6 @@
 {
     "en": {
+        "listBundleCode": "100000072147",
         "stopWordlanguage": "english",
         "H": {
             "CAP": {
@@ -13,6 +14,7 @@
         "V": {}
     },
     "de": {
+        "listBundleCode": "100000072178",
         "stopWordlanguage": "german",
         "H": {
             "CAP": {
@@ -26,6 +28,7 @@
         "V": {}
     },
     "es": {
+        "listBundleCode": "100000072264",
         "stopWordlanguage": "spanish",
         "H": {
             "CAP": {
@@ -39,6 +42,7 @@
         "V": {}
     },
     "bg": {
+        "listBundleCode": "100000072142",
         "stopWordlanguage": "english",
         "H": {
             "CAP": {
@@ -52,6 +56,7 @@
         "V": {}
     },
     "el": {
+        "listBundleCode": "100000072181",
         "stopWordlanguage": "greek",
         "H": {
             "CAP": {
@@ -59,6 +64,20 @@
                 "1": "ΠΑΡΑΡΤΗΜΑ ΙΙ",
                 "2": "ΕΠΙΣΗΜΑΝΣΗ",
                 "3": "ΦΥΛΛΟ ΟΔΗΓΙΩΝ ΧΡΗΣΗΣ"
+            },
+            "NAP": {}
+        },
+        "V": {}
+    },
+    "da": {
+        "listBundleCode": "100000072168",
+        "stopWordlanguage": "danish",
+        "H": {
+            "CAP": {
+                "0": "SmPC",
+                "1": "BILAG II",
+                "2": "ETIKETTERING",
+                "3": "INDLÆGSSEDDEL"
             },
             "NAP": {}
         },
