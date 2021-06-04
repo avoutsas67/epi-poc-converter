@@ -5,7 +5,7 @@ import { DisclaimerServiceService } from 'src/app/shared-services/disclaimer-ser
 @Component({
   selector: 'ema-disclaimer-modal',
   templateUrl: './disclaimer-modal.component.html',
-  styleUrls: ['./disclaimer-modal.component.css']
+  styleUrls: ['./disclaimer-modal.component.scss']
 })
 export class DisclaimerModalComponent implements OnInit {
 

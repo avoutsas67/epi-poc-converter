@@ -1,8 +1,10 @@
 <div ngbDropdown class="d-inline-block">
-    <button class="btn ema-dropdown" id="dropdownBasic1" ngbDropdownToggle>English
+    <button class="btn ema-dropdown" id="dropdownLanguage" ngbDropdownToggle>{{selectedOption}}
         <span></span>
     </button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button ngbDropdownItem>English</button>
+    <div  ngbDropdownMenu aria-labelledby="dropdownLanguage">
+      <div *ngFor='let option of dropdownOptions'>
+        <button (click)='changeSelection(option)' ngbDropdownItem>{{option? option:'English'}}</button>
+      </div>
     </div>
   </div>

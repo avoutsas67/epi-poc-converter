@@ -2,13 +2,16 @@
     <section class='ema-document-view'>
         <div class='row ema-document-main'>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ema-document-nav">
-                <ema-sidebar [menuNodes]="menuItems"></ema-sidebar>
+                <ema-sidebar [menuNodes]="showDataInUI? menuItems: []"></ema-sidebar>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ema-document-body">
-                <ema-document-header></ema-document-header>
-                <ema-action-links [actionList]='docTypeList'></ema-action-links>
+                <ema-document-header [dropdownOptions]="availableLanguages" (changeLang)='onLanguageChange($event)' [languageSelected]='currentLang'>
+                </ema-document-header>
+                <ema-action-links (onActionClick)=changeDoctype($event) [actionList]='docTypeList'></ema-action-links>
                 <div class="ema-medView-body">
-                    <ema-document-body-tree [sectionData]="documentData"></ema-document-body-tree>
+                   
+                    <ema-document-body-tree *ngIf="documentData && showDataInUI" [sectionData]="documentData"></ema-document-body-tree>
+                    <p *ngIf="!documentData ">{{noDataText}}</p>
                 </div>
 
             </div>

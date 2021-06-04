@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'ema-document-header',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./document-header.component.scss']
 })
 export class DocumentHeaderComponent implements OnInit {
+  @Input() dropdownOptions = [];
+  @Input() languageSelected = 'en';
+  @Output() changeLang  = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onLangChange(event){
+    this.changeLang.emit(event);
   }
 
 }

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg ema-action-links">
 <ul class="navbar-nav me-auto mb-lg-0">
           
-    <li *ngFor='let action of actionList' class="nav-item ema-action-item">
-      <a class="nav-link ema-action-link " [routerLink]="action.routePath" [ngClass]="{'ema-action-link-active': action.isActive}">{{action.action}}</a>
+    <li *ngFor='let action of actionList; let index = index' class="nav-item ema-action-item">
+      <a class="nav-link ema-action-link " (click)="actionClick(action.routePath, index)" [ngClass]="{'ema-action-link-active': action.isActive}">{{action.action}}</a>
     </li>
     
   </ul>

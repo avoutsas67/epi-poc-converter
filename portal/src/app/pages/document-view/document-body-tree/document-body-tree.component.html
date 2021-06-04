@@ -1,5 +1,5 @@
 <div *ngFor='let sectionObj of sectionData'>
-    <div>
+    <div class="ema-section-node">
         <div class="ema-section-title" [attr.id]='sectionObj.id.value'>{{sectionObj.title}}</div>
         <div [innerHTML]="sectionObj.text.div | safe:'html'"></div>
     </div>

@@ -65,6 +65,9 @@
                 &-active {
                     color: $ema-text-focused;
                     border-bottom: 4px solid $ema-primary;
+                    &:hover{
+                        cursor:pointer;
+                    }
                 }
                 &-disabled{
                     &:hover{
