@@ -20,6 +20,13 @@
                     cursor: pointer;
                     text-decoration: none;
                 }
+                &-toggle{
+                        display: block;
+                        width:14px;
+                        height:9px;
+                        background: url('../../../../../../src/assets/arrow-down.svg');
+                        border:none;
+                }
             }
         }
     }

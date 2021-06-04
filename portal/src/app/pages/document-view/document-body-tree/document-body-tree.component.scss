@@ -1,7 +1,11 @@
-:host{
-    
-       .ema-section-title{
-           margin:8px 0px;
-       }
-    
+:host {
+    .ema-section {
+        &-node {
+            margin-bottom: 8px;
+        }
+        &-title {
+            margin: 0px;
+            padding: 8px 0px 0px 0px;
+        }
+    }
 }

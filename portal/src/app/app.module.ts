@@ -13,7 +13,8 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 const routes: Routes = [
   { path: '',   redirectTo: '/Search', pathMatch: 'full' },
   {path: 'Search' , component: SearchPageComponent},
-  { path: 'View/:id', component: DocumentViewComponent },
+  { path: 'View/:listId/:langId/:documentId', component: DocumentViewComponent },
+  { path: 'View/:listId', component: DocumentViewComponent },
   { path: 'View',  redirectTo: '/Search', pathMatch: 'full' }
 ];
 
@@ -32,8 +33,6 @@ const routes: Routes = [
     HttpClientModule,
     DocumentViewModule,
     SearchPageModule,
-
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

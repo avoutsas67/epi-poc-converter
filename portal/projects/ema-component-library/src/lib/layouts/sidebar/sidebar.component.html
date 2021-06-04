@@ -1,6 +1,7 @@
 <div class="ema-sidebar">
     <div class="ema-sidebar-title">{{title}}</div>
     <div class="ema-sidebar-menu">
-        <ema-tree [treeData]="menuNodes"></ema-tree>
+        <ema-tree *ngIf='menuNodes' [treeData]="menuNodes"></ema-tree>
+        <p *ngIf='!menuNodes'>Data not found</p>
     </div>
 </div>

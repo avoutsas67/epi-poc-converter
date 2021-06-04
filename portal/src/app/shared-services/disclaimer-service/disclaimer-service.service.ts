@@ -13,7 +13,7 @@ export class DisclaimerServiceService {
     this.disclaimerStatus.next(status);
   }
   getDisclaimerStatus(){
-    return this.disclaimerStatus;
+    return this.disclaimerStatus.asObservable();
   }
 }
 

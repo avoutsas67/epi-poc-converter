@@ -4,9 +4,9 @@
         &-links {
             padding: 0px;
             border-bottom: 1px solid $ema-border;
-            ul{
-                padding:0px;
-                margin:0px;
+            ul {
+                padding: 0px;
+                margin: 0px;
             }
         }
         &-item {
@@ -20,6 +20,12 @@
             padding: 24px 40px !important;
             text-decoration: none;
             &-active {
+                color: $ema-text-focused;
+                border-bottom: 4px solid $ema-primary;
+            }
+            &:hover {
+                cursor: pointer;
+                color:black;
                 color: $ema-text-focused;
                 border-bottom: 4px solid $ema-primary;
             }

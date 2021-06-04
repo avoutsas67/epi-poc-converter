@@ -29,6 +29,12 @@
                     height:100%;
                 }
             }
+            a{
+                &:hover{
+                    cursor:pointer;
+                    text-decoration: underline;
+                }
+            }
            
         }
         &-main{

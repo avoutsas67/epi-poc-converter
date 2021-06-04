@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { DocumentViewComponent } from './document-view/document-view.component';
 import { EmaComponentLibraryModule } from 'projects/ema-component-library/src/lib/ema-component-library.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +20,9 @@ import { PipesModule } from 'src/app/shared-pipes/pipes.module';
     NgbModule,
     BrowserModule,
     PipesModule
+  ],
+  providers: [
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   exports:[DocumentViewComponent,
     DocumentBodyTreeComponent]
