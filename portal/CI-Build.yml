@@ -1,59 +1,130 @@
 name: $(Build.DefinitionName)_$(Date:yyyy.MM.dd).$(Rev:r)
 
 trigger:
-  batch: true
+  batch: false
+  branches:
+    include: [ 'master' ]
+  paths:
+    include: [ 'portal' ]
+
+stages:
+
+#
+# Build
+#
+- stage: Build
   
-pool:
-  # For Azure Pipelines we specify the image of the build agent
-  # See https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops
-  vmImage: 'ubuntu-latest'
+  pool:
+    # For Azure Pipelines we specify the image of the build agent
+    # See https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops
+    vmImage: 'ubuntu-latest'
 
-steps:
+  jobs:
+  - job: Build
+    steps:
 
-- checkout: self
-  clean: true
+    - checkout: self
+      clean: true
 
-- task: NodeTool@0
-  displayName: 'Install Node.js'
-  inputs:
-    versionSpec: '14.17.0'
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: '14.17.0'
 
-- task: Npm@1
-  displayName: 'Install NPM packages'
-  inputs:
-    command: 'install'
-    workingDir: 'portal'
+    - task: Npm@1
+      displayName: 'Install NPM packages'
+      inputs:
+        command: 'install'
+        workingDir: 'portal'
 
-- task: Npm@1
-  displayName: 'NPM build'
-  inputs:
-    command: 'custom'
-    customCommand: 'run build'
-    workingDir: 'portal'
+    - task: Npm@1
+      displayName: 'NPM build'
+      inputs:
+        command: 'custom'
+        customCommand: 'run build'
+        workingDir: 'portal'
 
-- task: CopyFiles@2
-  displayName: 'Copy web.config'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/portal/deploy'
-    Contents: 'web*.config'
-    TargetFolder: '$(Build.SourcesDirectory)/portal/dist/ePI-Portal'
+    - task: CopyFiles@2
+      displayName: 'Copy web.config'
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)/portal/deploy'
+        Contents: 'web*.config'
+        TargetFolder: '$(Build.SourcesDirectory)/portal/dist/ePI-Portal'
 
-- task: ArchiveFiles@2
-  displayName: 'Archive Portal'
-  inputs:
-    rootFolderOrFile: $(Build.SourcesDirectory)/portal/dist/ePI-Portal
-    includeRootFolder: false
-    archiveFile: '$(Build.StagingDirectory)/ePI-Portal.zip'
+    - task: ArchiveFiles@2
+      displayName: 'Archive Portal'
+      inputs:
+        rootFolderOrFile: $(Build.SourcesDirectory)/portal/dist/ePI-Portal
+        includeRootFolder: false
+        archiveFile: '$(Build.StagingDirectory)/ePI-Portal.zip'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(Build.StagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(Build.StagingDirectory)'
 
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'dev-dap-epi-proto-00002-spn'
-    appType: 'webApp'
-    appName: 'ema-dap-epi-dev-fhir-web'
-    package: '$(Build.StagingDirectory)/ePI-Portal.zip'
-    deploymentMethod: 'zipDeploy'
+#
+# Deploy to DEV
+#
+- stage: DEV
+  dependsOn: Build
+  
+  pool:
+    # For Azure Pipelines we specify the image of the build agent
+    # See https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops
+    vmImage: 'windows-latest'
+
+  jobs:
+  - deployment: DEV
+    environment: DEV
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: FileTransform@2
+            inputs:
+              folderPath: '$(Pipeline.Workspace)/drop/ePI-Portal.zip' 
+              enableXmlTransform: true
+              xmlTransformationRules: '-transform web.DEV.config -xml web.config'
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'dev-dap-epi-proto-00002-spn'
+              appType: 'webApp'
+              appName: 'ema-dap-epi-dev-fhir-web'
+              package: '$(Pipeline.Workspace)/drop/ePI-Portal.zip'
+              deploymentMethod: 'zipDeploy'
+
+#
+# Deploy to TST
+#
+- stage: TST
+  dependsOn: DEV
+  
+  pool:
+    # For Azure Pipelines we specify the image of the build agent
+    # See https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops
+    vmImage: 'windows-latest'
+
+  jobs:
+  - deployment: TST
+    environment: TST
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: FileTransform@2
+            inputs:
+              folderPath: '$(Pipeline.Workspace)/drop/ePI-Portal.zip' 
+              enableXmlTransform: true
+              xmlTransformationRules: '-transform web.TST.config -xml web.config'
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'test-dap-epi-proto-00002-spn'
+              appType: 'webApp'
+              appName: 'ema-dap-epi-tst-fhir-web'
+              package: '$(Pipeline.Workspace)/drop/ePI-Portal.zip'
+              deploymentMethod: 'zipDeploy'
