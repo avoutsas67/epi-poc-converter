@@ -1,0 +1,4 @@
+2021-06-07 23:47:34,445 : Flow Logger HTML_f : Starting HTML Conversion To Json | H | CAP |  de | HTML | Ovaleap_clean.htm
+2021-06-07 23:47:34,450 : Style Dictionary_c : Reading style dictionary in file: rule_dictionary_de.json | H | CAP |  de | HTML | Ovaleap_clean.htm
+2021-06-07 23:47:34,490 : Style Dictionary_c : Qrd Section Keys Retrieved For Style Dictionary: ANHANG I, ANHANG II, ANHANG III, B. PACKUNGSBEILAGE | H | CAP |  de | HTML | Ovaleap_clean.htm
+2021-06-07 23:47:35,085 : Parser_S : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Ovaleap\de\2021-06-07T08-05-21Z\outputJSON\Ovaleap_clean.txt | H | CAP |  de | HTML | Ovaleap_clean.htm
