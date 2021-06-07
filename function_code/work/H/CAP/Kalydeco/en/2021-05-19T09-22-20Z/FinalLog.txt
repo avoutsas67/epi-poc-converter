@@ -1332,3 +1332,732 @@
  | H | CAP |  en | HTML | Kalydeco_clean.htm
 2021-05-20 16:51:15,526 : Flow Logger HTML_t : Final Metrics,5.0425 Min,0.0 MB,20.389168 MB,66.7%
  | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:22:51,742 : Flow Logger HTML_1 : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:22:51,757 : Style Dictionary_W : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:22:51,835 : Style Dictionary_W : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:22:55,232 : Parser_U : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:11,222 : Parser_U : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:12,401 : Flow Logger HTML_1 : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:12,415 : Flow Logger HTML_1 : HTML Conversion To Json,0.3446 Min,12.270244 MB,20.576335 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:12,433 : Flow Logger HTML_1 : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:12,446 : Style Dictionary_8 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:12,514 : Style Dictionary_8 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:12,533 : Partition_Q : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:13,246 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:13,579 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:13,928 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:13,967 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:23:13,997 : Flow Logger HTML_1 : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:14,000 : Flow Logger HTML_1 : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:14,005 : Flow Logger HTML_1 : Split Json,0.0262 Min,0.386643 MB,18.465694 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:14,008 : Flow Logger HTML_1 : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:14,010 : Flow Logger HTML_1 : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:14,017 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:14,509 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:14,550 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 18:23:14,550 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 18:23:14,566 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:23:14,590 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:23:14,601 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 18:23:14,719 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:23:14,732 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:23:14,747 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:23:14,871 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:23:14,893 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:23:14,904 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:23:15,048 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:23:15,071 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 18:23:15,078 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:23:15,120 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:23:15,133 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 18:23:15,192 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 18:23:15,199 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:23:15,215 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 18:23:15,510 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:15,551 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:23:15,567 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:23:15,666 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 18:23:15,699 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:23:15,717 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:23:15,728 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:23:18,121 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:23:18,515 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:23:18,542 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 18:23:18,923 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:23:19,248 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 18:23:19,253 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:23:19,268 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:23:19,275 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:23:19,446 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 18:23:19,462 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:23:19,695 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 18:23:19,703 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:23:19,720 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 18:23:19,927 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 18:23:19,944 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 18:23:21,162 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 18:23:21,188 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 18:23:21,202 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 18:23:21,652 : Heading Extraction Kalydeco_clean_ANNEX II.json_0 : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 18:23:21,661 : Flow Logger HTML_1 : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,671 : Flow Logger HTML_1 : 1: Heading Extraction,0.1277 Min,0.496849 MB,2.984011 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,675 : Flow Logger HTML_1 : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,702 : Flow Logger HTML_1 : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,705 : Flow Logger HTML_1 : 1: Document Annotation,0.0005 Min,0.164061 MB,0.174386 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,716 : Flow Logger HTML_1 : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,722 : ExtractContentBetween_1_v : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:21,747 : ExtractContentBetween_1_v : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:21,789 : Flow Logger HTML_1 : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,792 : Flow Logger HTML_1 : 1: Content Extraction,0.0013 Min,0.089857 MB,0.423069 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:23:21,914 : XmlGeneration_1_S : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:21,917 : XmlGeneration_1_S : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:22,069 : XmlGeneration_1_S : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:23:22,079 : Flow Logger HTML_1 : 1: Generate XML,0.0047 Min,0.669785 MB,1.231934 MB,52.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:32:50,703 : Flow Logger HTML_N : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:32:50,717 : Style Dictionary_l : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:32:50,768 : Style Dictionary_l : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:32:54,017 : Parser_c : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:10,101 : Parser_c : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:11,257 : Flow Logger HTML_N : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:11,263 : Flow Logger HTML_N : HTML Conversion To Json,0.3427 Min,12.341564 MB,20.647854 MB,49.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:11,287 : Flow Logger HTML_N : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:11,295 : Style Dictionary_M : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:11,375 : Style Dictionary_M : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:11,392 : Partition_a : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:12,083 : Partition_a : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:12,414 : Partition_a : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:12,792 : Partition_a : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:12,827 : Partition_a : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:33:12,862 : Flow Logger HTML_N : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:12,864 : Flow Logger HTML_N : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:12,870 : Flow Logger HTML_N : Split Json,0.0264 Min,0.090299 MB,18.353875 MB,49.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:12,874 : Flow Logger HTML_N : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:12,877 : Flow Logger HTML_N : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:12,883 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:13,282 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:13,314 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 18:33:13,314 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 18:33:13,332 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:33:13,357 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:33:13,369 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 18:33:13,461 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:33:13,478 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:33:13,493 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:33:13,636 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:33:13,660 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:33:13,676 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:33:13,874 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:33:13,897 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 18:33:13,908 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:33:13,974 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:33:13,992 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 18:33:14,059 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 18:33:14,062 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:33:14,084 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 18:33:14,332 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:14,374 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:33:14,386 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:33:14,482 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 18:33:14,523 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:33:14,539 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:33:14,553 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:33:16,897 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:33:17,172 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:33:17,197 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 18:33:17,756 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:33:18,089 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 18:33:18,097 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:33:18,117 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:33:18,128 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:33:18,312 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 18:33:18,322 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:33:18,542 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 18:33:18,542 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:33:18,561 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 18:33:18,764 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 18:33:18,778 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 18:33:19,905 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 18:33:19,926 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 18:33:19,938 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 18:33:20,364 : Heading Extraction Kalydeco_clean_ANNEX II.json_h : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 18:33:20,380 : Flow Logger HTML_N : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,389 : Flow Logger HTML_N : 1: Heading Extraction,0.1253 Min,0.394179 MB,2.97056 MB,49.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,394 : Flow Logger HTML_N : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,412 : Flow Logger HTML_N : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,415 : Flow Logger HTML_N : 1: Document Annotation,0.0004 Min,0.007727 MB,0.16503 MB,49.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,422 : Flow Logger HTML_N : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,432 : ExtractContentBetween_1_a : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:20,447 : ExtractContentBetween_1_a : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:20,472 : Flow Logger HTML_N : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,478 : Flow Logger HTML_N : 1: Content Extraction,0.0009 Min,0.08015 MB,0.412675 MB,49.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:33:20,556 : XmlGeneration_1_d : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:20,556 : XmlGeneration_1_d : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:20,675 : XmlGeneration_1_d : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:33:20,682 : Flow Logger HTML_N : 1: Generate XML,0.0033 Min,0.543258 MB,1.105407 MB,49.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:22,345 : Flow Logger HTML_8 : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:22,359 : Style Dictionary_w : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:22,436 : Style Dictionary_w : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:26,343 : Parser_K : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:42,113 : Parser_K : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:43,275 : Flow Logger HTML_8 : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:43,283 : Flow Logger HTML_8 : HTML Conversion To Json,0.349 Min,19.591699 MB,27.898397 MB,49.9%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:43,315 : Flow Logger HTML_8 : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:43,321 : Style Dictionary_U : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:43,384 : Style Dictionary_U : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:43,395 : Partition_Q : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:43,395 : Partition_Q : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,083 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,083 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,369 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,369 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,700 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,700 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,740 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,740 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:35:44,763 : Flow Logger HTML_8 : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:44,765 : Flow Logger HTML_8 : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:44,766 : Flow Logger HTML_8 : Split Json,0.0242 Min,0.137955 MB,18.250679 MB,49.8%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:44,769 : Flow Logger HTML_8 : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:44,772 : Flow Logger HTML_8 : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:44,777 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:45,212 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:45,234 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 18:35:45,234 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 18:35:45,243 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:35:45,274 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:35:45,284 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 18:35:45,398 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:35:45,419 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:35:45,430 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:35:45,523 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:35:45,543 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:35:45,556 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:35:45,730 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:35:45,754 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 18:35:45,766 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:35:45,800 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:35:45,815 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 18:35:45,882 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 18:35:45,890 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:35:45,917 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 18:35:46,282 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:46,329 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:35:46,344 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:35:46,539 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 18:35:46,599 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:35:46,624 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:35:46,634 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:35:48,867 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:35:49,172 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:35:49,190 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 18:35:49,696 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:35:50,046 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 18:35:50,052 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:35:50,071 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:35:50,080 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:35:50,237 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 18:35:50,254 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:35:50,462 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 18:35:50,470 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:35:50,484 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 18:35:50,705 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 18:35:50,721 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 18:35:52,180 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 18:35:52,211 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 18:35:52,222 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 18:35:52,794 : Heading Extraction Kalydeco_clean_ANNEX II.json_U : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 18:35:52,808 : Flow Logger HTML_8 : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,808 : Flow Logger HTML_8 : 1: Heading Extraction,0.134 Min,0.236124 MB,2.97192 MB,50.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,820 : Flow Logger HTML_8 : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,836 : Flow Logger HTML_8 : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,838 : Flow Logger HTML_8 : 1: Document Annotation,0.0003 Min,0.007459 MB,0.164858 MB,50.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,843 : Flow Logger HTML_8 : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,852 : ExtractContentBetween_1_T : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:52,865 : ExtractContentBetween_1_T : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:52,906 : Flow Logger HTML_8 : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:52,906 : Flow Logger HTML_8 : 1: Content Extraction,0.0011 Min,0.076706 MB,0.410876 MB,50.2%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:35:53,008 : XmlGeneration_1_3 : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:53,008 : XmlGeneration_1_3 : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:53,169 : XmlGeneration_1_3 : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:35:53,173 : Flow Logger HTML_8 : 1: Generate XML,0.0042 Min,0.542602 MB,1.104751 MB,49.9%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:22,887 : Flow Logger HTML_O : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:22,901 : Style Dictionary_3 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:22,976 : Style Dictionary_3 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:26,983 : Parser_D : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:42,424 : Parser_D : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:43,566 : Flow Logger HTML_O : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:43,573 : Flow Logger HTML_O : HTML Conversion To Json,0.3448 Min,12.116493 MB,20.422855 MB,49.7%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:43,596 : Flow Logger HTML_O : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:43,602 : Style Dictionary_4 : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:43,678 : Style Dictionary_4 : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:43,690 : Partition_z : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:44,377 : Partition_z : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:44,664 : Partition_z : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:45,028 : Partition_z : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:45,059 : Partition_z : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 18:56:45,099 : Flow Logger HTML_O : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:45,101 : Flow Logger HTML_O : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:45,104 : Flow Logger HTML_O : Split Json,0.0251 Min,0.233521 MB,18.354959 MB,49.7%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:45,110 : Flow Logger HTML_O : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:45,113 : Flow Logger HTML_O : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:45,119 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:45,595 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:45,629 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 18:56:45,631 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 18:56:45,636 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:56:45,657 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:56:45,667 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 18:56:45,792 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:56:45,812 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:56:45,824 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:56:45,943 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:56:45,953 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:56:45,968 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:56:46,115 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:56:46,132 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 18:56:46,140 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:56:46,181 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:56:46,198 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 18:56:46,259 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 18:56:46,259 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:56:46,288 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 18:56:46,539 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:46,570 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 18:56:46,586 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 18:56:46,700 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 18:56:46,741 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 18:56:46,753 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 18:56:46,776 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 18:56:49,532 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:56:49,839 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 18:56:49,851 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 18:56:50,451 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 18:56:50,787 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 18:56:50,787 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 18:56:50,810 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 18:56:50,817 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 18:56:50,988 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 18:56:51,008 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 18:56:51,220 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 18:56:51,220 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 18:56:51,245 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 18:56:51,454 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 18:56:51,469 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 18:56:52,675 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 18:56:52,701 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 18:56:52,718 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 18:56:53,153 : Heading Extraction Kalydeco_clean_ANNEX II.json_A : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 18:56:53,170 : Flow Logger HTML_O : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,177 : Flow Logger HTML_O : 1: Heading Extraction,0.1345 Min,0.390591 MB,2.97462 MB,49.6%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,183 : Flow Logger HTML_O : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,197 : Flow Logger HTML_O : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,205 : Flow Logger HTML_O : 1: Document Annotation,0.0004 Min,0.153846 MB,0.164922 MB,49.6%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,214 : Flow Logger HTML_O : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,221 : ExtractContentBetween_1_x : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:53,232 : ExtractContentBetween_1_x : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:53,264 : Flow Logger HTML_O : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,272 : Flow Logger HTML_O : 1: Content Extraction,0.001 Min,0.079875 MB,0.412543 MB,49.6%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 18:56:53,362 : XmlGeneration_1_T : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:53,370 : XmlGeneration_1_T : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:53,511 : XmlGeneration_1_T : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 18:56:53,518 : Flow Logger HTML_O : 1: Generate XML,0.0041 Min,0.549056 MB,1.111205 MB,49.6%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:11,976 : Flow Logger HTML_d : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:11,990 : Style Dictionary_m : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:12,065 : Style Dictionary_m : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:16,177 : Parser_q : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:31,230 : Parser_q : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:32,613 : Flow Logger HTML_d : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:32,613 : Flow Logger HTML_d : HTML Conversion To Json,0.344 Min,11.900736 MB,20.353337 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:32,652 : Flow Logger HTML_d : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:32,658 : Style Dictionary_x : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:32,740 : Style Dictionary_x : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:32,756 : Partition_C : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:33,715 : Partition_C : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:34,151 : Partition_C : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:34,713 : Partition_C : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:34,751 : Partition_C : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:35:34,780 : Flow Logger HTML_d : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:34,782 : Flow Logger HTML_d : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:34,786 : Flow Logger HTML_d : Split Json,0.0356 Min,0.261205 MB,18.355054 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:34,788 : Flow Logger HTML_d : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:34,792 : Flow Logger HTML_d : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:34,798 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:35,467 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:35,507 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 19:35:35,512 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 19:35:35,520 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:35:35,561 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:35:35,570 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 19:35:35,746 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 19:35:35,761 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 19:35:35,771 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 19:35:35,971 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 19:35:35,995 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 19:35:36,005 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 19:35:36,190 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:35:36,219 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 19:35:36,237 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 19:35:36,297 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:35:36,319 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 19:35:36,406 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 19:35:36,414 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 19:35:36,435 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 19:35:36,853 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:36,897 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:35:36,909 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:35:37,094 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 19:35:37,146 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 19:35:37,173 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 19:35:37,186 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 19:35:40,709 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 19:35:41,199 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 19:35:41,210 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 19:35:42,122 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 19:35:42,585 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 19:35:42,591 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 19:35:42,607 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 19:35:42,618 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 19:35:42,774 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 19:35:42,792 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 19:35:43,114 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 19:35:43,114 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:35:43,141 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 19:35:43,461 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 19:35:43,488 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 19:35:44,982 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 19:35:44,995 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 19:35:45,002 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 19:35:45,345 : Heading Extraction Kalydeco_clean_ANNEX II.json_k : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 19:35:45,361 : Flow Logger HTML_d : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,361 : Flow Logger HTML_d : 1: Heading Extraction,0.1762 Min,0.409944 MB,2.973072 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,368 : Flow Logger HTML_d : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,379 : Flow Logger HTML_d : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,383 : Flow Logger HTML_d : 1: Document Annotation,0.0003 Min,0.15319 MB,0.16449 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,387 : Flow Logger HTML_d : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,395 : ExtractContentBetween_1_c : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:45,403 : ExtractContentBetween_1_c : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:45,431 : Flow Logger HTML_d : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,434 : Flow Logger HTML_d : 1: Content Extraction,0.0008 Min,0.216097 MB,0.404407 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:35:45,524 : XmlGeneration_1_Z : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:45,528 : XmlGeneration_1_Z : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:45,672 : XmlGeneration_1_Z : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:35:45,679 : Flow Logger HTML_d : 1: Generate XML,0.004 Min,0.54605 MB,1.108199 MB,46.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:10,367 : Flow Logger HTML_h : Starting HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:10,384 : Style Dictionary_t : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:10,465 : Style Dictionary_t : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:14,491 : Parser_f : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.txt | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:31,389 : Parser_f : Writing to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\outputJSON\Kalydeco_clean.json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:32,540 : Flow Logger HTML_h : Completed HTML Conversion To Json | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:32,542 : Flow Logger HTML_h : HTML Conversion To Json,0.3696 Min,12.133843 MB,20.586068 MB,47.4%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:32,565 : Flow Logger HTML_h : Starting Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:32,576 : Style Dictionary_E : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:32,662 : Style Dictionary_E : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:32,675 : Partition_1 : Partitioning Json: Kalydeco_clean.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:33,506 : Partition_1 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_SmPC.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:33,817 : Partition_1 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX II.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:34,154 : Partition_1 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ANNEX III.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:34,186 : Partition_1 : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Kalydeco\en\2021-05-19T09-22-20Z\partitionedJSONs\Kalydeco_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | Kalydeco_clean.json
+2021-06-07 19:40:34,209 : Flow Logger HTML_h : ['Kalydeco_clean_SmPC.json', 'Kalydeco_clean_ANNEX II.json', 'Kalydeco_clean_ANNEX III.json', 'Kalydeco_clean_ PACKAGE LEAFLET.json'] | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:34,211 : Flow Logger HTML_h : Completed Json Split | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:34,213 : Flow Logger HTML_h : Split Json,0.0275 Min,0.248169 MB,18.219358 MB,47.4%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:34,215 : Flow Logger HTML_h : Started Processing Partitioned Jsons | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:34,219 : Flow Logger HTML_h : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Kalydeco_clean_ANNEX II.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:34,224 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Starting Heading Extraction | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:34,617 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Started Extracting Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:34,633 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'annex ii' | Qrd txt :- 'annex ii' | Matched :- 'True'
+2021-06-07 19:40:34,635 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Annex II' | Qrd txt :- 'ANNEX II' | Matched :- 'True'
+2021-06-07 19:40:34,640 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:40:34,662 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE ' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:40:34,669 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21001'
+2021-06-07 19:40:34,772 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 19:40:34,786 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 19:40:34,798 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 19:40:34,911 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 19:40:34,930 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 19:40:34,941 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 19:40:35,069 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:40:35,087 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21007'
+2021-06-07 19:40:35,098 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 19:40:35,121 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:40:35,138 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '21001' | prevHeadingFoundId :- '21009'
+2021-06-07 19:40:35,198 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'a. manufacturer(s) responsible for batch release' | Qrd txt :- 'name address manufacturer(s) responsible batch release' | Matched :- 'True'
+2021-06-07 19:40:35,206 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed In Lowercase  : checkLowerCase|31.25|(84, 91, 88)|0.866| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 19:40:35,221 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Failed As Wrong Heading Found | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21009'
+2021-06-07 19:40:35,463 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : End Of Sub Section | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:35,488 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : Contains<>|118.75|(61, 91, 86)|0.807| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'A.      MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'True'
+2021-06-07 19:40:35,501 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed As This The First Heading | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:40:35,589 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Failed In Lowercase : Contains<>|164.81|(8, 11, 86)|0.327| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'A. <MANUFACTURER(S) OF THE BIOLOGICAL ACTIVE SUBSTANCE(S) AND> MANUFACTURER(S) RESPONSIBLE FOR BATCH RELEASE' | Matched :- 'False'
+2021-06-07 19:40:35,630 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Qrd txt :- 'Name and address of the manufacturer(s) responsible for batch release' | Matched :- 'True'
+2021-06-07 19:40:35,648 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21002'
+2021-06-07 19:40:35,663 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21004' | prevHeadingCurrId :- '21002' | prevHeadingFoundId :- '21002'
+2021-06-07 19:40:37,799 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Failed In Lowercase : >7|93.91|(9, 3, 86)|0.395| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The printed package leaflet of the medicinal product must state the name and address of the manufacturer responsible for the release of the concerned batch.' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 19:40:38,031 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Qrd txt :- 'B. CONDITIONS OR RESTRICTIONS REGARDING SUPPLY AND USE' | Matched :- 'True'
+2021-06-07 19:40:38,048 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21005' | prevHeadingCurrId :- '21004' | prevHeadingFoundId :- '21004'
+2021-06-07 19:40:38,579 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Failed In Lowercase : >7|92.37|(10, 8, 86)|0.344| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'Medicinal product subject to restricted medical prescription (see Annex I: Summary of Product Characteristics, section 4.2).' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'False'
+2021-06-07 19:40:38,868 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'c. conditions requirements marketing authorisation' | Qrd txt :- 'c. conditions requirements marketing authorisation' | Matched :- 'True'
+2021-06-07 19:40:38,879 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'C.      Other conditions and requirements of the Marketing Authorisation' | Qrd txt :- 'C. OTHER CONDITIONS AND REQUIREMENTS OF THE MARKETING AUTHORISATION' | Matched :- 'True'
+2021-06-07 19:40:38,901 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21005'
+2021-06-07 19:40:38,909 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21007' | prevHeadingCurrId :- '21005' | prevHeadingFoundId :- '21005'
+2021-06-07 19:40:39,072 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : <=7|2.56|(99, 100, 100)|0.995| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Periodic safety update reports (PSURs)' | Qrd txt :- 'Periodic safety update reports (PSURs)' | Matched :- 'True'
+2021-06-07 19:40:39,086 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21008' | prevHeadingCurrId :- '21007' | prevHeadingFoundId :- '21007'
+2021-06-07 19:40:39,286 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Qrd txt :- 'd. conditions restrictions regard safe effective use medicinal product' | Matched :- 'True'
+2021-06-07 19:40:39,291 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed In Lowercase  :  | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'D.      Conditions or restrictions with regard to the safe and effective use of the medicinal product' | Qrd txt :- 'D. CONDITIONS OR RESTRICTIONS WITH REGARD TO THE SAFE AND EFFECTIVE USE OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:40:39,305 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21009' | prevHeadingCurrId :- '21008' | prevHeadingFoundId :- '21008'
+2021-06-07 19:40:39,495 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : <=4|3.7|(98, 100, 100)|0.993| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Risk management plan (RMP)' | Qrd txt :- 'Risk management plan (RMP)' | Matched :- 'True'
+2021-06-07 19:40:39,511 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21010' | prevHeadingCurrId :- '21009' | prevHeadingFoundId :- '21009'
+2021-06-07 19:40:40,545 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Passed : <=7|2.0|(99, 100, 100)|0.997| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- '·Obligation to conduct post-authorisation measures' | Qrd txt :- 'Obligation to conduct post-authorisation measures' | Matched :- 'True'
+2021-06-07 19:40:40,553 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Flow Is Broken | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '' | prevHeadingFoundId :- '21010'
+2021-06-07 19:40:40,560 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Validation Passed | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | currHeadId :- '21012' | prevHeadingCurrId :- '21010' | prevHeadingFoundId :- '21010'
+2021-06-07 19:40:40,986 : Heading Extraction Kalydeco_clean_ANNEX II.json_X : Match Failed In Lowercase : Contains<>|274.07|(8, 13, 86)|0.334| | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json | Doc txt :- 'The MAH shall complete, within the stated timeframe, the below measures:' | Qrd txt :- 'E. SPECIFIC OBLIGATION TO COMPLETE POST-AUTHORISATION MEASURES FOR
+<THE CONDITIONAL MARKETING AUTHORISATION> <THE MARKETING AUTHORISATION UNDER EXCEPTIONAL CIRCUMSTANCES>' | Matched :- 'False'
+2021-06-07 19:40:41,008 : Flow Logger HTML_h : Completed Heading Extraction For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,011 : Flow Logger HTML_h : 1: Heading Extraction,0.1133 Min,0.28268 MB,2.973708 MB,47.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,014 : Flow Logger HTML_h : Starting Document Annotation For File | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,027 : Flow Logger HTML_h : Completed Document Annotation | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,027 : Flow Logger HTML_h : 1: Document Annotation,0.0002 Min,0.006747 MB,0.164146 MB,47.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,027 : Flow Logger HTML_h : Starting Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,036 : ExtractContentBetween_1_Y : Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:41,045 : ExtractContentBetween_1_Y : Finished Cleaning Match Results | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:41,064 : Flow Logger HTML_h : Completed Extracting Content Between Heading | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,069 : Flow Logger HTML_h : 1: Content Extraction,0.0007 Min,0.223167 MB,0.412057 MB,47.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:41,133 : XmlGeneration_1_L : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:41,134 : XmlGeneration_1_L : Initiating XML Generation | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:41,224 : XmlGeneration_1_L : Writing to File:Kalydeco_clean_ANNEX II.xml | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:41,230 : Flow Logger HTML_h : 1: Generate XML,0.0026 Min,0.574996 MB,1.137145 MB,47.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:44,494 : XML Submission Logger_1_y : Initiating Submission To FHIR Server | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:44,502 : XML Submission Logger_1_y : Response{"resourceType":"Bundle","id":"cca96cc2-eca8-4371-a2b2-513e276b20d1","meta":{"versionId":"1","lastUpdated":"2021-06-07T14:10:43.532+00:00"},"type":"collection","entry":[{"fullUrl":"urn:uuid:723602b0-092c-4d9a-8673-49b171ed1e1c","resource":{"resourceType":"Bundle","id":"46cc23bc-9d8f-4d49-af0e-fb7707343e18","identifier":{"system":"http://ema.europa.eu/fhir/identifier/documentid","value":"${instance.bundle[n].Identifier}"},"type":"document","timestamp":"2021-06-07T14:10:41+00:00","entry":[{"fullUr | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:44,516 : XML Submission Logger_1_y : POST sucessful: XML added with id: cca96cc2-eca8-4371-a2b2-513e276b20d1 | H | CAP |  en | 1 | Kalydeco_clean_ANNEX II.json
+2021-06-07 19:40:44,526 : Flow Logger HTML_h : 1: Submit FHIR Msg,0.0549 Min,0.330847 MB,0.769021 MB,47.3%
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:44,539 : Flow Logger HTML_h : Starting list bundle update/addition | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:44,565 : Flow Logger HTML_h : Skipping list bundle addtion/update as no MAN found | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:44,571 : Flow Logger HTML_h : 
+
+
+
+||||||||||||||||||||||||||||||||2 ||||| Kalydeco_clean_ANNEX III.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  en | HTML | Kalydeco_clean.htm
+2021-06-07 19:40:44,585 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Starting Heading Extraction | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json
+2021-06-07 19:40:45,278 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Started Extracting Heading | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json
+2021-06-07 19:40:46,031 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : <=1|25.0|(86, 100, 95)|0.921| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- 'A. LABELLING' | Qrd txt :- 'LABELLING ' | Matched :- 'True'
+2021-06-07 19:40:46,036 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed As This The First Heading | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22001' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:40:46,061 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|111.76|(64, 85, 86)|0.877| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- 'PARTICULARS TO APPEAR ON THE OUTER PACKAGING' | Qrd txt :- 'PARTICULARS TO APPEAR ON <THE OUTER PACKAGING> <AND> <THE IMMEDIATE PACKAGING>' | Matched :- 'True'
+2021-06-07 19:40:46,070 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22002' | prevHeadingCurrId :- '22001' | prevHeadingFoundId :- '22001'
+2021-06-07 19:40:46,595 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Qrd txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:40:46,612 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22003' | prevHeadingCurrId :- '22002' | prevHeadingFoundId :- '22002'
+2021-06-07 19:40:47,522 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '2. STATEMENT OF ACTIVE SUBSTANCE(S)' | Qrd txt :- '2. STATEMENT OF ACTIVE SUBSTANCE(S)' | Matched :- 'True'
+2021-06-07 19:40:47,549 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22004' | prevHeadingCurrId :- '22003' | prevHeadingFoundId :- '22003'
+2021-06-07 19:40:48,108 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '3. LIST OF EXCIPIENTS' | Qrd txt :- '3. LIST OF EXCIPIENTS' | Matched :- 'True'
+2021-06-07 19:40:48,126 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22005' | prevHeadingCurrId :- '22004' | prevHeadingFoundId :- '22004'
+2021-06-07 19:40:49,001 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '4. PHARMACEUTICAL FORM AND CONTENTS' | Qrd txt :- '4. PHARMACEUTICAL FORM AND CONTENTS' | Matched :- 'True'
+2021-06-07 19:40:49,018 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22006' | prevHeadingCurrId :- '22005' | prevHeadingFoundId :- '22005'
+2021-06-07 19:40:49,447 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '5. METHOD AND ROUTE(S) OF ADMINISTRATION' | Qrd txt :- '5. METHOD AND ROUTE(S) OF ADMINISTRATION' | Matched :- 'True'
+2021-06-07 19:40:49,461 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22007' | prevHeadingCurrId :- '22006' | prevHeadingFoundId :- '22006'
+2021-06-07 19:40:51,372 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '6. SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN' | Qrd txt :- '6. SPECIAL WARNING THAT THE MEDICINAL PRODUCT MUST BE STORED OUT OF THE SIGHT AND REACH OF CHILDREN' | Matched :- 'True'
+2021-06-07 19:40:51,390 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22008' | prevHeadingCurrId :- '22007' | prevHeadingFoundId :- '22007'
+2021-06-07 19:40:52,156 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '7. OTHER SPECIAL WARNING(S), IF NECESSARY' | Qrd txt :- '7. OTHER SPECIAL WARNING(S), IF NECESSARY' | Matched :- 'True'
+2021-06-07 19:40:52,179 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22009' | prevHeadingCurrId :- '22008' | prevHeadingFoundId :- '22008'
+2021-06-07 19:40:52,305 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '8. EXPIRY DATE' | Qrd txt :- '8. EXPIRY DATE' | Matched :- 'True'
+2021-06-07 19:40:52,321 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22010' | prevHeadingCurrId :- '22009' | prevHeadingFoundId :- '22009'
+2021-06-07 19:40:52,487 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '9. SPECIAL STORAGE CONDITIONS' | Qrd txt :- '9. SPECIAL STORAGE CONDITIONS' | Matched :- 'True'
+2021-06-07 19:40:52,507 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22011' | prevHeadingCurrId :- '22010' | prevHeadingFoundId :- '22010'
+2021-06-07 19:40:52,775 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '10. SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE' | Qrd txt :- '10. SPECIAL PRECAUTIONS FOR DISPOSAL OF UNUSED MEDICINAL PRODUCTS OR WASTE MATERIALS DERIVED FROM SUCH MEDICINAL PRODUCTS, IF APPROPRIATE' | Matched :- 'True'
+2021-06-07 19:40:52,796 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22012' | prevHeadingCurrId :- '22011' | prevHeadingFoundId :- '22011'
+2021-06-07 19:40:53,088 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '11. NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER' | Qrd txt :- '11. NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER' | Matched :- 'True'
+2021-06-07 19:40:53,105 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22013' | prevHeadingCurrId :- '22012' | prevHeadingFoundId :- '22012'
+2021-06-07 19:40:55,150 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '12. MARKETING AUTHORISATION NUMBER(S)' | Qrd txt :- '12. MARKETING AUTHORISATION NUMBER(S)' | Matched :- 'True'
+2021-06-07 19:40:55,169 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22014' | prevHeadingCurrId :- '22013' | prevHeadingFoundId :- '22013'
+2021-06-07 19:40:55,662 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|162.5|(55, 100, 90)|0.876| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '13.       BATCH NUMBER' | Qrd txt :- '13. BATCH NUMBER<, DONATION AND PRODUCT CODES>' | Matched :- 'True'
+2021-06-07 19:40:55,683 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22015' | prevHeadingCurrId :- '22014' | prevHeadingFoundId :- '22014'
+2021-06-07 19:40:56,020 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '14. GENERAL CLASSIFICATION FOR SUPPLY' | Qrd txt :- '14. GENERAL CLASSIFICATION FOR SUPPLY' | Matched :- 'True'
+2021-06-07 19:40:56,042 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22016' | prevHeadingCurrId :- '22015' | prevHeadingFoundId :- '22015'
+2021-06-07 19:40:56,522 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '15. INSTRUCTIONS ON USE' | Qrd txt :- '15. INSTRUCTIONS ON USE' | Matched :- 'True'
+2021-06-07 19:40:56,560 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22017' | prevHeadingCurrId :- '22016' | prevHeadingFoundId :- '22016'
+2021-06-07 19:40:56,873 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '16. INFORMATION IN BRAILLE' | Qrd txt :- '16. INFORMATION IN BRAILLE' | Matched :- 'True'
+2021-06-07 19:40:56,882 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22018' | prevHeadingCurrId :- '22017' | prevHeadingFoundId :- '22017'
+2021-06-07 19:40:57,600 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '17. UNIQUE IDENTIFIER – 2D BARCODE' | Qrd txt :- '17. UNIQUE IDENTIFIER – 2D BARCODE' | Matched :- 'True'
+2021-06-07 19:40:57,616 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22019' | prevHeadingCurrId :- '22018' | prevHeadingFoundId :- '22018'
+2021-06-07 19:40:58,820 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : <=7|2.33|(98, 98, 100)|0.995| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '18.       UNIQUE IDENTIFIER – HUMAN READABLE DATA' | Qrd txt :- '18. UNIQUE IDENTIFIER - HUMAN READABLE DATA' | Matched :- 'True'
+2021-06-07 19:40:58,835 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22020' | prevHeadingCurrId :- '22019' | prevHeadingFoundId :- '22019'
+2021-06-07 19:40:59,211 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- 'MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS' | Qrd txt :- 'MINIMUM PARTICULARS TO APPEAR ON BLISTERS OR STRIPS' | Matched :- 'True'
+2021-06-07 19:40:59,227 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22021' | prevHeadingCurrId :- '22020' | prevHeadingFoundId :- '22020'
+2021-06-07 19:40:59,860 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Qrd txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:40:59,883 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22003' | prevHeadingCurrId :- '22002' | prevHeadingFoundId :- '22021'
+2021-06-07 19:41:00,217 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Qrd txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:41:00,227 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22022' | prevHeadingCurrId :- '22021' | prevHeadingFoundId :- '22021'
+2021-06-07 19:41:01,194 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Failed In Lowercase : <=7|26.32|(87, 87, 92)|0.874| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '2.         NAME OF THE MARKETING AUTHORISATION HOLDER' | Qrd txt :- '11. NAME AND ADDRESS OF THE MARKETING AUTHORISATION HOLDER' | Matched :- 'False'
+2021-06-07 19:41:01,343 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '2. NAME OF THE MARKETING AUTHORISATION HOLDER' | Qrd txt :- '2. NAME OF THE MARKETING AUTHORISATION HOLDER' | Matched :- 'True'
+2021-06-07 19:41:01,359 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22023' | prevHeadingCurrId :- '22022' | prevHeadingFoundId :- '22022'
+2021-06-07 19:41:01,985 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : <=4|7.14|(93, 93, 93)|0.971| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '3.         EXPIRY DATE' | Qrd txt :- '8. EXPIRY DATE' | Matched :- 'True'
+2021-06-07 19:41:02,003 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22010' | prevHeadingCurrId :- '22009' | prevHeadingFoundId :- '22023'
+2021-06-07 19:41:02,184 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '3. EXPIRY DATE' | Qrd txt :- '3. EXPIRY DATE' | Matched :- 'True'
+2021-06-07 19:41:02,202 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22024' | prevHeadingCurrId :- '22023' | prevHeadingFoundId :- '22023'
+2021-06-07 19:41:02,384 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|186.67|(49, 93, 86)|0.756| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '4.         BATCH NUMBER' | Qrd txt :- '13. BATCH NUMBER<, DONATION AND PRODUCT CODES>' | Matched :- 'True'
+2021-06-07 19:41:02,400 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22015' | prevHeadingCurrId :- '22014' | prevHeadingFoundId :- '22024'
+2021-06-07 19:41:02,526 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|173.33|(54, 100, 90)|0.873| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '4.         BATCH NUMBER' | Qrd txt :- '4. BATCH NUMBER<, DONATION AND PRODUCT CODES>' | Matched :- 'True'
+2021-06-07 19:41:02,543 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22025' | prevHeadingCurrId :- '22024' | prevHeadingFoundId :- '22024'
+2021-06-07 19:41:02,751 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '5. OTHER' | Qrd txt :- '5. OTHER' | Matched :- 'True'
+2021-06-07 19:41:02,767 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22026' | prevHeadingCurrId :- '22025' | prevHeadingFoundId :- '22025'
+2021-06-07 19:41:02,801 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|111.76|(64, 85, 86)|0.877| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- 'PARTICULARS TO APPEAR ON THE OUTER PACKAGING' | Qrd txt :- 'PARTICULARS TO APPEAR ON <THE OUTER PACKAGING> <AND> <THE IMMEDIATE PACKAGING>' | Matched :- 'True'
+2021-06-07 19:41:02,820 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Failed As Previous Heading Found is not matching | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22002' | prevHeadingCurrId :- '22001' | prevHeadingFoundId :- '22026'
+2021-06-07 19:41:03,231 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : End Of Sub Section | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json
+2021-06-07 19:41:03,252 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed : Contains<>|111.76|(64, 85, 86)|0.877| | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- 'PARTICULARS TO APPEAR ON THE OUTER PACKAGING' | Qrd txt :- 'PARTICULARS TO APPEAR ON <THE OUTER PACKAGING> <AND> <THE IMMEDIATE PACKAGING>' | Matched :- 'True'
+2021-06-07 19:41:03,268 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed As This The First Heading | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22002' | prevHeadingCurrId :- '' | prevHeadingFoundId :- ''
+2021-06-07 19:41:03,868 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Qrd txt :- '1. NAME OF THE MEDICINAL PRODUCT' | Matched :- 'True'
+2021-06-07 19:41:03,884 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22003' | prevHeadingCurrId :- '22002' | prevHeadingFoundId :- '22002'
+2021-06-07 19:41:04,649 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '2. STATEMENT OF ACTIVE SUBSTANCE(S)' | Qrd txt :- '2. STATEMENT OF ACTIVE SUBSTANCE(S)' | Matched :- 'True'
+2021-06-07 19:41:04,666 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22004' | prevHeadingCurrId :- '22003' | prevHeadingFoundId :- '22003'
+2021-06-07 19:41:05,213 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '3. LIST OF EXCIPIENTS' | Qrd txt :- '3. LIST OF EXCIPIENTS' | Matched :- 'True'
+2021-06-07 19:41:05,234 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22005' | prevHeadingCurrId :- '22004' | prevHeadingFoundId :- '22004'
+2021-06-07 19:41:06,123 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '4. PHARMACEUTICAL FORM AND CONTENTS' | Qrd txt :- '4. PHARMACEUTICAL FORM AND CONTENTS' | Matched :- 'True'
+2021-06-07 19:41:06,144 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22006' | prevHeadingCurrId :- '22005' | prevHeadingFoundId :- '22005'
+2021-06-07 19:41:06,543 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Match Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | Doc txt :- '5. METHOD AND ROUTE(S) OF ADMINISTRATION' | Qrd txt :- '5. METHOD AND ROUTE(S) OF ADMINISTRATION' | Matched :- 'True'
+2021-06-07 19:41:06,567 : Heading Extraction Kalydeco_clean_ANNEX III.json_x : Validation Passed | H | CAP |  en | 2 | Kalydeco_clean_ANNEX III.json | currHeadId :- '22007' | prevHeadingCurrId :- '22006' | prevHeadingFoundId :- '22006'
+2021-06-07 19:48:29,936 : XmlGeneration_1_T : PMS/OMS Annotation Information Not Retrieved | H | CAP |  en | 1 | ELOCTA_clean_ANNEX II.json
+2021-06-07 19:48:29,941 : XmlGeneration_1_T : Initiating XML Generation | H | CAP |  en | 1 | ELOCTA_clean_ANNEX II.json
+2021-06-07 19:48:30,069 : XmlGeneration_1_T : Writing to File:ELOCTA_clean_ANNEX II.xml | H | CAP |  en | 1 | ELOCTA_clean_ANNEX II.json
+2021-06-07 20:38:50,933 : Style Dictionary_U : Reading style dictionary in file: rule_dictionary_de.json | H | CAP |  de | HTML | Elocta_clean.htm
+2021-06-07 20:38:51,070 : Style Dictionary_U : Qrd Section Keys Retrieved For Style Dictionary: ANHANG I, ANHANG II, ANHANG III, B. PACKUNGSBEILAGE | H | CAP |  de | HTML | Elocta_clean.htm
+2021-06-07 21:17:22,950 : Flow Logger HTML_N : Starting HTML Conversion To Json | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:37,834 : Flow Logger HTML_N : Completed HTML Conversion To Json | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:37,838 : Flow Logger HTML_N : HTML Conversion To Json,0.2482 Min,7.371953 MB,23.72825 MB,48.0%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:37,859 : Flow Logger HTML_N : Starting Json Split | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:39,378 : Flow Logger HTML_N : ['Elocta_clean_SmPC.json', 'Elocta_clean_ΠΑΡΑΡΤΗΜΑ ΙΙ.json'] | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:39,387 : Flow Logger HTML_N : Completed Json Split | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:39,393 : Flow Logger HTML_N : Split Json,0.0256 Min,0.143567 MB,31.548362 MB,48.0%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:39,402 : Flow Logger HTML_N : Started Processing Partitioned Jsons | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:17:39,410 : Flow Logger HTML_N : 
+
+
+
+||||||||||||||||||||||||||||||||1 ||||| Elocta_clean_ΠΑΡΑΡΤΗΜΑ ΙΙ.json||||||||||||||||||||||||||||||||
+
+
+
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,254 : Flow Logger HTML_N : Completed Heading Extraction For File | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,259 : Flow Logger HTML_N : 1: Heading Extraction,4.0643 Min,2.696045 MB,6.367285 MB,48.3%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,268 : Flow Logger HTML_N : Starting Document Annotation For File | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,284 : Flow Logger HTML_N : Completed Document Annotation | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,290 : Flow Logger HTML_N : 1: Document Annotation,0.0004 Min,0.154989 MB,0.164723 MB,48.3%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:43,296 : Flow Logger HTML_N : Starting Extracting Content Between Heading | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:44,854 : Flow Logger HTML_N : Completed Extracting Content Between Heading | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:44,859 : Flow Logger HTML_N : 1: Content Extraction,0.0261 Min,2.294028 MB,7.229562 MB,48.2%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:45,699 : Flow Logger HTML_N : 1: Generate XML,0.0139 Min,4.399064 MB,11.348571 MB,48.2%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,899 : Flow Logger HTML_N : 1: Submit FHIR Msg,0.1198 Min,0.226114 MB,5.475463 MB,48.2%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,905 : Flow Logger HTML_N : Starting list bundle update/addition | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,914 : Flow Logger HTML_N : Skipping list bundle addtion/update as no MAN found | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,919 : Flow Logger HTML_N : Completed Processing Partitioned Jsons | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,923 : Flow Logger HTML_N : 1: Completed,0.0003 Min,0.028312 MB,0.176614 MB,48.2%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 21:21:52,929 : Flow Logger HTML_N : Final Metrics,4.4984 Min,0.0 MB,31.548362 MB,48.3%
+ | H | CAP |  el | HTML | Elocta_clean.htm
+2021-06-07 22:02:12,171 : Partition_Q : Partitioning Json: gonal-f_clean.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:12,171 : Partition_Q : Partitioning Json: gonal-f_clean.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:13,808 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_SmPC.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:13,808 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_SmPC.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,163 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ANNEX II.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,163 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ANNEX II.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,519 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ANNEX III.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,519 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ANNEX III.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,699 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | gonal-f_clean.json
+2021-06-07 22:02:14,699 : Partition_Q : Writing partition to file: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\gonal-f\en\2021-06-04T08-55-59Z\partitionedJSONs\gonal-f_clean_ PACKAGE LEAFLET.json | H | CAP |  en | Json | gonal-f_clean.json
