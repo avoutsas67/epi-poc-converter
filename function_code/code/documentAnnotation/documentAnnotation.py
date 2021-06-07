@@ -118,7 +118,8 @@ class DocumentAnnotation:
                     matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
                     for code in matches:
                         #print('code', code)
-                        finalListAuthIdentifiers.append(code)
+                        if len(code) > 5:
+                            finalListAuthIdentifiers.append(code)
                         
         ####
         # raise warning if we find mutiple auth identifiers.
