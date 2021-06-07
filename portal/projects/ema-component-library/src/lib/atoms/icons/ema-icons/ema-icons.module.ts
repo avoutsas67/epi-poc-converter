@@ -5,11 +5,12 @@ import { EmaLogoComponent } from './ema-logo/ema-logo.component';
 import { HmaLogoComponent } from './hma-logo/hma-logo.component';
 import { ShareComponent } from './share/share.component';
 import { EmaHeaderLogoComponent } from './ema-header-logo/ema-header-logo.component';
+import { ArrowComponent } from './arrow/arrow.component';
 
 
 
 @NgModule({
-  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent, EmaHeaderLogoComponent],
+  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent, EmaHeaderLogoComponent, ArrowComponent],
   imports: [
     CommonModule,
     
@@ -18,6 +19,7 @@ import { EmaHeaderLogoComponent } from './ema-header-logo/ema-header-logo.compon
     EmaHeaderLogoComponent, 
     EmaLogoComponent,
     HmaLogoComponent,
-    ShareComponent]
+    ShareComponent,
+    ArrowComponent]
 })
 export class EmaIconsModule { }

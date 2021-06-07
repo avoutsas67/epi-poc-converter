@@ -40,6 +40,12 @@
                 font-size: 36px;
                 text-decoration: none;
                 line-height: 48px;
+
+                @media (max-width: 576px) {
+                   &{
+                       padding: 10px 40px;
+                   }
+                 }
             }
             &-item {
                 padding: 0px 24px;

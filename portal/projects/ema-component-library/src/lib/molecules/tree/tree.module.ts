@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TreeComponent } from './tree.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { EmaIconsModule } from '../../atoms/icons/ema-icons/ema-icons.module';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    EmaIconsModule
   ],
   exports:[TreeComponent]
 })

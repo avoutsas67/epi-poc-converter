@@ -15,7 +15,9 @@ export class TreeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleChild(node) {
+  toggleChild(node, arrowNode) {
+    arrowNode = arrowNode.target.closest('.ema-tree-toggle');
+    arrowNode.classList.contains('ema-tree-toggle--down')?  arrowNode.classList.remove('ema-tree-toggle--down'):arrowNode.classList.add('ema-tree-toggle--down');
     node.showChildren = !node.showChildren;
   }
   public scrollToAnchor(location: string, wait = 1): void {
