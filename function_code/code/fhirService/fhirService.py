@@ -59,7 +59,7 @@ class FhirService:
         
         response = requests.post(f'{self.apiMmgtBaseUrl}{self.addBundleApiEndPointUrlSuffix}', data=self.body, 
             headers={
-                'Content-Type': 'application/xml',
+                'Content-Type': 'application/fhir+xml; charset=utf-8',
                 'Ocp-Apim-Subscription-Key': self.apiMmgtSubsKey
                 
                 })

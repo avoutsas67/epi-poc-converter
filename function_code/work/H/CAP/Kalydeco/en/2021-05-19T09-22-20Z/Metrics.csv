@@ -37,3 +37,32 @@ Split Json,0.0264 Min,0.090299 MB,18.353875 MB,49.2%
 1: Document Annotation,0.0004 Min,0.007727 MB,0.16503 MB,49.2%
 1: Content Extraction,0.0009 Min,0.08015 MB,0.412675 MB,49.2%
 1: Generate XML,0.0033 Min,0.543258 MB,1.105407 MB,49.2%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.349 Min,19.591699 MB,27.898397 MB,49.9%
+Split Json,0.0242 Min,0.137955 MB,18.250679 MB,49.8%
+1: Heading Extraction,0.134 Min,0.236124 MB,2.97192 MB,50.2%
+1: Document Annotation,0.0003 Min,0.007459 MB,0.164858 MB,50.2%
+1: Content Extraction,0.0011 Min,0.076706 MB,0.410876 MB,50.2%
+1: Generate XML,0.0042 Min,0.542602 MB,1.104751 MB,49.9%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3448 Min,12.116493 MB,20.422855 MB,49.7%
+Split Json,0.0251 Min,0.233521 MB,18.354959 MB,49.7%
+1: Heading Extraction,0.1345 Min,0.390591 MB,2.97462 MB,49.6%
+1: Document Annotation,0.0004 Min,0.153846 MB,0.164922 MB,49.6%
+1: Content Extraction,0.001 Min,0.079875 MB,0.412543 MB,49.6%
+1: Generate XML,0.0041 Min,0.549056 MB,1.111205 MB,49.6%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.344 Min,11.900736 MB,20.353337 MB,46.3%
+Split Json,0.0356 Min,0.261205 MB,18.355054 MB,46.3%
+1: Heading Extraction,0.1762 Min,0.409944 MB,2.973072 MB,46.3%
+1: Document Annotation,0.0003 Min,0.15319 MB,0.16449 MB,46.3%
+1: Content Extraction,0.0008 Min,0.216097 MB,0.404407 MB,46.3%
+1: Generate XML,0.004 Min,0.54605 MB,1.108199 MB,46.3%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3696 Min,12.133843 MB,20.586068 MB,47.4%
+Split Json,0.0275 Min,0.248169 MB,18.219358 MB,47.4%
+1: Heading Extraction,0.1133 Min,0.28268 MB,2.973708 MB,47.3%
+1: Document Annotation,0.0002 Min,0.006747 MB,0.164146 MB,47.3%
+1: Content Extraction,0.0007 Min,0.223167 MB,0.412057 MB,47.3%
+1: Generate XML,0.0026 Min,0.574996 MB,1.137145 MB,47.3%
+1: Submit FHIR Msg,0.0549 Min,0.330847 MB,0.769021 MB,47.3%
