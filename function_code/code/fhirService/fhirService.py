@@ -7,11 +7,14 @@ from datetime import datetime
 from requests.exceptions import HTTPError
 
 class FhirService:
-    def __init__(self, logger, submitFhirUrl, basePath, body):
+    def __init__(self, logger, apiMmgtBaseUrl, addBundleApiEndPointUrlSuffix, apiMmgtSubsKey, basePath, body):
         self.insights_logger = logger
         self.basePath = basePath
         self.body = body
-        self.submitFhirUrl = submitFhirUrl
+        self.apiMmgtBaseUrl = apiMmgtBaseUrl
+        self.addBundleApiEndPointUrlSuffix = addBundleApiEndPointUrlSuffix
+        self.apiMmgtSubsKey = apiMmgtSubsKey
+
         
         self.SubmittedFhirMsgRefId = None 
 
@@ -53,9 +56,13 @@ class FhirService:
             outfile.close()
 
     def submitFhirXml(self):
-        #url = "https://ema-dap-epi-dev-fhir-api.azurewebsites.net/Bundle"
-
-        response = requests.post(self.submitFhirUrl, data=self.body, headers={'Content-Type': 'application/fhir+xml; charset=utf-8'})
+        
+        response = requests.post(f'{self.apiMmgtBaseUrl}{self.addBundleApiEndPointUrlSuffix}', data=self.body, 
+            headers={
+                'Content-Type': 'application/xml',
+                'Ocp-Apim-Subscription-Key': self.apiMmgtSubsKey
+                
+                })
         self.insights_logger.logFlowCheckpoint('Initiating Submission To FHIR Server')
         
         try:
