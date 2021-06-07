@@ -1,6 +1,7 @@
 import requests
 from collections import Counter
 import pandas as pd
+import re
 
 
 class NoAuthorizationCodesFoundInDoc(Exception):
@@ -111,9 +112,14 @@ class DocumentAnnotation:
             endHtmlIndex = (dfHeadings.loc[index + 1].htmlIndex - 1)
             # print(startHtmlIndex,endHtmlIndex)
 
-            [finalListAuthIdentifiers.append(item.split()[0]) for item in list(
-                dfHtml.loc[startHtmlIndex:endHtmlIndex].Text) if len(item) > 3]
-
+            for item in list(dfHtml.loc[startHtmlIndex:endHtmlIndex].Text):
+                #print('item',item)
+                if len(item) > 3:
+                    matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
+                    for code in matches:
+                        #print('code', code)
+                        finalListAuthIdentifiers.append(code)
+                        
         ####
         # raise warning if we find mutiple auth identifiers.
         ####

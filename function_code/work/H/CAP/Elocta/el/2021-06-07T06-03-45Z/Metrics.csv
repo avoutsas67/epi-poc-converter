@@ -1,0 +1,10 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.2482 Min,7.371953 MB,23.72825 MB,48.0%
+Split Json,0.0256 Min,0.143567 MB,31.548362 MB,48.0%
+1: Heading Extraction,4.0643 Min,2.696045 MB,6.367285 MB,48.3%
+1: Document Annotation,0.0004 Min,0.154989 MB,0.164723 MB,48.3%
+1: Content Extraction,0.0261 Min,2.294028 MB,7.229562 MB,48.2%
+1: Generate XML,0.0139 Min,4.399064 MB,11.348571 MB,48.2%
+1: Submit FHIR Msg,0.1198 Min,0.226114 MB,5.475463 MB,48.2%
+1: Completed,0.0003 Min,0.028312 MB,0.176614 MB,48.2%
+Final Metrics,4.4984 Min,0.0 MB,31.548362 MB,48.3%

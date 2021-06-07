@@ -93,3 +93,11 @@ Split Json,0.0157 Min,0.281448 MB,17.653005 MB,48.2%
 3: Update/Add List Bundle,0.4034 Min,0.293688 MB,0.394328 MB,49.2%
 3: Completed,0.0001 Min,0.149088 MB,0.151427 MB,49.2%
 Final Metrics,9.2637 Min,0.0 MB,18.086029 MB,49.5%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.189 Min,7.152701 MB,21.827323 MB,47.9%
+Split Json,0.0141 Min,0.256633 MB,17.634222 MB,47.8%
+1: Heading Extraction,0.1069 Min,0.396182 MB,2.965506 MB,47.8%
+1: Document Annotation,0.0004 Min,0.153726 MB,0.165166 MB,47.8%
+1: Content Extraction,0.0007 Min,0.21367 MB,0.396061 MB,47.8%
+1: Generate XML,0.0032 Min,0.405355 MB,0.6359 MB,47.9%
+1: Submit FHIR Msg,0.0377 Min,0.187822 MB,0.292662 MB,47.9%

@@ -1,0 +1,4 @@
+2021-06-07 23:16:48,944 : Flow Logger HTML_a : Starting HTML Conversion To Json | H | CAP |  de | HTML | gonal-f_clean.htm
+2021-06-07 23:16:48,954 : Style Dictionary_C : Reading style dictionary in file: rule_dictionary_de.json | H | CAP |  de | HTML | gonal-f_clean.htm
+2021-06-07 23:16:49,051 : Style Dictionary_C : Qrd Section Keys Retrieved For Style Dictionary: ANHANG I, ANHANG II, ANHANG III, B. PACKUNGSBEILAGE | H | CAP |  de | HTML | gonal-f_clean.htm
+2021-06-07 23:16:53,864 : Parser_e : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\GONAL-f\de\2021-06-07T06-58-30Z\outputJSON\gonal-f_clean.txt | H | CAP |  de | HTML | gonal-f_clean.htm
