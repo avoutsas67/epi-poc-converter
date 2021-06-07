@@ -3,8 +3,6 @@ info:
   title: ePI-write
   description: "API to write electronic product information"
   version: v1
-servers:
-  - url: https://ema-dap-epi-dev-fhir-api.azurewebsites.net
 paths:
   /Bundle:
     post:

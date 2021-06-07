@@ -5,6 +5,9 @@
         "apimName": {
             "type": "string"
         },
+        "fhirAPIUrl":{
+            "type": "string"
+        },
         "policyApiRead": {
             "type": "string"
         },
@@ -227,7 +230,7 @@
                 "apiRevision": "1",
                 "description": "API to read electronic product information",
                 "subscriptionRequired": true,
-                "serviceUrl": "https://ema-dap-epi-dev-fhir-api.azurewebsites.net",
+                "serviceUrl": "[parameters('fhirAPIUrl')]",
                 "path": "epi",
                 "protocols": [
                     "https"
@@ -250,7 +253,7 @@
                 "apiRevision": "1",
                 "description": "API to write electronic product information",
                 "subscriptionRequired": true,
-                "serviceUrl": "https://ema-dap-epi-dev-fhir-api.azurewebsites.net",
+                "serviceUrl": "[parameters('fhirAPIUrl')]",
                 "path": "epi-w",
                 "protocols": [
                     "https"

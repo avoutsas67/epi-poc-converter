@@ -319,6 +319,7 @@ $policyProductWebRead = @"
 
     $apimParams = @{
         apimName                   = $fhirAPIMName
+        fhirAPIUrl                 = "https://$($fhirAPIName).azurewebsites.net"
         policyApiRead              = $policyApiRead
         policyApiWrite             = $policyApiWrite
         policyProductExternalRead  = $policyProductExternalRead

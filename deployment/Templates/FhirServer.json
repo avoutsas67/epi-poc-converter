@@ -231,7 +231,8 @@
                     }
                 ],
                 "enableSoftDelete": true,
-                "softDeleteRetentionInDays": 90
+                "softDeleteRetentionInDays": 90,
+                "enablePurgeProtection": true
             },
             "tags": "[parameters('resourceTags')]",
             "dependsOn": [
