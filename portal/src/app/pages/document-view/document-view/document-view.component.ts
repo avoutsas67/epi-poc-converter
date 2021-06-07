@@ -33,6 +33,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   hasLangChanged = false;
   showDataInUI = false;
   noDataText='';
+  medicineName ="";
 
   constructor(private readonly fhirService: FhirService,
     private route: ActivatedRoute,
@@ -175,20 +176,6 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   }
 
 
-  getFhirList(listId) {
-    this.fhirService.getList(listId).subscribe((listData =>{
-      setTimeout(()=>{
-          if(listData){
-            this.listEntries = listData.entry;
-          }
-          
-          if(this.listEntries){
-            this.initializeView();
-          }
-      }, 1000);
-    }));
-  }
-
   changeDoctype(event) {
     this.getFhirDocTypeBundle(event.bundleId)
   }
@@ -201,9 +188,25 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       this.currentLang = params.get('langId');
       this.listId = params.get('listId');
       this.documentId = params.get('documentId');
-      this.getFhirList(this.listId);
+      this.fhirService.medicineData.subscribe((data) => {
+        
+        
+        if(data == null){
+          this.fhirService.getAllLists();
+        }
+
+        let listData = data?.entry.filter((entry)=>entry.resource.id === this.listId)[0].resource;
+        this.medicineName= listData?.identifier[0].value
+
+        this.listEntries = listData?.entry;
+        if(this.listEntries){
+          this.initializeView();
+        }
+
+      });
 
     });
+   
   }
 
   ngAfterViewInit() {

@@ -1,31 +1,53 @@
 :host {
     ul {
         list-style: none;
-        padding-left: 16px;
+        padding-left: 0px;
         font-size: 18px;
         margin: 0px;
         li {
             font-size: 16px;
             font-weight: 400;
             margin-bottom: 8px;
-            .ema-tree-node {
-                width: 100%;
-                display: block;
-                word-wrap: break-word;
-                color: #000000;
-                text-decoration: none;
-                &:hover {
-                    font-weight: 700;
+            .ema-tree {
+                padding-left: 16px;
+                &-node {
+                    width: 100%;
+                    display: flex;
+                    word-wrap: break-word;
+                    word-break: break-all;
                     color: #000000;
-                    cursor: pointer;
                     text-decoration: none;
+                    align-items: baseline;
+
+                    &:hover {
+                        font-weight: 700;
+                        color: #000000;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
                 }
-                &-toggle{
-                        display: block;
-                        width:14px;
-                        height:9px;
-                        background: url('../../../../../../src/assets/arrow-down.svg');
-                        border:none;
+                &-toggle {
+                    display: block;
+                    max-width: 14px;
+                    width: 100%;
+                    height: 10px;
+                    border: none;
+                    margin-right: 8px;
+
+                    position: relative;
+                    .ema-arrow {
+                        position: absolute;
+                        top: -8px;
+                        transform: rotate(-90deg);
+                        transition: transform 0.1s linear;
+                    }
+                    &--down {
+                        .ema-arrow {
+                            transform: rotate(0deg);
+                            top: -9px;
+                            transition: transform 0.1s linear;
+                        }
+                    }
                 }
             }
         }

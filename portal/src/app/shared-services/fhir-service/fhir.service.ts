@@ -7,32 +7,42 @@ import { FhirMessageBundle } from 'src/app/models/fhir-message-bundle.model';
   providedIn: 'root'
 })
 export class FhirService {
+  private _medicineData = new BehaviorSubject<any>(null);
+  private dataStore: { medicineData: FhirMessageBundle } = { medicineData: {} };
+
+  get medicineData() {
+    return this._medicineData.asObservable();
+  }
+  
+
+   httpOptions = {
+
+    headers: new HttpHeaders({
+      'Content-Type': 'application/fhir+xml',
+      "Access-Control-Allow-Origin": "*"
+    })
+  };
 
   constructor(private http: HttpClient) { }
 
   getBundle(id) {
     let url = 'api/Bundle/'
-    const httpOptions = {
-
-      headers: new HttpHeaders({
-        'Content-Type': 'application/fhir+xml',
-        "Access-Control-Allow-Origin": "*"
-      })
-    };
-    
-    return this.http.get<FhirMessageBundle>(url + id, httpOptions);
+    return this.http.get<FhirMessageBundle>(url + id, this.httpOptions);
   }
 
   getList(id) {
+    let url = 'api/List/';
+    return this.http.get<FhirMessageBundle>(url + id,this.httpOptions);
+  }
+
+  getAllLists(){
     let url = 'api/List/'
-    const httpOptions = {
-
-      headers: new HttpHeaders({
-        'Content-Type': 'application/fhir+xml',
-
-        "Access-Control-Allow-Origin": "*"
-      })
-    };
-    return this.http.get<FhirMessageBundle>(url + id, httpOptions);
+     this.http.get<FhirMessageBundle>(url, this.httpOptions).subscribe((data)=>{
+      this.dataStore.medicineData = data;
+      this._medicineData.next(Object.assign({}, this.dataStore).medicineData)
+    },
+    (error)=>{
+      console.error('Could not load lists');
+    });
   }
 }

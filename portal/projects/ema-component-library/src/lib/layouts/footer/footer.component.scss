@@ -1,9 +1,6 @@
 @import "../../ema-theme-variables.scss";
 :host {
     .ema-footer {
-        // position: fixed;
-        // left: 0;
-        // bottom: 0;
         width: 100%;
         padding:28px 0px;
         border-top: 5px solid $ema-secondary;
@@ -41,7 +38,7 @@
             justify-content: center;
             list-style: none;
             padding: 0px 40px;
-            margin-bottom:0px;
+            margin:0px;
             li {
                 display: flex;
                 align-items: center;

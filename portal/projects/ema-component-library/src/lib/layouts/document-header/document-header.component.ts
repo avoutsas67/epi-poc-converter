@@ -8,6 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DocumentHeaderComponent implements OnInit {
   @Input() dropdownOptions = [];
   @Input() languageSelected = 'en';
+  @Input() title = "Document Name"
+  @Input() showLangDropdown = false;
+  @Input() showShareFeature = false;
   @Output() changeLang  = new EventEmitter();
 
   constructor() { }
