@@ -34,7 +34,7 @@ class ValidateMatch():
 
         for index, row in dfFilteredQrd.iterrows():
 
-            if row['Heading Level'] == "H3":
+            if row['Heading Level'] == "L3":
                 listValidH3Headings.append(row)
             else:
                 break
@@ -61,7 +61,7 @@ class ValidateMatch():
         ouputRow = None
         for index, row in dfFilteredQrdReverse.iterrows():
 
-            if row['Heading Level'] != "H3":
+            if row['Heading Level'] != "L3":
                 ouputRow = row
                 break
 
@@ -222,7 +222,11 @@ class ValidateMatch():
 
                     previousHeadingRowActual = self.findPreviousHeading(
                         currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)
+                    #print(previousHeadingRowActual)
+                    #print("child list",self.findChildHeadings(
+                    #    previousHeadingRowActual, dfQrd))
 
+                    #print("curr id",currentHeadingRow['id'])
                     childH3HeadingsIdList = [item['id'] for item in self.findChildHeadings(
                         previousHeadingRowActual, dfQrd)]
 

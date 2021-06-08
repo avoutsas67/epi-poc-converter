@@ -1,0 +1,4 @@
+2021-06-08 04:15:24,916 : Flow Logger HTML_T : Starting HTML Conversion To Json | H | CAP |  en | HTML | Stalevo_clean.htm
+2021-06-08 04:15:24,923 : Style Dictionary_X : Reading style dictionary in file: rule_dictionary_en.json | H | CAP |  en | HTML | Stalevo_clean.htm
+2021-06-08 04:15:24,985 : Style Dictionary_X : Qrd Section Keys Retrieved For Style Dictionary: ANNEX I, ANNEX II, ANNEX III, B. PACKAGE LEAFLET | H | CAP |  en | HTML | Stalevo_clean.htm
+2021-06-08 04:15:28,639 : Parser_w : Style Information Stored In File: F:\Projects\EMA\Repository\EMA EPI PoC\function_code\work\H\CAP\Stalevo\en\2021-06-04T02-38-15Z\outputJSON\Stalevo_clean.txt | H | CAP |  en | HTML | Stalevo_clean.htm

@@ -27,3 +27,32 @@ Split Json,0.0502 Min,0.433464 MB,62.674322 MB,50.4%
 3: Update/Add List Bundle,0.3102 Min,0.325238 MB,0.491138 MB,48.9%
 3: Completed,0.0 Min,0.150051 MB,0.152393 MB,48.9%
 Final Metrics,30.7539 Min,0.0 MB,62.674322 MB,50.4%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.1715 Min,12.931828 MB,48.909431 MB,55.5%
+Split Json,0.0184 Min,0.282578 MB,62.715329 MB,55.5%
+0: Heading Extraction,2.4069 Min,10.553276 MB,26.193984 MB,55.6%
+0: Document Annotation,0.0262 Min,0.15858 MB,0.192629 MB,55.6%
+0: Content Extraction,0.0029 Min,0.526463 MB,26.208923 MB,55.5%
+0: Generate XML,0.0055 Min,2.625851 MB,4.040064 MB,55.6%
+0: Submit FHIR Msg,0.0514 Min,0.197012 MB,1.124375 MB,55.6%
+0: Update/Add List Bundle,0.197 Min,0.202519 MB,0.444787 MB,55.5%
+1: Heading Extraction,0.0675 Min,0.252902 MB,2.988506 MB,55.5%
+1: Document Annotation,0.0001 Min,0.15355 MB,0.156018 MB,55.5%
+1: Content Extraction,0.0004 Min,0.226484 MB,0.436367 MB,55.5%
+1: Generate XML,0.0009 Min,0.413323 MB,0.651937 MB,55.5%
+1: Submit FHIR Msg,0.0217 Min,0.185804 MB,0.322274 MB,55.5%
+1: Update/Add List Bundle,0.1846 Min,0.152425 MB,0.90782 MB,55.5%
+2: Heading Extraction,1.3285 Min,1.506698 MB,3.811521 MB,55.7%
+2: Document Annotation,0.0228 Min,0.158531 MB,0.227538 MB,55.7%
+2: Content Extraction,0.0118 Min,0.574304 MB,2.719093 MB,55.7%
+2: Generate XML,0.0073 Min,2.362993 MB,4.289669 MB,55.7%
+2: Submit FHIR Msg,0.0546 Min,0.071006 MB,1.472621 MB,55.7%
+2: Update/Add List Bundle,0.3831 Min,0.321048 MB,0.482114 MB,54.2%
+3: Heading Extraction,7.6368 Min,5.477004 MB,11.790666 MB,51.6%
+3: Document Annotation,0.0002 Min,0.15376 MB,0.156074 MB,51.6%
+3: Content Extraction,0.0054 Min,9.120065 MB,23.355109 MB,51.6%
+3: Generate XML,0.0115 Min,7.58763 MB,38.849284 MB,51.6%
+3: Submit FHIR Msg,0.1517 Min,0.068488 MB,0.224394 MB,51.6%
+3: Update/Add List Bundle,0.3252 Min,0.329406 MB,0.480429 MB,52.1%
+3: Completed,0.0 Min,0.149713 MB,0.151703 MB,52.1%
+Final Metrics,13.0941 Min,0.0 MB,62.715329 MB,55.7%

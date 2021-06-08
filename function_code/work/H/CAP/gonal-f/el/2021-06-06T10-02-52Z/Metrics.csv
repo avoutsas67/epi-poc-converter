@@ -1,0 +1,19 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.7688 Min,13.62054 MB,52.984092 MB,53.1%
+Split Json,0.0254 Min,0.243003 MB,73.366838 MB,53.0%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.5266 Min,16.601639 MB,56.105608 MB,58.0%
+Split Json,0.0269 Min,0.236997 MB,73.497284 MB,57.9%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3573 Min,31.732832 MB,71.383069 MB,57.0%
+Split Json,0.02 Min,0.081804 MB,73.494207 MB,57.0%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.4306 Min,32.050266 MB,71.55416 MB,56.7%
+Split Json,0.0288 Min,0.086408 MB,73.352901 MB,56.7%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3974 Min,43.856278 MB,83.506858 MB,57.4%
+Split Json,0.0228 Min,0.231797 MB,73.504725 MB,57.3%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage

@@ -1,0 +1,3 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.5147 Min,32.3268 MB,45.230329 MB,55.6%
+Split Json,0.0191 Min,0.128906 MB,17.923741 MB,55.5%

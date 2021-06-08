@@ -1,0 +1,34 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.2574 Min,6.003803 MB,12.404686 MB,54.2%
+Split Json,0.0117 Min,0.103833 MB,8.167858 MB,54.2%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.2087 Min,63.509535 MB,78.580269 MB,53.3%
+Split Json,0.0075 Min,0.252044 MB,8.071553 MB,53.1%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.2936 Min,8.224999 MB,14.695893 MB,53.4%
+Split Json,0.0113 Min,0.082617 MB,8.052945 MB,53.4%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3994 Min,6.090913 MB,12.804657 MB,52.3%
+Split Json,0.0088 Min,0.264022 MB,8.060838 MB,52.4%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3165 Min,12.266739 MB,18.794504 MB,55.0%
+Split Json,0.0114 Min,0.268114 MB,8.061239 MB,55.0%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.3655 Min,6.346692 MB,12.774598 MB,53.4%
+Split Json,0.0149 Min,0.394191 MB,8.064611 MB,53.5%
+0: Heading Extraction,1.9279 Min,1.485748 MB,7.389125 MB,52.6%
+0: Document Annotation,0.0191 Min,0.167873 MB,0.305073 MB,52.6%
+0: Content Extraction,0.0019 Min,0.486263 MB,7.400187 MB,52.6%
+0: Generate XML,0.0045 Min,2.425025 MB,3.709187 MB,52.6%
+0: Submit FHIR Msg,0.0455 Min,0.196361 MB,1.14172 MB,52.6%
+0: Update/Add List Bundle,0.0723 Min,0.281772 MB,0.379928 MB,52.6%
+1: Heading Extraction,0.144 Min,0.468908 MB,2.974877 MB,52.6%
+1: Document Annotation,0.0002 Min,0.152811 MB,0.162853 MB,52.6%
+1: Content Extraction,0.0006 Min,0.224057 MB,0.413993 MB,52.6%
+1: Generate XML,0.0017 Min,0.497862 MB,1.227846 MB,52.6%
+1: Submit FHIR Msg,0.0336 Min,0.240687 MB,0.693238 MB,52.6%
+1: Update/Add List Bundle,0.0772 Min,0.490838 MB,1.073798 MB,52.5%
+3: Completed,0.0 Min,0.003546 MB,0.15185 MB,52.5%
+Final Metrics,2.709 Min,0.0 MB,12.774598 MB,53.5%

@@ -1,0 +1,35 @@
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.0533 Min,4.005619 MB,6.741743 MB,51.9%
+Split Json,0.0046 Min,0.256329 MB,5.392421 MB,51.9%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.0649 Min,5.319709 MB,8.056129 MB,52.5%
+Split Json,0.0052 Min,0.277678 MB,5.552253 MB,52.5%
+0: Heading Extraction,0.9655 Min,1.274178 MB,3.68124 MB,51.5%
+0: Document Annotation,0.0388 Min,0.162483 MB,0.196983 MB,51.6%
+0: Content Extraction,0.0013 Min,0.421387 MB,2.197457 MB,51.6%
+0: Generate XML,0.0037 Min,1.546822 MB,2.396342 MB,51.6%
+0: Submit FHIR Msg,0.0401 Min,0.200044 MB,0.816526 MB,51.6%
+0: Update/Add List Bundle,0.0564 Min,0.212492 MB,0.243369 MB,52.0%
+1: Heading Extraction,0.0797 Min,0.243027 MB,2.968221 MB,52.3%
+1: Document Annotation,0.0003 Min,0.007305 MB,0.164615 MB,52.2%
+1: Content Extraction,0.0007 Min,0.30355 MB,0.487677 MB,52.2%
+1: Generate XML,0.0018 Min,0.438901 MB,0.777884 MB,52.2%
+1: Submit FHIR Msg,0.0259 Min,0.186364 MB,0.385832 MB,52.3%
+1: Update/Add List Bundle,0.0639 Min,0.103403 MB,0.350313 MB,52.5%
+2: Heading Extraction,0.422 Min,1.052555 MB,3.243728 MB,52.5%
+2: Document Annotation,0.0187 Min,0.159195 MB,0.19345 MB,52.5%
+2: Content Extraction,0.0054 Min,0.304178 MB,1.283844 MB,52.5%
+2: Generate XML,0.0027 Min,1.065265 MB,1.885169 MB,52.5%
+2: Submit FHIR Msg,0.0431 Min,0.202991 MB,0.612307 MB,52.7%
+2: Update/Add List Bundle,0.1283 Min,0.255671 MB,1.052687 MB,52.7%
+3: Heading Extraction,1.7698 Min,0.452879 MB,3.170585 MB,52.6%
+3: Document Annotation,0.0003 Min,0.153494 MB,0.166846 MB,52.6%
+3: Content Extraction,0.0008 Min,0.345763 MB,0.872436 MB,52.6%
+3: Generate XML,0.0025 Min,1.21612 MB,1.853049 MB,52.6%
+3: Submit FHIR Msg,0.0344 Min,0.250837 MB,0.625984 MB,52.6%
+3: Update/Add List Bundle,0.136 Min,0.233532 MB,0.272994 MB,52.6%
+3: Completed,0.0 Min,0.149665 MB,0.151551 MB,52.6%
+Final Metrics,3.9124 Min,0.0 MB,8.056129 MB,52.7%
+StepName,Time,Current Memory,Peak Memory,Used Ram Percentage
+HTML Conversion To Json,0.0638 Min,6.793873 MB,9.530525 MB,53.1%
+Split Json,0.0052 Min,0.271106 MB,5.542311 MB,53.1%

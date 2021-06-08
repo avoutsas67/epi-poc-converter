@@ -112,7 +112,40 @@ class parserExtractor:
         else:
             return False
 
+    def checkAllChildrenForFeature(self, ele, featureTag):
+        
+
+        text = str(ele.text).replace("\xa0"," ").replace("\n"," ").replace("\r", "").replace("\t", "").strip()
+        totalLen = len(text)
+        #print(text, "|" , totalLen)
+        if totalLen == 0:
+            return False
+        #print(str(ele))
+        dom_ele = str(ele).replace("\xa0"," ")
+        dom_data = defaultdict(list)  
+        dom_data['Element']= dom_ele.replace("\n"," ").replace("\r", "").replace("\t", "")
+        #print(dom_data['Element'])
+        current_dom = BeautifulSoup(dom_data['Element'], "html.parser")
+        #print(current_dom)
+        ele_with_text = current_dom.find_all(text=True, recursive=True)
+        
+        
+        currentCount = 0
+        for index, child in enumerate(ele_with_text):
+
+            if(len(child.find_parents(featureTag))>0):
+                #print(child, "|" ,  len(str(child).strip()))
+                currentCount = currentCount + len(str(child).strip())
+        featurePerct = 100*round((currentCount/totalLen),3)     
+        #print(f"{featureTag} perctange in given element is {featurePerct}")
+        if featurePerct > 90.000:
+            return True
+        else:
+            return False
+
     def getUpperStyleForChidren(self, element_html):
+        element_html = element_html.replace("\n"," ").replace("\r", "").replace("\t", "")
+        
         current_dom = BeautifulSoup(element_html, "html.parser")
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         text_with_req = []
@@ -253,6 +286,8 @@ class parserExtractor:
             concatenated_text = concatenated_text.replace("\n"," ")
             concatenated_text = concatenated_text.replace("\xa0"," ")
 
+            dom_data['Text']=concatenated_text
+
             if(not dom_data['HasBorder']):
                 dom_data['HasBorder'] = css_in_attr['HasBorder'] 
 
@@ -266,8 +301,10 @@ class parserExtractor:
             concatenated_text = concatenated_text.replace("\xa0"," ")
             parsed_output['ignore_child_in_parentId'] = dom_data['ID']
 
+            dom_data['Text']=concatenated_text
+
             ## Checking length for style extraction
-            if(len(concatenated_text)>3 and len(concatenated_text)<200):
+            if(len(concatenated_text)>3 and len(concatenated_text)<300):
                 parent_features = self.createNewFeatureObj(self.styleFeatureKeyList)
 
                 ## Checking for required css in class of current element 
@@ -305,48 +342,31 @@ class parserExtractor:
                 if(not dom_data['Italics']):
                     dom_data['Italics'] = css_in_attr['Italics']
 
-
-                parent_features['Bold'] = dom_data['Bold']
-                parent_features['Underlined'] = dom_data['Underlined']
-                parent_features['Italics'] = dom_data['Italics']
-
-
-
+                
                 ## Search features in children if not present in parent
                 ## Cases Handled
                 ## Case 1: Check if all children are of particular tag type
                 ## Case 2: If case 1 not true, check if required tag if parent of text
                 ## Case 3: Ignore children with <br> tags
                 ## Case 4: Ignore children with empty spaces 
-
-                for child in ele.children:
-                    if(child.name == 'br'):
-                        continue
-                    if(not isinstance(child, NavigableString)):
-                        if("".join(child.find_all(text=True, recursive=False)).isspace()):
-                            continue
-                        
-                    if(not parent_features['Bold']):
-                        if(child.name == 'b'):
-                            dom_data['Bold'] = True
-                        else:
-                            dom_data['Bold'] = self.checkAllChildrenForTag(dom_data['Element'], 'b')
-
-                    if(not parent_features['Underlined']):
-
-                        if(child.name == 'u'):
-                            dom_data['Underlined'] = True
-                        else:
-                            dom_data['Underlined'] = self.checkAllChildrenForTag(dom_data['Element'], 'u')
-
-                    if(not parent_features['Italics']):
+                
+                boldChildFound = self.checkAllChildrenForFeature(ele, 'b')
+                if boldChildFound:
+                    dom_data['Bold'] = True
                     
-                        if(child.name == 'i' or child.name == 'em'):
-                            dom_data['Italics'] = True
-                        else:
-                            dom_data['Italics'] = self.checkAllChildrenForTag(dom_data['Element'], 'i')
-                            if(not dom_data['Italics']):
-                                dom_data['Italics'] = self.checkAllChildrenForTag(dom_data['Element'], 'em')
+            
+                underlinedChildFound = self.checkAllChildrenForFeature(ele, 'u')
+                if underlinedChildFound:
+                    dom_data['Underlined'] = True
+            
+                italicsChildFound = self.checkAllChildrenForFeature(ele, 'i')
+                if italicsChildFound:
+                    dom_data['Italics'] = True
+                else:
+                    italicsChildFound = self.checkAllChildrenForFeature(ele, 'em')
+                    
+                    if italicsChildFound:
+                        dom_data['Italics'] = True
 
 
                 ## Check if Uppercased
@@ -370,13 +390,13 @@ class parserExtractor:
                 ## Check if Indexed
                 dom_data['Indexed'] = re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None
 
-        dom_data['Text']=concatenated_text
+        
         
 
         ## Tracking which section is being parsed using section_dict    
         for key in list(reversed(self.qrd_section_headings)):
             if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
-                dom_data['IsHeadingType'] = 'L1'
+                dom_data['IsHeadingType'] = 'L1' # Put zero
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True
                 break
@@ -431,12 +451,17 @@ class parserExtractor:
         remove_tags_in = ['span', 'b', 'em', 'i', 'u']
         for tag in remove_tags_in:
             for tag_dom in soup.body.find_all(tag):
+                #print("text:-",tag_dom.text)
                 dom_children = tag_dom.findChildren()
                 if(len(dom_children)==0 ):
-                    text_in_tag = "".join(tag_dom.find_all(text=True, recursive=True))
+                    text_in_tag = "".join([ text.replace("\n"," ").replace('\t',"").replace("\r","") for text in tag_dom.find_all(text=True, recursive=True)])
                     if(text_in_tag.isspace() or len(text_in_tag)==0):
                         parent = tag_dom.parent
                         tag_dom.decompose()
+                    else:
+                        tag_dom.string.replace_with(text_in_tag)
+                #print("Changed:-",tag_dom.text)
+                    
         return soup
     
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
