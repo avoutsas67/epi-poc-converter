@@ -107,19 +107,32 @@ class DocumentAnnotation:
 
         finalListAuthIdentifiers = []
         for index, authHeading in dfAuthHeadingsSmPC.iterrows():
-
+    
             startHtmlIndex = (authHeading.htmlIndex + 1)
-            endHtmlIndex = (dfHeadings.loc[index + 1].htmlIndex - 1)
-            # print(startHtmlIndex,endHtmlIndex)
-
-            for item in list(dfHtml.loc[startHtmlIndex:endHtmlIndex].Text):
-                #print('item',item)
-                if len(item) > 3:
-                    matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
-                    for code in matches:
-                        #print('code', code)
-                        if len(code) > 5:
-                            finalListAuthIdentifiers.append(code)
+            #print("startHtmlIndex",startHtmlIndex)
+            
+            if (index + 1) == len(dfHeadings):
+                for item in list(dfHtml.loc[startHtmlIndex:(startHtmlIndex+100)].Text):
+                    #print('item',item,"|")
+                    if len(item) > 3:
+                        matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
+                        for code in matches:
+                            #print('code', code)
+                            if len(code) > 5:
+                                finalListAuthIdentifiers.append(code)
+            else:
+                endHtmlIndex = (dfHeadings.loc[index + 1].htmlIndex - 1)
+                #print("endHtmlIndex",endHtmlIndex)
+            
+                for item in list(dfHtml.loc[startHtmlIndex:endHtmlIndex].Text):
+                    #print('item',item,"|")
+                    if len(item) > 3:
+                        matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
+                        for code in matches:
+                            #print('code', code)
+                            if len(code) > 5:
+                                finalListAuthIdentifiers.append(code)
+                
                         
         ####
         # raise warning if we find mutiple auth identifiers.
@@ -172,15 +185,22 @@ class DocumentAnnotation:
                                         break
                                     
                                 else:
-                                    raise MissingKeyValuePair("Missing Key 'code' in 'coding' key value pair")
-
+                                    #raise MissingKeyValuePair("Missing Key 'code' in 'coding' key value pair")
+                                    print(MissingKeyValuePair("Missing Key 'code' in 'coding' key value pair"))
+                                    continue
                         else:
-                            raise MissingKeyValuePair(
-                                "Missing Key 'coding' in 'type' key value pair")
+                            #raise MissingKeyValuePair(
+                            #    "Missing Key 'coding' in 'type' key value pair")
+                            print(MissingKeyValuePair(
+                                "Missing Key 'coding' in 'type' key value pair"))
+                            continue
 
                     else:
-                        raise MissingKeyValuePair(
-                            "Missing Key 'type' in the 'entry' key value pair")
+                        #raise MissingKeyValuePair(
+                        #    "Missing Key 'type' in the 'entry' key value pair")
+                        print(MissingKeyValuePair(
+                            "Missing Key 'type' in the 'entry' key value pair"))
+                        continue    
 
                     if foundReleventCode is True:
                         
@@ -199,23 +219,32 @@ class DocumentAnnotation:
                                     packagedProductDefinitionId = ((entry['resource']['subject']['reference']).replace(
                                         "PackagedProductDefinition/", ""))
                                 else:
-                                    raise IncorrectReference(
-                                        "This Regulated Authorization is not referencing Medicinal Product nor Packaed Product Definition.")
+                                    #raise IncorrectReference(
+                                    #    "This Regulated Authorization is not referencing Medicinal Product nor Packaed Product Definition.")
+                                    print(IncorrectReference(
+                                        "This Regulated Authorization is not referencing Medicinal Product nor Packaed Product Definition."))
+                                    continue 
                             else:
-                                raise MissingKeyValuePair(
-                                    "Missing Key 'reference' in 'subject' key value pair")
+                                #raise MissingKeyValuePair(
+                                #    "Missing Key 'reference' in 'subject' key value pair")
+                                print(MissingKeyValuePair(
+                                    "Missing Key 'reference' in 'subject' key value pair"))
+                                continue
                         else:
-                            raise MissingKeyValuePair(
-                                "Missing Key 'subject' in 'entry' key value pair")
+                            #raise MissingKeyValuePair(
+                            #    "Missing Key 'subject' in 'entry' key value pair")
+                            print(MissingKeyValuePair(
+                                "Missing Key 'subject' in 'entry' key value pair"))
+                            continue
 
                         if 'holder' in entry['resource']:
                             if 'identifier' in entry['resource']['holder']:
                                 holderValue = (
                                     entry['resource']['holder']['identifier']['value'])
                         else:
-                            raise MissingKeyValuePair(
-                                "Missing Key 'holder' in entry key value pair")
-
+                            #raise MissingKeyValuePair(
+                            #    "Missing Key 'holder' in entry key value pair")
+                            print("Missing Key 'holder' in entry key value pair")
                         if directFlag is True:
                             processedOutputDirect.append(
                                 (holderValue, medicinalProductDefinitionId))
@@ -231,8 +260,12 @@ class DocumentAnnotation:
                         print(NoReleventAuthorizationCodesFoundInDoc("No Regulated Authorization find with code 220000000061"))
                     
                 else:
-                    raise MissingKeyValuePair(
-                        "Missing Key 'resource' in the 'entry' key value pair")
+                    #raise MissingKeyValuePair(
+                    #    "Missing Key 'resource' in the 'entry' key value pair")
+                    print(MissingKeyValuePair(
+                        "Missing Key 'resource' in the 'entry' key value pair"))
+                    continue
+                    
 
         else:
             raise MissingKeyValuePair(
@@ -241,6 +274,7 @@ class DocumentAnnotation:
         if directFlag is True:
             return processedOutputDirect
         else:
+            print("processedOutputIndirect",processedOutputIndirect)
             return self.extractMedicinalProductsFromPackagedProducts(processedOutputIndirect)
 
     def processMedicinalProductDefinition(self, medicinalProductDefinitionID):
@@ -302,12 +336,13 @@ class DocumentAnnotation:
 
             holderValue = packagedProductTupple[0]
             packagedProductId = packagedProductTupple[1]
-            print(f'Packaged Product Id : - {packagedProductId}')
+            #print(f'Packaged Product Id : - {packagedProductId}')
 
             medicinalProductDefinitionIds = self.processPackagedProductDefinition(packagedProductId)
 
             for medProd in medicinalProductDefinitionIds:
-                finalOutput.append((holderValue,medicinalProductDefinitionIds))
+                #print("value",(holderValue,medProd))
+                finalOutput.append((holderValue,medProd))
         
         return finalOutput
 
@@ -343,24 +378,24 @@ class DocumentAnnotation:
         finalOutput = []
 
         for authIdentifier in listRegulatedAuthorizationIdentifiers:
-            print(authIdentifier)
+            #print(authIdentifier)
 
             processedOutputRA = self.processRegulatedAuthorization(
                 authorizationIdentifier=authIdentifier)
-
+            #print("processedOutputRA",processedOutputRA)
             for product in processedOutputRA:
                 print(list(product))
                 productDefinitionId = product[1]
 
                 productName = self.processMedicinalProductDefinition(
                     medicinalProductDefinitionID=productDefinitionId)
-                print(productName)
+                #print(productName)
                 productList = list(product)
                 productList.append(productName)
                 productFinalOutput = tuple(productList)
 
                 finalOutput.append(productFinalOutput)
-
+        #print("finalOutput",finalOutput)
         uniqueFinalOutput = self.removeDuplicatesFromOutput(finalOutput)
 
         self.uniqueFinalOutput = uniqueFinalOutput
