@@ -79,7 +79,7 @@ class DocTypePartitioner:
 
         if(not ignore_page_break_check):
             for i, row in enumerate(df.itertuples(), 0):
-                if(self.remove_escape_ansi(row.Text).lower() == nextkey.lower()):
+                if(self.remove_escape_ansi(row.Text).encode(encoding='utf-8').decode().lower().replace(" ", "") == nextkey.encode(encoding='utf-8').decode().lower().replace(" ", "")):
                     endPos = i
             temp_df = pd.DataFrame(df.iloc[startPos:endPos], columns=list(df.columns))
             ## Getting last occurrence of text in dataframe

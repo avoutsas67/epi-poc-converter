@@ -395,7 +395,7 @@ class parserExtractor:
 
         ## Tracking which section is being parsed using section_dict    
         for key in list(reversed(self.qrd_section_headings)):
-            if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().find(key.lower())!=-1 and section_dict[key] == False):
+            if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().replace(" ", "").find(key.lower().replace(" ", ""))!=-1 and section_dict[key] == False):
                 dom_data['IsHeadingType'] = 'L1' # Put zero
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True

@@ -24,6 +24,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   resultsText = "";
 
   ngOnInit(): void {
+    this.fhirService.getAllLists();
     this.fhirService.medicineData.subscribe((data) => {
       if(data){
         for(let i=0; i<data.entry?.length;i++){
@@ -48,9 +49,6 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
           this.resultsText = this.medicineList?.length === 1?  this.medicineList?.length + ' result' : this.medicineList?.length + ' results'
           
         }
-      }
-      else if(data==null){
-        this.fhirService.getAllLists();
       }
    
     });
