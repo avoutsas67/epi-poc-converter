@@ -57,15 +57,21 @@ class StyleRulesDictionary:
         
         text_with_heading_id_one = []
         for i, row in enumerate(qrd_df.itertuples(), 0):
-            if(i == 1):
-                text_with_heading_id_one.append(row.Name)
-            if(i==3):
+                           
+            if(i==2 or i==3):
                 if(not row.Display_code or not pd.isna(row.Display_code)):
                     text_with_heading_id_one.append((row.Display_code+'. '+ row.Name))
                 else:
-                    text_with_heading_id_one.append(('B. '+ row.Name))
+                    if(i==2):
+                        text_with_heading_id_one.append(('A. '+ row.Name))
+
+                    if(i==3):
+                        text_with_heading_id_one.append(('B. '+ row.Name))
+            else:
+                 text_with_heading_id_one.append(row.Name)
+
+        self.qrd_section_headings = text_with_heading_id_one
         
-        return text_with_heading_id_one
 
     def getSectionKeys(self):
         """
@@ -80,19 +86,8 @@ class StyleRulesDictionary:
 
         """
         self.qrd_section_headings = []
-        text_with_heading_id_one = self.getTextAtHeadingIdOneOfRequiredQrdSection()
-        if(len(text_with_heading_id_one)>0):
-
-            ## Get text for ANNEX II in current language
-            heading_text = text_with_heading_id_one[0]
-            heading_text = heading_text.rstrip()
-            self.qrd_section_headings.append(heading_text[:-1])
-            self.qrd_section_headings.append(heading_text)
-            self.qrd_section_headings.append(heading_text + heading_text[-1])
-
-            ## Get text for PACKAGE LEAFLET in current language
-
-            self.qrd_section_headings.append(text_with_heading_id_one[1])
+        self.getTextAtHeadingIdOneOfRequiredQrdSection()
+        if(len(self.qrd_section_headings)>0):
             for heading in self.qrd_section_headings:
                 heading = heading.encode(encoding='utf-8').decode()
             self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
