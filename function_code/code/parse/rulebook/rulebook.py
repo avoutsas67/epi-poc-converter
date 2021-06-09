@@ -44,14 +44,26 @@ class StyleRulesDictionary:
                 (qrd_df['Procedure type'] == self.procedureType) & \
                 (qrd_df['heading_id'] == 1) & \
                 (qrd_df['Language code'] == self.language)
+
+        new_cols = []
+        for col in qrd_df.columns:
+            if col =='Display code':
+                col= 'Display_code'
+            new_cols.append(col)
         
+        qrd_df.columns = new_cols
         ## Filter records with heading_id = 1
         qrd_df = qrd_df.loc[ind, :].reset_index(drop = False)
         
         text_with_heading_id_one = []
         for i, row in enumerate(qrd_df.itertuples(), 0):
-            if(i == 1 or i==3):
+            if(i == 1):
                 text_with_heading_id_one.append(row.Name)
+            if(i==3):
+                if(not row.Display_code or not pd.isna(row.Display_code)):
+                    text_with_heading_id_one.append((row.Display_code+'. '+ row.Name))
+                else:
+                    text_with_heading_id_one.append(('B. '+ row.Name))
         
         return text_with_heading_id_one
 
@@ -79,9 +91,8 @@ class StyleRulesDictionary:
             self.qrd_section_headings.append(heading_text + heading_text[-1])
 
             ## Get text for PACKAGE LEAFLET in current language
-            heading_text = text_with_heading_id_one[1]
 
-            self.qrd_section_headings.append('B. '+ heading_text)
+            self.qrd_section_headings.append(text_with_heading_id_one[1])
             for heading in self.qrd_section_headings:
                 heading = heading.encode(encoding='utf-8').decode()
             self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
