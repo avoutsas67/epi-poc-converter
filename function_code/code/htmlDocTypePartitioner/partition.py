@@ -72,6 +72,29 @@ class DocTypePartitioner:
 
         return line.translate(translator)
 
+    def preProcessString(self, string):
+
+        return self.remove_escape_ansi(string).encode(encoding='utf-8').decode().replace(" ", "")
+
+    ## Function to compare two texts and return true if they match 90 percent in fuzzy wuzzy similarity.
+    def compareText(self, textHtml , textQrd):
+        
+        textHtml1 = self.preProcessString(textHtml)
+        textQrd1 = self.preProcessString(textQrd)
+        if textHtml1 == textQrd1:
+            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1}")
+            return True
+        
+        import jellyfish
+        if round(jellyfish.jaro_winkler_similarity(textHtml1, textQrd1, long_tolerance=True),3) >= 0.900:
+
+            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1}")
+            return True
+        
+        return False
+        
+
+
     ## Function to split document based on document type
     def splitHtmlBasedOnDoc(self, df, nextkey, page_break_indices, ignore_page_break_check):
         startPos = self.new_dataframe_start
@@ -79,8 +102,10 @@ class DocTypePartitioner:
 
         if(not ignore_page_break_check):
             for i, row in enumerate(df.itertuples(), 0):
-                if(self.remove_escape_ansi(row.Text).encode(encoding='utf-8').decode().lower().replace(" ", "") == nextkey.encode(encoding='utf-8').decode().lower().replace(" ", "")):
+                if self.compareText(row.Text, nextkey):
                     endPos = i
+                #if(self.remove_escape_ansi(row.Text).encode(encoding='utf-8').decode().lower().replace(" ", "") == nextkey.encode(encoding='utf-8').decode().lower().replace(" ", "")):
+                #    endPos = i
             temp_df = pd.DataFrame(df.iloc[startPos:endPos], columns=list(df.columns))
             ## Getting last occurrence of text in dataframe
             indices_with_text=temp_df.apply(lambda x: self.getIndexAfterLenCheck(x.name, x.Text),axis=1)

@@ -88,8 +88,9 @@ class StyleRulesDictionary:
         self.qrd_section_headings = []
         self.getTextAtHeadingIdOneOfRequiredQrdSection()
         if(len(self.qrd_section_headings)>0):
-            for heading in self.qrd_section_headings:
-                heading = heading.encode(encoding='utf-8').decode()
+            self.qrd_section_headings = [ heading.encode(encoding='utf-8').decode()  for heading in self.qrd_section_headings]
+            #for heading in self.qrd_section_headings:
+            #    heading = heading.encode(encoding='utf-8').decode()
             self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
         else:
             try:
