@@ -50,6 +50,12 @@
         &-body {
             padding: 0px;
             overflow: auto;
+            @media (min-width: 577px) {
+                & {
+                    max-width: 66.66%;
+                    width: 100%;
+                }
+            }
             @media (max-width: 576px) {
                 & {
                     max-width: 100%;

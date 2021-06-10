@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActionLinksComponent } from './molecules/action-links/action-links.component';
 import { DisclaimerModalComponent } from './molecules/disclaimer-modal/disclaimer-modal.component';
 import { RouterModule } from '@angular/router';
+import { TagsModule } from './atoms/tags/tags.module';
+import { TextboxMultiSelectModule } from './molecules/textbox-multi-select/textbox-multi-select.module';
 
 
 
@@ -24,7 +26,9 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     RouterModule,
     TreeModule,
-    NgbModule
+    NgbModule,
+    TagsModule,
+    TextboxMultiSelectModule
   ],
   exports: [EmaComponentLibraryComponent,
     HeaderComponent,
@@ -32,9 +36,11 @@ import { RouterModule } from '@angular/router';
     DocumentHeaderComponent,
     EmaIconsModule,
     FooterModule, 
+    TagsModule,
     DropdownComponent,
     ActionLinksComponent,
-    DisclaimerModalComponent
+    DisclaimerModalComponent,
+    TextboxMultiSelectModule
   ],
   entryComponents: [
     DisclaimerModalComponent

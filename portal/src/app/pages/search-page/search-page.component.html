@@ -1,5 +1,14 @@
 <div class='ema-search-page'>
     <section class='ema-search-view'>
+        <div class="row ema-search-box">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <ema-textbox-multi-select (onSearchChanged)="searchChanged($event)"></ema-textbox-multi-select>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            </div>
+        </div>
         <div class='row ema-search-main'>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ema-search-nav">
                 <p class="ema-nav-title">Filters</p>
@@ -8,12 +17,9 @@
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ema-search-body">
                
                 <div class="ema-medView-body" >
-                    <div *ngIf="!medicineList" class="ema-search-notFound">
-                        <p >Page not found</p>
-                    </div>
                     
-                    <ema-document-header *ngIf="medicineList" [title]="resultsText"></ema-document-header>
-                     <ul class="ema-search-resultList" *ngIf="medicineList">
+                    <ema-document-header [title]="resultsText"></ema-document-header>
+                     <ul class="ema-search-resultList">
                          <li class="ema-resultList-item" *ngFor="let medicine of medicineList">
                              <div class="ema-resultItem-checkbox"></div>
                              <div class="ema-resultItem-details">
@@ -23,13 +29,15 @@
                              </div>
                          </li>
                      </ul>
-
+                     <div *ngIf="!(medicineList.length > 0)" class="ema-search-notFound">
+                        <p>Go ahead. Search for a medicine. Don't be shy....</p>
+                    </div>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ema-search-footer">
+        <div class="row ema-search-footer">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                 <ema-footer></ema-footer>
 
             </div>

@@ -13,12 +13,8 @@
         &-view {
             height: inherit;
             overflow-y: auto;
-            .row {
-                padding: 0px;
-                margin: 0px;
-                width: 100%;
-            }
-           
+            
+
             @media (max-width: 576px) {
                 & {
                     max-width: 100%;
@@ -33,8 +29,22 @@
                 }
             }
         }
+        &-box {
+            border-bottom: 1px solid $ema-border;
+            &.row {
+                padding: 40px;
+                margin: 0px;
+                .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+                    padding: 0px !important;
+                }
+            }
+            
+        }
         &-main {
             min-height: calc(100% - 188px);
+            margin:0px;
+            padding:0px;
+            width: 100%;
         }
         &-nav {
             padding: 40px;
@@ -58,10 +68,14 @@
         }
         &-footer {
             padding: 0px;
+            margin: 0px;
             width: 100%;
+            .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+                padding: 0px !important;
+            }
         }
-        &-notFound{
-            padding:40px;
+        &-notFound {
+            padding: 40px;
         }
         &-resultList {
             list-style: none;
@@ -101,9 +115,9 @@
                         color: black;
                         margin: 0px;
                     }
-                    &-checkbox{
-                        width:24px;
-                        height:24px;
+                    &-checkbox {
+                        width: 24px;
+                        height: 24px;
                     }
                 }
             }

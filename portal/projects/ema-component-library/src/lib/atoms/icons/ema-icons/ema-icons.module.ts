@@ -6,11 +6,12 @@ import { HmaLogoComponent } from './hma-logo/hma-logo.component';
 import { ShareComponent } from './share/share.component';
 import { EmaHeaderLogoComponent } from './ema-header-logo/ema-header-logo.component';
 import { ArrowComponent } from './arrow/arrow.component';
+import { CrossWithCirleComponent } from './cross-with-cirle/cross-with-cirle.component';
 
 
 
 @NgModule({
-  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent, EmaHeaderLogoComponent, ArrowComponent],
+  declarations: [EuropeanCommissionComponent, EmaLogoComponent, HmaLogoComponent, ShareComponent, EmaHeaderLogoComponent, ArrowComponent, CrossWithCirleComponent],
   imports: [
     CommonModule,
     
@@ -20,6 +21,7 @@ import { ArrowComponent } from './arrow/arrow.component';
     EmaLogoComponent,
     HmaLogoComponent,
     ShareComponent,
-    ArrowComponent]
+    ArrowComponent,
+    CrossWithCirleComponent]
 })
 export class EmaIconsModule { }
