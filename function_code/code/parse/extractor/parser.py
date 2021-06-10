@@ -141,7 +141,7 @@ class parserExtractor:
         else:
             return False
 
-    def getUpperStyleForChidren(element_html):
+    def getUpperStyleForChidren(self,element_html):
         element_html = str(element_html).replace("\xa0","").replace("\n"," ").replace("\r", "").replace("\t", "")
         
         current_dom = BeautifulSoup(element_html, "html.parser")
