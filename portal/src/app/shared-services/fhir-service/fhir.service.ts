@@ -35,6 +35,11 @@ export class FhirService {
     return this.http.get<FhirMessageBundle>(url + id,this.httpOptions);
   }
 
+  getListWithIdentifier(identifier) {
+    let url = 'api/List?identifier=';
+    return this.http.get<FhirMessageBundle>(url + identifier,this.httpOptions);
+  }
+
   getAllLists(){
     let url = 'api/List/'
      this.http.get<FhirMessageBundle>(url, this.httpOptions).subscribe((data)=>{

@@ -1,0 +1,73 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    .ema-textbox-multi-select {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        background-color: $ema-multiselect-background;
+        border: 1px solid $ema-tag-background;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        &:hover {
+            cursor: pointer;
+        }
+        .ema-tags-list {
+            word-break: break-all;
+            word-wrap: break-word;
+            ema-tags {
+                margin: 16px 8px;
+            }
+        }
+        .ema-textbox {
+            display: inline-block;
+            min-width: 300px;
+            max-width: calc(100% - 16px);
+            &-input {
+                border: none;
+                background-color: $ema-multiselect-background;
+                margin: 0px 8px;
+                padding: 16px 8px;
+                line-height: 16px;
+                min-height: 58px;
+
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+                &:focus-visible {
+                    border: none;
+                }
+                @media (max-width: 300px) {
+                    & {
+                        width: 80px;
+                    }
+                }
+            }
+            @media (min-width:301px) and (max-width: 576px) {
+                & {
+                    min-width: 100px;
+                    max-width: calc(100% - 16px);
+                }
+            }
+            @media (max-width: 300px) {
+                & {
+                    width: 80px;
+                    max-width: calc(100% - 16px);
+                }
+            }
+        }
+    }
+    .ema-textbox-clear {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+        color: $ema-primary;
+        margin: 8px 0px 0px 0px;
+        &:hover {
+            cursor: pointer !important;
+            text-decoration: underline;
+        }
+    }
+}

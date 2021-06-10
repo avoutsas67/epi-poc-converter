@@ -1,0 +1,24 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    font-size: 16px;
+    color: $ema-text-focused;
+    background-color: $ema-tag-background;
+    width: auto;
+    display: inline-block;
+    border-radius: 5px;
+    .ema-tags {
+        display: flex;
+        align-items: center;
+        line-height: 18px;
+        min-height: 24px;
+        padding: 4px 8px;
+        &-label {
+            margin-right: 16px;
+        }
+        &-icon{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

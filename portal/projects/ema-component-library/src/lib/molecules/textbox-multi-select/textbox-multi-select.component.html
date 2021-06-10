@@ -1,0 +1,7 @@
+<div class="ema-textbox-multi-select">
+    <div class="ema-tags-list">
+        <ema-tags *ngFor='let tag of tagList' [name]='tag' (onCrossClick)='deleteTag($event)'></ema-tags>
+    </div>
+    <div class="ema-textbox" [formGroup]="textboxMultiSelectForm"><input  class="ema-textbox-input" type="text" id="textboxMultiselect" name="textboxMultiselect" formControlName="inputControl" (keyup.enter)='textEntered()'></div>
+</div>
+<div class="ema-textbox-clear" (click)="clearAllTags()">Clear Search</div>
