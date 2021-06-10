@@ -114,28 +114,26 @@ class parserExtractor:
 
     def checkAllChildrenForFeature(self, ele, featureTag):
         
+        text = str(ele.text).replace("\xa0","").replace("\n"," ").replace("\r", "").replace("\t", "")
 
-        text = str(ele.text).replace("\xa0"," ").replace("\n"," ").replace("\r", "").replace("\t", "").strip()
         totalLen = len(text)
         #print(text, "|" , totalLen)
         if totalLen == 0:
             return False
         #print(str(ele))
-        dom_ele = str(ele).replace("\xa0"," ")
+        dom_ele = str(ele).replace("\xa0","")
         dom_data = defaultdict(list)  
         dom_data['Element']= dom_ele.replace("\n"," ").replace("\r", "").replace("\t", "")
-        #print(dom_data['Element'])
         current_dom = BeautifulSoup(dom_data['Element'], "html.parser")
-        #print(current_dom)
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         
         
         currentCount = 0
         for index, child in enumerate(ele_with_text):
-
-            if(len(child.find_parents(featureTag))>0):
-                #print(child, "|" ,  len(str(child).strip()))
-                currentCount = currentCount + len(str(child).strip())
+        #    print("child:", child, "|" ,  len(str(child)))
+            if len(child.find_parents(featureTag)) > 0 or len(child.strip()) == 0:
+        #        print(child, "|" ,  len(str(child)))
+                currentCount = currentCount + len(str(child))
         featurePerct = 100*round((currentCount/totalLen),3)     
         #print(f"{featureTag} perctange in given element is {featurePerct}")
         if featurePerct > 90.000:
@@ -143,28 +141,37 @@ class parserExtractor:
         else:
             return False
 
-    def getUpperStyleForChidren(self, element_html):
-        element_html = element_html.replace("\n"," ").replace("\r", "").replace("\t", "")
+    def getUpperStyleForChidren(element_html):
+        element_html = str(element_html).replace("\xa0","").replace("\n"," ").replace("\r", "").replace("\t", "")
         
         current_dom = BeautifulSoup(element_html, "html.parser")
+        
+        totalLen = len(current_dom.text)
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         text_with_req = []
         hasStyle = False
+        
         ele_with_req_style = current_dom.find_all(style=lambda styleStr: styleStr and styleStr.partition('text-transform')[2].split(';')[0].find('uppercase')!=-1)
-
         for txt in ele_with_req_style:
-            text_with_req.extend(txt.find_all(text=True, recursive=False))
-
-        for txt in ele_with_text:
             
+            text_with_req.append(str(txt.text).strip())
+        currentCount = 0
+        for txt in ele_with_text:
             if(re.match(r'\s+', txt) != None or re.match(r'^[0-9]+\.[0-9]?', txt) != None):
-                continue
-            if(txt in text_with_req or txt.isupper()):
-                hasStyle = True
+                currentCount = currentCount + len(txt)
+                
+            elif(txt in text_with_req):
+                currentCount = currentCount + len(txt)
             else:
-                hasStyle =  False
-                break
-        return hasStyle
+                currentCount = currentCount + sum([1 for char in list(txt) if char.isupper() or re.search(r"[0-9_\-!\@~\s()<>{}]+",char) != None])
+                
+        upperPerct = 100*round((currentCount/totalLen),3)     
+        #print(f"uppercase perctange in given element is {upperPerct}")
+        if upperPerct > 80.000:
+            return True
+        else:
+            return False        
+        
        
     def parseCssInStr(self, styleStr):
         feature_dict = self.createNewFeatureObj(self.styleFeatureKeyList)
@@ -327,12 +334,7 @@ class parserExtractor:
 
                     dom_data['Italics'] = self.checkPropsInClass(ele.get('class'), class_style_dict, 'Italics')
                     dom_data['Uppercased'] = self.checkPropsInClass(ele.get('class'), class_style_dict, 'Uppercased')
-                    if(not dom_data['Bold']):
-                        dom_data['Bold'] = self.checkAllChildrenForTag(dom_data['Element'], 'b')
-                    if(not dom_data['Underlined']):
-                        dom_data['Underlined'] = self.checkAllChildrenForTag(dom_data['Element'], 'u')
-                    if(not dom_data['Italics']):
-                        dom_data['Italics'] = self.checkAllChildrenForTag(dom_data['Element'], 'i')
+                    
 
                 ## Checking css in style attribute of current element       
                 if(not dom_data['Bold']):
