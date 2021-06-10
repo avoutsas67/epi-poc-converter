@@ -268,8 +268,10 @@ class DocumentAnnotation:
                     
 
         else:
-            raise MissingKeyValuePair(
-                "Missing Key 'entry' in the regulated authorization API output")
+            #raise MissingKeyValuePair(
+            #    "Missing Key 'entry' in the regulated authorization API output")
+            print(MissingKeyValuePair(
+                f"Missing Key 'entry' in the {authorizationIdentifier} regulated authorization API output"))
 
         if directFlag is True:
             return processedOutputDirect
@@ -320,11 +322,16 @@ class DocumentAnnotation:
                     medicinalProductDefinitionIds.append(
                         reference['reference'].replace("MedicinalProductDefinition/", ""))
                 else:
-                    raise MissingKeyValuePair(
-                        "Mising Key 'reference' in 'subject' key value pair.")
+                    #raise MissingKeyValuePair(
+                    #    "Mising Key 'reference' in 'subject' key value pair.")
+                    print(MissingKeyValuePair(
+                            "Mising Key 'reference' in 'subject' key value pair."))
+                    continue
         else:
-            raise MissingKeyValuePair(
-                "Missing 'subject' key in Packaged Product Definition API Output")
+            #raise MissingKeyValuePair(
+            #    "Missing 'subject' key in Packaged Product Definition API Output")
+            print(MissingKeyValuePair(
+                "Missing 'subject' key in Packaged Product Definition API Output"))
 
         return medicinalProductDefinitionIds
 
