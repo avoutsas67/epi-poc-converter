@@ -268,8 +268,10 @@ class DocumentAnnotation:
                     
 
         else:
-            raise MissingKeyValuePair(
-                "Missing Key 'entry' in the regulated authorization API output")
+            #raise MissingKeyValuePair(
+            #    "Missing Key 'entry' in the regulated authorization API output")
+            print(MissingKeyValuePair(
+                f"Missing Key 'entry' in the {authorizationIdentifier} regulated authorization API output"))
 
         if directFlag is True:
             return processedOutputDirect
