@@ -122,54 +122,90 @@ class parserExtractor:
             return False
         #print(str(ele))
         dom_ele = str(ele).replace("\xa0","")
-        dom_data = defaultdict(list)  
+        dom_data = defaultdict(list)
+        extraFeatureInfo = {}
         dom_data['Element']= dom_ele.replace("\n"," ").replace("\r", "").replace("\t", "")
         current_dom = BeautifulSoup(dom_data['Element'], "html.parser")
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         
         
+        eleIndexWithFeatureInBegin = []
         currentCount = 0
         for index, child in enumerate(ele_with_text):
-        #    print("child:", child, "|" ,  len(str(child)))
+            #print("child:", (child), "|" ,  len(str(child)))
             if len(child.find_parents(featureTag)) > 0 or len(child.strip()) == 0:
-        #        print(child, "|" ,  len(str(child)))
+                #print(child, "|" ,  len(str(child)))
                 currentCount = currentCount + len(str(child))
+                if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
+                    eleIndexWithFeatureInBegin.append(index)
         featurePerct = 100*round((currentCount/totalLen),3)     
         #print(f"{featureTag} perctange in given element is {featurePerct}")
         if featurePerct > 90.000:
             return True
         else:
+            #print(eleIndexWithFeatureInBegin)
+            if len(eleIndexWithFeatureInBegin) > 0:
+                if featureTag == 'em':
+                    featureTag = "i"
+                extraFeatureInfo[f'startWith<{featureTag}>'] = True
+                extraFeatureInfo[f'startWith<{featureTag}>Text'] = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
+                return extraFeatureInfo 
             return False
+            
+        
+        
 
-    def getUpperStyleForChidren(self,element_html):
+    def getUpperStyleForChidren(self, element_html):
         element_html = str(element_html).replace("\xa0","").replace("\n"," ").replace("\r", "").replace("\t", "")
         
         current_dom = BeautifulSoup(element_html, "html.parser")
         
         totalLen = len(current_dom.text)
+        #print("totalLen",totalLen)
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         text_with_req = []
         hasStyle = False
-        
+        extraFeatureInfo = {}
         ele_with_req_style = current_dom.find_all(style=lambda styleStr: styleStr and styleStr.partition('text-transform')[2].split(';')[0].find('uppercase')!=-1)
         for txt in ele_with_req_style:
             
             text_with_req.append(str(txt.text).strip())
         currentCount = 0
-        for txt in ele_with_text:
-            if(re.match(r'\s+', txt) != None or re.match(r'^[0-9]+\.[0-9]?', txt) != None):
+        eleIndexWithFeatureInBegin = []
+        #print('text_with_req',text_with_req)
+        for index, txt in enumerate(ele_with_text):
+            
+            #print(txt, "|", len(txt))
+            #print("match",str([re.match(r'^[0-9]+\.[0-9\s]?', txt)][0]))
+            onlyIndex = re.match(r'^[0-9]+\.[0-9\s]?', txt)
+            #print(onlyIndex != None and len(onlyIndex[0]) == len(txt))
+            if len(txt.strip()) == 0 or (onlyIndex != None and len(onlyIndex[0]) == len(txt)) or (txt in text_with_req):
                 currentCount = currentCount + len(txt)
-                
-            elif(txt in text_with_req):
-                currentCount = currentCount + len(txt)
+                #print("continueChar",len(txt))
+                if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
+                    eleIndexWithFeatureInBegin.append(index)
             else:
-                currentCount = currentCount + sum([1 for char in list(txt) if char.isupper() or re.search(r"[0-9_\-!\@~\s()<>{}]+",char) != None])
+                styleCharCount = sum([1 for char in list(txt) if char.isupper() or re.search(r"[0-9_\-!\@~\s()<>{}]+",char) != None])
+                currentCount = currentCount + styleCharCount
+                #print("styleCharCount",styleCharCount, len(txt))
+                if styleCharCount >= len(txt)*0.75 and (eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1):
+                    #print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                    eleIndexWithFeatureInBegin.append(index)
+                    
                 
         upperPerct = 100*round((currentCount/totalLen),3)     
         #print(f"uppercase perctange in given element is {upperPerct}")
         if upperPerct > 80.000:
             return True
         else:
+            #print(eleIndexWithFeatureInBegin)
+            if len(eleIndexWithFeatureInBegin) > 0:
+                startFeatureText = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
+                #print(startFeatureText)
+                if re.sub(r'[\d\.]',"",startFeatureText).strip() != "":
+                    extraFeatureInfo[f'startWith<upper>'] = True
+                    extraFeatureInfo[f'startWith<upper>Text'] = startFeatureText
+                    return extraFeatureInfo
             return False        
         
        
@@ -255,6 +291,72 @@ class parserExtractor:
 
         return line.translate(translator)
 
+    def assignNewFeatures(self, data, features):
+        #print("fFFF",features)
+        for key in features:
+            data[key] = features[key]
+        return data
+
+    def splitElementFromStart(self, dom_data, ele):
+        #print(type(dom_data), dom_data[f"startWith<b>"])
+        featureSet = [ dom_data[f"startWith<{feature}>"] for feature in ['b','u','i','upper']]
+        #print(featureSet)
+        if len(set(featureSet)) == 1 and list(featureSet)[0] == False:
+            #print("Not Splitting")
+            return None
+        
+        else:
+            eleCopy = BeautifulSoup(str(ele), "html.parser")
+            dom_data_copy = dom_data.copy()
+            for index, child in enumerate(eleCopy.find_all(text=False,recursive=True)):
+                #print(child)
+                if index !=0:
+                    child.decompose()
+            
+            maxLenAccrossFeature = []
+            for feature in ['b','u','i','upper']:
+                if dom_data[f"startWith<{feature}>"] == False:
+                    continue
+                
+                else:
+                    maxLenAccrossFeature.append((feature,len(dom_data[f"startWith<{feature}>Text"])))
+            #print("maxLenAccrossFeature",maxLenAccrossFeature)
+            maxLen = max([entry[1] for entry in maxLenAccrossFeature])
+            for entry in maxLenAccrossFeature:
+                if entry[1] == maxLen:
+                    break
+            finalHeadingText = dom_data[f"startWith<{entry[0]}>Text"]
+
+            for index, child in enumerate(ele.find_all(text=False, recursive=True)):
+                    
+                    if child.text in finalHeadingText:
+                        eleCopy.append(BeautifulSoup(str(child),"html.parser"))
+                        child.decompose()
+
+            dom_data['Element'] = str(ele)
+            dom_data_copy['Element'] = str(eleCopy)
+
+            eleCopy['id'] = str(uuid.uuid4())
+            dom_data_copy['ID'] = eleCopy.get('id')
+        
+            dom_data['Text'] = str(ele.text)
+            dom_data_copy['Text'] = str(eleCopy.text)
+            
+            dom_data_copy['Bold'] = dom_data_copy['startWith<b>']
+            dom_data_copy['Underlined'] = dom_data_copy['startWith<u>']
+            dom_data_copy['Italics'] = dom_data_copy['startWith<i>']
+            dom_data_copy['Uppercased'] = dom_data_copy['startWith<upper>']
+
+            if dom_data['Indexed'] == True:
+            
+                dom_data['Indexed'] = False
+            
+            dom_data_copy['ParentId']= str(ele.parent.get('id'))
+            dom_data['ParentId'] = dom_data_copy['ID']
+            #print(ele, "|||||||||||" , eleCopy, "|||||||||||", dom_data, "|||||||||||", dom_data_copy)
+            return [ele, eleCopy, dom_data, dom_data_copy]
+
+
     def createDomEleData(self,
                          ele, 
                          get_immediate_text, 
@@ -262,6 +364,9 @@ class parserExtractor:
                          html_tags_for_styles, 
                          img_base64_dict,
                          section_dict):
+
+        #print(type(ele),ele)
+        
         dom_data = defaultdict(list)  
         parsed_output = defaultdict(list)
         ## Assigning an unique ID to elements
@@ -285,13 +390,27 @@ class parserExtractor:
         if(ele.name == 'ul'):
             dom_data['IsULTag'] = True
         
-        ## Extracting text of element 
+        dom_data['startWith<b>'] = False
+        dom_data['startWith<u>'] = False
+        dom_data['startWith<i>'] = False
+        dom_data['startWith<upper>'] = False
+        dom_data['startWith<b>Text'] = None 
+        dom_data['startWith<u>Text'] = None 
+        dom_data['startWith<i>Text'] = None 
+        dom_data['startWith<upper>Text'] = None
+        ## Extracting text of element
+
+        dom_data['Bold'] = False
+        dom_data['Underlined'] = False
+        dom_data['Italics'] = False
+        dom_data['Uppercased'] = False
+
         if(get_immediate_text):
 
             ## Extracting immediate text of elements
             concatenated_text = "".join(ele.find_all(text=True, recursive=False))
-            concatenated_text = concatenated_text.replace("\n"," ")
-            concatenated_text = concatenated_text.replace("\xa0"," ")
+            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","")
+            
 
             dom_data['Text']=concatenated_text
 
@@ -300,18 +419,19 @@ class parserExtractor:
 
             parsed_output['ignore_child_in_parentId'] = None
 
-        else:
 
+        else:
+            
             ## Extracting all text including that of ch
             concatenated_text = "".join(ele.find_all(text=True, recursive=True))
-            concatenated_text = concatenated_text.replace("\n"," ")
-            concatenated_text = concatenated_text.replace("\xa0"," ")
+            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","")
+
             parsed_output['ignore_child_in_parentId'] = dom_data['ID']
 
             dom_data['Text']=concatenated_text
 
             ## Checking length for style extraction
-            if(len(concatenated_text)>3 and len(concatenated_text)<300):
+            if(len(concatenated_text)>3 and len(concatenated_text)<2000):
                 parent_features = self.createNewFeatureObj(self.styleFeatureKeyList)
 
                 ## Checking for required css in class of current element 
@@ -352,23 +472,40 @@ class parserExtractor:
                 ## Case 3: Ignore children with <br> tags
                 ## Case 4: Ignore children with empty spaces 
                 
+
                 boldChildFound = self.checkAllChildrenForFeature(ele, 'b')
-                if boldChildFound:
-                    dom_data['Bold'] = True
+                if str(type(boldChildFound)).find('bool') != -1:
                     
+                    if boldChildFound == True:
+                        dom_data['Bold'] = True
+                else:
+                    dom_data = self.assignNewFeatures(dom_data, boldChildFound)
+                    
+            
             
                 underlinedChildFound = self.checkAllChildrenForFeature(ele, 'u')
-                if underlinedChildFound:
-                    dom_data['Underlined'] = True
+                if str(type(underlinedChildFound)).find('bool') != -1:
+                    
+                    if underlinedChildFound == True:
+                        dom_data['Underlined'] = True
+                else:
+                    dom_data = self.assignNewFeatures(dom_data, underlinedChildFound)
+
             
                 italicsChildFound = self.checkAllChildrenForFeature(ele, 'i')
-                if italicsChildFound:
-                    dom_data['Italics'] = True
-                else:
-                    italicsChildFound = self.checkAllChildrenForFeature(ele, 'em')
-                    
-                    if italicsChildFound:
+                if str(type(italicsChildFound)).find('bool') != -1:
+                    if italicsChildFound == True:
                         dom_data['Italics'] = True
+                    else:
+                        italicsChildFound = self.checkAllChildrenForFeature(ele, 'em')
+                        if str(type(italicsChildFound)).find('bool') != -1:
+                            if italicsChildFound == True:
+                                dom_data['Italics'] = True
+                        else:
+                            dom_data = self.assignNewFeatures(dom_data, italicsChildFound)
+                else:
+                    dom_data = self.assignNewFeatures(dom_data, italicsChildFound)
+
 
 
                 ## Check if Uppercased
@@ -376,7 +513,12 @@ class parserExtractor:
                     dom_data['Uppercased'] = True
 
                 elif(not dom_data['Uppercased']):
-                    dom_data['Uppercased'] = self.getUpperStyleForChidren(dom_data['Element'])
+                    uppercaseChildFound = self.getUpperStyleForChidren(dom_data['Element'])
+                    if str(type(uppercaseChildFound)).find('bool') != -1:
+                        if uppercaseChildFound == True:
+                            dom_data['Uppercased'] = True
+                    else:
+                        dom_data = self.assignNewFeatures(dom_data, uppercaseChildFound)
 
                 if(not dom_data['Uppercased'] and css_in_attr['Uppercased']):
                     dom_data['Uppercased'] = css_in_attr['Uppercased']
@@ -392,31 +534,62 @@ class parserExtractor:
                 ## Check if Indexed
                 dom_data['Indexed'] = re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None
 
-        
-        
-
         ## Tracking which section is being parsed using section_dict    
         for key in list(reversed(self.qrd_section_headings)):
             if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().replace(" ", "").find(key.lower().replace(" ", ""))!=-1 and section_dict[key] == False):
-                dom_data['IsHeadingType'] = 'L1' # Put zero
+                dom_data['IsHeadingType'] = 'L0' # Put zero
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True
                 break
 
-        ## Extract levels section-wise based on style dict
-        for i, key in enumerate(self.qrd_section_headings, 0):
-            if(section_dict[key]==True):
-                if(i==len(self.qrd_section_headings)-1):
-                    dom_data = self.getRulesAndCompare(key, dom_data)
-                    break
-                if(section_dict[self.qrd_section_headings[i+1]]==False):
-                    dom_data = self.getRulesAndCompare(key, dom_data)
-                
+        #print(dom_data['startWith<u>'],dom_data['startWith<i>'],dom_data['startWith<b>'],dom_data['startWith<upper>'])
+        splitOutput = self.splitElementFromStart(dom_data, ele)
+
+        
+
+        if splitOutput == None:
+
+            ## Extract levels section-wise based on style dict
+            for i, key in enumerate(self.qrd_section_headings, 0):
+                if(section_dict[key]==True):
+                    if(i==len(self.qrd_section_headings)-1):
+                        dom_data = self.getRulesAndCompare(key, dom_data)
+                        break
+                    if(section_dict[self.qrd_section_headings[i+1]]==False):
+                        dom_data = self.getRulesAndCompare(key, dom_data)
+
+            parsed_output['data'] = dom_data
+            dom_data['ParentId']= str(ele.parent.get('id'))
+
+            return 1, parsed_output        
+
+        else:
+            
+            ele, eleCopy, dom_data, dom_data_copy = splitOutput
 
 
-        dom_data['ParentId']=str(ele.parent.get('id'))
-        parsed_output['data'] = dom_data
-        return parsed_output
+            ## Extract levels section-wise based on style dict
+            for i, key in enumerate(self.qrd_section_headings, 0):
+                if(section_dict[key]==True):
+                    if(i==len(self.qrd_section_headings)-1):
+                        dom_data = self.getRulesAndCompare(key, dom_data)
+                        dom_data_copy = self.getRulesAndCompare(key, dom_data_copy)
+                        break
+                    if(section_dict[self.qrd_section_headings[i+1]]==False):
+                        
+
+                        dom_data = self.getRulesAndCompare(key, dom_data)
+                        dom_data_copy = self.getRulesAndCompare(key, dom_data_copy)
+
+
+            return 4, [ele, eleCopy, dom_data, dom_data_copy]
+            
+
+        
+        
+
+
+        
 
     ## Function to clean a string which contains CSS
     def cleanCssString(self, css_string):
@@ -468,6 +641,7 @@ class parserExtractor:
     
     ## Function to create json containing html dom, styles, classes, text and hierarchy of HTML document
     def createPIJsonFromHTML(self, input_filepath, output_filepath, style_filepath, img_base64_dict):
+        
         html_tags_for_styles = ['h1', 'h2', 'h3', 'h4', 'em']
         section_dict = defaultdict(list)
         for key in self.qrd_section_headings:
@@ -483,9 +657,12 @@ class parserExtractor:
             body_with_embedded_imgs = self.attachImgUriToHtml(soup.body, img_base64_dict)
             
             if(body_with_embedded_imgs):
-                dom_elements=body_with_embedded_imgs.find_all(True)   
+                dom_elements=body_with_embedded_imgs.find_all(True)
+                dom_elements_copy=body_with_embedded_imgs.find_all(True)   
+
             else:
-                dom_elements=soup.body.find_all(True) 
+                dom_elements=soup.body.find_all(True)
+                dom_elements_copy = BeautifulSoup(str(soup), "html.parser").find_all(True)
             
             css_in_style = str(soup.style)
 
@@ -500,34 +677,51 @@ class parserExtractor:
             #Object to be written to json
             parsed_dom_elements = defaultdict(list)
             parsed_output = None
-
+            addedIndex = 0
             ## Using parent ID to ignore childen in ignore_child_in_tagType list
-            for ele in dom_elements:
+            for index, ele in enumerate(dom_elements_copy):
+                #print("Pure Element",type(ele.name),str(ele.name) == "None",parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents)
+                
+                if str(ele.name) == "None":
+                    continue
                 hasParent = False
                 if(parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents):
                     for parent in ele.parents:
-                        if(parent.get('id')== parsed_output['ignore_child_in_parentId']):
+                        if(parent.get('id') == parsed_output['ignore_child_in_parentId']):
                             hasParent = True
                             break
                 if(hasParent):
                     continue
                 else:
                     if(ele.name in self.ignore_child_in_tagType):
-                        parsed_output = self.createDomEleData(ele, 
+                        outputCount, parsed_output1 = self.createDomEleData(ele, 
                                                          False, 
                                                          class_style_dict, 
                                                          html_tags_for_styles, 
                                                          img_base64_dict,
-                                                         section_dict)
-                        parsed_dom_elements['data'].append(parsed_output['data'])            
+                                                         section_dict)            
                     else:
-                        parsed_output = self.createDomEleData(ele, 
+                        outputCount, parsed_output1 = self.createDomEleData(ele, 
                                                          True, 
                                                          class_style_dict, 
                                                          html_tags_for_styles, 
                                                          img_base64_dict, 
                                                          section_dict)
-                        parsed_dom_elements['data'].append(parsed_output['data'])
+                if outputCount == 1:
+                            parsed_dom_elements['data'].append(parsed_output1['data'])
+                            parsed_output = parsed_output1
+                            
+                else:
+                    ele, eleCopy, dom_data, dom_data_copy = parsed_output1
+                    dom_elements.insert(index + addedIndex, eleCopy)
+                    #dom_elements[index + addedIndex + 1] = ele
+                    parsed_dom_elements['data'].append(dom_data_copy)
+                    parsed_dom_elements['data'].append(dom_data)
+                    
+                    parsed_output['data'] = dom_data
+
+                    addedIndex = addedIndex + 1
+                    
             fp.close()
 
         ## Writing to json
