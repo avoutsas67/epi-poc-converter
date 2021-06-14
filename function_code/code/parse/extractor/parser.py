@@ -120,7 +120,7 @@ class parserExtractor:
         #print(text, "|" , totalLen)
         if totalLen == 0:
             return False
-        #print(str(ele))
+        #print("Element: - ",str(ele))
         dom_ele = str(ele).replace("\xa0","")
         dom_data = defaultdict(list)
         extraFeatureInfo = {}
@@ -138,18 +138,22 @@ class parserExtractor:
                 currentCount = currentCount + len(str(child))
                 if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
                     eleIndexWithFeatureInBegin.append(index)
+
+        #print("counts",currentCount,totalLen)
         featurePerct = 100*round((currentCount/totalLen),3)     
         #print(f"{featureTag} perctange in given element is {featurePerct}")
         if featurePerct > 90.000:
             return True
         else:
             #print(eleIndexWithFeatureInBegin)
-            if len(eleIndexWithFeatureInBegin) > 0:
+            if len(eleIndexWithFeatureInBegin) > 0 and eleIndexWithFeatureInBegin[0] == 0:
                 if featureTag == 'em':
                     featureTag = "i"
                 extraFeatureInfo[f'startWith<{featureTag}>'] = True
                 extraFeatureInfo[f'startWith<{featureTag}>Text'] = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
-                return extraFeatureInfo 
+                if str(extraFeatureInfo[f'startWith<{featureTag}>Text']).strip() != "":
+                    #print("extraFeatureInfo :- ", extraFeatureInfo)
+                    return extraFeatureInfo 
             return False
             
         
