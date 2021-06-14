@@ -122,15 +122,9 @@ class DocTypePartitioner:
 
                 if self.domain == 'H' and self.procedureType == 'CAP':
                     if qrdKeyIndex == 0:
-                        if endPositions[1][1] == maxScore:
-                            endPos = endPositions[1][0]
-                            foundHead = True
-                        else:
-                            for index, endPosition in enumerate(endPositions):
-                                if endPosition[1] == maxScore:
-                                    endPos = endPosition[0]
-                                    foundHead = True
-
+                        endPos = endPositions[1][0]
+                        foundHead = True
+                    
                     if qrdKeyIndex in [1,2]:
                         for index, endPosition in enumerate(endPositions):
                             if endPosition[1] == maxScore:
