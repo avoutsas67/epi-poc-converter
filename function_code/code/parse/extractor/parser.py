@@ -547,6 +547,7 @@ class parserExtractor:
                 break
 
         #print(dom_data['startWith<u>'],dom_data['startWith<i>'],dom_data['startWith<b>'],dom_data['startWith<upper>'])
+
         splitOutput = self.splitElementFromStart(dom_data, ele)
 
         
@@ -583,9 +584,9 @@ class parserExtractor:
                         
 
                         dom_data = self.getRulesAndCompare(key, dom_data)
+                        
                         dom_data_copy = self.getRulesAndCompare(key, dom_data_copy)
-
-
+                    
             return 4, [ele, eleCopy, dom_data, dom_data_copy]
             
 
@@ -689,14 +690,17 @@ class parserExtractor:
                 if str(ele.name) == "None":
                     continue
                 hasParent = False
+                
                 if(parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents):
                     for parent in ele.parents:
-                        if(parent.get('id') == parsed_output['ignore_child_in_parentId']):
+                        if(str(parent.get('id')) == parsed_output['ignore_child_in_parentId']):
                             hasParent = True
                             break
+                
                 if(hasParent):
                     continue
                 else:
+                    
                     if(ele.name in self.ignore_child_in_tagType):
                         outputCount, parsed_output1 = self.createDomEleData(ele, 
                                                          False, 
@@ -712,8 +716,9 @@ class parserExtractor:
                                                          img_base64_dict, 
                                                          section_dict)
                 if outputCount == 1:
-                            parsed_dom_elements['data'].append(parsed_output1['data'])
-                            parsed_output = parsed_output1
+
+                    parsed_dom_elements['data'].append(parsed_output1['data'])
+                    parsed_output = parsed_output1
                             
                 else:
                     ele, eleCopy, dom_data, dom_data_copy = parsed_output1
@@ -724,7 +729,11 @@ class parserExtractor:
                     
                     parsed_output['data'] = dom_data
 
+                    parsed_output['ignore_child_in_parentId'] = dom_data['ID']
+                    
+
                     addedIndex = addedIndex + 1
+
                     
             fp.close()
 
