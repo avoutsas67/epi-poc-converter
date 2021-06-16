@@ -360,6 +360,21 @@ class parserExtractor:
             #print(ele, "|||||||||||" , eleCopy, "|||||||||||", dom_data, "|||||||||||", dom_data_copy)
             return [ele, eleCopy, dom_data, dom_data_copy]
 
+    def compareText(self, textHtml1 , textQrd1):
+        
+        if textHtml1 == textQrd1:
+            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | 1")
+            return True, 1
+        
+        import jellyfish
+        score = round(jellyfish.jaro_winkler_similarity(textHtml1, textQrd1, long_tolerance=True),3)
+        if score >= 0.930:
+
+            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | {score}")
+            return True, score
+        
+        return False, score
+
 
     def createDomEleData(self,
                          ele, 
@@ -536,11 +551,19 @@ class parserExtractor:
                     dom_data['IsListItem'] = True
 
                 ## Check if Indexed
-                dom_data['Indexed'] = re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None
+                if re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None:
+                    dom_data['Indexed'] = True
+                elif len(concatenated_text.strip().split()) > 0 and '.' in concatenated_text.strip().split()[0][:4]:
+                    dom_data['Indexed'] = True
 
         ## Tracking which section is being parsed using section_dict    
-        for key in list(reversed(self.qrd_section_headings)):
-            if(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().replace(" ", "").find(key.lower().replace(" ", ""))!=-1 and section_dict[key] == False):
+        reversedQrdHeadings = list(reversed(self.qrd_section_headings))
+        for index, key in enumerate(reversedQrdHeadings):
+            if(self.compareText(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().replace(" ", ""), key.lower().replace(" ", ""))[0] == True and section_dict[key] == False):
+                if index == 3 and section_dict[reversedQrdHeadings[index-1]] == True:
+                    section_dict[list(reversed(self.qrd_section_headings))[index-1]] = False
+                    
+                print("Found TOP Heading",dom_data['Text'], key)
                 dom_data['IsHeadingType'] = 'L0' # Put zero
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True

@@ -110,7 +110,7 @@
                         "damLevenDistProb": 150,
                         "minFuzzyScore_r": 50,
                         "minFuzzyScore_wr": 80,
-                        "minFuzzyScore_pr": 70,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.55,
                         "lowerCaseWeightedFuzzyScore":85
                     },
@@ -119,7 +119,7 @@
                         "damLevenDistProb": 300,
                         "minFuzzyScore_r": 40,
                         "minFuzzyScore_wr": 85,
-                        "minFuzzyScore_pr": 70,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.65,
                         "lowerCaseWeightedFuzzyScore":85
                     }
@@ -337,7 +337,7 @@
                         "damLevenDistProb": 70,
                         "minFuzzyScore_r": 70,
                         "minFuzzyScore_wr": 80,
-                        "minFuzzyScore_pr": 90,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.80,
                         "lowerCaseWeightedFuzzyScore":90
                     },
@@ -382,7 +382,7 @@
                         "damLevenDistProb": 300,
                         "minFuzzyScore_r": 40,
                         "minFuzzyScore_wr": 85,
-                        "minFuzzyScore_pr": 70,
+                        "minFuzzyScore_pr": 60,
                         "jaroWinklerSimCut": 0.63,
                         "lowerCaseWeightedFuzzyScore":85
 
@@ -639,7 +639,7 @@
                         "damLevenDistProb": 150,
                         "minFuzzyScore_r": 50,
                         "minFuzzyScore_wr": 80,
-                        "minFuzzyScore_pr": 70,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.55,
                         "lowerCaseWeightedFuzzyScore":85
                     },
@@ -1428,7 +1428,7 @@
                         "damLevenDistProb": 150,
                         "minFuzzyScore_r": 50,
                         "minFuzzyScore_wr": 80,
-                        "minFuzzyScore_pr": 70,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.55,
                         "lowerCaseWeightedFuzzyScore":85
                     },
@@ -1557,8 +1557,8 @@
                         "Contains<>": 0,
                         "damLevenDistProb": 500,
                         "minFuzzyScore_r": 30,
-                        "minFuzzyScore_wr": 60,
-                        "minFuzzyScore_pr": 60,
+                        "minFuzzyScore_wr": 65,
+                        "minFuzzyScore_pr": 65,
                         "jaroWinklerSimCut": 0.30,
                         "lowerCaseWeightedFuzzyScore":89
                     },
