@@ -14,29 +14,33 @@ import { DisclaimerModalComponent } from './molecules/disclaimer-modal/disclaime
 import { RouterModule } from '@angular/router';
 import { TagsModule } from './atoms/tags/tags.module';
 import { TextboxMultiSelectModule } from './molecules/textbox-multi-select/textbox-multi-select.module';
-
-
-
+import { ButtonComponent } from './atoms/button/button.component';
+import { PipesModule } from 'src/app/shared-pipes/pipes.module';
+import { AccordionModule } from './molecules/accordion/accordion.module';
 
 @NgModule({
-  declarations: [EmaComponentLibraryComponent, HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent],
+  declarations: [EmaComponentLibraryComponent, HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent, ButtonComponent],
   imports: [
+    PipesModule,
     EmaIconsModule,
     FooterModule,
     BrowserModule,
     RouterModule,
     TreeModule,
     NgbModule,
+    AccordionModule,
     TagsModule,
     TextboxMultiSelectModule
   ],
   exports: [EmaComponentLibraryComponent,
+    ButtonComponent,
     HeaderComponent,
     SidebarComponent,
     DocumentHeaderComponent,
     EmaIconsModule,
     FooterModule, 
     TagsModule,
+    AccordionModule,
     DropdownComponent,
     ActionLinksComponent,
     DisclaimerModalComponent,

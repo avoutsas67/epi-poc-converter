@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ export class TextboxMultiSelectComponent implements OnInit {
   textboxMultiSelectForm = new FormGroup({
     inputControl: new FormControl('')
   });
-
+  @Input()
   tagList = [];
 
   @HostListener('click') onClick() {
@@ -45,6 +45,6 @@ export class TextboxMultiSelectComponent implements OnInit {
         this.tagList.splice(i, 1);
       }
     }
-    this.onSearchChanged.emit({keyToDelete: event.name, operation:'clearSelected'});
+    this.onSearchChanged.emit({keyList:[...this.tagList], keyToDelete: event.name, operation:'clearSelected'});
   }
 }

@@ -24,6 +24,9 @@
                 font-size: 18px;
                 line-height: 24px;
                 max-width: 200px;
+                &:hover{
+                    cursor: not-allowed;
+                }
                 @media (max-width: 576px) { 
                     & {
                         max-width: 100%;
@@ -43,6 +46,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                &:hover{
+                    cursor: not-allowed;
+                }
                
                 @media (max-width: 576px) { 
                     & {

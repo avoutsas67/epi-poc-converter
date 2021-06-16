@@ -1,39 +1,49 @@
 <div class='ema-search-page'>
     <section class='ema-search-view'>
-        <div class="row ema-search-box">
+        <div class="row ema-search-box" *ngIf="!inCompareState">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <ema-textbox-multi-select (onSearchChanged)="searchChanged($event)"></ema-textbox-multi-select>
+                <ema-textbox-multi-select [tagList]="searchTagList" (onSearchChanged)="searchChanged($event)"></ema-textbox-multi-select>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             </div>
         </div>
-        <div class='row ema-search-main'>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ema-search-nav">
+        <div class='row ema-search-main' *ngIf="!inCompareState">
+            <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ema-search-nav">
                 <p class="ema-nav-title">Filters</p>
                 <p>Coming Soon...</p>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ema-search-body">
-               
-                <div class="ema-medView-body" >
-                    
-                    <ema-document-header [title]="resultsText"></ema-document-header>
-                     <ul class="ema-search-resultList">
-                         <li class="ema-resultList-item" *ngFor="let medicine of medicineList">
-                             <div class="ema-resultItem-checkbox"></div>
-                             <div class="ema-resultItem-details">
-                                 <a class="ema-resultItem-name" [routerLink]="['/View', medicine.listId, medicine.routeLanguage, medicine.routeReference]">{{medicine?.name}} </a>
-                                 <p class="ema-resultItem-desc">Lorem ipsum</p>
-                                 <p class="ema-resultItem-date">Date of authorisation: 23/06/2017, Revision: 8, Authorised, Last updated: 28/04/2021</p>
-                             </div>
-                         </li>
-                     </ul>
-                     <div *ngIf="!(medicineList.length > 0)" class="ema-search-notFound">
+            </div> -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ema-search-body">
+
+                <div class="ema-medView-body">
+
+                    <ema-document-header [title]="resultsText" buttonLabel="Compare" [showButton]="showCompare" (actionButtonClicked)="compareMedicineResults()"></ema-document-header>
+                    <ul class="ema-search-resultList">
+                        <li class="ema-resultList-item" *ngFor="let medicine of medicineList">
+                            <div class="ema-resultItem-checkbox"></div>
+                            <div class="ema-resultItem-details">
+                                <a class="ema-resultItem-name"
+                                    [routerLink]="['/View', medicine.listId, medicine.routeLanguage, medicine.routeReference]"
+                                    target="_blank">{{medicine?.name}}
+                                </a>
+                                <p class="ema-resultItem-desc">Lorem ipsum</p>
+                                <p class="ema-resultItem-date">Date of authorisation: 23/06/2017, Revision: 8,
+                                    Authorised, Last updated: 28/04/2021</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div *ngIf="!(medicineList?.length > 0)" class="ema-search-notFound">
                         <p>Go ahead. Search for a medicine. Don't be shy....</p>
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="row ema-search-compare" *ngIf="inCompareState">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                <ema-document-header [title]="compareResultsText" buttonLabel="Back To Search" [showButton]="true" (actionButtonClicked)="backToSearchView()"></ema-document-header>
+                <ema-accordion [accordionData]="medicineList"></ema-accordion>
             </div>
         </div>
         <div class="row ema-search-footer">
