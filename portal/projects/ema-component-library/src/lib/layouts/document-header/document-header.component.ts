@@ -11,7 +11,10 @@ export class DocumentHeaderComponent implements OnInit {
   @Input() title = "Document Name"
   @Input() showLangDropdown = false;
   @Input() showShareFeature = false;
+  @Input() showButton = false;
+  @Input() buttonLabel = 'Button'
   @Output() changeLang  = new EventEmitter();
+  @Output() actionButtonClicked  = new EventEmitter();
 
   constructor() { }
 
@@ -20,5 +23,7 @@ export class DocumentHeaderComponent implements OnInit {
   onLangChange(event){
     this.changeLang.emit(event);
   }
-
+  actionButtonClick(){
+    this.actionButtonClicked.emit();
+  }
 }

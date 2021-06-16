@@ -1,0 +1,23 @@
+@import "../../ema-theme-variables.scss";
+:host {
+    .ema-button {
+        background: $ema-primary;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        color: white;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 16px;
+        opacity: 1;
+        
+
+        &:hover {
+            cursor: pointer !important;
+            opacity: 0.9;
+        }
+    }
+}

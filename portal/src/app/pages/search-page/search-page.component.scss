@@ -41,7 +41,7 @@
             
         }
         &-main {
-            min-height: calc(100% - 188px);
+            min-height: calc(100% - 369px);
             margin:0px;
             padding:0px;
             width: 100%;
@@ -72,6 +72,17 @@
             width: 100%;
             .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
                 padding: 0px !important;
+            }
+        }
+        &-compare{
+            border-top: 1px solid $ema-border;
+            min-height: calc(100% - 188px);
+            &.row {
+                padding: 0px;
+                margin: 0px;
+                .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+                    padding: 0px !important;
+                }
             }
         }
         &-notFound {

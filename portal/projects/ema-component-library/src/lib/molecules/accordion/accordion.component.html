@@ -1,0 +1,29 @@
+<div *ngIf="accordionData.length > 0">
+  <div *ngFor="let medicine of accordionData">
+    <div class="ema-accordion" (click)="toggleAccordion($event , medicine)">
+      <span class="ema-accordion-toggle">
+        <span class="ema-arrow">
+          <ema-arrow></ema-arrow>
+        </span>
+      </span>
+      <a class="ema-accordion-link"
+        [routerLink]="['/View', medicine.listId, medicine.routeLanguage, medicine.routeReference]"
+        target="_blank">{{medicine?.name}}
+      </a>
+    </div>
+    <div class="ema-accordion-panel">
+      <div class="ema-panel-comparedSection" *ngFor="let section of medicine.sectionsCompareResults">
+        <p class="ema-panel-comparedSectionTitle">{{section?.title}}</p>
+
+        <div class="ema-panel-comparedSectionContent" [innerHTML]="section?.text.div | safe:'html'"></div>
+      </div>
+      <div class="ema-panel-comparedSection" *ngIf="!medicine.sectionsCompareResults">
+        <p class="ema-panel-comparedNoData">
+          Section not found.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
