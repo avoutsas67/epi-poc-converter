@@ -151,8 +151,21 @@ class StyleRulesDictionary:
                 'L2':self.createNewFeatureObj(self.styleFeatureKeyList)
             },
             self.qrd_section_headings[3]:{
-                'L1':self.createNewFeatureObj(self.styleFeatureKeyList),
-                'L2':self.createNewFeatureObj(self.styleFeatureKeyList)
+               'L1':{
+                        'Either':{
+                            'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet2':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet3':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet4':self.createNewFeatureObj(self.styleFeatureKeyList)
+                        }
+                    },
+                'L2': {
+                        'Either':{
+                            'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet2':self.createNewFeatureObj(self.styleFeatureKeyList),
+                            'RuleSet3':self.createNewFeatureObj(self.styleFeatureKeyList)
+                        }
+                    }
             }
         }
 
@@ -216,11 +229,28 @@ class StyleRulesDictionary:
 
         ## PACKAGE LEAFLET
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Indexed'] = True
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet1']['Indexed'] = True
+
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet2']['Underlined'] = True
+
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Uppercased'] = True
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Indexed'] = True
+
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Uppercased'] = True
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Underlined'] = True
+        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Indexed'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[3]]['L2']['Bold'] = True 
+        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet1']['Bold'] = True 
+
+        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet2']['Underlined'] = True
+
+        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet3']['Underlined'] = True
+        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet3']['Uppercased'] = True 
 
         with open(style_dict_path, 'w+') as outfile:
             json.dump(styleRuleDict, outfile)
