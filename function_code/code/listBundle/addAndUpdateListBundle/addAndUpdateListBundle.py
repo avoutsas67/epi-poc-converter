@@ -273,10 +273,11 @@ class ListBundleHandler:
             subjectCopy = copy.deepcopy(self.tempListJson['subject'])
             
             self.listJson['subject'] = subjectCopy
-
+        countDomains = 0
+        
         for extIndex, ext in enumerate(self.listJson['subject']['extension']):
             
-            countDomains = 0
+            
             if 'domain' in ext['url']:
                 countDomains = countDomains + 1
                 if self.domainCode not in ext['valueCoding']['system']:
@@ -287,12 +288,12 @@ class ListBundleHandler:
             if countDomains > 1:
                 raise MultipleDomainsErros("Found Multiple Domains mentioned in the json")                 
             
-            if countDomains == 0:
-                domainExtCopy = copy.deepcopy([extIndex for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'domain' in ext['url']][0])
-                domainExtCopy['valueCoding']['code'] = self.domainCode
-                domainExtCopy['valueCoding']['display'] = self.domain
+        if countDomains == 0:
+            domainExtCopy = copy.deepcopy([extIndex for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'domain' in ext['url']][0])
+            domainExtCopy['valueCoding']['code'] = self.domainCode
+            domainExtCopy['valueCoding']['display'] = self.domain
 
-                self.listJson['subject']['extension'].append(domainExtCopy)
+            self.listJson['subject']['extension'].append(domainExtCopy)
                 
     
     def updateMedName(self):
@@ -302,20 +303,47 @@ class ListBundleHandler:
         
         if len(medNameIdentList) > 1:
             print("Found multiple medicine names, updating the first medicine name entry")
-
-        if len(medNameIdentList) == 1:
+        
             identIndex = medNameIdentList[0]
 
             if self.medName != self.listJson['identifier'][identIndex]['value']:
-                self.listJson['identifier'][identIndex]['value'] = self.medName
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
 
+        if len(medNameIdentList) == 1:
+            identIndex = medNameIdentList[0]
+            if self.medName != self.listJson['identifier'][identIndex]['value']:
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
+            else:
+                print("inside right place ~~~~~~~~~~~~~~~~~~~~~~~~")
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
         else:
             medIdentIndex = [index for index, ident  in enumerate(self.tempListJson['identifier']) if 'medicine' in ident['system']][0]
             newIdent = copy.deepcopy(self.tempListJson['identifier'][medIdentIndex])
-            newIdent['value'] = self.medName
+            newIdent['value'] = str(self.medName).lower()
             self.listJson['identifier'].append(newIdent)
 
+        medNameExtList = [ extIndex  for extIndex, ext in enumerate(self.listJson['subject']['extension']) if 'medicine' in ext['url']]
         
+        if len(medNameExtList) > 1:
+            print("Found multiple medicine names in extension, updating the first medicine name entry")
+        
+            extIndex = medNameExtList[0]
+
+            if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
+
+        if len(medNameExtList) == 1:
+            extIndex = medNameExtList[0]
+
+            if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
+
+        else:
+            medExtIndex = [ extIndex  for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'medicine' in ext['url']][0]
+
+            newExt = copy.deepcopy(self.tempListJson['subject']['extension'][medExtIndex])
+            newExt['valueCoding']['display'] = self.medName
+            self.listJson['subject']['extension'].append(newExt)
         
 
         

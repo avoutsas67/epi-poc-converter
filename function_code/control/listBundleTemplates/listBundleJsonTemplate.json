@@ -25,6 +25,14 @@
         
             "extension": [
                 {
+                    "url": "http://ema.europa.eu/fhir/extension/medicine-name",
+                    "valueCoding": {
+                        "system": "http://spor.ema.europa.eu/v1/100000000005",
+                        "code": "medicine-name-code",
+                        "display": "domain"
+                    }
+                },
+                {
                     "url": "http://ema.europa.eu/fhir/extension/domain",
                     "valueCoding": {
                         "system": "http://spor.ema.europa.eu/v1/100000000004",
