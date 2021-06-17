@@ -68,22 +68,22 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   compareMedicineResults() {
-    this.inCompareState = true;
     for (let i = 0; i < this.medicineList.length; i++) {
-      if(this.medicineList[i].entry){
+      if (this.medicineList[i].entry) {
         let packageLeafletEntry = this.medicineList[i].entry.filter((entry) => entry?.item?.extension[0].valueCoding.display === "Package leaflet" && entry?.item?.extension[1].valueCoding.display === 'en')[0];
         let leafletBundleId = packageLeafletEntry?.item?.reference.split('/')[1];
-        if (leafletBundleId && leafletBundleId!='None') {
+        if (leafletBundleId && leafletBundleId != 'None') {
           this.fhirService.getBundle(leafletBundleId).subscribe((data) => {
-            this.medicineList[i].sectionsCompareResults = this.getSectionsWithKey(data.entry[0].resource.entry[0].resource.section, [], "Pregnancy".toLowerCase())
-          },(error) => {
+            this.medicineList[i].sectionsCompareResults = this.getSectionsWithKey(data.entry[0].resource.entry[0].resource.section, [], "Pregnancy".toLowerCase());
+
+          }, (error) => {
             console.error('Could not load bundle');
           });
         }
       }
-      
+      this.inCompareState = true;
     }
-    this.compareResultsText = "Comparing "+ this.medicineList.length +" products";
+    this.compareResultsText = "Comparing " + this.medicineList.length + " products";
   }
 
   getSectionsWithKey(sectionData: FhirMessageSection[], resultsList: FhirMessageSection[], key: string) {
@@ -147,33 +147,33 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (event.operation === 'add') {
       this.searchTagList = event.keyList;
-      
-        for (let listIdx = 0; listIdx < this.searchTagList.length; listIdx++) {
-          if(this.searchTagList[listIdx]=='*'){
-            this.medicineList = [];
-            this.getAllMedicines();
-            this.searchTagList = [];
-            this.searchTagList.push('*');
-            break;
-          }
-          else if (!(this.medicineList.filter((medicine) => medicine.name === this.searchTagList[listIdx]).length > 0) &&
-            !(this.invalidKeys.filter((key) => key === this.searchTagList[listIdx]).length > 0)) {
-            this.fhirService.getListWithIdentifier(this.searchTagList[listIdx]).subscribe(data => {
-              if (data && data.entry) {
-                this.medicineList.push(this.createSearchItem(data));
-                this.setResultCount();
-              }
-              else if (!data.entry) {
-                this.invalidKeys.push(this.searchTagList[listIdx]);
-              }
 
-              this.showCompareButton();
-            }, (error) => {
-              console.error('Could not load list with identifer');
-            });
-          }
+      for (let listIdx = 0; listIdx < this.searchTagList.length; listIdx++) {
+        if (this.searchTagList[listIdx] == '*') {
+          this.medicineList = [];
+          this.getAllMedicines();
+          this.searchTagList = [];
+          this.searchTagList.push('*');
+          break;
         }
-      
+        else if (!(this.medicineList.filter((medicine) => medicine.name === this.searchTagList[listIdx]).length > 0) &&
+          !(this.invalidKeys.filter((key) => key === this.searchTagList[listIdx]).length > 0)) {
+          this.fhirService.getListWithIdentifier(this.searchTagList[listIdx]).subscribe(data => {
+            if (data && data.entry) {
+              this.medicineList.push(this.createSearchItem(data));
+              this.setResultCount();
+            }
+            else if (!data.entry) {
+              this.invalidKeys.push(this.searchTagList[listIdx]);
+            }
+
+            this.showCompareButton();
+          }, (error) => {
+            console.error('Could not load list with identifer');
+          });
+        }
+      }
+
     }
     else if (event.operation === 'clearAll') {
       this.medicineList = [];
@@ -183,7 +183,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     else if (event.operation === 'clearSelected') {
       this.searchTagList = event.keyList;
-      
+
       if (event.keyToDelete == '*') {
         this.medicineList = [];
         this.showCompare = false;
