@@ -33,7 +33,7 @@ export class AccordionComponent implements OnInit {
         panel.classList.remove('ema-accordion-panel--border');
 
       } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
+        panel.style.maxHeight = "100%";
         panel.classList.add('ema-accordion-panel--border');
       }
     }
