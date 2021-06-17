@@ -1,0 +1,92 @@
+@import "../../ema-theme-variables.scss";
+:host {
+  .ema-accordion {
+    color: $ema-primary;
+    display: flex;
+    padding: 16px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    border-bottom: 1px solid $ema-border;
+    &-link{
+      color: $ema-primary;
+      text-decoration: none;
+      z-index: 2;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-toggle {
+      display: block;
+      max-width: 14px;
+      width: 100%;
+      height: 14px;
+      border: none;
+      margin-right: 24px;
+
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
+      .ema-arrow {
+        display: block;
+        transform: rotate(-90deg);
+        transition: transform 0.1s linear;
+      }
+      &--down {
+        .ema-arrow {
+          display: block;
+          transform: rotate(0deg);
+          transition: transform 0.1s linear;
+        }
+      }
+    }
+
+    &-panel {
+      padding: 0px 16px 0px 54px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      font-size: 16px;
+      line-height: 21px;
+      color: black;
+      &--border{
+        border-bottom: 1px solid $ema-border;
+      }
+    }
+  }
+  .ema-panel {
+    &-comparedSectionTitle {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+      color: black;
+      margin:16px 0px 8px 0px;
+    }
+    &-comparedNoData {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+      color: black;
+      margin:16px 0px 16px 0px;
+    }
+    &-comparedSectionContent {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 21px;
+      color: black;
+    }
+  }
+}
