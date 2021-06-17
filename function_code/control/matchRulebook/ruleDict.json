@@ -1408,9 +1408,9 @@
                     "<=4": {
                         "<=4": 0,
                         "damLevenDistProb": 25,
-                        "minFuzzyScore_r": 85,
-                        "minFuzzyScore_wr": 90,
-                        "minFuzzyScore_pr": 90,
+                        "minFuzzyScore_r": 80,
+                        "minFuzzyScore_wr": 80,
+                        "minFuzzyScore_pr": 80,
                         "jaroWinklerSimCut": 0.85,
                         "lowerCaseWeightedFuzzyScore":85
                     },
@@ -1438,7 +1438,7 @@
                         "minFuzzyScore_r": 40,
                         "minFuzzyScore_wr": 85,
                         "minFuzzyScore_pr": 70,
-                        "jaroWinklerSimCut": 0.65,
+                        "jaroWinklerSimCut": 0.50,
                         "lowerCaseWeightedFuzzyScore":85
                     }
                 },
@@ -1549,8 +1549,8 @@
                         "damLevenDistProb": 300,
                         "minFuzzyScore_r": 60,
                         "minFuzzyScore_wr": 73,
-                        "minFuzzyScore_pr": 70,
-                        "jaroWinklerSimCut": 0.7,
+                        "minFuzzyScore_pr": 60,
+                        "jaroWinklerSimCut": 0.60,
                         "lowerCaseWeightedFuzzyScore":89
                     },
                     "SpecialCase1": {

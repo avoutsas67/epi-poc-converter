@@ -31,16 +31,19 @@ class parserExtractor:
     def getStyleRulesForSection(self, section, styleRuleDict):
         return self.styleRuleDict[section]
 
-    def createNewFeatureObj(self, styleFeatureKeyList):
+    def createNewFeatureObj(self, styleFeatureKeyList, defaultValue = None):
         featureDict = defaultdict(list)
         for key in styleFeatureKeyList: 
-            featureDict[key] = False
+            featureDict[key] = defaultValue
         return featureDict
     
     def compareFeatureObjs(self, partialRuleDict, ele):
         for feature in partialRuleDict.keys():
+            #print(f"Rule: {feature}: {partialRuleDict[feature]} | {ele[feature]}")
             if(partialRuleDict[feature] != ele[feature]):
+                
                 return False
+        #print("Matched")
         return True
 
     ## Function to check features at a particular level 
@@ -54,6 +57,7 @@ class parserExtractor:
             else:
                 has_either = True
                 for ruleSet in styleRuleDict[level]['Either'].keys():
+                    #print("ruleSet: ",ruleSet )
                     if(self.compareFeatureObjs(styleRuleDict[level]['Either'][ruleSet], ele)):
                         any_one_feature_set = True
         if(has_either):
@@ -63,7 +67,9 @@ class parserExtractor:
     ## Function to get the level of the element passed after checking all levels in the style dict
     def compareEleAndStyleDict(self, styleRuleDict, ele):
         for level in styleRuleDict.keys():
+            #print("Level",level)
             if(self.checkFeaturesAtLevel(styleRuleDict, level, ele)):
+                #print('Final Level', str(level))
                 return str(level)
         return None
 
@@ -112,8 +118,45 @@ class parserExtractor:
         else:
             return False
 
-    def checkAllChildrenForFeature(self, ele, featureTag):
+    def updateFeatureDict(self, original, updated):
+    
+        for key in original:
+            if original[key]== None:
+                original[key] = updated[key]
         
+
+    def findFeaturesForChildEle(self, ele, class_style_dict):
+
+        childFeatures = self.createNewFeatureObj(self.styleFeatureKeyList)
+        
+        #print("Len",len(list(enumerate(ele.parents))))
+        for index, parent in enumerate(ele.parents):
+            #print("parent",parent)
+            if index < len(list(enumerate(ele.parents))) -2 :
+                style = parent.get('style')
+                if style != None:
+                    #print("style",style)
+                    featureFromStyle = self.parseCssInStr(style)
+                    #print("featureFromStyle", featureFromStyle)
+                    self.updateFeatureDict(childFeatures, featureFromStyle)
+                classFeatures = self.createNewFeatureObj(self.styleFeatureKeyList)
+                for feature in self.styleFeatureKeyList:
+                    if parent.get('class') != None:
+                        classFeatures[feature] = self.checkPropsInClass(parent.get('class'), class_style_dict, feature)
+                        #print(f"Class {feature}: {classFeatures[feature]}")
+                    #else:
+                        #print(f"Class {feature}: None")
+                #print("classFeatures",classFeatures)
+                self.updateFeatureDict(childFeatures, classFeatures)
+        return childFeatures
+
+    def checkAllChildrenForFeature(self, ele, dom_data, featureTag, class_style_dict):
+
+        tagDict = {'b':'Bold','u':'Underlined','i':'Italics','em':'Italics'}
+        dom_data_clone = dom_data.copy()
+        #print("Paent Feat:  ",dom_data_clone[tagDict[featureTag]])
+        parentFeatureValue = dom_data_clone[tagDict[featureTag]]
+        #print("dom_data",dom_data)
         text = str(ele.text).replace("\xa0","").replace("\n"," ").replace("\r", "").replace("\t", "")
 
         totalLen = len(text)
@@ -133,26 +176,51 @@ class parserExtractor:
         currentCount = 0
         for index, child in enumerate(ele_with_text):
             #print("child:", (child), "|" ,  len(str(child)))
-            if len(child.find_parents(featureTag)) > 0 or len(child.strip()) == 0:
-                #print(child, "|" ,  len(str(child)))
+            if len(child.find_parents(featureTag)) > 0 or child.name == featureTag or len(child.strip()) == 0:
+                #print("From tag",child, "|" ,  len(str(child)))
                 currentCount = currentCount + len(str(child))
                 if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
                     eleIndexWithFeatureInBegin.append(index)
+            
+            else:
+                childFeatures = self.findFeaturesForChildEle(child, class_style_dict)
+                #print("childFeatures", childFeatures, childFeatures[tagDict[featureTag]])
+                if childFeatures[tagDict[featureTag]] != None:
+                    #print("inside style based")
+                    if childFeatures[tagDict[featureTag]] == True:
+                        #print("From Style", child, "|" ,  len(str(child)))
+                        currentCount = currentCount + len(str(child))
+                        if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
+                            eleIndexWithFeatureInBegin.append(index)
+                    #else:
+                        #print("No feature in style in child")
+                elif parentFeatureValue != None and parentFeatureValue == True :
+                    #print("From Parent:  ", child, "|" ,  len(str(child)))
+                    currentCount = currentCount + len(str(child))
+                    if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
+                        eleIndexWithFeatureInBegin.append(index)
+                #else:
+                #    #print"Fucked", dom_data_clone[tagDict[featureTag]])
+
+            #print(f"Parent {featureTag, tagDict[featureTag] }", str(dom_data_clone[tagDict[featureTag]]))
+                
+
+
 
         #print("counts",currentCount,totalLen)
         featurePerct = 100*round((currentCount/totalLen),3)     
-        #print(f"{featureTag} perctange in given element is {featurePerct}")
+        #printf"{featureTag} perctange in given element is {featurePerct}")
         if featurePerct > 90.000:
             return True
         else:
-            #print(eleIndexWithFeatureInBegin)
+            #printeleIndexWithFeatureInBegin)
             if len(eleIndexWithFeatureInBegin) > 0 and eleIndexWithFeatureInBegin[0] == 0:
                 if featureTag == 'em':
                     featureTag = "i"
                 extraFeatureInfo[f'startWith<{featureTag}>'] = True
                 extraFeatureInfo[f'startWith<{featureTag}>Text'] = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
                 if str(extraFeatureInfo[f'startWith<{featureTag}>Text']).strip() != "":
-                    #print("extraFeatureInfo :- ", extraFeatureInfo)
+                    #print"extraFeatureInfo :- ", extraFeatureInfo)
                     return extraFeatureInfo 
             return False
             
@@ -179,34 +247,34 @@ class parserExtractor:
         #print('text_with_req',text_with_req)
         for index, txt in enumerate(ele_with_text):
             
-            #print(txt, "|", len(txt))
-            #print("match",str([re.match(r'^[0-9]+\.[0-9\s]?', txt)][0]))
+            #printtxt, "|", len(txt))
+            #print"match",str([re.match(r'^[0-9]+\.[0-9\s]?', txt)][0]))
             onlyIndex = re.match(r'^[0-9]+\.[0-9\s]?', txt)
-            #print(onlyIndex != None and len(onlyIndex[0]) == len(txt))
+            #printonlyIndex != None and len(onlyIndex[0]) == len(txt))
             if len(txt.strip()) == 0 or (onlyIndex != None and len(onlyIndex[0]) == len(txt)) or (txt in text_with_req):
                 currentCount = currentCount + len(txt)
-                #print("continueChar",len(txt))
+                #print"continueChar",len(txt))
                 if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
                     eleIndexWithFeatureInBegin.append(index)
             else:
                 styleCharCount = sum([1 for char in list(txt) if char.isupper() or re.search(r"[0-9_\-!\@~\s()<>{}]+",char) != None])
                 currentCount = currentCount + styleCharCount
-                #print("styleCharCount",styleCharCount, len(txt))
+                #print"styleCharCount",styleCharCount, len(txt))
                 if styleCharCount >= len(txt)*0.75 and (eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1):
-                    #print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                    #print"!!!!!!!!!!!!!!!!!!!!!!!!")
                     eleIndexWithFeatureInBegin.append(index)
                     
                 
         upperPerct = 100*round((currentCount/totalLen),3)     
-        #print(f"uppercase perctange in given element is {upperPerct}")
+        #printf"uppercase perctange in given element is {upperPerct}")
         if upperPerct > 80.000:
             return True
         else:
-            #print(eleIndexWithFeatureInBegin)
-            if len(eleIndexWithFeatureInBegin) > 0:
+            #printeleIndexWithFeatureInBegin)
+            if len(eleIndexWithFeatureInBegin) > 0 and eleIndexWithFeatureInBegin[0] == 0:
                 startFeatureText = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
-                #print(startFeatureText)
-                if re.sub(r'[\d\.]',"",startFeatureText).strip() != "":
+                #printstartFeatureText)
+                if re.sub(r'[\d\.]',"",startFeatureText).strip() != "" and len(startFeatureText) > 10:
                     extraFeatureInfo[f'startWith<upper>'] = True
                     extraFeatureInfo[f'startWith<upper>Text'] = startFeatureText
                     return extraFeatureInfo
@@ -266,6 +334,7 @@ class parserExtractor:
     
     def getRulesAndCompare(self, section, dom_data):
         styleRuleDict = self.getStyleRulesForSection(section, self.styleRuleDict)
+        #print("styleRuleDict",styleRuleDict)
         if(dom_data['Text']):
             dom_data['IsHeadingType'] = self.compareEleAndStyleDict(styleRuleDict, dom_data)
             if(dom_data['IsHeadingType']):
@@ -303,7 +372,7 @@ class parserExtractor:
 
     def splitElementFromStart(self, dom_data, ele):
         #print(type(dom_data), dom_data[f"startWith<b>"])
-        featureSet = [ dom_data[f"startWith<{feature}>"] for feature in ['b','u','i','upper']]
+        featureSet = [ dom_data[f"startWith<{feature}>"] for feature in ['b','u','i']]
         #print(featureSet)
         if len(set(featureSet)) == 1 and list(featureSet)[0] == False:
             #print("Not Splitting")
@@ -318,7 +387,7 @@ class parserExtractor:
                     child.decompose()
             
             maxLenAccrossFeature = []
-            for feature in ['b','u','i','upper']:
+            for feature in ['b','u','i']:
                 if dom_data[f"startWith<{feature}>"] == False:
                     continue
                 
@@ -363,14 +432,14 @@ class parserExtractor:
     def compareText(self, textHtml1 , textQrd1):
         
         if textHtml1 == textQrd1:
-            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | 1")
+            #printf"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | 1")
             return True, 1
         
         import jellyfish
         score = round(jellyfish.jaro_winkler_similarity(textHtml1, textQrd1, long_tolerance=True),3)
         if score >= 0.930:
 
-            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | {score}")
+            #printf"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | {score}")
             return True, score
         
         return False, score
@@ -419,10 +488,6 @@ class parserExtractor:
         dom_data['startWith<upper>Text'] = None
         ## Extracting text of element
 
-        dom_data['Bold'] = False
-        dom_data['Underlined'] = False
-        dom_data['Italics'] = False
-        dom_data['Uppercased'] = False
 
         if(get_immediate_text):
 
@@ -490,36 +555,42 @@ class parserExtractor:
                 ## Case 2: If case 1 not true, check if required tag if parent of text
                 ## Case 3: Ignore children with <br> tags
                 ## Case 4: Ignore children with empty spaces 
-                
+                #print("Partial Features", dom_data['Bold'], dom_data['Underlined'], dom_data['Italics'], dom_data['Uppercased'])
 
-                boldChildFound = self.checkAllChildrenForFeature(ele, 'b')
+                boldChildFound = self.checkAllChildrenForFeature(ele, dom_data, 'b', class_style_dict)
                 if str(type(boldChildFound)).find('bool') != -1:
                     
                     if boldChildFound == True:
                         dom_data['Bold'] = True
+                    else:
+                        dom_data['Bold'] = False
                 else:
                     dom_data = self.assignNewFeatures(dom_data, boldChildFound)
                     
             
             
-                underlinedChildFound = self.checkAllChildrenForFeature(ele, 'u')
+                underlinedChildFound = self.checkAllChildrenForFeature(ele, dom_data, 'u', class_style_dict)
                 if str(type(underlinedChildFound)).find('bool') != -1:
                     
                     if underlinedChildFound == True:
                         dom_data['Underlined'] = True
+                    else:
+                        dom_data['Underlined'] = False
                 else:
                     dom_data = self.assignNewFeatures(dom_data, underlinedChildFound)
 
             
-                italicsChildFound = self.checkAllChildrenForFeature(ele, 'i')
+                italicsChildFound = self.checkAllChildrenForFeature(ele, dom_data, 'i', class_style_dict)
                 if str(type(italicsChildFound)).find('bool') != -1:
                     if italicsChildFound == True:
                         dom_data['Italics'] = True
                     else:
-                        italicsChildFound = self.checkAllChildrenForFeature(ele, 'em')
+                        italicsChildFound = self.checkAllChildrenForFeature(ele, dom_data, 'em', class_style_dict)
                         if str(type(italicsChildFound)).find('bool') != -1:
                             if italicsChildFound == True:
                                 dom_data['Italics'] = True
+                            else:
+                                dom_data['Italics'] = False
                         else:
                             dom_data = self.assignNewFeatures(dom_data, italicsChildFound)
                 else:
@@ -546,15 +617,24 @@ class parserExtractor:
                 
                 if(re.match(re.compile(r"^\u00B7[\s]*"), concatenated_text.encode('utf-8').decode()) != None
                 or
-                   re.match(re.compile(r"^\u2022[\s]*"), concatenated_text.encode('utf-8').decode()) != None
+                    re.match(re.compile(r"^\u2022[\s]*"), concatenated_text.encode('utf-8').decode()) != None
                 ):
                     dom_data['IsListItem'] = True
+                else:
+                    dom_data['IsListItem'] = False
 
                 ## Check if Indexed
                 if re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None:
                     dom_data['Indexed'] = True
-                elif len(concatenated_text.strip().split()) > 0 and '.' in concatenated_text.strip().split()[0][:4]:
+                elif len(concatenated_text.strip().split()) > 0 and ('.' in concatenated_text.strip().split()[0][:4] or '•' in concatenated_text.strip().split()[0][:4]):
                     dom_data['Indexed'] = True
+                else:
+                    dom_data['Indexed'] = False
+                
+
+                if dom_data['HasBorder'] == None:
+                    dom_data['HasBorder'] = False
+
 
         ## Tracking which section is being parsed using section_dict    
         reversedQrdHeadings = list(reversed(self.qrd_section_headings))
@@ -562,33 +642,48 @@ class parserExtractor:
             if(self.compareText(self.remove_escape_ansi(dom_data['Text']).encode(encoding='utf-8').decode().lower().replace(" ", ""), key.lower().replace(" ", ""))[0] == True and section_dict[key] == False):
                 if index == 3 and section_dict[reversedQrdHeadings[index-1]] == True:
                     section_dict[list(reversed(self.qrd_section_headings))[index-1]] = False
-                    
-                print("Found TOP Heading",dom_data['Text'], key)
+                
+                #print"Found TOP Heading",dom_data['Text'], key)
                 dom_data['IsHeadingType'] = 'L0' # Put zero
                 dom_data['IsPossibleHeading'] = True
                 section_dict[key] = True
                 break
 
         #print(dom_data['startWith<u>'],dom_data['startWith<i>'],dom_data['startWith<b>'],dom_data['startWith<upper>'])
-
-        splitOutput = self.splitElementFromStart(dom_data, ele)
-
+        splitOutput = None
+        if ele.name !='table':
+            
+            splitOutput = self.splitElementFromStart(dom_data, ele)
+        else:
+            print("!!!!!!!!!!! IN TABLE !!!!!!!!!!!!!!!!!")
+        #print("Dom Text", dom_data['Text'])
         
+        #print("section_dict", section_dict)
 
         if splitOutput == None:
 
             ## Extract levels section-wise based on style dict
             for i, key in enumerate(self.qrd_section_headings, 0):
+
                 if(section_dict[key]==True):
+                    #print(f"Section Found {key}")
                     if(i==len(self.qrd_section_headings)-1):
+                        
                         dom_data = self.getRulesAndCompare(key, dom_data)
                         break
                     if(section_dict[self.qrd_section_headings[i+1]]==False):
+                        #print("Best Place")
                         dom_data = self.getRulesAndCompare(key, dom_data)
+                    #else:
+                        #print("Good Place")
+                #else:
+                    #print(f"Section Not Found {key}")
 
+
+                        
             parsed_output['data'] = dom_data
             dom_data['ParentId']= str(ele.parent.get('id'))
-
+            #print"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             return 1, parsed_output        
 
         else:
@@ -609,7 +704,7 @@ class parserExtractor:
                         dom_data = self.getRulesAndCompare(key, dom_data)
                         
                         dom_data_copy = self.getRulesAndCompare(key, dom_data_copy)
-                    
+            #print"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")        
             return 4, [ele, eleCopy, dom_data, dom_data_copy]
             
 
@@ -701,7 +796,7 @@ class parserExtractor:
 
             css_in_style = self.cleanCssString(css_in_style)
             class_style_dict = self.parseClassesInStyle(css_in_style)
-
+            #print("class_style_dict", class_style_dict)
             #Object to be written to json
             parsed_dom_elements = defaultdict(list)
             parsed_output = None
