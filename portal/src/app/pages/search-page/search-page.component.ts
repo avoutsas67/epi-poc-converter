@@ -52,7 +52,16 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     let resourceData = data.entry[0].resource;
     let requiredEntry: any;
     let medicine: SearchMedicine = {};
-    medicine.name = data.entry[0].resource.identifier[0].value;
+    let subjectExtension = data.entry[0].resource.subject.extension;
+
+    medicine.searchName = data.entry[0].resource.identifier.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
+    for (let i = 0; i < subjectExtension.length; i++) {
+      if(subjectExtension[i].valueCoding.code === 'medicine-name-code'){
+        medicine.name = subjectExtension[i].valueCoding.display;
+        break;
+      }
+    }
+    
     medicine.listId = data.entry[0].resource.id;
     medicine.entry = resourceData.entry;
     requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.display === 'SmPC' && entry.item.extension[1].valueCoding.display === 'en')[0];
@@ -107,7 +116,16 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
           let resourceData = data.entry[i].resource;
           let requiredEntry: any;
           let medicine: SearchMedicine = {};
-          medicine.name = data.entry[i].resource.identifier[0].value;
+          let subjectExtension = data.entry[i].resource.subject.extension;
+
+          medicine.searchName = data.entry[i].resource.identifier.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
+          
+          for (let k = 0; k < subjectExtension.length; k++) {
+            if(subjectExtension[k].valueCoding.code === 'medicine-name-code'){
+              medicine.name = subjectExtension[k].valueCoding.display;
+              break;
+            }
+          }
           medicine.listId = data.entry[i].resource.id;
           medicine.entry = resourceData.entry;
           requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.display === 'SmPC' && entry.item.extension[1].valueCoding.display === 'en')[0];
@@ -156,9 +174,9 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
           this.searchTagList.push('*');
           break;
         }
-        else if (!(this.medicineList.filter((medicine) => medicine.name === this.searchTagList[listIdx]).length > 0) &&
+        else if (!(this.medicineList.filter((medicine) => medicine.searchName === this.searchTagList[listIdx].toLowerCase()).length > 0) &&
           !(this.invalidKeys.filter((key) => key === this.searchTagList[listIdx]).length > 0)) {
-          this.fhirService.getListWithIdentifier(this.searchTagList[listIdx]).subscribe(data => {
+          this.fhirService.getListWithIdentifier(this.searchTagList[listIdx].toLowerCase()).subscribe(data => {
             if (data && data.entry) {
               this.medicineList.push(this.createSearchItem(data));
               this.setResultCount();
@@ -186,11 +204,12 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
       if (event.keyToDelete == '*') {
         this.medicineList = [];
+        this.searchTagList = [];
         this.showCompare = false;
       }
       else {
         for (let idx = 0; idx < this.medicineList.length; idx++) {
-          if (this.medicineList[idx].name === event.keyToDelete) {
+          if (this.medicineList[idx].searchName === event.keyToDelete.toLowerCase()) {
             this.medicineList.splice(idx, 1);
           }
           this.showCompareButton();

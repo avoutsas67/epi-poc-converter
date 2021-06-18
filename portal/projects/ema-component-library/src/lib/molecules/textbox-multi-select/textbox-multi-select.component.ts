@@ -27,7 +27,7 @@ export class TextboxMultiSelectComponent implements OnInit {
   textEntered() {
     let inputControl = this.textboxMultiSelectForm.get('inputControl');
     let textValue = inputControl.value;
-    if (textValue.length > 0 && this.tagList.filter((tag) => tag == textValue).length === 0) {
+    if (textValue.length > 0 && this.tagList.filter((tag) => tag.toLowerCase() == textValue.toLowerCase()).length === 0) {
       this.tagList.push(inputControl.value)
     }
     inputControl.reset();
