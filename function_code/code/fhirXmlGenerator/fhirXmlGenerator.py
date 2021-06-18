@@ -9,29 +9,50 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import base64
 
-
+class MissingKeysInBundleMetaData(Exception):
+    pass
 class FhirXmlGenerator:
     
-    def __init__(self, logger, controlBasePath, basePath, pms_oms_annotation_data, styles_file_path, medName):
+    def __init__(self, logger, controlBasePath, basePath, bundleMetaData, styles_file_path):
 
         self.logger = logger
         self.basePath = basePath
         self.controlBasePath = controlBasePath
-        self.medName = medName
         self.styles_file_path = styles_file_path
-        self.pms_oms_annotation_data = pms_oms_annotation_data
-
+        self.bundleMetaData = bundleMetaData
+        metaDatakeys = set([ key for key in self.bundleMetaData])
+        requiredMetaDataKeys = set(['pmsOmsAnnotationData','documentTypeCode','documentType','medName'])
+        if len(requiredMetaDataKeys - metaDatakeys) !=0:
+            raise MissingKeysInBundleMetaData(f"Missing required keys in bundle meta data :- {str(requiredMetaDataKeys-metaDatakeys)}")
+    
     def createIdDict(self, row, html_img_embeded = None):
         id_dict_item= defaultdict(list)
         id_dict_item['id'] = row.id
-        id_dict_item['htmlText'] = row.htmlText
+        id_dict_item['htmlText'] = str(row.htmlText).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
         id_dict_item['Text'] = row.Text
         if(html_img_embeded):
-            id_dict_item['Html_betw'] = html_img_embeded
+            id_dict_item['Html_betw'] =str(html_img_embeded).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")
         else:
-            id_dict_item['Html_betw'] = row.Html_betw
+            id_dict_item['Html_betw'] = str(row.Html_betw).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")
         id_dict_item['Children'] = defaultdict(list)
         id_dict_item['Children']['ids']=[]
+
+        id_dict_item['headingId'] = row.heading_id
+        
+        rowName = row.Name
+        rowDisplayCode = row.DisplayCode
+
+        id_dict_item['itemLevelGuid'] = str(uuid.uuid4())
+
+
+        # Prefixing the Display code to Name of the heading in the QRD dataframe row.
+        if pd.isna(rowDisplayCode) == False:
+            if '.' in rowDisplayCode:
+                rowName = str(rowDisplayCode) + " " + rowName
+            else:
+                rowName = str(rowDisplayCode) + ". " + rowName
+        id_dict_item['headingName'] = str(rowName).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
+        
         return id_dict_item
     
     def extractReqDataForXmlFromUri(self, uri):
@@ -118,9 +139,15 @@ class FhirXmlGenerator:
         style_tag_data['Id'] = 'stylesheet0'
         return style_tag_data
        
-    
+    def renameDfColumns(self, df):
+
+        return df.rename(columns = {'Display code': 'DisplayCode'}, inplace = False)
+
+
     def generateXml(self, df, xml_file_name = 'ePI_output_template.xml'):
         
+        df = self.renameDfColumns(df)
+
         sys.setrecursionlimit(100000)
         
         xml_output_path = os.path.join(self.basePath,'fhir_messages')
@@ -140,21 +167,29 @@ class FhirXmlGenerator:
         template = templateEnv.get_template(TEMPLATE_FILE)
 
         xml_bundle_data = defaultdict(list)
-        xml_bundle_data['medicineName'] = self.medName
+        
         xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
         xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
         xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
         xml_bundle_data['styleTagDictionary'] = self.processDataInStyleTag()
         
-        if self.pms_oms_annotation_data:
+        if self.bundleMetaData:
+            dataDict = self.bundleMetaData
+            xml_bundle_data['documentTypeCode'] = dataDict['documentTypeCode']
+            xml_bundle_data['documentType'] = dataDict['documentType']
+            xml_bundle_data['medName'] = dataDict['medName']
+
+
+
+        if self.bundleMetaData['pmsOmsAnnotationData']:
             
-            xml_bundle_data['authorValue']  = self.pms_oms_annotation_data['Author Value']
+            xml_bundle_data['authorValue']  = self.bundleMetaData['pmsOmsAnnotationData']['Author Value']
             xml_bundle_data['listEntryId'] = 'List/'+ str(uuid.uuid4())
             xml_bundle_data['listEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['medicinalProductDict'] = defaultdict(list)
 
-            for row in self.pms_oms_annotation_data['Medicinal Product Definitions']:
+            for row in self.bundleMetaData['pmsOmsAnnotationData']['Medicinal Product Definitions']:
                 xml_bundle_data['medicinalProductDict'][row[0]] = row[1]
         else:
             xml_bundle_data['authorValue']  = ''

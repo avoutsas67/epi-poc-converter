@@ -19,7 +19,7 @@
 				<identifier>
 					<!-- possibly different identifier types may be needed here -->
 					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
-					<value value="${instance.bundle[n].Identifier}"/>
+					<value value="{{xml_bundle_data['resourceBundleId']}}"/>
 				</identifier>
 				<!-- fixed code -->
 				<type value="document" /> 
@@ -74,8 +74,8 @@
 							<type>
 								<coding>
 									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
-									<code value="${document[n].documentTypeCode}"/>
-									<display value="${document[n].documentTypeDisplay}"/>
+									<code value="{{xml_bundle_data['documentTypeCode']}}"/>
+									<display value="{{xml_bundle_data['documentType']}}"/>
 								</coding>
 							</type>
 							<subject>
@@ -91,7 +91,7 @@
 									<value value="{{xml_bundle_data['authorValue']}}" />
 								</identifier>
 							</author>
-                        	<title value="${document[n].title}"/>
+                        	<title value="{{xml_bundle_data['medName']}}"/>
 							<relatesTo>
 								<code value="appends"/>
 								<targetReference>
