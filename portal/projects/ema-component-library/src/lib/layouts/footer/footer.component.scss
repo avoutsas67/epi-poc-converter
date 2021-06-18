@@ -51,9 +51,11 @@
                     cursor: not-allowed;
                 }
                
-                @media (max-width: 576px) { 
+                @media (max-width: 600px) { 
                     & {
+                        max-width: 100%;
                         margin-bottom:16px;
+                        width:100%;
                     }
                  }
                 

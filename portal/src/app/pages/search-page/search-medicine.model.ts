@@ -11,5 +11,5 @@ export interface SearchMedicine {
     requiredSection?: string;
     entry?:FhirMessageEntry[];
     sectionsCompareResults?: FhirMessageSection[];
-    
+    searchName?: string;
 }

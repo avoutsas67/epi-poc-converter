@@ -190,6 +190,17 @@ if ($DeployConvFunctionApp) {
 #region DeployFhirServer
 
 if ($DeployFhirServer) {
+    Write-Host
+    Write-Host "Check for existing FHIR API application registration: '$fhirAPIName'"
+    $fhirAPIApp = Get-AzADApplication -DisplayName $fhirAPIName
+    if (!$fhirAPIApp) {
+        Write-Host "Creating FHIR API application registration '$fhirAPIName'"
+        $fhirAPIApp = New-AzADApplication -DisplayName $fhirAPIName -IdentifierUris $fhirAPIUrl -HomePage $fhirAPIUrl
+    }
+    else {
+        Write-Host "Using existing FHIR API application registration '$fhirAPIName'"
+    }
+
     $fhirAppInsights = Get-AzApplicationInsights -ResourceGroupName $fhirResourceGroupName -Name $fhirAppInsightsName
     $fhirAppInsightsKey = $fhirAppInsights.InstrumentationKey
 
@@ -201,6 +212,7 @@ if ($DeployFhirServer) {
         dbName             = $fhirDBName
         keyVaultName       = $fhirKeyVaultName
         fhirVersion        = "R5"
+        appId              = $fhirAPIApp.ApplicationId
         resourceTags       = $resourceTags
     }
     New-ArmDeployment -BaseName "FhirServer" `
@@ -214,10 +226,13 @@ if ($DeployFhirServer) {
 #region DeployAPIM
 
 if ($DeployAPIM) {
+    $fhirAPIApp = Get-AzADApplication -DisplayName $fhirAPIName
+
     $policyApiRead = @"
 <policies>
     <inbound>
         <base />
+        <authentication-managed-identity resource="$($fhirAPIApp.ApplicationId)" />
     </inbound>
     <backend>
         <base />
@@ -237,6 +252,7 @@ if ($DeployAPIM) {
 <policies>
     <inbound>
         <base />
+        <authentication-managed-identity resource="$($fhirAPIApp.ApplicationId)" />
     </inbound>
     <backend>
         <base />
@@ -272,7 +288,7 @@ if ($DeployAPIM) {
 </policies>
 "@
 
-$policyProductExternalWrite = @"
+    $policyProductExternalWrite = @"
 <policies>
     <inbound>
         <base />
@@ -292,7 +308,7 @@ $policyProductExternalWrite = @"
 </policies>
 "@
 
-$policyProductWebRead = @"
+    $policyProductWebRead = @"
 <policies>
     <inbound>
         <base />
@@ -319,7 +335,7 @@ $policyProductWebRead = @"
 
     $apimParams = @{
         apimName                   = $fhirAPIMName
-        fhirAPIUrl                 = "https://$($fhirAPIName).azurewebsites.net"
+        fhirAPIUrl                 = $fhirAPIUrl
         policyApiRead              = $policyApiRead
         policyApiWrite             = $policyApiWrite
         policyProductExternalRead  = $policyProductExternalRead
@@ -354,10 +370,24 @@ $policyProductWebRead = @"
     }
 
     Write-Host "Importing epi-read API in APIM '$fhirAPIMName'"
-    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-read-api" -ApiVersionSetId "epi-read-apiset" -ApiVersion "v1" -Path "epi" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-read.yml"
+    Import-AzApiManagementApi -Context $apimContext `
+        -ApiId "epi-read-api" `
+        -ApiVersionSetId "epi-read-apiset" `
+        -ApiVersion "v1" `
+        -Path "epi" `
+        -ServiceUrl $fhirAPIUrl `
+        -SpecificationFormat OpenApi `
+        -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-read.yml"
 
     Write-Host "Importing epi-write API in APIM '$fhirAPIMName'"
-    Import-AzApiManagementApi -Context $apimContext -ApiId "epi-write-api" -ApiVersionSetId "epi-write-apiset" -ApiVersion "v1" -Path "epi-w" -SpecificationFormat OpenApi -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
+    Import-AzApiManagementApi -Context $apimContext `
+        -ApiId "epi-write-api" `
+        -ApiVersionSetId "epi-write-apiset" `
+        -ApiVersion "v1" `
+        -Path "epi-w" `
+        -ServiceUrl $fhirAPIUrl `
+        -SpecificationFormat OpenApi `
+        -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
 }
 
 #endregion

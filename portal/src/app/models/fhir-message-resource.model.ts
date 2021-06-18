@@ -1,5 +1,5 @@
 import { FhirMessageContained } from "./fhir-message-contiained.model";
-import { FhirMessageEntry } from "./fhir-message-entry.model";
+import { FhirEntryItemExtension, FhirMessageEntry } from "./fhir-message-entry.model";
 import { FhirMessageSection } from "./fhir-message-section.model";
 
 export interface FhirMessageResourceIdentifier{
@@ -12,4 +12,5 @@ export interface FhirMessageResource {
     section?: FhirMessageSection[];
     contained?: FhirMessageContained[];
     identifier?:FhirMessageResourceIdentifier[];
+    subject?: FhirEntryItemExtension[];
 }

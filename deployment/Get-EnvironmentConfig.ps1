@@ -103,6 +103,7 @@ $global:convAppName = $convResourceNamePrefix + "-app"
 
 $global:fhirASPName = $fhirResourceNamePrefix + "-asp"
 $global:fhirAPIName = $fhirResourceNamePrefix + "-api"
+$global:fhirAPIUrl = "https://$($fhirAPIName).azurewebsites.net"
 $global:fhirAPIMName = $fhirResourceNamePrefix + "-apim"
 $global:fhirDBName = $fhirResourceNamePrefix + "-cosmosdb"
 $global:fhirKeyVaultName = $fhirResourceNamePrefix + "-kv"
