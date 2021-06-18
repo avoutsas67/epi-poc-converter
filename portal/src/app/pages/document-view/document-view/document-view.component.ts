@@ -32,8 +32,8 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   currentLang = "";
   hasLangChanged = false;
   showDataInUI = false;
-  noDataText='';
-  medicineName ="";
+  noDataText = '';
+  medicineName = "";
 
   constructor(private readonly fhirService: FhirService,
     private route: ActivatedRoute,
@@ -73,34 +73,34 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   getFhirDocTypeBundle(url) {
     this.fhirService.getBundle(url).subscribe((data) => {
       this.showDataInUI = false;
-      if(data){
+      if (data) {
         this.containedObjData = data.entry[0].resource.entry[0].resource.contained;
         this.documentStyleSheet = this.extractStyleTagData();
-  
+
         // Inject style tag into head
         this.document.head.innerHTML +=
           this.sanitizer.sanitize(SecurityContext.STYLE, this.sanitizer.bypassSecurityTrustStyle(this.documentStyleSheet));
-  
+
         this.documentData = data.entry[0].resource.entry[0].resource.section;
         this.documentData = this.setIdForHeadings(this.documentData)
         this.documentData = this.embedImgsIntoContent(this.documentData[0].section ? this.documentData[0].section : this.documentData);
         this.menuItems = this.documentData;
         this.menuItems = this.setTableOfContentsAsCollapsed(this.menuItems)
 
-        if(this.documentId != url){
-          this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang  + '/' + url);
+        if (this.documentId != url) {
+          this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang + '/' + url);
         }
         this.documentId = url;
         this.showDataInUI = true;
       }
-    }, 
-    (error)=>{
-     this.documentData = null;
-     this.menuItems = null;
-     this.noDataText = "Page Not Found";
-     this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang  + '/' + url);
-     this.showDataInUI = true;
-    });
+    },
+      (error) => {
+        this.documentData = null;
+        this.menuItems = null;
+        this.noDataText = "Page Not Found";
+        this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang + '/' + url);
+        this.showDataInUI = true;
+      });
   }
   getAvailableLanguages() {
     this.listEntries?.forEach(entry => {
@@ -118,7 +118,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         this.currentDocTypeMeta.push(entry.item)
       }
     })
-    
+
     this.docTypeList = []
 
     // Populating Document type tabs
@@ -135,19 +135,19 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         this.docTypeList.push(actionObj)
       }
     });
-  
+
     // Retrieving bundle on page refresh and setting respective tab as active
-    if (this.documentId && !this.hasLangChanged) { 
+    if (this.documentId && !this.hasLangChanged) {
       this.getFhirDocTypeBundle(this.documentId);
       this.docTypeList.forEach((item) => {
-      
-        if (item.routePath===this.documentId) {
-         item.isActive = true;
+
+        if (item.routePath === this.documentId) {
+          item.isActive = true;
         }
-        else{
+        else {
           item.isActive = false;
         }
-  
+
       });
     }
     else {
@@ -164,7 +164,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     }
   }
 
-  initializeView(){
+  initializeView() {
     // Function to set English as default if language is not present in route parameters
     this.getAvailableLanguages();
     if (this.currentLang) {
@@ -189,24 +189,35 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       this.listId = params.get('listId');
       this.documentId = params.get('documentId');
       this.fhirService.medicineData.subscribe((data) => {
-        
-        
-        if(data == null){
+        let listData: any;
+        let subjectExtension: any;
+
+        if (data == null) {
           this.fhirService.getAllLists();
         }
 
-        let listData = data?.entry.filter((entry)=>entry.resource.id === this.listId)[0].resource;
-        this.medicineName= listData?.identifier[0].value
+        listData = data?.entry.filter((entry) => entry.resource.id === this.listId)[0].resource;
+        subjectExtension = listData?.subject.extension;
+        
+        for (let k = 0; k < subjectExtension?.length; k++) {
+          if (subjectExtension[k].valueCoding.code === 'medicine-name-code') {
+            this.medicineName = subjectExtension[k].valueCoding.display;
+            break;
+          }
+        }
+
+        if (this.medicineName?.length === 0) {
+          this.medicineName = listData?.identifier?.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
+        }
 
         this.listEntries = listData?.entry;
-        if(this.listEntries){
+        if (this.listEntries) {
           this.initializeView();
         }
 
       });
 
     });
-   
   }
 
   ngAfterViewInit() {

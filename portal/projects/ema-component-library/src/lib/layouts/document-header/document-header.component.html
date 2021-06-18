@@ -1,5 +1,5 @@
 <div class="row ema-document-header">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ema-med-name">{{title}}</div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ema-med-name" [ngClass]="{'mb-8': showButton || showShareFeature || showLangDropdown}">{{title}}</div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ema-med-actions">
         <ema-button *ngIf="showButton" [label]="buttonLabel" (buttonClicked)='actionButtonClick()'></ema-button>
         <ul>

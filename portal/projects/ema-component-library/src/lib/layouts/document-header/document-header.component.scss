@@ -26,8 +26,8 @@
             color: $ema-text-focused;
             padding-left: 0px;
             @media (max-width: 576px) {
-                & {
-                   margin-bottom:16px;
+                &.mb-8{
+                    margin-bottom:16px;
                 }
             }
         }
