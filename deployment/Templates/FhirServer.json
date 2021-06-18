@@ -12,7 +12,6 @@
         },
         "appServicePlanName": {
             "type": "string",
-            "defaultValue": "",
             "metadata": {
                 "description": "Name of App Service Plan (existing or new). If empty, a name will be generated."
             }
@@ -44,27 +43,6 @@
         "keyVaultName": {
             "type": "string"
         },
-        "securityAuthenticationAuthority": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "OAuth Authority"
-            }
-        },
-        "securityAuthenticationAudience": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Audience (aud) to validate in JWT"
-            }
-        },
-        "enableAadSmartOnFhirProxy": {
-            "type": "bool",
-            "defaultValue": false,
-            "metadata": {
-                "description": "Enable Azure AAD SMART on FHIR Proxy"
-            }
-        },
         "fhirVersion": {
             "type": "string",
             "allowedValues": [
@@ -76,13 +54,15 @@
                 "description": "Only applies when MsdeployPackageUrl is not specified."
             }
         },
+        "appId": {
+            "type": "string"
+        },
         "resourceTags": {
             "type": "object"
         }
     },
     "variables": {
         "appServiceResourceId": "[resourceId('Microsoft.Web/sites', parameters('serviceName'))]",
-        "securityAuthenticationEnabled": "[and(not(empty(parameters('securityAuthenticationAuthority'))),not(empty(parameters('securityAuthenticationAudience'))))]",
         "fhirServerConfigProperties": {
             "ApplicationInsights:InstrumentationKey": "[parameters('appInsightsKey')]",
             "APPINSIGHTS_PORTALINFO": "ASP.NETCORE",
@@ -91,10 +71,10 @@
             "WEBSITE_NODE_DEFAULT_VERSION": "6.9.4",
             "KeyVault:Endpoint": "[concat('https://', parameters('keyVaultName'), '.vault.azure.net/')]",
             "FhirServer:CosmosDb:InitialCollectionThroughput": "1000",
-            "FhirServer:Security:Enabled": "[variables('securityAuthenticationEnabled')]",
-            "FhirServer:Security:EnableAadSmartOnFhirProxy": "[parameters('enableAadSmartOnFhirProxy')]",
-            "FhirServer:Security:Authentication:Authority": "[parameters('securityAuthenticationAuthority')]",
-            "FhirServer:Security:Authentication:Audience": "[parameters('securityAuthenticationAudience')]",
+            "FhirServer:Security:Enabled": "false",
+            "FhirServer:Security:EnableAadSmartOnFhirProxy": "false",
+            "FhirServer:Security:Authentication:Authority": "",
+            "FhirServer:Security:Authentication:Audience": "",
             "CosmosDb:ContinuationTokenSizeLimitInKb": "1",
             "SqlServer:Initialize": "false",
             "SqlServer:SchemaOptions:AutomaticUpdatesEnabled": "false",
@@ -151,25 +131,25 @@
                     "name": "appsettings",
                     "type": "config",
                     "apiVersion": "2018-11-01",
+                    "properties": "[variables('fhirServerConfigProperties')]",
                     "dependsOn": [
                         "[variables('appServiceResourceId')]",
                         "[concat(variables('appServiceResourceId'), '/Extensions/MSDeploy')]",
                         "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
-                    ],
-                    "properties": "[variables('fhirServerConfigProperties')]"
+                    ]
                 },
                 {
                     "name": "MSDeploy",
                     "type": "extensions",
                     "apiVersion": "2018-11-01",
+                    "properties": {
+                        "packageUri": "[concat('https://fhirserverforazure.blob.core.windows.net/builds/ci/Microsoft.Health.Fhir.', parameters('fhirVersion'),'.Web.zip')]"
+                    },
                     "dependsOn": [
                         "[variables('appServiceResourceId')]",
                         "[concat(variables('appServiceResourceId'), '/siteextensions/AspNetCoreRuntime.5.0.x86')]",
                         "[resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), 'CosmosDb--Host')]"
-                    ],
-                    "properties": {
-                        "packageUri": "[concat('https://fhirserverforazure.blob.core.windows.net/builds/ci/Microsoft.Health.Fhir.', parameters('fhirVersion'),'.Web.zip')]"
-                    }
+                    ]
                 },
                 {
                     "name": "AspNetCoreRuntime.5.0.x86",
@@ -182,6 +162,22 @@
                     "dependsOn": [
                         "[variables('appServiceResourceId')]",
                         "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
+                    ]
+                },
+                {
+                    "name": "authsettings",
+                    "type": "config",
+                    "apiVersion": "2018-11-01",
+                    "properties": {
+                        "enabled": "true",
+                        "unauthenticatedClientAction": "RedirectToLoginPage",
+                        "tokenStoreEnabled": false,
+                        "defaultProvider": "AzureActiveDirectory",
+                        "clientId": "[parameters('appId')]",
+                        "issuer": "[concat('https://sts.windows.net/', subscription().tenantId , '/')]"
+                    },
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/Sites/', parameters('serviceName'))]"
                     ]
                 }
             ]
