@@ -29,11 +29,11 @@ class FhirXmlGenerator:
         id_dict_item= defaultdict(list)
         id_dict_item['id'] = row.id
         id_dict_item['htmlText'] = str(row.htmlText).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
-        id_dict_item['Text'] = row.Text
+        id_dict_item['Text'] = str(row.Text).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
         if(html_img_embeded):
-            id_dict_item['Html_betw'] =str(html_img_embeded).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")
+            id_dict_item['Html_betw'] =html_img_embeded
         else:
-            id_dict_item['Html_betw'] = str(row.Html_betw).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")
+            id_dict_item['Html_betw'] = row.Html_betw
         id_dict_item['Children'] = defaultdict(list)
         id_dict_item['Children']['ids']=[]
 
