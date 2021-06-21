@@ -70,6 +70,9 @@ class MatchDocument():
             procedureType=self.procedureType,
             documentNumber=self.documentNumber).extractDocumentTypeName()
 
+        self.FailedHeadingLogFilePath = os.path.join(self.basePath, f"missedHeading_{self.documentType}.csv")
+        self.missedHeadingWriter = open(self.FailedHeadingLogFilePath, 'a')
+        self.missedHeadingWriter.write('sectionIndex,Display code,Name,heading_id\n')
         
         print(self.documentType)
         self.dfModelwRulesF = QrdCanonical(
@@ -254,7 +257,8 @@ class MatchDocument():
 
         return collection_
 
-    def checkMandatoryHeadingsFound(self, mandatoryOnly=True):
+
+    def checkMandatoryHeadingsMissedPerSection(self, subSectionIndex, mandatoryOnly=True):
         '''
         This function checks if all headings (could be only mandatory ones) are present in the heading founds in the              document.
 
@@ -267,7 +271,43 @@ class MatchDocument():
 
         '''
 
-        listOfHeadingsFound = self.collectionFoundHeadings['Name']
+        listOfHeadingsFound = self.subSectionCollectionFoundHeadings['heading_id']
+        notFound = []
+
+        if self.subSectionCollectionFoundHeadings == {}:
+            #raise "No Headings Found"
+            print("No Headings Found")
+
+        for _, qrd_str_row in self.dfModelwRulesF.iterrows():
+            
+            if qrd_str_row['heading_id'] not in listOfHeadingsFound:
+                outString = f"{subSectionIndex},{qrd_str_row['Display code']},{qrd_str_row['Name']},{qrd_str_row['heading_id']}\n"
+                if subSectionIndex > 0 and qrd_str_row['heading_id'] == 1:
+                    continue
+                
+                if qrd_str_row['Mandatory']:
+                    self.missedHeadingWriter.write(outString)
+                    notFound.append(outString)
+                elif mandatoryOnly is False:
+                    self.missedHeadingWriter.write(outString)
+                    notFound.append(outString)
+
+        
+
+    def checkMandatoryHeadingsMissed(self, mandatoryOnly=True):
+        '''
+        This function checks if all headings (could be only mandatory ones) are present in the heading founds in the              document.
+
+        Parameters :- 
+
+        self.collectionFoundHeadings :- collection containing heading found in the document
+        self.dfModelwRulesF :- Qrd template dataframe for current document type.mro
+        mandatoryOnly :- True,if we want to only check mandatory heading. False, if we want to check all headings.
+
+
+        '''
+
+        listOfHeadingsFound = self.collectionFoundHeadings['heading_id']
         notFound = []
 
         if self.collectionFoundHeadings == {}:
@@ -276,11 +316,14 @@ class MatchDocument():
 
         for _, qrd_str_row in self.dfModelwRulesF.iterrows():
 
-            if qrd_str_row['Name'] not in listOfHeadingsFound:
+            if qrd_str_row['heading_id'] not in listOfHeadingsFound:
+                outString = f"{qrd_str_row['Display code']},{qrd_str_row['Name']},{qrd_str_row['heading_id']}"
                 if qrd_str_row['Mandatory']:
-                    notFound.append(qrd_str_row['Name'])
+                    self.missedHeadingWriter.write(outString)
+                    notFound.append(outString)
                 elif mandatoryOnly is False:
-                    notFound.append(qrd_str_row['Name'])
+                    self.missedHeadingWriter.write(outString)
+                    notFound.append(outString)
 
         if len(notFound) > 0:
             print(f"\n\nHeading Not Found \n {notFound}\n\n")
@@ -461,7 +504,7 @@ class MatchDocument():
                             print(
                                 "oooooooooooooooooooooooooooooooooooooooo END OF Sub Section oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
                             self.logger.logFlowCheckpoint('End Of Sub Section')
-                            
+                            self.checkMandatoryHeadingsMissedPerSection(subSectionIndex)
                             self.subSectionCollectionFoundHeadings = {}
                             previousHeadingRowFound = None
                             subSectionIndex = subSectionIndex + 1
@@ -477,7 +520,7 @@ class MatchDocument():
                         print('found_vec length: ', len(found_vec))
 
         # Once done call the check heading function for the document parsed.
-        self.checkMandatoryHeadingsFound(mandatoryOnly=False)
+        self.checkMandatoryHeadingsMissed(mandatoryOnly=False)
 
         print(Counter(headingRemovedUsingStyle).keys())
 
