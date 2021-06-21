@@ -45,10 +45,12 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.modalService.dismissAll();
   }
   setResultCount() {
+    // Function to show result label
     this.resultsText = this.medicineList ?
-      this.medicineList?.length === 1 ? this.medicineList?.length + ' result' : this.medicineList?.length + ' results' : '0 results';
+    this.medicineList?.length === 1 ? this.medicineList?.length + ' result' : this.medicineList?.length + ' results' : '0 results';
   }
   createSearchItem(data) {
+    // Create data structure with required information of one medicine
     let resourceData = data.entry[0].resource;
     let requiredEntry: any;
     let medicine: SearchMedicine = {};
@@ -77,6 +79,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   compareMedicineResults() {
+    // Function to compare sections in different medicine in a particular document type
     for (let i = 0; i < this.medicineList.length; i++) {
       if (this.medicineList[i].entry) {
         let packageLeafletEntry = this.medicineList[i].entry.filter((entry) => entry?.item?.extension[0].valueCoding.display === "Package leaflet" && entry?.item?.extension[1].valueCoding.display === 'en')[0];
@@ -96,6 +99,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getSectionsWithKey(sectionData: FhirMessageSection[], resultsList: FhirMessageSection[], key: string) {
+    // Function to retrieve section with required key
     if (!sectionData)
       return []
     for (let sectionIndex = 0; sectionIndex < sectionData?.length; sectionIndex++) {
@@ -149,6 +153,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   showCompareButton() {
+    // Function to show compare button for more than one medicine.
     if (this.medicineList.length > 1) {
       this.showCompare = true;
     }
@@ -162,7 +167,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   searchChanged(event) {
-
+    // Function to perform different operations on search
     if (event.operation === 'add') {
       this.searchTagList = event.keyList;
 
