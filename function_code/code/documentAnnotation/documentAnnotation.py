@@ -23,10 +23,13 @@ class IncorrectReference(Exception):
 
 class DocumentAnnotation:
 
-    def __init__(self, fileName, subscriptionKey, apiMgmtApiBaseUrl, dfHtml, matchCollection, documentNumber):
+    def __init__(self, fileName, pmsSubscriptionKey, smsSubscriptionKey, apiMgmtApiBaseUrl, apiMgmtPmsApiEndpointSuffix, apiMgmtSmsApiEndpointSuffix, dfHtml, matchCollection, documentNumber):
         self._fileName = fileName
-        self._subscriptionKey = subscriptionKey
+        self._pmsSubscriptionKey = pmsSubscriptionKey
+        self._smsSubscriptionKey = smsSubscriptionKey
         self._apiMgmtApiBaseUrl = apiMgmtApiBaseUrl
+        self._apiMgmtPmsApiBaseUrl = self._apiMgmtApiBaseUrl + apiMgmtPmsApiEndpointSuffix
+        self._apiMgmtSmsApiBaseUrl = self._apiMgmtApiBaseUrl + apiMgmtSmsApiEndpointSuffix
         self._dfHtml = dfHtml
         self._matchCollection = matchCollection
         self.documentNumber = documentNumber
@@ -51,14 +54,14 @@ class DocumentAnnotation:
     def findRegulatedAuthorization(self, authorizationIdentifier):
 
         response = requests.get(url='%s/RegulatedAuthorization/?identifier=%s' % (
-            self._apiMgmtApiBaseUrl, authorizationIdentifier),
+            self._apiMgmtPmsApiBaseUrl, authorizationIdentifier),
             headers={
-            'Ocp-Apim-Subscription-Key': self._subscriptionKey}
+            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
         )
 
         if response.status_code != 200:
-            print(response.json()['message'])
+            print(response.json()['issue'])
             return None
 
         return response.json()
@@ -66,13 +69,28 @@ class DocumentAnnotation:
     def findMedicinalProductDefinition(self, medicinalProductDefinitionID):
 
         response = requests.get(url='%s/MedicinalProductDefinition/%s' % (
-            self._apiMgmtApiBaseUrl, medicinalProductDefinitionID),
+            self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionID),
             headers={
-            'Ocp-Apim-Subscription-Key': self._subscriptionKey}
+            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
         )
         if response.status_code != 200:
-            print(response.json()['message'])
+            print(response.json()['issue'])
+            return None
+
+        return response.json()
+
+    def findAdministrableProductDefinition(self, medicinalProductDefinitionId):
+        
+        
+        response = requests.get(url='%s/AdministrableProductDefinition/?subject=%s' % (
+            self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionId),
+            headers={
+            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+        )
+
+        if response.status_code != 200:
+            print(response.json()['issue'])
             return None
 
         return response.json()
@@ -80,17 +98,47 @@ class DocumentAnnotation:
     def findPackagedProductDefinition(self, packagedProductDefinitionID):
 
         response = requests.get(url='%s/PackagedProductDefinition/%s' % (
-            self._apiMgmtApiBaseUrl, packagedProductDefinitionID),
+            self._apiMgmtPmsApiBaseUrl, packagedProductDefinitionID),
             headers={
-            'Ocp-Apim-Subscription-Key': self._subscriptionKey}
+            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
         )
 
         if response.status_code != 200:
-            print(response.json()['message'])
+            print(response.json()['issue'])
             return None
 
         return response.json()
+
+    def findIngredientDefinition(self, ingredientId):
+        
+        response = requests.get(url='%s/Ingredient/%s' % (
+            self._apiMgmtPmsApiBaseUrl, ingredientId),
+            headers={
+            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+
+        )
+
+        if response.status_code != 200:
+            print(response.json()['issue'])
+            return None
+
+        return response.json()
+
+    def findSubstanceDefinition(self, substanceCode):
+        
+        response = requests.get(url='%s/SubstanceDefinition/%s' % (
+            self._apiMgmtSmsApiBaseUrl, substanceCode),
+            headers={
+            'Ocp-Apim-Subscription-Key': self._smsSubscriptionKey}
+
+        )
+        
+        if response.status_code != 200:
+            print(response.json()['issue'])
+            return None
+
+        return response.json()        
 
     def extractRegulatedAuthorizationNumbers(self):
         dfHtml = self._dfHtml
@@ -279,6 +327,8 @@ class DocumentAnnotation:
             print("processedOutputIndirect",processedOutputIndirect)
             return self.extractMedicinalProductsFromPackagedProducts(processedOutputIndirect)
 
+
+
     def processMedicinalProductDefinition(self, medicinalProductDefinitionID):
 
         output = self.findMedicinalProductDefinition(
@@ -302,7 +352,126 @@ class DocumentAnnotation:
         else:
             productNames = productNames[0]
 
-        return productNames
+
+
+        finalOutput = {}
+        finalOutput['medicinalProductName'] = productNames
+        finalOutput['ActiveIngredients'] = []
+
+        adminProdOutput = self.findAdministrableProductDefinition(medicinalProductDefinitionID)
+        #print(adminProdOutput)
+        activeIngIds = []
+        
+
+        if 'entry' in adminProdOutput:
+            
+            for entry in adminProdOutput['entry']:
+                
+                if 'resource' in entry:
+
+                    if 'ingredient' in entry['resource']:
+                        ingredientIds = []
+                        for ingredient in entry['resource']['ingredient']:
+                            
+                            ingredientIds.append(ingredient['id'])
+                
+                        substanceCodes = []
+                        #print("Ingrdients ",ingredientIds)
+                        if len(ingredientIds) == 0:
+                            print(f"No incredient found for medicininal product definition {medicinalProductDefinitionID} ")
+                        else:
+                            
+                            for ingredientId in ingredientIds:
+                                ingFinalOutput = {"id": ingredientId, 'substances':[]}
+                                ingOutput = self.findIngredientDefinition(ingredientId)
+                                #print("ing outpu",ingOutput)
+                                if 'role' in ingOutput:
+                                    if 'coding' in ingOutput['role']:
+                                        foundActiveIng = False
+                                        for coding in ingOutput['role']['coding']:
+                                            if coding['code'] == '100000072072':
+                                                foundActiveIng = True
+                                                activeIngIds.append(ingredientId)
+                                                break
+                                        if foundActiveIng:
+                                            
+                                            if 'substance' in ingOutput:
+                                                if 'codeCodeableConcept' in ingOutput['substance']:
+                                                    if 'coding' in ingOutput['substance']['codeCodeableConcept']:
+                                                        for coding in ingOutput['substance']['codeCodeableConcept']['coding']:
+                                                            
+                                                            substanceCodes.append(coding['code'])
+                                                    
+                                                   
+                                            else:
+                                                print(MissingKeyValuePair(
+                                                    f"Missing Key 'substance' in the Ingredient Definition output {ingredientId}"))
+
+                                        #print("substanceCodes",substanceCodes)
+                                        if len(substanceCodes) > 0:
+                                            
+                                            for substanceCode in substanceCodes:
+
+                                                substOutput = self.findSubstanceDefinition(substanceCode)
+                                                #print("subs output",substOutput)
+                                                activeSubstanceNames = []
+                                                if 'name' in substOutput:
+                                                    for name in substOutput['name']:
+                                                        preferred = None
+                                                        if 'name' in name:
+                                                            activeSubstanceName = name['name']
+                                                            if 'preferred' in name:
+                                                                preferred = name['preferred']
+                                                            activeSubstanceNames.append({'name': activeSubstanceName, 'preferred' : preferred })
+
+                                                else:
+                                                    print(f'No Name key in substance definition {substanceCode} API output') 
+    
+
+                                                ingFinalOutput['substances'].append((substanceCode, activeSubstanceNames))
+                                        
+                                        else:
+                                            print(f"Could not retrive substance code for ingredient id {ingredientId}")
+                                    else:
+                                        print(f"Role code missing for ingredient id {ingredientId}")
+
+                                else:
+                                    print(MissingKeyValuePair(
+                                        f"Missing Key 'Role' in the Ingredient Definition output {ingredientId}"))
+
+                                finalOutput['ActiveIngredients'].append(ingFinalOutput)
+
+                            if len(activeIngIds) == 0:
+                                print(f"Found no active ingredients in the medicinal product definition id {medicinalProductDefinitionID}")
+
+                            else:
+                                print(f"Found following active ingredients ids for medicine product id {medicinalProductDefinitionID} \n {activeIngIds}")
+
+
+
+                    else:
+                        #raise MissingKeyValuePair(
+                        #    "Missing Key 'ingredient' in the 'resource' key value pair")
+                        print(MissingKeyValuePair(
+                            "Missing Key 'ingredient' in the 'resource' key value pair"))
+                        continue    
+
+                else:
+                    #raise MissingKeyValuePair(
+                    #    "Missing Key 'resource' in the 'entry' key value pair")
+                    print(MissingKeyValuePair(
+                        "Missing Key 'resource' in the 'entry' key value pair"))
+                    continue
+                    
+
+        else:
+            #raise MissingKeyValuePair(
+            #    "Missing Key 'entry' in the regulated authorization API output")
+            print(MissingKeyValuePair(
+                f"Missing Key 'entry' in the Adminstrable Product Definition API output for this medicical product definition id {medicinalProductDefinitionID}"))
+
+        
+        return finalOutput
         # return productName,packagedProductDefinitionIdsList
 
     def processPackagedProductDefinition(self, packagedProductDefinitionID):
@@ -369,14 +538,26 @@ class DocumentAnnotation:
 
         return [finalOutput[ind] for ind in indexes]
 
+    def extractActiveSubstanceNames(self, data):
+
+        activeSubstanceNames = []
+        for ingredient in data:
+            for substance in ingredient['substances']:
+                for name in substance[1]:
+                    if name['preferred'] == True:
+                        if name['name'] not in activeSubstanceNames:
+                            activeSubstanceNames.append(name['name'])
+        return activeSubstanceNames        
+
     def processRegulatedAuthorizationForDoc(self,listRegulatedAuthorizationIdentifiers=None):
 
         if listRegulatedAuthorizationIdentifiers is None:
             listRegulatedAuthorizationIdentifiers = self.extractRegulatedAuthorizationNumbers()
 
         if listRegulatedAuthorizationIdentifiers == []:
-            raise NoAuthorizationCodesFoundInDoc(
-                f"No Authorization Code Found In The Document {self._fileName}")
+            #raise NoAuthorizationCodesFoundInDoc(
+            #    f"No Authorization Code Found In The Document {self._fileName}")
+            print(f"No Authorization Code Found In The Document {self._fileName}")
 
         self.listRegulatedAuthorizationIdentifiers = listRegulatedAuthorizationIdentifiers
         print("\n====================================== ", self.listRegulatedAuthorizationIdentifiers," =========================\n\n")
@@ -394,22 +575,30 @@ class DocumentAnnotation:
                 print(list(product))
                 productDefinitionId = product[1]
 
-                productName = self.processMedicinalProductDefinition(
+                medicinalProdOutput = self.processMedicinalProductDefinition(
                     medicinalProductDefinitionID=productDefinitionId)
-                #print(productName)
+                print("medicinalProdOutput",medicinalProdOutput)
+                productName = medicinalProdOutput['medicinalProductName']
                 productList = list(product)
                 productList.append(productName)
+                
+                activeSubstancesNames = self.extractActiveSubstanceNames(medicinalProdOutput['ActiveIngredients'])
+                productList.append(activeSubstancesNames)
                 productFinalOutput = tuple(productList)
 
                 finalOutput.append(productFinalOutput)
-        #print("finalOutput",finalOutput)
-        uniqueFinalOutput = self.removeDuplicatesFromOutput(finalOutput)
-
-        self.uniqueFinalOutput = uniqueFinalOutput
-
-        self.finalOutputDict = {}
         
-        self.finalOutputDict['Author Value'] = self.uniqueFinalOutput[0][0]
-        self.finalOutputDict['Medicinal Product Definitions'] = [(entry[1],entry[2]) for entry in self.uniqueFinalOutput]
+        #print("finalOutput",finalOutput)
+        if finalOutput != []:
+            uniqueFinalOutput = self.removeDuplicatesFromOutput(finalOutput)
 
-        return self.finalOutputDict
+            self.uniqueFinalOutput = uniqueFinalOutput
+
+            self.finalOutputDict = {}
+            
+            self.finalOutputDict['Author Value'] = self.uniqueFinalOutput[0][0]
+            self.finalOutputDict['Medicinal Product Definitions'] = [(entry[1],entry[2],entry[3]) for entry in self.uniqueFinalOutput]
+
+            return self.finalOutputDict
+        else:
+            return None

@@ -33,6 +33,22 @@
                     }
                 },
                 {
+                    "url": "http://ema.europa.eu/fhir/extension/marketing-authorization-holder",
+                    "valueCoding": {
+                        "system": "http://spor.ema.europa.eu/v1/100000000005",
+                        "code": "mah-code",
+                        "display": "None"
+                    }
+                },
+                {
+                    "url": "http://ema.europa.eu/fhir/extension/active-substance",
+                    "valueCoding": {
+                        "system": "http://spor.ema.europa.eu/v1/100000000005",
+                        "code": "acive-substance-code",
+                        "display": "None"
+                    }
+                },
+                {
                     "url": "http://ema.europa.eu/fhir/extension/domain",
                     "valueCoding": {
                         "system": "http://spor.ema.europa.eu/v1/100000000004",

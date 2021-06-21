@@ -1,3 +1,4 @@
+from abc import abstractmethod
 import xml.etree.ElementTree as et
 import os
 import re
@@ -331,31 +332,97 @@ class ListBundleHandler:
 
             if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
                 self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
-
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['code'] = self.medName
+                
         if len(medNameExtList) == 1:
             extIndex = medNameExtList[0]
 
             if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
                 self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['code'] = self.medName
 
         else:
             medExtIndex = [ extIndex  for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'medicine' in ext['url']][0]
 
             newExt = copy.deepcopy(self.tempListJson['subject']['extension'][medExtIndex])
             newExt['valueCoding']['display'] = self.medName
+            newExt['valueCoding']['code'] = self.medName
             self.listJson['subject']['extension'].append(newExt)
+    
+    def addMarketAuthHolder(self, pmsOmsSmsData):
+
+        marketingAuthHolderValue = pmsOmsSmsData['Author Value']
+
+        if marketingAuthHolderValue != None:
+            
+            marketingAuthHolderExtIndex = [index for index, ext in enumerate(self.listJson['subject']['extension']) if 'holder' in ext['url']]
+
+            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['code'] = marketingAuthHolderValue
+            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['display'] = marketingAuthHolderValue
+
+            self.logger.logFlowCheckpoint("updated martketing authorization holder value")
+
+        else:
+            print("Skipping updating marketing authorization holder value as it is None on PMS")
+
+
+    def addActiveSubstance(self, pmsOmsSmsData):
         
+        activeSubstanceNames = []
+        for medEntry in pmsOmsSmsData['Medicinal Product Definitions']:
+            for name in medEntry[2]:
+                if name not in activeSubstanceNames:
+                    activeSubstanceNames.append(name)
+        
+        currentActiveSubstanceExts = [(index, ext['valueCoding']['display']) for index, ext in enumerate(self.listJson['subject']['extension']) if 'active-subs' in ext['url']]
+        currentActiveSubstanceNames = [ext['valueCoding']['display'] for ext in self.listJson['subject']['extension'] if 'active-subs' in ext['url']]
+        
+        activeSubExtIndexInTemplate = [ extIndex  for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'active-subs' in ext['url']][0]
+
+        newExt = copy.deepcopy(self.tempListJson['subject']['extension'][activeSubExtIndexInTemplate])
+            
+
+        if len(activeSubstanceNames) > 0:
+            if len(currentActiveSubstanceExts) == 1 and currentActiveSubstanceExts[1] == 'None':
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0]]['valueCoding']['display'] = activeSubstanceNames[0]
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0]]['valueCoding']['code'] = activeSubstanceNames[0]
+                del activeSubstanceNames[0]
+            else:
+                for activeSubName in activeSubstanceNames:
+                    if activeSubName not in currentActiveSubstanceNames:
+                        newExt['valueCoding']['display'] = activeSubName
+                        newExt['valueCoding']['code'] = activeSubName
+                        self.listJson['subject']['extension'].append(newExt)
+
+            self.logger.logFlowCheckpoint("updated active substance in list extension")
+        else:
+            print("Skipping updating active substance as none was found in the pms data")
+
 
         
     def addOrUpdateDocumentItem(self,
-                            referenceValue):
+                            referenceValue, pmsOmsSmsData):
                         
 
         self.updateManInListJson()
-        self.updateDomain()
-        self.updateMedName()
+        
         self.logger.logFlowCheckpoint("Added missing MAN identifiers")
         
+        self.updateDomain()
+        
+        self.logger.logFlowCheckpoint("Upated domain")
+
+        self.updateMedName()
+
+        self.logger.logFlowCheckpoint("Updated medicine name")
+
+        if pmsOmsSmsData is not None:
+
+            self.addActiveSubstance(pmsOmsSmsData)
+
+            self.addMarketAuthHolder(pmsOmsSmsData)
+            
+            
         
         
         #if self.isNew == False:
