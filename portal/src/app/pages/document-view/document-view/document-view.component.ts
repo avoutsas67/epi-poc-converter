@@ -1,9 +1,8 @@
-import { DOCUMENT, Location } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Component, Inject, OnInit, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Guid } from 'guid-typescript';
 import { EmaActionLinks } from 'projects/ema-component-library/src/lib/molecules/action-links/action-links.model';
 import { DisclaimerModalComponent } from 'projects/ema-component-library/src/lib/molecules/disclaimer-modal/disclaimer-modal.component';
 import { FhirEntryItem, FhirMessageEntry } from 'src/app/models/fhir-message-entry.model';
@@ -34,6 +33,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   showDataInUI = false;
   noDataText = '';
   medicineName = "";
+  sectionIdOnLoad = null;
 
   constructor(private readonly fhirService: FhirService,
     private route: ActivatedRoute,
@@ -42,7 +42,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     private readonly disclaimerServiceService: DisclaimerServiceService,
     @Inject(DOCUMENT) private document: Document,
     private sanitizer: DomSanitizer,
-    private location: Location
+    private readonly router: Router
   ) {
     modalConfig.backdrop = 'static';
     modalConfig.keyboard = false;
@@ -66,11 +66,11 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     for (let sectionIndex = 0; sectionIndex < menuItems?.length; sectionIndex++) {
       menuItems[sectionIndex].showChildren = false;
 
-      menuItems[sectionIndex].section = this.setIdForHeadings(menuItems[sectionIndex].section);
     }
     return menuItems
   }
   getFhirDocTypeBundle(url) {
+    // Function to get bundle based on id
     this.fhirService.getBundle(url).subscribe((data) => {
       this.showDataInUI = false;
       if (data) {
@@ -82,23 +82,29 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
           this.sanitizer.sanitize(SecurityContext.STYLE, this.sanitizer.bypassSecurityTrustStyle(this.documentStyleSheet));
 
         this.documentData = data.entry[0].resource.entry[0].resource.section;
-        this.documentData = this.setIdForHeadings(this.documentData)
         this.documentData = this.embedImgsIntoContent(this.documentData[0].section ? this.documentData[0].section : this.documentData);
+        this.documentId = url;
         this.menuItems = this.documentData;
         this.menuItems = this.setTableOfContentsAsCollapsed(this.menuItems)
 
-        if (this.documentId != url) {
-          this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang + '/' + url);
-        }
-        this.documentId = url;
+
         this.showDataInUI = true;
+        setTimeout(() => {
+        if (this.sectionIdOnLoad && this.showDataInUI) {
+          const element = document.getElementById(this.sectionIdOnLoad);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            this.sectionIdOnLoad = null;
+          }
+        }
+        }, 2);
+
       }
     },
       (error) => {
         this.documentData = null;
         this.menuItems = null;
         this.noDataText = "Page Not Found";
-        this.location.replaceState(this.currentPath + '/' + this.listId + '/' + this.currentLang + '/' + url);
         this.showDataInUI = true;
       });
   }
@@ -120,7 +126,6 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     })
 
     this.docTypeList = []
-
     // Populating Document type tabs
     this.currentDocTypeMeta.forEach((docType) => {
       let parsedReference = docType.reference.split('/');
@@ -151,16 +156,29 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       });
     }
     else {
-      this.getFhirDocTypeBundle(this.currentDocTypeMeta[0].reference.split('/')[1]);
+      this.documentId = this.currentDocTypeMeta[0].reference.split('/')[1]
+      this.getFhirDocTypeBundle(this.documentId);
     }
 
     this.hasLangChanged = false;
 
   }
   onLanguageChange(event) {
+    let bundleId;
     if (this.currentLang != event.language) {
       this.hasLangChanged = true;
-      this.getEntriesForRequiredLang(event.language)
+      this.currentLang = event.language;
+      
+      this.listEntries.filter(entry => 
+       entry.item.extension[1].valueCoding.display === this.currentLang
+        
+      )
+      bundleId = this.listEntries.filter(entry => 
+        entry.item.extension[1].valueCoding.display === this.currentLang
+         
+       )[0].item.reference.split('/')[1];
+
+      this.router.navigate([this.currentPath, this.listId, this.currentLang, bundleId], { replaceUrl: true })
     }
   }
 
@@ -177,12 +195,18 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
 
   changeDoctype(event) {
-    this.getFhirDocTypeBundle(event.bundleId)
+    this.sectionIdOnLoad = null;
+    this.router.navigate([this.currentPath, this.listId, this.currentLang, event.bundleId], { replaceUrl: true })
   }
   ngOnInit(): void {
     this.noDataText = 'Loading...';
     this.route.url.subscribe(url => {
       this.currentPath = url[0].path;
+    })
+
+    // Get section id on load
+    this.route.fragment.subscribe(data => {
+      this.sectionIdOnLoad = data;
     })
     this.route.paramMap.subscribe(params => {
       this.currentLang = params.get('langId');
@@ -198,7 +222,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
         listData = data?.entry.filter((entry) => entry.resource.id === this.listId)[0].resource;
         subjectExtension = listData?.subject.extension;
-        
+
         for (let k = 0; k < subjectExtension?.length; k++) {
           if (subjectExtension[k].valueCoding.code === 'medicine-name-code') {
             this.medicineName = subjectExtension[k].valueCoding.display;
@@ -207,7 +231,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         }
 
         if (this.medicineName?.length === 0) {
-          this.medicineName = listData?.identifier?.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
+          this.medicineName = listData?.identifier?.filter((identity) => identity.system.includes('medicine-name'))[0].value;
         }
 
         this.listEntries = listData?.entry;
@@ -231,16 +255,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   ngOnDestroy() {
     this.modalService.dismissAll();
   }
-  setIdForHeadings(sectionData: FhirMessageSection[]) {
-    if (!sectionData)
-      return
-    for (let sectionIndex = 0; sectionIndex < sectionData?.length; sectionIndex++) {
-      sectionData[sectionIndex].id = Guid.create();
 
-      sectionData[sectionIndex].section = this.setIdForHeadings(sectionData[sectionIndex].section);
-    }
-    return sectionData
-  }
   embedImgsIntoContent(sectionData: FhirMessageSection[]) {
     // Function to embed images from <Binary> onto the html
     let prefixOfSearchStr = 'src="#'
