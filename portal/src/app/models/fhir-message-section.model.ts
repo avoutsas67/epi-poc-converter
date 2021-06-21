@@ -1,7 +1,5 @@
-import { Guid } from "guid-typescript";
-
 export interface FhirMessageSection {
-    id?:Guid;
+    id?:string;
     title: string;
     text:any;
     section?: FhirMessageSection[];
