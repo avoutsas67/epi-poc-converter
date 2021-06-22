@@ -272,7 +272,7 @@ class MatchDocument():
         '''
 
         listOfHeadingsFound = self.subSectionCollectionFoundHeadings['heading_id']
-        notFound = []
+        
 
         if self.subSectionCollectionFoundHeadings == {}:
             #raise "No Headings Found"
@@ -286,11 +286,20 @@ class MatchDocument():
                     continue
                 
                 if qrd_str_row['Mandatory']:
-                    self.missedHeadingWriter.write(outString)
-                    notFound.append(outString)
+                    
+                    try:
+                        self.missedHeadingWriter.write(outString.encode("utf-8").decode())
+                    except UnicodeEncodeError:
+                        outString = f"{subSectionIndex},,,{qrd_str_row['heading_id']}\n"
+                        self.missedHeadingWriter.write(outString.encode("utf-8").decode())
+
+                    
                 elif mandatoryOnly is False:
-                    self.missedHeadingWriter.write(outString)
-                    notFound.append(outString)
+                    try:
+                        self.missedHeadingWriter.write(outString.encode("utf-8").decode())
+                    except UnicodeEncodeError:
+                        outString = f"{subSectionIndex},,,{qrd_str_row['heading_id']}\n"
+                        self.missedHeadingWriter.write(outString.encode("utf-8").decode())
 
         
 
@@ -319,10 +328,8 @@ class MatchDocument():
             if qrd_str_row['heading_id'] not in listOfHeadingsFound:
                 outString = f"{qrd_str_row['Display code']},{qrd_str_row['Name']},{qrd_str_row['heading_id']}"
                 if qrd_str_row['Mandatory']:
-                    self.missedHeadingWriter.write(outString)
                     notFound.append(outString)
                 elif mandatoryOnly is False:
-                    self.missedHeadingWriter.write(outString)
                     notFound.append(outString)
 
         if len(notFound) > 0:
