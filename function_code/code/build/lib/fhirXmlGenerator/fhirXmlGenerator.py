@@ -141,7 +141,6 @@ class FhirXmlGenerator:
 
         xml_bundle_data = defaultdict(list)
         xml_bundle_data['medicineName'] = self.medName
-        xml_bundle_data['parentEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
         xml_bundle_data['resourceBundleId'] = str(uuid.uuid4())
         xml_bundle_data['resourceBundleTimeStamp'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         xml_bundle_data['resourceBundleEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())

@@ -74,14 +74,14 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     this.fhirService.getBundle(url).subscribe((data) => {
       this.showDataInUI = false;
       if (data) {
-        this.containedObjData = data.entry[0].resource.entry[0].resource.contained;
+        this.containedObjData = data.entry[0].resource.contained;
         this.documentStyleSheet = this.extractStyleTagData();
 
         // Inject style tag into head
         this.document.head.innerHTML +=
           this.sanitizer.sanitize(SecurityContext.STYLE, this.sanitizer.bypassSecurityTrustStyle(this.documentStyleSheet));
 
-        this.documentData = data.entry[0].resource.entry[0].resource.section;
+        this.documentData = data.entry[0].resource.section;
         this.documentData = this.embedImgsIntoContent(this.documentData[0].section ? this.documentData[0].section : this.documentData);
         this.documentId = url;
         this.menuItems = this.documentData;
@@ -224,7 +224,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         subjectExtension = listData?.subject.extension;
 
         for (let k = 0; k < subjectExtension?.length; k++) {
-          if (subjectExtension[k].valueCoding.code === 'medicine-name-code') {
+          if (subjectExtension[k].url.includes('medicine-name')) {
             this.medicineName = subjectExtension[k].valueCoding.display;
             break;
           }
