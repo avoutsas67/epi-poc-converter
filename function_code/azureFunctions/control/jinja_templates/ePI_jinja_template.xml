@@ -1,135 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
-<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
-<!-- 2020-02-22 -->
+<!-- The resulting instance is a Bundle which is a document (having a Composition, and supporting resources) -->
 <!-- This is for FHIR version R5 Preview 2 (May 2020) -->
-<Bundle xmlns="http://hl7.org/fhir">
-	<type value="collection"/>
-	<!-- Repeat at this level per document -->
-	<entry>
-		<fullUrl value="{{xml_bundle_data['parentEntryFullUrl']}}"/>
-		<!-- Top level of each document is a also FHIR Bundle, of type "document"
+<!-- Top level of each document is a FHIR Bundle, of type "document"
 		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
 	 	 All the other resources for this document are within this. -->
+<Bundle xmlns="http://hl7.org/fhir">
+	<!-- When PUTing, some servers mandate an id here to match the existing id -->
+	<id value="{{xml_bundle_data['resourceBundleId']}}"/>
+	<!-- document bundles must have an identifier (bdl-9) -->
+	<identifier>
+		<!-- possibly different identifier types may be needed here -->
+		<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
+		<value value="{{xml_bundle_data['resourceBundleId']}}"/>
+	</identifier>
+	<!-- fixed code -->
+	<type value="document" />
+	<!-- document bundles must have a date (bdl-10) -->
+	<timestamp value="{{xml_bundle_data['resourceBundleTimeStamp']}}"/>
+	<!-- a repeating set of entry elements, each with a FHIR resource inside -->
+	<entry>
+		<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
+		<fullUrl value="{{xml_bundle_data['resourceBundleEntryFullUrl']}}"/>
 		<resource>
-            <Bundle>
-            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
-            	<id value="{{xml_bundle_data['resourceBundleId']}}"/>
-				<!-- document bundles must have an identifier (bdl-9) -->
-				<identifier>
-					<!-- possibly different identifier types may be needed here -->
-					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
-					<value value="${instance.bundle[n].Identifier}"/>
-				</identifier>
-				<!-- fixed code -->
-				<type value="document" /> 
-            	<!-- document bundles must have a date (bdl-10) -->
-            	<timestamp value="{{xml_bundle_data['resourceBundleTimeStamp']}}"/>
-				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
-				<entry>
-					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
-					<fullUrl value="{{xml_bundle_data['resourceBundleEntryFullUrl']}}"/>
-					<resource>
-						<!-- the first resource must be Composition (bdl-11) -->
-						<!-- This is the overall document structure. -->
-						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
-                        <Composition>
-                        	<!-- images if requied within html text of this document -->
+			<!-- the first resource must be Composition (bdl-11) -->
+			<!-- This is the overall document structure. -->
+			<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
+			<Composition>
+				<!-- images if requied within html text of this document -->
 							{% for key,val in img_ref_dict.items() %}
-							<contained>
-                                <Binary>
-                                	<id value="{{key}}"/>
-                                	<!-- example format -->
-                                	<contentType value="{{val['Type']}}"/>
-									<!-- data is base 64 encoded, actual bytes of the image png file -->
-                                	<data value="{{val['Uri']}}"/>
-								</Binary>
-							</contained>
-							<!-- this exension is necessary per image -->
-                <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
-                        		<valueReference>
-                        			<reference value="#{{key}}"/>
-                        		</valueReference>
-               </extension>
+				<contained>
+					<Binary>
+						<id value="{{key}}"/>
+						<!-- example format -->
+						<contentType value="{{val['Type']}}"/>
+						<!-- data is base 64 encoded, actual bytes of the image png file -->
+						<data value="{{val['Uri']}}"/>
+					</Binary>
+				</contained>
+				<!-- this exension is necessary per image -->
+				<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+					<valueReference>
+						<reference value="#{{key}}"/>
+					</valueReference>
+				</extension>
               {% endfor %}
               {% if xml_bundle_data['styleTagDictionary'] %}
-              <contained>
-                          <Binary>
-                            <id value="{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
-                            <!-- example format -->
-                            <contentType value="{{xml_bundle_data['styleTagDictionary']['Type']}}"/>
-                            <!-- data is base 64 encoded, actual bytes of the image png file -->
-                            <data value="{{xml_bundle_data['styleTagDictionary']['Uri']}}"/>
-                          </Binary>
-                        </contained>
-                        <!-- this exension is necessary per image -->
-                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
-                          <valueReference>
-                            <reference value="#{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
-                          </valueReference>
-                        </extension>
+				<contained>
+					<Binary>
+						<id value="{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
+						<!-- example format -->
+						<contentType value="{{xml_bundle_data['styleTagDictionary']['Type']}}"/>
+						<!-- data is base 64 encoded, actual bytes of the image png file -->
+						<data value="{{xml_bundle_data['styleTagDictionary']['Uri']}}"/>
+					</Binary>
+				</contained>
+				<!-- this exension is necessary per image -->
+				<extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
+					<valueReference>
+						<reference value="#{{xml_bundle_data['styleTagDictionary']['Id']}}"/>
+					</valueReference>
+				</extension>
               {% endif %}
-              <status value="final"/>
-							<!-- document type -->
-							<type>
-								<coding>
-									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
-									<code value="${document[n].documentTypeCode}"/>
-									<display value="${document[n].documentTypeDisplay}"/>
-								</coding>
-							</type>
-							<subject>
-								<!-- links to the List resource in this bundle - local url format -->
-								<reference value="{{xml_bundle_data['listEntryId']}}"/> <!-- local url format -->
-								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
-							</subject>
-                        	<!-- mandatory date of the document -->
-                        	<date value="2021-02-01"/>
-							<author>
-								<identifier>
-									<system value="http://spor.ema.europa.eu/v1/locations" />
-									<value value="{{xml_bundle_data['authorValue']}}" />
-								</identifier>
-							</author>
-                        	<title value="${document[n].title}"/>
-							<relatesTo>
-								<code value="appends"/>
-								<targetReference>
-									<!-- reference to another Composition -->
-									<reference value="${document[n].relatesTo}"/>
-								</targetReference>
-							</relatesTo>
-							<!-- main sections of the document, to follow the QRD template -->
+				<status value="final"/>
+				<!-- document type -->
+				<type>
+					<coding>
+						<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
+						<code value="{{xml_bundle_data['documentTypeCode']}}"/>
+						<display value="{{xml_bundle_data['documentType']}}"/>
+					</coding>
+				</type>
+				<subject>
+					<!-- links to the List resource in this bundle - local url format -->
+					<reference value="{{xml_bundle_data['listEntryId']}}"/>
+					<!-- local url format -->
+					<!--reference value="${instance.bundle[n].listUuid}"/-->					<!-- uuid url format. Possible alternate format may be neeed -->
+				</subject>
+				<!-- mandatory date of the document -->
+				<date value="2021-02-01"/>
+				<author>
+					<identifier>
+						<system value="http://spor.ema.europa.eu/v1/locations" />
+						<value value="{{xml_bundle_data['authorValue']}}" />
+					</identifier>
+				</author>
+				<title value="{{xml_bundle_data['medName']}}"/>
+				<relatesTo>
+					<code value="appends"/>
+					<targetReference>
+						<!-- reference to another Composition -->
+						<reference value="${document[n].relatesTo}"/>
+					</targetReference>
+				</relatesTo>
+				<!-- main sections of the document, to follow the QRD template -->
 	               			{%include "epi_section_jinja_template.xml"%}
-							<!-- sections can repeat as necessary -->
-						</Composition>
-					</resource>
-				</entry>
-				{% if xml_bundle_data['listEntryFullUrl'] %}
-				<!-- an entry that is a list of PMS Product references -->
-				<entry>
-					<fullUrl value="{{xml_bundle_data['listEntryFullUrl']}}"/>
-					<resource>
-                        <List>
-							<!-- any id will do -->
-                        	<id value="{{xml_bundle_data['listEntryId']}}"/>
-							<status value="current"/>
-							<mode value="working"/>
-							{% for listItemKey,listItemVal in xml_bundle_data['medicinalProductDict'].items() %}
-
-							<entry>
-								<item>
-									<reference value="MedicinalProductDefinition/{{listItemKey}}"/>
-									<display value="{{listItemVal}}"/>
-								</item>
-							</entry>
-							{% endfor %}
-
-						</List>
-					</resource>
-				</entry>
-				{% endif %}
-			</Bundle>
+											<!-- sections can repeat as necessary -->
+			</Composition>
 		</resource>
 	</entry>
+				{% if xml_bundle_data['listEntryFullUrl'] %}
+					<!-- an entry that is a list of PMS Product references -->
+	<entry>
+		<fullUrl value="{{xml_bundle_data['listEntryFullUrl']}}"/>
+		<resource>
+			<List>
+				<!-- any id will do -->
+				<id value="{{xml_bundle_data['listEntryId']}}"/>
+				<status value="current"/>
+				<mode value="working"/>
+							{% for listItemKey,listItemVal in xml_bundle_data['medicinalProductDict'].items() %}
+
+				<entry>
+					<item>
+						<reference value="MedicinalProductDefinition/{{listItemKey}}"/>
+						<display value="{{listItemVal}}"/>
+					</item>
+				</entry>
+							{% endfor %}
+
+			</List>
+		</resource>
+	</entry>
+				{% endif %}
 </Bundle>

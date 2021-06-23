@@ -27,9 +27,9 @@
                                     [routerLink]="['/View', medicine.listId, medicine.routeLanguage, medicine.routeReference]"
                                     target="_blank">{{medicine?.name}}
                                 </a>
-                                <p class="ema-resultItem-desc">Lorem ipsum</p>
-                                <p class="ema-resultItem-date">Date of authorisation: 23/06/2017, Revision: 8,
-                                    Authorised, Last updated: 28/04/2021</p>
+                                <p class="ema-resultItem-desc" *ngIf="medicine?.activeSubstances && medicine?.activeSubstances!=='None'">Active Substances : {{medicine?.activeSubstances}}</p>
+                                <p class="ema-resultItem-desc" *ngIf="medicine?.authorizationHolder && medicine?.authorizationHolder!=='None'">Marketing Authorization Holder : {{medicine?.authorizationHolder}}</p>
+                                <p class="ema-resultItem-date" *ngIf="medicine?.lastUpdated">Last uploaded: {{medicine?.lastUpdated}}</p>
                             </div>
                         </li>
                     </ul>

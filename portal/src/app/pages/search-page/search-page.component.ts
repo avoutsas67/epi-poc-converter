@@ -56,11 +56,21 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     let medicine: SearchMedicine = {};
     let subjectExtension = data.entry[0].resource.subject.extension;
 
+    medicine.lastUpdated = new Date(data.meta.lastUpdated).toLocaleString('en-GB');
     medicine.searchName = data.entry[0].resource.identifier.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
     for (let i = 0; i < subjectExtension.length; i++) {
-      if(subjectExtension[i].valueCoding.code === 'medicine-name-code'){
+      if(subjectExtension[i].url.includes('medicine-name')){
         medicine.name = subjectExtension[i].valueCoding.display;
-        break;
+      }
+      if(subjectExtension[i].url.includes('marketing-authorization-holder')){
+        medicine.authorizationHolder = subjectExtension[i].valueCoding.display;
+      }
+      if(subjectExtension[i].url.includes('active-substance')){
+        if(!medicine.activeSubstances){
+          medicine.activeSubstances= subjectExtension[i].valueCoding.display;
+          continue;
+        }
+        medicine.activeSubstances+=', '+subjectExtension[i].valueCoding.display;
       }
     }
     
@@ -86,7 +96,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
         let leafletBundleId = packageLeafletEntry?.item?.reference.split('/')[1];
         if (leafletBundleId && leafletBundleId != 'None') {
           this.fhirService.getBundle(leafletBundleId).subscribe((data) => {
-            this.medicineList[i].sectionsCompareResults = this.getSectionsWithKey(data.entry[0].resource.entry[0].resource.section, [], "Pregnancy".toLowerCase());
+            this.medicineList[i].sectionsCompareResults = this.getSectionsWithKey(data.entry[0].resource.section, [], "Pregnancy".toLowerCase());
 
           }, (error) => {
             console.error('Could not load bundle');
@@ -122,12 +132,22 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
           let medicine: SearchMedicine = {};
           let subjectExtension = data.entry[i].resource.subject.extension;
 
+          medicine.lastUpdated = new Date(data.meta.lastUpdated).toLocaleString('en-GB');
           medicine.searchName = data.entry[i].resource.identifier.filter((identity)=>identity.system.includes('medicine-name'))[0].value;
           
           for (let k = 0; k < subjectExtension.length; k++) {
-            if(subjectExtension[k].valueCoding.code === 'medicine-name-code'){
+            if(subjectExtension[k].url.includes('medicine-name')){
               medicine.name = subjectExtension[k].valueCoding.display;
-              break;
+            }
+            if(subjectExtension[k].url.includes('marketing-authorization-holder')){
+              medicine.authorizationHolder = subjectExtension[k].valueCoding.display;
+            }
+            if(subjectExtension[k].url.includes('active-substance')){
+              if(!medicine.activeSubstances){
+                medicine.activeSubstances= subjectExtension[k].valueCoding.display;
+                continue;
+              }
+              medicine.activeSubstances+=", "+subjectExtension[k].valueCoding.display;
             }
           }
           medicine.listId = data.entry[i].resource.id;

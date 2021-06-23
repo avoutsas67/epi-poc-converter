@@ -78,6 +78,11 @@ class FhirService:
             print(f'HTTP error occurred: {http_err}')
             self.insights_logger.logException(f'HTTP error occurred: {http_err}')
             self.insights_logger.logFlowCheckpoint(f'HTTP error occurred: {http_err}')
-            print('Error log:', response['issue'][0]['diagnostics'])
-            self.insights_logger.logException('Error log:'+ response['issue'][0]['diagnostics'])
-            self.insights_logger.logFlowCheckpoint('Error log:'+ response['issue'][0]['diagnostics'])
+            try:
+                print('Error log:', response['issue'][0]['diagnostics'])
+                self.insights_logger.logException('Error log:'+ response['issue'][0]['diagnostics'])
+                self.insights_logger.logFlowCheckpoint('Error log:'+ response['issue'][0]['diagnostics'])
+            except:
+                print('Response: ', response)
+                self.insights_logger.logException('Error Response Log:', response)
+                self.insights_logger.logFlowCheckpoint('Error Response Log:', response)

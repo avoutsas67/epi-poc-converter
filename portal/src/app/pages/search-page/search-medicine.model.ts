@@ -12,4 +12,7 @@ export interface SearchMedicine {
     entry?:FhirMessageEntry[];
     sectionsCompareResults?: FhirMessageSection[];
     searchName?: string;
+    authorizationHolder?: string;
+    activeSubstances?: string;
+    lastUpdated?:string;
 }
