@@ -409,3 +409,15 @@ if ($DeploySPA) {
 }
 
 #endregion
+
+#region DeleteFhirDB
+
+if ($false) {
+    $type = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
+    $dbName = "health"
+    $api = "2015-04-08"
+ 
+    Remove-AzResource -ResourceType $type -ApiVersion $api -ResourceGroupName $fhirResourceGroupName -Name "$fhirDBName/sql/$dbName" -Force
+}
+
+#endregion
