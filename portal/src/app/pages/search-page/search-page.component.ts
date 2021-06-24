@@ -194,6 +194,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
       for (let listIdx = 0; listIdx < this.searchTagList.length; listIdx++) {
         if (this.searchTagList[listIdx] == '*') {
           this.medicineList = [];
+          this.setResultCount();
           this.getAllMedicines();
           this.searchTagList = [];
           this.searchTagList.push('*');
