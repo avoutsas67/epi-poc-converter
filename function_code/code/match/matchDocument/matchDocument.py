@@ -61,14 +61,19 @@ class MatchDocument():
         self.dfHtml = self.createHtmlDataframe()
 
         self.documentNumber = documentNumber
+        
+        qrdDocTypeMappingDict = {0: 'SmPC', 1: "Annex II", 2: "Labelling", 3: "Package leaflet"}
 
-        self.documentType = DocumentTypeNames(
-            controlBasePath=self.controlBasePath,
-            fileNameDocumentTypeNames=fileNameDocumentTypeNames,
-            languageCode=languageCode,
-            domain=self.domain,
-            procedureType=self.procedureType,
-            documentNumber=self.documentNumber).extractDocumentTypeName()
+        
+        #self.documentType = DocumentTypeNames(
+        #    controlBasePath=self.controlBasePath,
+        #    fileNameDocumentTypeNames=fileNameDocumentTypeNames,
+        #    languageCode=languageCode,
+        #    domain=self.domain,
+        #    procedureType=self.procedureType,
+        #    documentNumber=self.documentNumber).extractDocumentTypeName()
+
+        self.documentType = qrdDocTypeMappingDict[self.documentNumber]
 
         self.FailedHeadingLogFilePath = os.path.join(self.basePath, f"missedHeading_{self.documentType}.csv")
         self.missedHeadingWriter = open(self.FailedHeadingLogFilePath, 'a')
@@ -83,6 +88,18 @@ class MatchDocument():
             languageCode=languageCode,
             documentType=self.documentType,
             documentNumber=self.documentNumber).ProcessQrdDataframe()
+
+        firstRow = self.dfModelwRulesF.loc[0]
+        headDisplayCode = firstRow['Display code']
+        headName = firstRow['Name']
+        if pd.isna(headDisplayCode) == False:
+            if '.' in headDisplayCode:
+                self.documentTypeForUI = str(headDisplayCode) + " " + headName
+            else:
+                self.documentTypeForUI = str(headDisplayCode) + ". " + headName
+        else:
+            self.documentTypeForUI = headName
+         
 
         self.ruleDict = MatchRuleBook(
             controlBasePath=self.controlBasePath,
@@ -531,4 +548,4 @@ class MatchDocument():
 
         print(Counter(headingRemovedUsingStyle).keys())
 
-        return self.dfHtml, self.collectionFoundHeadings, self.documentType
+        return self.dfHtml, self.collectionFoundHeadings, self.documentType, self.documentTypeForUI

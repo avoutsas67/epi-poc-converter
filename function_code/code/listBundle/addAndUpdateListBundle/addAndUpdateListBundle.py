@@ -47,6 +47,7 @@ class ListBundleHandler:
                  procedureType,
                  documentNumber,
                  documentType,
+                 documentTypeForUI,
                  language,
                  medName,
                  controlBasePath,
@@ -66,6 +67,7 @@ class ListBundleHandler:
         self.language = language
         self.medName = medName
         self.documentType = documentType
+        self.documentTypeForUI = documentTypeForUI
         self.controlBasePath = controlBasePath
         self.jsonTemplateFileName = jsonTemplateFileName
         self.jsonTemplateFilePath = os.path.join(self.controlBasePath, 'listBundleTemplates', self.jsonTemplateFileName)
@@ -434,6 +436,8 @@ class ListBundleHandler:
             #print(entry['item'])
             foundDocumentTypeCode = False
             foundLanguageCode = False
+            validDocTypeExtIndex = None
+            validLangCodeExtIndex = None
             
             for extIndex, ext in enumerate(entry['item']['extension']):
 
@@ -441,9 +445,12 @@ class ListBundleHandler:
 
                     if remoteCode == self.listBundleDocumentTypeCode:
                         foundDocumentTypeCode = True
+                        validDocTypeExtIndex = extIndex
                     if remoteCode == self.languageCode:
                         foundLanguageCode = True
-                    
+                        validLangCodeExtIndex = extIndex
+
+
             if foundDocumentTypeCode == True and foundLanguageCode == True:
                 foundExistingItem = True
                 break                        
@@ -452,6 +459,7 @@ class ListBundleHandler:
         if foundExistingItem == True:
             
             self.logger.logFlowCheckpoint("Updating existing item")
+            self.listJson['entry'][entryIndex]['item']['extension'][validDocTypeExtIndex]['valueCoding']['display'] = self.documentTypeForUI
             self.listJson['entry'][entryIndex]['item']['reference'] = f"Bundle/{referenceValue}"
                 
         else:
@@ -463,10 +471,10 @@ class ListBundleHandler:
             
             if 'documentType' in itemCopy['extension'][0]['url']:
                 itemCopy['extension'][0]['valueCoding']['code'] = self.listBundleDocumentTypeCode
-                itemCopy['extension'][0]['valueCoding']['display'] = self.documentType
+                itemCopy['extension'][0]['valueCoding']['display'] = self.documentTypeForUI
             if 'documentType' in itemCopy['extension'][1]['url']:
                 itemCopy['extension'][1]['valueCoding']['code'] = self.listBundleDocumentTypeCode
-                itemCopy['extension'][1]['valueCoding']['display'] = self.documentType
+                itemCopy['extension'][1]['valueCoding']['display'] = self.documentTypeForUI
             
             if 'language' in itemCopy['extension'][0]['url']:
                 itemCopy['extension'][0]['valueCoding']['code'] = self.languageCode
