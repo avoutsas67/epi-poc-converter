@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DisclaimerModalComponent } from 'projects/ema-component-library/src/lib/molecules/disclaimer-modal/disclaimer-modal.component';
+import { FhirDocTypeEnum } from 'src/app/models/enums/fhir-doctype.enum';
 import { FhirMessageSection } from 'src/app/models/fhir-message-section.model';
 import { DisclaimerServiceService } from 'src/app/shared-services/disclaimer-service/disclaimer-service.service';
 import { FhirService } from 'src/app/shared-services/fhir-service/fhir.service';
@@ -76,7 +77,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     
     medicine.listId = data.entry[0].resource.id;
     medicine.entry = resourceData.entry;
-    requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.display === 'SmPC' && entry.item.extension[1].valueCoding.display === 'en')[0];
+    requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.code === FhirDocTypeEnum.SMPC && entry.item.extension[1].valueCoding.display === 'en')[0];
     if (requiredEntry) {
       medicine.routeReference = requiredEntry.item.reference.split('/')[1];
       medicine.routeLanguage = 'en';
@@ -92,7 +93,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
     // Function to compare sections in different medicine in a particular document type
     for (let i = 0; i < this.medicineList.length; i++) {
       if (this.medicineList[i].entry) {
-        let packageLeafletEntry = this.medicineList[i].entry.filter((entry) => entry?.item?.extension[0].valueCoding.display === "Package leaflet" && entry?.item?.extension[1].valueCoding.display === 'en')[0];
+        let packageLeafletEntry = this.medicineList[i].entry.filter((entry) => entry?.item?.extension[0].valueCoding.code === FhirDocTypeEnum.PACKAGE_LEAFLET && entry?.item?.extension[1].valueCoding.display === 'en')[0];
         let leafletBundleId = packageLeafletEntry?.item?.reference.split('/')[1];
         if (leafletBundleId && leafletBundleId != 'None') {
           this.fhirService.getBundle(leafletBundleId).subscribe((data) => {
@@ -152,7 +153,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
           }
           medicine.listId = data.entry[i].resource.id;
           medicine.entry = resourceData.entry;
-          requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.display === 'SmPC' && entry.item.extension[1].valueCoding.display === 'en')[0];
+          requiredEntry = resourceData.entry.filter((entry) => entry.item.extension[0].valueCoding.code === FhirDocTypeEnum.SMPC && entry.item.extension[1].valueCoding.display === 'en')[0];
           if (requiredEntry) {
             medicine.routeReference = requiredEntry.item.reference.split('/')[1];
             medicine.routeLanguage = 'en';

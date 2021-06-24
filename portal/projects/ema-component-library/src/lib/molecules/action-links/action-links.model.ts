@@ -2,4 +2,5 @@ export class EmaActionLinks {
     action?:string;
     isActive?:boolean;
     routePath?:string;
+    docCode?: string;
 }

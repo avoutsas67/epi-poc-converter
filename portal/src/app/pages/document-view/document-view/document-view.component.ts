@@ -142,6 +142,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         actionObj.action = docType.extension[0].valueCoding.display;
         actionObj.isActive = false;
         actionObj.routePath = parsedReference[1];
+        actionObj.docCode = docType.extension[0].valueCoding.code;
         if (this.docTypeList.length === 0) {
           actionObj.isActive = true;
         }
@@ -150,21 +151,29 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
     });
 
     for (let tabObjIndex = 0; tabObjIndex < this.docTypeList.length; tabObjIndex++) {
-      switch (this.docTypeList[tabObjIndex]) {
-        case FhirDocTypeEnum.SMPC && tabObjIndex!==0: {
-          this.docTypeList = this.swapTabs(this.docTypeList, 0, tabObjIndex);
+      switch (this.docTypeList[tabObjIndex].docCode) {
+        case FhirDocTypeEnum.SMPC: {
+          if (tabObjIndex !== 0) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 0, tabObjIndex);
+          }
           break;
         }
-        case FhirDocTypeEnum.ANNEX_II && tabObjIndex!==1: {
-          this.docTypeList = this.swapTabs(this.docTypeList, 1, tabObjIndex);
+        case FhirDocTypeEnum.ANNEX_II: {
+          if (tabObjIndex !== 1) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 1, tabObjIndex);
+          }
           break;
         }
-        case FhirDocTypeEnum.LABELLING && tabObjIndex!==2: {
-          this.docTypeList = this.swapTabs(this.docTypeList, 2, tabObjIndex);
+        case FhirDocTypeEnum.LABELLING: {
+          if (tabObjIndex !== 2) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 2, tabObjIndex);
+          }
           break;
         }
-        case FhirDocTypeEnum.PACKAGE_LEAFLET && tabObjIndex!==3: {
-          this.docTypeList = this.swapTabs(this.docTypeList, 3, tabObjIndex);
+        case FhirDocTypeEnum.PACKAGE_LEAFLET : {
+          if(tabObjIndex !== 3){
+            this.docTypeList = this.swapTabs(this.docTypeList, 3, tabObjIndex);
+          }
           break;
         }
         default: {
