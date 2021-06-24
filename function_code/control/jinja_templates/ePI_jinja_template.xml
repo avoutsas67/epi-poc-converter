@@ -61,6 +61,7 @@
 					</valueReference>
 				</extension>
               {% endif %}
+			  	<language value = "{{xml_bundle_data['languageCode']}}"/>
 				<status value="final"/>
 				<!-- document type -->
 				<type>
@@ -80,7 +81,7 @@
 				<date value="2021-02-01"/>
 				<author>
 					<identifier>
-						<system value="http://spor.ema.europa.eu/v1/locations" />
+						<system value="{{xml_bundle_data['authorReference']}}" />
 						<value value="{{xml_bundle_data['authorValue']}}" />
 					</identifier>
 				</author>
