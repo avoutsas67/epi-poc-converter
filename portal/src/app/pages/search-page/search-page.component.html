@@ -33,10 +33,13 @@
                             </div>
                         </li>
                     </ul>
-                    <div *ngIf="!(medicineList?.length > 0)" class="ema-search-notFound">
+                    <div *ngIf="!(medicineList?.length > 0) && !noDataRetrieved" class="ema-search-notFound">
                         <p>Go ahead. Search for a medicine. Don't be shy....
                         </p>
                         <p>You can search for all medicines using *</p>
+                    </div>
+                    <div *ngIf="noDataRetrieved" class="ema-search-notFound">
+                        No Data Retrieved...
                     </div>
                 </div>
 

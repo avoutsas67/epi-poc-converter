@@ -17,7 +17,7 @@
 
         <div class="ema-panel-comparedSectionContent" [innerHTML]="section?.text.div | safe:'html'"></div>
       </div>
-      <div class="ema-panel-comparedSection" *ngIf="!medicine.sectionsCompareResults">
+      <div class="ema-panel-comparedSection" *ngIf="!medicine.sectionsCompareResults || medicine?.sectionsCompareResults?.length===0">
         <p class="ema-panel-comparedNoData">
           Section not found.
         </p>

@@ -1,7 +1,7 @@
-<div class="ema-textbox-multi-select">
+<div class="ema-textbox-multi-select" [ngClass]="{'ema-textbox-multi-select--small': isSmall, 'ema-textbox-multi-select--single': (isSingleSelect && tagList.length > 0)}">
     <div class="ema-tags-list">
         <ema-tags *ngFor='let tag of tagList' [name]='tag' (onCrossClick)='deleteTag($event)'></ema-tags>
     </div>
-    <div class="ema-textbox" [formGroup]="textboxMultiSelectForm"><input  class="ema-textbox-input" type="text" id="textboxMultiselect" name="textboxMultiselect" formControlName="inputControl" (keyup.enter)='textEntered()'></div>
+    <div *ngIf="!(isSingleSelect && tagList.length > 0)" class="ema-textbox" [formGroup]="textboxMultiSelectForm"><input  class="ema-textbox-input ema-textbox-input--large" type="text" id="textboxMultiselect" name="textboxMultiselect" formControlName="inputControl" (keyup.enter)='textEntered()'></div>
 </div>
-<div class="ema-textbox-clear" (click)="clearAllTags()">Clear Search</div>
+<div class="ema-textbox-clear" (click)="clearAllTags()" *ngIf="!hideClearSearch">Clear Search</div>

@@ -1,5 +1,17 @@
 @import "../../ema-theme-variables.scss";
 :host{
+    .dropdown, .dropup{
+        width:100%;
+    }
+    .dropdown-menu{
+        transition: height 0.25s ease !important;
+    }
+    .dropdown-item{
+        display: flex;
+        word-break: break-word !important;
+        white-space: normal;
+        height: 100%;
+    }
     .ema-dropdown{
         border: 1px solid $ema-border;
         color: $ema-text-bold;
@@ -8,6 +20,21 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        min-height: 40px;
+        width: 100%;
+        max-width: 100%;
+        white-space: normal;
+
+        &-selected{
+            display: block;
+            width: calc(100% - 15px);
+            text-align: left;
+        }
+        &-option{
+            display: block;
+            width: calc(100% - 16px);
+            white-space: normal;
+        }
         &:focus{
             box-shadow: 0 0 0 1px rgb(13 110 253 / 25%)
         }

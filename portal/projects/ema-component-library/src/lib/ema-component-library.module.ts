@@ -17,9 +17,10 @@ import { TextboxMultiSelectModule } from './molecules/textbox-multi-select/textb
 import { ButtonComponent } from './atoms/button/button.component';
 import { PipesModule } from 'src/app/shared-pipes/pipes.module';
 import { AccordionModule } from './molecules/accordion/accordion.module';
+import { CompareModalComponent } from './molecules/compare-modal/compare-modal.component';
 
 @NgModule({
-  declarations: [EmaComponentLibraryComponent, HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent, ButtonComponent],
+  declarations: [EmaComponentLibraryComponent, HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent, ButtonComponent, CompareModalComponent],
   imports: [
     PipesModule,
     EmaIconsModule,
@@ -44,10 +45,12 @@ import { AccordionModule } from './molecules/accordion/accordion.module';
     DropdownComponent,
     ActionLinksComponent,
     DisclaimerModalComponent,
-    TextboxMultiSelectModule
+    TextboxMultiSelectModule,
+    CompareModalComponent
   ],
   entryComponents: [
-    DisclaimerModalComponent
+    DisclaimerModalComponent,
+    CompareModalComponent
   ]
 })
 export class EmaComponentLibraryModule { }

@@ -2,6 +2,8 @@
 .modal-header{
     border-bottom: 1px solid $ema-border;
     color:$ema-primary;
+    display: flex;
+    align-items: center;
 }
 .modal-btn{
     border: 1px solid $ema-primary;
@@ -17,4 +19,12 @@
 }
 .modal-footer{
     border-top: 1px solid $ema-border;
+}
+.ema-modal-close{
+    margin-left:8px;
+    height:24px;
+    width: 24px;
+    &:hover{
+        cursor:pointer;
+    }
 }

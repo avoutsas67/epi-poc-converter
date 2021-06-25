@@ -13,11 +13,36 @@
         font-size: 16px;
         line-height: 16px;
         opacity: 1;
-        
 
         &:hover {
-            cursor: pointer !important;
+            cursor: pointer;
             opacity: 0.9;
+        }
+
+        &--secondary {
+            border: 1px solid $ema-primary;
+            color: $ema-primary;
+            background-color: white;
+            &:hover {
+                color: $ema-primary;
+                border: 1px solid $ema-primary;
+                cursor: pointer !important;
+                opacity: 0.9;
+
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &--disabled{
+            background-color: $ema-border;
+            color:black;
+            cursor:not-allowed;
+            &:hover{
+                cursor:not-allowed;
+                opacity: 0.9;
+            }
         }
     }
 }

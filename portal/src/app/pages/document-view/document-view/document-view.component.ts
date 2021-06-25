@@ -187,7 +187,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       this.getFhirDocTypeBundle(this.documentId);
       this.docTypeList.forEach((item) => {
 
-        if (item.routePath === this.documentId) {
+        if (item && item.routePath === this.documentId) {
           item.isActive = true;
         }
         else {
@@ -206,9 +206,9 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   }
   onLanguageChange(event) {
     let bundleId;
-    if (this.currentLang != event.language) {
+    if (this.currentLang != event.data) {
       this.hasLangChanged = true;
-      this.currentLang = event.language;
+      this.currentLang = event.data;
 
       this.listEntries.filter(entry =>
         entry.item.extension[1].valueCoding.display === this.currentLang
