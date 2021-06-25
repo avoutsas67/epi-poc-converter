@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h4 class="modal-title">Compare Products</h4>
+    <div class="ema-modal-close"><ema-cross-with-cirle width="24" height="24" (click)="closeModal()"></ema-cross-with-cirle></div>
+
+</div>
+<div class="modal-body">
+    <p class="ema-compare-modal-label">Document Type</p>
+    <div class="ema-compare-modal-dropdown">
+        <ema-dropdown [dropdownOptions]="docTypeDropdownOptions" (onSelectionChange)='onDocTypeChange($event)' (onToggle)="dropdownToggle($event)" ></ema-dropdown>
+        <div class="ema-compare-menu"></div>
+    </div>
+    <p class="ema-compare-modal-label">Section</p>
+    <div class="ema-compare-modal-textbox">
+        <ema-textbox-multi-select isSingleSelect="true" isSmall="true" hideClearSearch="true" (onSearchChanged)="onSectionChange($event)"></ema-textbox-multi-select>
+    </div>
+</div>
+<div class="modal-footer">
+    <ema-button label="Compare" (buttonClicked)='compareClicked()' [isDisabled]="!(compareSectionsMetaData.docType && compareSectionsMetaData.searchKey)"></ema-button>
+</div>

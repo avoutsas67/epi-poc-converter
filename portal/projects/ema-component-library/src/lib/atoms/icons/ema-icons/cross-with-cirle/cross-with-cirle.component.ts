@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ema-cross-with-cirle',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls:['./cross-with-cirle.scss']
 })
 export class CrossWithCirleComponent implements OnInit {
+  @Input() width = '14';
+  @Input() height = '14';
 
   constructor() { }
 

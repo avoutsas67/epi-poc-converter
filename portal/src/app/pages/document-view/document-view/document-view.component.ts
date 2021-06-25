@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { EmaActionLinks } from 'projects/ema-component-library/src/lib/molecules/action-links/action-links.model';
 import { DisclaimerModalComponent } from 'projects/ema-component-library/src/lib/molecules/disclaimer-modal/disclaimer-modal.component';
+import { FhirDocTypeEnum } from 'src/app/models/enums/fhir-doctype.enum';
 import { FhirEntryItem, FhirMessageEntry } from 'src/app/models/fhir-message-entry.model';
 import { FhirMessageSection } from 'src/app/models/fhir-message-section.model';
 import { DisclaimerServiceService } from 'src/app/shared-services/disclaimer-service/disclaimer-service.service';
@@ -90,13 +91,13 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
         this.showDataInUI = true;
         setTimeout(() => {
-        if (this.sectionIdOnLoad && this.showDataInUI) {
-          const element = document.getElementById(this.sectionIdOnLoad);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            this.sectionIdOnLoad = null;
+          if (this.sectionIdOnLoad && this.showDataInUI) {
+            const element = document.getElementById(this.sectionIdOnLoad);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+              this.sectionIdOnLoad = null;
+            }
           }
-        }
         }, 2);
 
       }
@@ -114,6 +115,13 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         this.availableLanguages.push(entry.item.extension[1].valueCoding.display)
       }
     })
+  }
+
+  swapTabs(list, idxA, idxB) {
+    let temp = list[idxA];
+    list[idxA] = list[idxB];
+    list[idxB] = temp;
+    return list
   }
 
   getEntriesForRequiredLang(lang: string) {
@@ -134,6 +142,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         actionObj.action = docType.extension[0].valueCoding.display;
         actionObj.isActive = false;
         actionObj.routePath = parsedReference[1];
+        actionObj.docCode = docType.extension[0].valueCoding.code;
         if (this.docTypeList.length === 0) {
           actionObj.isActive = true;
         }
@@ -141,12 +150,44 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       }
     });
 
+    for (let tabObjIndex = 0; tabObjIndex < this.docTypeList.length; tabObjIndex++) {
+      switch (this.docTypeList[tabObjIndex].docCode) {
+        case FhirDocTypeEnum.SMPC: {
+          if (tabObjIndex !== 0) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 0, tabObjIndex);
+          }
+          break;
+        }
+        case FhirDocTypeEnum.ANNEX_II: {
+          if (tabObjIndex !== 1) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 1, tabObjIndex);
+          }
+          break;
+        }
+        case FhirDocTypeEnum.LABELLING: {
+          if (tabObjIndex !== 2) {
+            this.docTypeList = this.swapTabs(this.docTypeList, 2, tabObjIndex);
+          }
+          break;
+        }
+        case FhirDocTypeEnum.PACKAGE_LEAFLET : {
+          if(tabObjIndex !== 3){
+            this.docTypeList = this.swapTabs(this.docTypeList, 3, tabObjIndex);
+          }
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    }
+
     // Retrieving bundle on page refresh and setting respective tab as active
     if (this.documentId && !this.hasLangChanged) {
       this.getFhirDocTypeBundle(this.documentId);
       this.docTypeList.forEach((item) => {
 
-        if (item.routePath === this.documentId) {
+        if (item && item.routePath === this.documentId) {
           item.isActive = true;
         }
         else {
@@ -165,18 +206,18 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   }
   onLanguageChange(event) {
     let bundleId;
-    if (this.currentLang != event.language) {
+    if (this.currentLang != event.data) {
       this.hasLangChanged = true;
-      this.currentLang = event.language;
-      
-      this.listEntries.filter(entry => 
-       entry.item.extension[1].valueCoding.display === this.currentLang
-        
-      )
-      bundleId = this.listEntries.filter(entry => 
+      this.currentLang = event.data;
+
+      this.listEntries.filter(entry =>
         entry.item.extension[1].valueCoding.display === this.currentLang
-         
-       )[0].item.reference.split('/')[1];
+
+      )
+      bundleId = this.listEntries.filter(entry =>
+        entry.item.extension[1].valueCoding.display === this.currentLang
+
+      )[0].item.reference.split('/')[1];
 
       this.router.navigate([this.currentPath, this.listId, this.currentLang, bundleId], { replaceUrl: true })
     }

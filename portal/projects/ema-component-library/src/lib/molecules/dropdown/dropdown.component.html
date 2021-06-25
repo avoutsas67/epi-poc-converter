@@ -1,10 +1,12 @@
-<div ngbDropdown class="d-inline-block">
-    <button class="btn ema-dropdown" id="dropdownLanguage" ngbDropdownToggle>{{selectedOption}}
-        <span></span>
+<div ngbDropdown  #dropLang="ngbDropdown" (openChange)="dropdownToggled($event,dropLang)" 
+class="d-inline-block">
+    <button class="btn ema-dropdown" id="dropdownLanguage" ngbDropdownToggle>
+      <div class="ema-dropdown-selected">{{selectedOption}}</div>
     </button>
     <div  ngbDropdownMenu aria-labelledby="dropdownLanguage">
       <div *ngFor='let option of dropdownOptions'>
-        <button (click)='changeSelection(option)' ngbDropdownItem>{{option? option:'English'}}</button>
+        <button (click)='changeSelection(option)' ngbDropdownItem>
+          <span class='ema-dropdown-option'>{{option? option:'Option'}}</span></button>
       </div>
     </div>
   </div>

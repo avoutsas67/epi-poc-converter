@@ -15,8 +15,19 @@ export class TextboxMultiSelectComponent implements OnInit {
   @Input()
   tagList = [];
 
+  @Input()
+  isSmall = false;
+
+  @Input()
+  hideClearSearch = false;
+
+  @Input()
+  isSingleSelect = false;
+
   @HostListener('click') onClick() {
-    this.el.nativeElement.querySelector('input').focus();
+    if(!(this.isSingleSelect && this.tagList.length > 0)){
+      this.el.nativeElement.querySelector('input').focus();
+    }
   };
 
   constructor(private readonly el: ElementRef) { }
@@ -27,7 +38,7 @@ export class TextboxMultiSelectComponent implements OnInit {
   textEntered() {
     let inputControl = this.textboxMultiSelectForm.get('inputControl');
     let textValue = inputControl.value;
-    if (textValue.length > 0 && this.tagList.filter((tag) => tag.toLowerCase() == textValue.toLowerCase()).length === 0) {
+    if (textValue && textValue?.length > 0 && this.tagList.filter((tag) => tag.toLowerCase() == textValue.toLowerCase()).length === 0) {
       this.tagList.push(inputControl.value)
     }
     inputControl.reset();

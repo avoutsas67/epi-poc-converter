@@ -20,7 +20,7 @@ export class ActionLinksComponent implements OnInit {
   ngOnInit(): void {
   }
   actionClick(routePath, index){
-    let activeItems = this.actionList.filter(items => items.isActive);
+    let activeItems = this.actionList.filter(items => items && items?.isActive);
     for(let i=0; i<activeItems.length;i++){
       activeItems[i].isActive = false;
     }

@@ -13,7 +13,7 @@
                 <span class="ema-med-lang-label">
                     Language
                 </span>
-                <ema-dropdown [dropdownOptions]='dropdownOptions' (onLangChange)='onLangChange($event)'[selectedOption] = 'languageSelected'></ema-dropdown>
+                <ema-dropdown [dropdownOptions]='dropdownOptions' (onSelectionChange)='onLangChange($event)' [selectedOption] = 'languageSelected'></ema-dropdown>
             </li>
         </ul>
     </div>
