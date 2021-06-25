@@ -204,7 +204,8 @@ class DocumentAnnotation:
         processedOutputIndirect = []
         medicinalProductDefinitionId = None
         packagedProductDefinitionId = None
-        holderValue = None
+        holderReferenceValue = None
+        holderDisplayValue = None
         directFlag = True
 
         if 'entry' in output:
@@ -286,23 +287,28 @@ class DocumentAnnotation:
                             continue
 
                         if 'holder' in entry['resource']:
-                            if 'identifier' in entry['resource']['holder']:
-                                holderValue = (
-                                    entry['resource']['holder']['identifier']['value'])
+                            if 'reference' in entry['resource']['holder']:
+                                holderReferenceValue = (
+                                    entry['resource']['holder']['reference'])
+
+                            if 'display' in entry['resource']['holder']:
+                                holderDisplayValue = (
+                                    entry['resource']['holder']['display'])
                         else:
                             #raise MissingKeyValuePair(
                             #    "Missing Key 'holder' in entry key value pair")
                             print("Missing Key 'holder' in entry key value pair")
                         if directFlag is True:
                             processedOutputDirect.append(
-                                (holderValue, medicinalProductDefinitionId))
+                                ((holderReferenceValue,holderDisplayValue), medicinalProductDefinitionId))
                         else:
                             processedOutputIndirect.append(
-                                (holderValue, packagedProductDefinitionId))
+                                ((holderReferenceValue,holderDisplayValue), packagedProductDefinitionId))
 
                         medicinalProductDefinitionId = None
                         packagedProductDefinitionId = None
-                        holderValue = None
+                        holderReferenceValue = None
+                        holderDisplayValue = None
 
                     else:
                         print(NoReleventAuthorizationCodesFoundInDoc("No Regulated Authorization find with code 220000000061"))
@@ -511,6 +517,7 @@ class DocumentAnnotation:
         for packagedProductTupple in listPackagedProductDefinitionIds:
 
             holderValue = packagedProductTupple[0]
+            
             packagedProductId = packagedProductTupple[1]
             #print(f'Packaged Product Id : - {packagedProductId}')
 
@@ -548,6 +555,105 @@ class DocumentAnnotation:
                         if name['name'] not in activeSubstanceNames:
                             activeSubstanceNames.append(name['name'])
         return activeSubstanceNames        
+
+    def extractMAHfromParentMAN(self):
+
+
+        holderReferenceValue = None
+        holderDisplayValue = None
+        parentMAH = "/".join(self.listRegulatedAuthorizationIdentifiers[0].split("/")[:-1])
+
+        print(f"Getting Holder Value from parent MAN {parentMAH} regulated authorization PMS data.")
+        apiOutput = self.findRegulatedAuthorization(parentMAH)
+    
+        if 'entry' in apiOutput:
+            for entry in apiOutput['entry']:
+                
+                if 'resource' in entry:
+
+                    if 'type' in entry['resource']:
+
+                        if 'coding' in entry['resource']['type']:
+                            
+                            foundReleventCode = False
+                            
+                            for coding in entry['resource']['type']['coding']:
+                                
+                                if 'code' in coding:
+                                    
+                                    code = coding['code']
+
+                                    if code != "220000000061":
+                                        print(
+                                            f"Skipping entry due to different code {code}")
+                                    else:
+                                        print("Found entry with code 220000000061")
+                                        foundReleventCode = True
+                                        break
+                                    
+                                else:
+                                    #raise MissingKeyValuePair("Missing Key 'code' in 'coding' key value pair")
+                                    print(MissingKeyValuePair("Missing Key 'code' in 'coding' key value pair"))
+                                    continue
+                        else:
+                            #raise MissingKeyValuePair(
+                            #    "Missing Key 'coding' in 'type' key value pair")
+                            print(MissingKeyValuePair(
+                                "Missing Key 'coding' in 'type' key value pair"))
+                            continue
+
+                    else:
+                        #raise MissingKeyValuePair(
+                        #    "Missing Key 'type' in the 'entry' key value pair")
+                        print(MissingKeyValuePair(
+                            "Missing Key 'type' in the 'entry' key value pair"))
+                        continue    
+
+                    if foundReleventCode is True:
+                        
+                        if 'holder' in entry['resource']:
+                            if 'reference' in entry['resource']['holder']:
+                                holderReferenceValue = (
+                                    entry['resource']['holder']['reference'])
+
+                            if 'display' in entry['resource']['holder']:
+                                holderDisplayValue = (
+                                    entry['resource']['holder']['display'])
+                        else:
+                            #raise MissingKeyValuePair(
+                            #    "Missing Key 'holder' in entry key value pair")
+                            print("Missing Key 'holder' in entry key value pair")
+                
+                    else:
+                        print(NoReleventAuthorizationCodesFoundInDoc("No Regulated Authorization find with code 220000000061"))
+                    
+                else:
+                    #raise MissingKeyValuePair(
+                    #    "Missing Key 'resource' in the 'entry' key value pair")
+                    print(MissingKeyValuePair(
+                        "Missing Key 'resource' in the 'entry' key value pair"))
+                    continue
+                    
+
+        else:
+            #raise MissingKeyValuePair(
+            #    "Missing Key 'entry' in the regulated authorization API output")
+            print(MissingKeyValuePair(
+                f"Missing Key 'entry' in the parent MAH {parentMAH} regulated authorization API output"))
+
+        return (holderReferenceValue,holderDisplayValue)
+
+    def extractMAHFromFinalOutput(self, finalOutput):
+
+        holderDataComplete = [output[0] for output in finalOutput]
+
+        for holderData in holderDataComplete:
+
+            if holderData[0] != None:
+
+                return holderData
+        
+        return (None,None)
 
     def processRegulatedAuthorizationForDoc(self,listRegulatedAuthorizationIdentifiers=None):
 
@@ -589,15 +695,26 @@ class DocumentAnnotation:
                 finalOutput.append(productFinalOutput)
         
         #print("finalOutput",finalOutput)
-        if finalOutput != []:
-            uniqueFinalOutput = self.removeDuplicatesFromOutput(finalOutput)
 
-            self.uniqueFinalOutput = uniqueFinalOutput
+        
+        if finalOutput != []:
+            self.finalOutput = finalOutput
+            self.uniqueFinalOutput = self.removeDuplicatesFromOutput(self.finalOutput)
 
             self.finalOutputDict = {}
-            
-            self.finalOutputDict['Author Value'] = self.uniqueFinalOutput[0][0]
+            holderData = self.extractMAHFromFinalOutput(self.finalOutput)
+
+           
+            self.finalOutputDict['Author Value'] = holderData[1]
+            self.finalOutputDict['Author Reference'] = holderData[0]
+                
             self.finalOutputDict['Medicinal Product Definitions'] = [(entry[1],entry[2],entry[3]) for entry in self.uniqueFinalOutput]
+
+            if self.finalOutputDict['Author Value'] == None:
+                holderData = self.extractMAHfromParentMAN()
+                self.finalOutputDict['Author Value'] = holderData[1]
+                self.finalOutputDict['Author Reference'] = holderData[0]
+
 
             return self.finalOutputDict
         else:

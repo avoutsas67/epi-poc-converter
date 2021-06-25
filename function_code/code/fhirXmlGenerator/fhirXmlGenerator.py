@@ -21,7 +21,7 @@ class FhirXmlGenerator:
         self.styles_file_path = styles_file_path
         self.bundleMetaData = bundleMetaData
         metaDatakeys = set([ key for key in self.bundleMetaData])
-        requiredMetaDataKeys = set(['pmsOmsAnnotationData','documentTypeCode','documentType','medName'])
+        requiredMetaDataKeys = set(['pmsOmsAnnotationData','documentTypeCode','documentType','languageCode','medName'])
         if len(requiredMetaDataKeys - metaDatakeys) !=0:
             raise MissingKeysInBundleMetaData(f"Missing required keys in bundle meta data :- {str(requiredMetaDataKeys-metaDatakeys)}")
     
@@ -177,6 +177,7 @@ class FhirXmlGenerator:
             dataDict = self.bundleMetaData
             xml_bundle_data['documentTypeCode'] = dataDict['documentTypeCode']
             xml_bundle_data['documentType'] = dataDict['documentType']
+            xml_bundle_data['languageCode'] = dataDict['languageCode']
             xml_bundle_data['medName'] = dataDict['medName']
 
 
@@ -184,6 +185,7 @@ class FhirXmlGenerator:
         if self.bundleMetaData['pmsOmsAnnotationData']:
             
             xml_bundle_data['authorValue']  = self.bundleMetaData['pmsOmsAnnotationData']['Author Value']
+            xml_bundle_data['authorReference']  = self.bundleMetaData['pmsOmsAnnotationData']['Author Reference']
             xml_bundle_data['listEntryId'] = 'List/'+ str(uuid.uuid4())
             xml_bundle_data['listEntryFullUrl'] = "urn:uuid:" + str(uuid.uuid4())
             xml_bundle_data['medicinalProductDict'] = defaultdict(list)

@@ -354,12 +354,13 @@ class ListBundleHandler:
     def addMarketAuthHolder(self, pmsOmsSmsData):
 
         marketingAuthHolderValue = pmsOmsSmsData['Author Value']
+        marketingAuthHolderReference = pmsOmsSmsData['Author Reference']
 
         if marketingAuthHolderValue != None:
             
-            marketingAuthHolderExtIndex = [index for index, ext in enumerate(self.listJson['subject']['extension']) if 'holder' in ext['url']]
+            marketingAuthHolderExtIndex = [index for index, ext in enumerate(self.listJson['subject']['extension']) if 'holder' in ext['url']][0]
 
-            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['code'] = marketingAuthHolderValue
+            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['code'] = marketingAuthHolderReference
             self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['display'] = marketingAuthHolderValue
 
             self.logger.logFlowCheckpoint("updated martketing authorization holder value")
