@@ -35,6 +35,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
   noDataText = '';
   medicineName = "";
   sectionIdOnLoad = null;
+  activeDocType = null;
 
   constructor(private readonly fhirService: FhirService,
     private route: ActivatedRoute,
@@ -143,13 +144,17 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         actionObj.isActive = false;
         actionObj.routePath = parsedReference[1];
         actionObj.docCode = docType.extension[0].valueCoding.code;
-        if (this.docTypeList.length === 0) {
+        if (this.activeDocType && actionObj?.docCode === this.activeDocType) {
           actionObj.isActive = true;
         }
         this.docTypeList.push(actionObj)
       }
     });
-
+    if (this.docTypeList.filter(action => action.isActive).length === 0) {
+      this.docTypeList[0].isActive = true;
+      this.activeDocType = this.docTypeList[0].docCode;
+    }
+    
     for (let tabObjIndex = 0; tabObjIndex < this.docTypeList.length; tabObjIndex++) {
       switch (this.docTypeList[tabObjIndex].docCode) {
         case FhirDocTypeEnum.SMPC: {
@@ -170,8 +175,8 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
           }
           break;
         }
-        case FhirDocTypeEnum.PACKAGE_LEAFLET : {
-          if(tabObjIndex !== 3){
+        case FhirDocTypeEnum.PACKAGE_LEAFLET: {
+          if (tabObjIndex !== 3) {
             this.docTypeList = this.swapTabs(this.docTypeList, 3, tabObjIndex);
           }
           break;
@@ -179,6 +184,9 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
         default: {
           break;
         }
+      }
+      if(!this.docTypeList[tabObjIndex]){
+        this.docTypeList.splice(tabObjIndex,1);
       }
     }
 
@@ -189,15 +197,21 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
         if (item && item.routePath === this.documentId) {
           item.isActive = true;
+          this.activeDocType = item.docCode;
         }
-        else {
+        else if(item) {
           item.isActive = false;
         }
 
       });
     }
     else {
-      this.documentId = this.currentDocTypeMeta[0].reference.split('/')[1]
+      if (this.activeDocType) {
+        this.documentId = this.docTypeList.filter(actionObj => actionObj && actionObj?.isActive)[0].routePath;
+      }
+      else {
+        this.documentId = this.currentDocTypeMeta[0].reference.split('/')[1];
+      }
       this.getFhirDocTypeBundle(this.documentId);
     }
 
@@ -205,20 +219,28 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
   }
   onLanguageChange(event) {
-    let bundleId;
+    let requiredLangItems, bundleId, bundleMeta;
     if (this.currentLang != event.data) {
       this.hasLangChanged = true;
       this.currentLang = event.data;
 
-      this.listEntries.filter(entry =>
-        entry.item.extension[1].valueCoding.display === this.currentLang
+      requiredLangItems = this.listEntries.filter(entry =>
+        entry.item.extension[1].valueCoding.display === this.currentLang);
 
-      )
-      bundleId = this.listEntries.filter(entry =>
-        entry.item.extension[1].valueCoding.display === this.currentLang
-
-      )[0].item.reference.split('/')[1];
-
+      bundleMeta = requiredLangItems.filter(entry =>
+        entry.item.extension[0].valueCoding.code === this.activeDocType
+      );
+      if (bundleMeta[0]) {
+        bundleId = bundleMeta[0].item.reference.split('/')[1];
+        if(bundleId==='None'){
+          bundleId = requiredLangItems[0].item.reference.split('/')[1];
+          this.activeDocType= requiredLangItems[0].item.extension[0].valueCoding.code;
+        }
+      }
+      else {
+        bundleId = requiredLangItems[0].item.reference.split('/')[1];
+        this.activeDocType= requiredLangItems[0].item.extension[0].valueCoding.code;
+      }
       this.router.navigate([this.currentPath, this.listId, this.currentLang, bundleId], { replaceUrl: true })
     }
   }
