@@ -77,7 +77,7 @@ class DocTypePartitioner:
 
     def preProcessString(self, string):
 
-        return self.remove_escape_ansi(string).encode(encoding='utf-8').decode().replace(" ", "")
+        return self.remove_escape_ansi(string).encode(encoding='utf-8').decode()    
 
     ## Function to compare two texts and return true if they match 90 percent in fuzzy wuzzy similarity.
     def compareText(self, textHtml , textQrd):
@@ -86,16 +86,19 @@ class DocTypePartitioner:
         textQrd1 = self.preProcessString(textQrd)
         if textHtml1 == textQrd1:
             print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | 1")
-            return True, 1
+            return True, 1, 0
         
         import jellyfish
         score = round(jellyfish.jaro_winkler_similarity(textHtml1, textQrd1, long_tolerance=True),3)
-        if score >= 0.930:
+        wordsTextHtml1 = textHtml1.split(' ') 
+        reverseTextHtml1 = ' '.join(reversed(wordsTextHtml1)) 
+        reversedScore = round(jellyfish.jaro_winkler_similarity(reverseTextHtml1, textQrd1, long_tolerance=True),3)
+        if score >= 0.93 or reversedScore > 0.93:
 
-            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | {score}")
-            return True, score
+            print(f"textHtml1 | {textHtml1} | textQrd1 | {textQrd1} | {score} | {reversedScore}")
+            return True, score, reversedScore
         
-        return False, score
+        return False, score, reversedScore
         
 
 
@@ -108,9 +111,9 @@ class DocTypePartitioner:
         foundHead = False
         if(not ignore_page_break_check):
             for i, row in enumerate(df.itertuples(), 0):
-                found, score = self.compareText(row.Text, nextkey)
+                found, score, reversedScore  = self.compareText(row.Text, nextkey)
                 if found == True:
-                    endPositions.append((i,score))
+                    endPositions.append((i,max([score, reversedScore])))
             
             maxScore = max([entry[1] for entry in endPositions])
             #print("Max Score", maxScore)
@@ -121,19 +124,15 @@ class DocTypePartitioner:
             elif len(endPositions) > 1:
 
                 if self.domain == 'H' and self.procedureType == 'CAP':
-                    if qrdKeyIndex == 0:
-                        endPos = endPositions[1][0]
-                        foundHead = True
-                    
-                    if qrdKeyIndex in [1,2]:
-                        for index, endPosition in enumerate(endPositions):
-                            if endPosition[1] == maxScore:
-                                if endPosition[0] > self.new_dataframe_start:
-                                    endPos = endPosition[0]
-                                    foundHead = True
 
-                                else:
-                                    raise f"Error Found while finding {nextkey} heading for spliting OutputJson"
+                    for index, endPosition in enumerate(endPositions):
+                        if endPosition[1] == maxScore:
+                            if endPosition[0] > self.new_dataframe_start:
+                                endPos = endPosition[0]
+                                foundHead = True
+
+                            else:
+                                raise f"Error Found while finding {nextkey} heading for spliting OutputJson"
                 else:
                     for index, endPosition in enumerate(endPositions):
                         if endPosition[1] == maxScore:
