@@ -94,6 +94,18 @@
             }
         },
         {
+            "type": "Microsoft.ApiManagement/service/apiVersionSets",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-web-apiset')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "displayName": "ePI-web",
+                "versioningScheme": "Segment"
+            }
+        },
+        {
             "type": "Microsoft.ApiManagement/service/groups",
             "apiVersion": "2020-12-01",
             "name": "[concat(parameters('apimName'), '/administrators')]",
@@ -264,6 +276,29 @@
             }
         },
         {
+            "type": "Microsoft.ApiManagement/service/apis",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-web-api')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]",
+                "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-web-apiset')]"
+            ],
+            "properties": {
+                "displayName": "ePI-web",
+                "apiRevision": "1",
+                "description": "API to read electronic product information for the web UI",
+                "subscriptionRequired": true,
+                "serviceUrl": "[parameters('fhirAPIUrl')]",
+                "path": "epi-web",
+                "protocols": [
+                    "https"
+                ],
+                "isCurrent": true,
+                "apiVersion": "v1",
+                "apiVersionSetId": "[resourceId('Microsoft.ApiManagement/service/apiVersionSets', parameters('apimName'), 'epi-web-apiset')]"
+            }
+        },
+        {
             "type": "Microsoft.ApiManagement/service/apis/policies",
             "apiVersion": "2020-12-01",
             "name": "[concat(parameters('apimName'), '/epi-read-api/policy')]",
@@ -286,6 +321,19 @@
             ],
             "properties": {
                 "value": "[parameters('policyApiWrite')]",
+                "format": "xml"
+            }
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/apis/policies",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('apimName'), '/epi-web-api/policy')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-web-api')]",
+                "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
+            ],
+            "properties": {
+                "value": "[parameters('policyApiRead')]",
                 "format": "xml"
             }
         },
@@ -342,10 +390,10 @@
         {
             "type": "Microsoft.ApiManagement/service/products/apis",
             "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('apimName'), '/epi-read-web/epi-read-api')]",
+            "name": "[concat(parameters('apimName'), '/epi-read-web/epi-web-api')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service/products', parameters('apimName'), 'epi-read-web')]",
-                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-read-api')]",
+                "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimName'), 'epi-web-api')]",
                 "[resourceId('Microsoft.ApiManagement/service', parameters('apimName'))]"
             ]
         },

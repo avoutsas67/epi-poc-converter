@@ -388,6 +388,16 @@ if ($DeployAPIM) {
         -ServiceUrl $fhirAPIUrl `
         -SpecificationFormat OpenApi `
         -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-write.yml"
+ 
+    Write-Host "Importing epi-web API in APIM '$fhirAPIMName'"
+    Import-AzApiManagementApi -Context $apimContext `
+        -ApiId "epi-web-api" `
+        -ApiVersionSetId "epi-web-apiset" `
+        -ApiVersion "v1" `
+        -Path "epi-web" `
+        -ServiceUrl $fhirAPIUrl `
+        -SpecificationFormat OpenApi `
+        -SpecificationPath "$PSScriptRoot\Templates\APIM-ePI-web.yml"
 }
 
 #endregion

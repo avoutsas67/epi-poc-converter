@@ -136,6 +136,15 @@ paths:
         '200':
           description: "A single document List is returned, with the specified id and history id"
 
+  /metadata:
+    get:
+      operationId: EP131
+      summary: "Get Capabilities Document"
+      description: "Retrieves the the information about a server's capabilities."
+      responses:
+        '200':
+          description: "A Capabilities Document"
+
 components:
   securitySchemes:
     apiKeyHeader:

@@ -1,0 +1,65 @@
+openapi: 3.0.1
+info:
+  title: ePI-web
+  description: "API to read electronic product information for the web UI"
+  version: v1
+paths:
+  /Bundle/{id}:
+    get:
+      operationId: EP102
+      summary: "Get Document (read)"
+      description: "Retrieve the latest copy of a single document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the document to retrieve"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "A single document Bundle is returned, with the specified id, including the embedded Composition and List resources, and any Binary images"
+
+  /List:
+    get:
+      operationId: EP125
+      summary: "Search Document Set"
+      description: "Allows searching for document sets, by type, and by contents"
+      parameters:
+        - name: params
+          in: query
+          description: "Examples (can be combined): by contained document properties, by list type, date. TODO need full list of parameters and modes"
+          schema:
+            type: object
+      responses:
+        '200':
+          description: "A set of matching items, as a searchset Bundle of Lists. Does not return the actual documents (though this may be possible via _include)."
+  /List/{id}:
+    get:
+      operationId: EP122
+      summary: "Get Document List (read)"
+      description: "Get a single document List by a known id. Doesn't retrieve the documents themselves (unless _included, see also below Get Document Set)"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Id of the list to retrieve"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "A document List"
+
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
