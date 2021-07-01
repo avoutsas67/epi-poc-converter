@@ -111,6 +111,12 @@ class parserExtractor:
 
 
     def checkAllChildrenForTag(self, element_html, tag_type):
+        """
+        Function to check if dom elements, containing text with length 
+        greater than zero, has a parent whose html tag that matches 
+        the tag in tag_type variable.
+        
+        """
         current_dom = BeautifulSoup(element_html, "html.parser")
         ele_with_text = current_dom.find_all(text=True, recursive=True)
         if(len(ele_with_text)>0):
@@ -282,6 +288,10 @@ class parserExtractor:
         
        
     def parseCssInStr(self, styleStr):
+        """
+        Function to check if CSS (represented as a string) has features such as bold, uppercased, underlined, italics and a solid border.
+
+        """
         feature_dict = self.createNewFeatureObj(self.styleFeatureKeyList)
 
         if(styleStr.find('font-weight')!=-1):
@@ -309,7 +319,8 @@ class parserExtractor:
         partitioned_classes = css_in_style.split("}")
         for idx, cls in enumerate(partitioned_classes):
             parseClass = cls.split("{")
-            if(parseClass[0].find('font-face') == -1):
+            if(parseClass[0].find('font-face') == -1): 
+                ## Ignoring font-face css
                 if(len(parseClass)>1):
                     class_style_dict[parseClass[0]] = parseClass[1]
 
@@ -340,15 +351,7 @@ class parserExtractor:
             if(dom_data['IsHeadingType']):
                 dom_data['IsPossibleHeading'] = True
         return dom_data
-    
-    def remove_escape_ansi(self, line):
-        """
-        Function to remove escape characters in string
-        """
-        escapes = ''.join([chr(char) for char in range(1, 32)])
-        translator = str.maketrans('', '', escapes)
-        return line.translate(translator)
-        
+           
             
     def remove_escape_ansi(self, line):
 
@@ -450,7 +453,6 @@ class parserExtractor:
                          get_immediate_text, 
                          class_style_dict, 
                          html_tags_for_styles, 
-                         img_base64_dict,
                          section_dict):
 
         #print(type(ele),ele)
@@ -787,6 +789,7 @@ class parserExtractor:
                 dom_elements=soup.body.find_all(True)
                 dom_elements_copy = BeautifulSoup(str(soup), "html.parser").find_all(True)
             
+            ## Extracting styles in style tag of HTML, as string
             css_in_style = str(soup.style)
 
             with open(style_filepath,'w+') as style_file:
@@ -795,19 +798,51 @@ class parserExtractor:
             self.logger.logFlowCheckpoint('Style Information Stored In File: ' + style_filepath)
 
             css_in_style = self.cleanCssString(css_in_style)
+
+            """
+                class_style_dict is a dictionary created from the CSS in style tag. 
+                The class name before { is the key and the contents inside {} is the value.
+
+                For example if following is the style tag of a document.
+                <style>
+                    .a, p.a{
+                        font-weight:bold;
+                    }
+                    .b{
+                        font-weight: normal;
+                        text-decoration: underline;
+                    }
+                </style>
+
+                class_style_dict would be created as follows:
+
+                class_style_dict['.a, p.a'] = 'font-weight:bold;'
+                class_style_dict['.b'] = 'font-weight: normal; text-decoration: underline;'
+
+            """
             class_style_dict = self.parseClassesInStyle(css_in_style)
             #print("class_style_dict", class_style_dict)
             #Object to be written to json
             parsed_dom_elements = defaultdict(list)
             parsed_output = None
             addedIndex = 0
-            ## Using parent ID to ignore childen in ignore_child_in_tagType list
+
             for index, ele in enumerate(dom_elements_copy):
                 #print("Pure Element",type(ele.name),str(ele.name) == "None",parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents)
                 
                 if str(ele.name) == "None":
                     continue
                 hasParent = False
+
+                
+                """
+                    Using parent ID to ignore childen in ignore_child_in_tagType list:
+
+                    When the parser encounters an element with a html tag in the self.ignore_child_in_tagType list, 
+                    the self.createDomEleData function updates parsed_output['ignore_child_in_parentId'] to inform the parser, 
+                    to skip elements that are children of the id present in parsed_output['ignore_child_in_parentId']
+
+                """
                 
                 if(parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents):
                     for parent in ele.parents:
@@ -824,14 +859,12 @@ class parserExtractor:
                                                          False, 
                                                          class_style_dict, 
                                                          html_tags_for_styles, 
-                                                         img_base64_dict,
                                                          section_dict)            
                     else:
                         outputCount, parsed_output1 = self.createDomEleData(ele, 
                                                          True, 
                                                          class_style_dict, 
-                                                         html_tags_for_styles, 
-                                                         img_base64_dict, 
+                                                         html_tags_for_styles,
                                                          section_dict)
                 if outputCount == 1:
 
