@@ -117,14 +117,6 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       }
     })
   }
-
-  swapTabs(list, idxA, idxB) {
-    let temp = list[idxA];
-    list[idxA] = list[idxB];
-    list[idxB] = temp;
-    return list
-  }
-
   getEntriesForRequiredLang(lang: string) {
     this.currentDocTypeMeta = [];
     this.currentLang = lang;
@@ -154,41 +146,8 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       this.docTypeList[0].isActive = true;
       this.activeDocType = this.docTypeList[0].docCode;
     }
-    
-    for (let tabObjIndex = 0; tabObjIndex < this.docTypeList.length; tabObjIndex++) {
-      switch (this.docTypeList[tabObjIndex].docCode) {
-        case FhirDocTypeEnum.SMPC: {
-          if (tabObjIndex !== 0) {
-            this.docTypeList = this.swapTabs(this.docTypeList, 0, tabObjIndex);
-          }
-          break;
-        }
-        case FhirDocTypeEnum.ANNEX_II: {
-          if (tabObjIndex !== 1) {
-            this.docTypeList = this.swapTabs(this.docTypeList, 1, tabObjIndex);
-          }
-          break;
-        }
-        case FhirDocTypeEnum.LABELLING: {
-          if (tabObjIndex !== 2) {
-            this.docTypeList = this.swapTabs(this.docTypeList, 2, tabObjIndex);
-          }
-          break;
-        }
-        case FhirDocTypeEnum.PACKAGE_LEAFLET: {
-          if (tabObjIndex !== 3) {
-            this.docTypeList = this.swapTabs(this.docTypeList, 3, tabObjIndex);
-          }
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-      if(!this.docTypeList[tabObjIndex]){
-        this.docTypeList.splice(tabObjIndex,1);
-      }
-    }
+
+    this.docTypeList.sort((a,b)=> a.docCode - b.docCode );
 
     // Retrieving bundle on page refresh and setting respective tab as active
     if (this.documentId && !this.hasLangChanged) {
