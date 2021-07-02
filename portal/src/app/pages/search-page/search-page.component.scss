@@ -41,7 +41,7 @@
             
         }
         &-main {
-            min-height: calc(100% - 369px);
+            min-height: calc(100% - 384px);
             margin:0px;
             padding:0px;
             width: 100%;
@@ -87,10 +87,16 @@
         }
         &-notFound {
             padding: 40px;
+            p{
+                &:nth-last-child(1){
+                    margin-bottom: 0px;
+                }
+            }
         }
         &-resultList {
             list-style: none;
             padding: 0px;
+            margin:0px;
 
             .ema-resultList-item {
                 display: flex;
@@ -117,14 +123,14 @@
                         font-size: 16px;
                         line-height: 21px;
                         color: black;
-                        margin: 16px 0px 8px 0px;
+                        margin: 16px 0px 0px 0px;
                     }
                     &-date {
                         font-weight: normal;
                         font-size: 16px;
                         line-height: 21px;
                         color: black;
-                        margin: 0px;
+                        margin: 16px 0px 0px 0px;
                     }
                     &-checkbox {
                         width: 24px;
