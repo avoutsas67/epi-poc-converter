@@ -28,8 +28,8 @@ class FhirXmlGenerator:
     def createIdDict(self, row, html_img_embeded = None):
         id_dict_item= defaultdict(list)
         id_dict_item['id'] = row.id
-        id_dict_item['htmlText'] = str(row.htmlText).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
-        id_dict_item['Text'] = str(row.Text).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
+        id_dict_item['htmlText'] = str(row.htmlText).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;").replace('"',"&quot;").replace("'","&apos;")
+        id_dict_item['Text'] = str(row.Text).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;").replace('"',"&quot;").replace("'","&apos;")
         if(html_img_embeded):
             id_dict_item['Html_betw'] =html_img_embeded
         else:
@@ -51,7 +51,7 @@ class FhirXmlGenerator:
                 rowName = str(rowDisplayCode) + " " + rowName
             else:
                 rowName = str(rowDisplayCode) + ". " + rowName
-        id_dict_item['headingName'] = str(rowName).replace("<","&lt;").replace(">","&gt;").replace("@","&amp;")
+        id_dict_item['headingName'] = str(rowName).replace("<","&lt;").replace(">","&gt;").replace("&","&amp;").replace('"',"&quot;").replace("'","&apos;")
         
         return id_dict_item
     
