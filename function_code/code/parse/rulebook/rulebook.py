@@ -7,9 +7,11 @@ from QrdExtractor.qrdExtractor import QrdCanonical
 class LanguageErrorQrdTemplate(Exception):
     pass
 
+class DocumentTypeErrorQrdTemplate(Exception):
+    pass
 class StyleRulesDictionary:
 
-    def __init__(self, logger, controlBasePath, language, fileName, domain, procedureType):
+    def __init__(self, logger, controlBasePath, language, fileName, domain, procedureType, NAPDocumentNumber = None):
         self.language = language
         self.fileName = fileName
         self.domain = domain
@@ -19,7 +21,9 @@ class StyleRulesDictionary:
         self.logger = logger
         self.controlBasePath = controlBasePath
         self.qrd_section_headings = []
+        print(self.qrd_section_headings)
         self.styleRuleDict = self.createStyleRuleDict()
+        self.NAPDocumentNumber = NAPDocumentNumber
 
     def getTextAtHeadingIdOneOfRequiredQrdSection(self):
 
@@ -90,10 +94,19 @@ class StyleRulesDictionary:
         self.qrd_section_headings = []
         self.getTextAtHeadingIdOneOfRequiredQrdSection()
         if(len(self.qrd_section_headings)>0):
-            self.qrd_section_headings = [ heading.encode(encoding='utf-8').decode()  for heading in self.qrd_section_headings]
-            #for heading in self.qrd_section_headings:
-            #    heading = heading.encode(encoding='utf-8').decode()
-            self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
+            if self.procedureType == 'CAP':
+                if len(self.qrd_section_headings) == 4:
+                    self.qrd_section_headings = [ heading.encode(encoding='utf-8').decode()  for heading in self.qrd_section_headings]
+                    self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
+                else:
+                    raise DocumentTypeErrorQrdTemplate("All document types not found in QRD template")
+
+            else:
+                if len(self.qrd_section_headings) == 3:
+                    self.qrd_section_headings = [ heading.encode(encoding='utf-8').decode()  for heading in self.qrd_section_headings]
+                    self.logger.logFlowCheckpoint(('Qrd Section Keys Retrieved For Style Dictionary: ' + ', '.join(self.qrd_section_headings).encode(encoding='utf-8').decode()))
+                else:
+                    raise DocumentTypeErrorQrdTemplate("All document types not found in QRD template")
         else:
             try:
                 raise LanguageErrorQrdTemplate("Language not found in QRD template")
@@ -106,10 +119,11 @@ class StyleRulesDictionary:
         return self.qrd_section_headings
 
 
-    def createDefaultStyleRuleJson(self, style_dict_path):
+    def createDefaultStyleRuleJson(self, style_dict_path, NAPExistingDict):
         self.getSectionKeys()
+
         styleRuleDict = {
-            self.qrd_section_headings[0]:{
+            0:{
                 'L1':{
                         'Either':{
                             'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
@@ -138,7 +152,7 @@ class StyleRulesDictionary:
 
 
             },
-            self.qrd_section_headings[1]:{
+            1:{
                 'L1':self.createNewFeatureObj(self.styleFeatureKeyList),
                 'L2':
                     {
@@ -148,11 +162,11 @@ class StyleRulesDictionary:
                         }
                     }
             },
-            self.qrd_section_headings[2]:{
+            2:{
                 'L1':self.createNewFeatureObj(self.styleFeatureKeyList),
                 'L2':self.createNewFeatureObj(self.styleFeatureKeyList)
             },
-            self.qrd_section_headings[3]:{
+            3:{
                'L1':{
                         'Either':{
                             'RuleSet1':self.createNewFeatureObj(self.styleFeatureKeyList),
@@ -174,88 +188,98 @@ class StyleRulesDictionary:
         ## Setting features with keys in styleFeatureKeyList
         ## ANNEX I
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Indexed'] = True
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet1']['Uppercased'] = True
+        styleRuleDict[0]['L1']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[0]['L1']['Either']['RuleSet1']['Indexed'] = True
+        styleRuleDict[0]['L1']['Either']['RuleSet1']['Uppercased'] = True
 
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Indexed'] = True
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Uppercased'] = True
-        styleRuleDict[self.qrd_section_headings[0]]['L1']['Either']['RuleSet2']['Italics'] = True
+        styleRuleDict[0]['L1']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[0]['L1']['Either']['RuleSet2']['Indexed'] = True
+        styleRuleDict[0]['L1']['Either']['RuleSet2']['Uppercased'] = True
+        styleRuleDict[0]['L1']['Either']['RuleSet2']['Italics'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet1']['Indexed'] = True
+        styleRuleDict[0]['L2']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[0]['L2']['Either']['RuleSet1']['Indexed'] = True
 
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Indexed'] = True
-        styleRuleDict[self.qrd_section_headings[0]]['L2']['Either']['RuleSet2']['Italics'] = True
+        styleRuleDict[0]['L2']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[0]['L2']['Either']['RuleSet2']['Indexed'] = True
+        styleRuleDict[0]['L2']['Either']['RuleSet2']['Italics'] = True
 
 
         ## Level 3
-        styleRuleDict[self.qrd_section_headings[0]]['L3']['Either']['RuleSet1']['Underlined'] = True 
+        styleRuleDict[0]['L3']['Either']['RuleSet1']['Underlined'] = True 
 
-        styleRuleDict[self.qrd_section_headings[0]]['L3']['Either']['RuleSet2']['Underlined'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L3']['Either']['RuleSet2']['Uppercased'] = True 
+        styleRuleDict[0]['L3']['Either']['RuleSet2']['Underlined'] = True 
+        styleRuleDict[0]['L3']['Either']['RuleSet2']['Uppercased'] = True 
 
         ## Level 4
-        styleRuleDict[self.qrd_section_headings[0]]['L4']['Either']['RuleSet1']['Italics'] = True
+        styleRuleDict[0]['L4']['Either']['RuleSet1']['Italics'] = True
 
-        styleRuleDict[self.qrd_section_headings[0]]['L4']['Either']['RuleSet2']['Italics'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L4']['Either']['RuleSet2']['Underlined'] = True 
+        styleRuleDict[0]['L4']['Either']['RuleSet2']['Italics'] = True 
+        styleRuleDict[0]['L4']['Either']['RuleSet2']['Underlined'] = True 
 
-        styleRuleDict[self.qrd_section_headings[0]]['L4']['Either']['RuleSet3']['Italics'] = True 
-        styleRuleDict[self.qrd_section_headings[0]]['L4']['Either']['RuleSet3']['Uppercased'] = True 
+        styleRuleDict[0]['L4']['Either']['RuleSet3']['Italics'] = True 
+        styleRuleDict[0]['L4']['Either']['RuleSet3']['Uppercased'] = True 
 
         ## ANNEX II
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[1]]['L1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[1]]['L1']['Indexed'] = True
-        styleRuleDict[self.qrd_section_headings[1]]['L1']['Uppercased'] = True
+        styleRuleDict[1]['L1']['Bold'] = True 
+        styleRuleDict[1]['L1']['Indexed'] = True
+        styleRuleDict[1]['L1']['Uppercased'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[1]]['L2']['Either']['RuleSet1']['IsListItem'] = True
-        styleRuleDict[self.qrd_section_headings[1]]['L2']['Either']['RuleSet1']['Bold'] = True
+        styleRuleDict[1]['L2']['Either']['RuleSet1']['IsListItem'] = True
+        styleRuleDict[1]['L2']['Either']['RuleSet1']['Bold'] = True
 
-        styleRuleDict[self.qrd_section_headings[1]]['L2']['Either']['RuleSet2']['Underlined'] = True 
+        styleRuleDict[1]['L2']['Either']['RuleSet2']['Underlined'] = True 
 
         ## LABELLING
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[2]]['L1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[2]]['L1']['Uppercased'] = True
+        styleRuleDict[2]['L1']['Bold'] = True 
+        styleRuleDict[2]['L1']['Uppercased'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[2]]['L2']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[2]]['L2']['Uppercased'] = True
-        styleRuleDict[self.qrd_section_headings[2]]['L2']['Indexed'] = True
+        styleRuleDict[2]['L2']['Bold'] = True 
+        styleRuleDict[2]['L2']['Uppercased'] = True
+        styleRuleDict[2]['L2']['Indexed'] = True
 
         ## PACKAGE LEAFLET
         ## Level 1
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet1']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet1']['Indexed'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[3]['L1']['Either']['RuleSet1']['Indexed'] = True
 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet2']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet2']['Underlined'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet2']['Bold'] = True 
+        styleRuleDict[3]['L1']['Either']['RuleSet2']['Underlined'] = True
 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Uppercased'] = True
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet3']['Indexed'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet3']['Bold'] = True 
+        styleRuleDict[3]['L1']['Either']['RuleSet3']['Uppercased'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet3']['Indexed'] = True
 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Bold'] = True 
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Uppercased'] = True
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Underlined'] = True
-        styleRuleDict[self.qrd_section_headings[3]]['L1']['Either']['RuleSet4']['Indexed'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet4']['Bold'] = True 
+        styleRuleDict[3]['L1']['Either']['RuleSet4']['Uppercased'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet4']['Underlined'] = True
+        styleRuleDict[3]['L1']['Either']['RuleSet4']['Indexed'] = True
 
         ## Level 2
-        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet1']['Bold'] = True 
+        styleRuleDict[3]['L2']['Either']['RuleSet1']['Bold'] = True 
 
-        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet2']['Underlined'] = True
+        styleRuleDict[3]['L2']['Either']['RuleSet2']['Underlined'] = True
 
-        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet3']['Underlined'] = True
-        styleRuleDict[self.qrd_section_headings[3]]['L2']['Either']['RuleSet3']['Uppercased'] = True 
+        styleRuleDict[3]['L2']['Either']['RuleSet3']['Underlined'] = True
+        styleRuleDict[3]['L2']['Either']['RuleSet3']['Uppercased'] = True 
+        
+
+        finalStyleRuleDict = {}
+
+        for index, key in enumerate(self.qrd_section_headings):
+            if self.procedureType == "NAP" and index > 0:
+                finalStyleRuleDict[key] = styleRuleDict[index+1]
+            else:
+                finalStyleRuleDict[key] = styleRuleDict[index]
+            
 
         with open(style_dict_path, 'w+') as outfile:
-            json.dump(styleRuleDict, outfile)
+            json.dump(finalStyleRuleDict, outfile)
             outfile.close()
 
         return styleRuleDict
@@ -274,17 +298,24 @@ class StyleRulesDictionary:
             os.mkdir(style_dict_path)
             
         dictionary_file_name = 'rule_dictionary_' + str(self.language) +'.json'
-        style_dict_path = os.path.join(style_dict_path, dictionary_file_name)
+        if self.procedureType == "CAP":
+            if os.path.exists(os.path.join(style_dict_path,"CAP")) == False:
+                os.mkdir(os.path.join(style_dict_path,"CAP"))
+            style_dict_path = os.path.join(style_dict_path,"CAP", dictionary_file_name)
+        else:
+            if os.path.exists(os.path.join(style_dict_path,"NAP")) == False:
+                os.mkdir(os.path.join(style_dict_path,"NAP"))
+            style_dict_path = os.path.join(style_dict_path,"NAP", dictionary_file_name)
+
         if(os.path.exists(style_dict_path)):
             self.logger.logFlowCheckpoint('Reading style dictionary in file: ' + dictionary_file_name)
-
             self.getSectionKeys()
             with open(style_dict_path) as f:
                 return json.load(f)
         else:
             self.logger.logFlowCheckpoint('Creating default style dictionary in file: ' + dictionary_file_name)
 
-            return self.createDefaultStyleRuleJson(style_dict_path)
+            return self.createDefaultStyleRuleJson(style_dict_path, None)
 
     def createNewFeatureObj(self, styleFeatureKeyList):
             featureDict = defaultdict(list)

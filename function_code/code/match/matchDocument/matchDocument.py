@@ -479,6 +479,44 @@ class MatchDocument():
                                             headingRemovedUsingStyle.append(
                                                 qrd_str)
                                             continue
+                                    # elif str_['IsHeadingType'] != None:
+                                        
+                                    #     if qrd_str_row['heading_id'] == 1:
+                                    #         pass
+                                    #     elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
+                                    #         pass
+
+                                    #     elif  str_['IsHeadingType'] != qrd_str_row['Heading Level']:
+                                            
+                                    #         validated = False
+                                    #         print(
+                                    #             "----------------------------------")
+                                    #         print(f"RemovedByStyle { str_['IsHeadingType']} : {qrd_str_row['Heading Level']}")
+                                    #         print(
+                                    #             "----------------------------------")
+                                    #         self.logger.logValidateCheckpoint("Validation Failed By Style As Level is not matching", qrd_str_row, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            
+                                    #         headingRemovedUsingStyle.append(
+                                    #             qrd_str)
+                                    #         continue
+                                            
+                                    # else:
+                                    #     if qrd_str_row['heading_id'] == 1:
+                                    #         pass
+                                    #     elif self.isPackageLeaflet and qrd_str_row['heading_id'] == 27:
+                                    #         pass
+                                    #     else:
+                                    #         validated = False
+                                    #         print(
+                                    #             "----------------------------------")
+                                    #         print("RemovedByStyle")
+                                    #         print(
+                                    #             "----------------------------------")
+                                    #         self.logger.logValidateCheckpoint("Validation Failed By Style As No Level is assigned", qrd_str_row, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)
+                                            
+                                    #         headingRemovedUsingStyle.append(
+                                    #             qrd_str)
+                                    #         continue
 
                                     #print(found, ' || ', outputString,
                                     #      ' || ', str_['Text'].encode('utf-8','ignore').decode('utf-8','ignore'), ' || ', qrd_str.encode('utf-8','ignore').decode('utf-8','ignore'))
