@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DisclaimerServiceService {
+  /* Service used to keep track of whether the disclaimer modal was accepted or not*/
+  
   private disclaimerStatus = new BehaviorSubject<Boolean>(false);
   
   constructor() { }

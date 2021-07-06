@@ -6,6 +6,7 @@ import { FhirCompareSectionsMeta } from 'src/app/models/fhir-compare-sections.mo
   providedIn: 'root'
 })
 export class CompareSectionService {
+  // Service used to store meta data for populating compare section
   private compareSectionsMeta = new BehaviorSubject<FhirCompareSectionsMeta>(null);
 
   constructor() { }

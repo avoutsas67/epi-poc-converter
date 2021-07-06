@@ -92,6 +92,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
         this.showDataInUI = true;
         setTimeout(() => {
+          // Scroll section into view
           if (this.sectionIdOnLoad && this.showDataInUI) {
             const element = document.getElementById(this.sectionIdOnLoad);
             if (element) {
@@ -104,6 +105,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       }
     },
       (error) => {
+        // Error handling if document bundle not retrieved
         this.documentData = null;
         this.menuItems = null;
         this.noDataText = "Page Not Found";
@@ -111,6 +113,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
       });
   }
   getAvailableLanguages() {
+    // Function to create a list of all available languages in the List bundle for a medicine
     this.listEntries?.forEach(entry => {
       if (!this.availableLanguages.includes(entry.item.extension[1].valueCoding.display)) {
         this.availableLanguages.push(entry.item.extension[1].valueCoding.display)
@@ -178,6 +181,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
   }
   onLanguageChange(event) {
+    // Function triggerred on change of language in the language dropdown
     let requiredLangItems, bundleId, bundleMeta;
     if (this.currentLang != event.data) {
       this.hasLangChanged = true;
@@ -217,6 +221,7 @@ export class DocumentViewComponent implements OnInit, AfterViewInit {
 
 
   changeDoctype(event) {
+    //Function triggered on click of document type tabs
     this.sectionIdOnLoad = null;
     this.router.navigate([this.currentPath, this.listId, this.currentLang, event.bundleId], { replaceUrl: true })
   }
