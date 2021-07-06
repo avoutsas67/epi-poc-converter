@@ -42,12 +42,14 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.disclaimerServiceService.getDisclaimerStatus().subscribe((status) => {
       if (!status) {
+        // Opening disclaimer modal on page load if Accept has not been clicked
         const modalRef = this.modalService.open(DisclaimerModalComponent, { scrollable: true, centered: true });
       }
     });
   }
 
   ngOnDestroy() {
+    // Closing all modal instances
     this.modalService.dismissAll();
   }
   setResultCount() {
@@ -153,6 +155,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getAllMedicines() {
+    // Function to get all medicines from the List bundle and populate the UI
     this.fhirService.getAllLists();
     this.fhirService.medicineData.subscribe((data) => {
       if (data && data.entry?.length>0) {
@@ -219,13 +222,20 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   backToSearchView() {
+    // Changing view to search results
     this.inCompareState = false;
     this.compareSectionService.clearCompareMeta();
   }
 
   searchChanged(event) {
-    // Function to perform different operations on search
+    /* Function to perform different operations on search
+      The following cases are handled in this function:
+        Case 1: Search for a keyword
+        Case 2: Clearing all search keywords
+        Case 3: Clearing specific keyword
+    */
     if (event.operation === 'add') {
+      // Case 1: Search for a keyword
       this.searchTagList = event.keyList;
 
       for (let listIdx = 0; listIdx < this.searchTagList.length; listIdx++) {
@@ -257,6 +267,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
     else if (event.operation === 'clearAll') {
+      // Case 2: Clearing all search keywords
       this.medicineList = [];
       this.searchTagList = [];
       this.setResultCount();
@@ -264,6 +275,7 @@ export class SearchPageComponent implements OnInit, AfterViewInit, OnDestroy {
       this.noDataRetrieved = false;
     }
     else if (event.operation === 'clearSelected') {
+      // Case 3: Clearing specific keyword
       this.searchTagList = event.keyList;
 
       if (event.keyToDelete == '*') {
