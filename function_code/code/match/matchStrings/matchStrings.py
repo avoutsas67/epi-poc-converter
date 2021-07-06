@@ -46,7 +46,7 @@ class MatchStrings():
         '''
         #str_ = re.sub('^[A-Za-z0-9]\.[\s]*', '', str_)
 
-        str_ = re.sub('^.[\s]+', '', str_)
+        #str_ = re.sub('^.[\s]+', '', str_)
         str_ = re.sub('[\s]+', ' ', str_)
 
         str_ = str_.rstrip()
@@ -217,6 +217,14 @@ class MatchStrings():
                 key = "SpecialCase2"
                 ruleDict1 = self.ruleDict[key]
 
+        if self.domain == "H" and self.procedureType == "NAP" and self.documentNumber == 0: ## SmPC
+            if (qrdRowHeadingId == 50):
+                key = "SpecialCase1"
+                ruleDict1 = self.ruleDict[key]
+            elif (qrdRowHeadingId == 52):
+                key = "SpecialCase2"
+                ruleDict1 = self.ruleDict[key]
+
         if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 3: ## Package Leaflet
             
             if(qrdRowHeadingId == 13):
@@ -285,6 +293,7 @@ class MatchStrings():
             return True, outputString
 
         else:
+            #print(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
             lowerCaseCheckFuzzyScoreThreshhold = ruleDict1['lowerCaseWeightedFuzzyScore']
             if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
                 
@@ -312,8 +321,8 @@ class MatchStrings():
                 #    return False, outputString1
 
             #if resultSum == 2:
-            #    self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
-                
+            #    #self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
+            #    print(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
 
             return False, outputString
 

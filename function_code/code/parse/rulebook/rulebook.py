@@ -57,18 +57,20 @@ class StyleRulesDictionary:
         
         text_with_heading_id_one = []
         for i, row in enumerate(qrd_df.itertuples(), 0):
-                           
+
             if(i==2 or i==3):
                 if(not row.Display_code or not pd.isna(row.Display_code)):
                     text_with_heading_id_one.append((row.Display_code+'. '+ row.Name))
                 else:
                     if(i==2):
-                        text_with_heading_id_one.append(('A. '+ row.Name))
-
+                        if self.procedureType == 'CAP':
+                            text_with_heading_id_one.append(('A. '+ row.Name))
+                        else:
+                            text_with_heading_id_one.append((row.Name))
                     if(i==3):
                         text_with_heading_id_one.append(('B. '+ row.Name))
             else:
-                 text_with_heading_id_one.append(row.Name)
+                text_with_heading_id_one.append(row.Name)
 
         self.qrd_section_headings = text_with_heading_id_one
         

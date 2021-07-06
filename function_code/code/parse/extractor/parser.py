@@ -253,33 +253,33 @@ class parserExtractor:
         #print('text_with_req',text_with_req)
         for index, txt in enumerate(ele_with_text):
             
-            #printtxt, "|", len(txt))
-            #print"match",str([re.match(r'^[0-9]+\.[0-9\s]?', txt)][0]))
+            #print(txt, "|", len(txt),(txt.strip() in text_with_req))
+            #print("match",str([re.match(r'^[0-9]+\.[0-9\s]?', txt)][0]))
             onlyIndex = re.match(r'^[0-9]+\.[0-9\s]?', txt)
-            #printonlyIndex != None and len(onlyIndex[0]) == len(txt))
-            if len(txt.strip()) == 0 or (onlyIndex != None and len(onlyIndex[0]) == len(txt)) or (txt in text_with_req):
+            #print(onlyIndex != None and len(onlyIndex[0]) == len(txt))
+            if len(txt.strip()) == 0 or (onlyIndex != None and len(onlyIndex[0]) == len(txt)) or (txt.strip() in text_with_req):
                 currentCount = currentCount + len(txt)
-                #print"continueChar",len(txt))
+                #print("continueChar",len(txt))
                 if eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1:
                     eleIndexWithFeatureInBegin.append(index)
             else:
                 styleCharCount = sum([1 for char in list(txt) if char.isupper() or re.search(r"[0-9_\-!\@~\s()<>{}]+",char) != None])
                 currentCount = currentCount + styleCharCount
-                #print"styleCharCount",styleCharCount, len(txt))
+                #print("styleCharCount",styleCharCount, len(txt))
                 if styleCharCount >= len(txt)*0.75 and (eleIndexWithFeatureInBegin == [] or index == eleIndexWithFeatureInBegin[-1]+1):
-                    #print"!!!!!!!!!!!!!!!!!!!!!!!!")
+                    #print("!!!!!!!!!!!!!!!!!!!!!!!!")
                     eleIndexWithFeatureInBegin.append(index)
                     
                 
         upperPerct = 100*round((currentCount/totalLen),3)     
-        #printf"uppercase perctange in given element is {upperPerct}")
+        #print(f"uppercase perctange in given element is {upperPerct}")
         if upperPerct > 80.000:
             return True
         else:
-            #printeleIndexWithFeatureInBegin)
+            #print(eleIndexWithFeatureInBegin)
             if len(eleIndexWithFeatureInBegin) > 0 and eleIndexWithFeatureInBegin[0] == 0:
                 startFeatureText = "".join( child for index, child in enumerate(current_dom.find_all(text=True, recursive=True)) if index in eleIndexWithFeatureInBegin)
-                #printstartFeatureText)
+                #print(startFeatureText)
                 if re.sub(r'[\d\.]',"",startFeatureText).strip() != "" and len(startFeatureText) > 10:
                     extraFeatureInfo[f'startWith<upper>'] = True
                     extraFeatureInfo[f'startWith<upper>Text'] = startFeatureText
@@ -319,7 +319,7 @@ class parserExtractor:
         partitioned_classes = css_in_style.split("}")
         for idx, cls in enumerate(partitioned_classes):
             parseClass = cls.split("{")
-            if(parseClass[0].find('font-face') == -1): 
+            if(parseClass[0].find('font-face') == -1):
                 ## Ignoring font-face css
                 if(len(parseClass)>1):
                     class_style_dict[parseClass[0]] = parseClass[1]
@@ -494,8 +494,8 @@ class parserExtractor:
         if(get_immediate_text):
 
             ## Extracting immediate text of elements
-            concatenated_text = "".join(ele.find_all(text=True, recursive=False))
-            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","")
+            concatenated_text = " ".join(ele.find_all(text=True, recursive=False))
+            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","").replace("  "," ")
             
 
             dom_data['Text']=concatenated_text
@@ -509,8 +509,8 @@ class parserExtractor:
         else:
             
             ## Extracting all text including that of ch
-            concatenated_text = "".join(ele.find_all(text=True, recursive=True))
-            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","")
+            concatenated_text = " ".join(ele.find_all(text=True, recursive=True))
+            concatenated_text = concatenated_text.replace("\n"," ").replace("\xa0"," ").replace("\r","").replace("\t","").replace("  "," ")
 
             parsed_output['ignore_child_in_parentId'] = dom_data['ID']
 
@@ -626,7 +626,7 @@ class parserExtractor:
                     dom_data['IsListItem'] = False
 
                 ## Check if Indexed
-                if re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None:
+                if re.match(r'^[A-Za-z0-9]+\.[A-Za-z0-9]?', concatenated_text) != None or re.match(r'^[A-Za-z0-9]+[\s]+', concatenated_text) != None:
                     dom_data['Indexed'] = True
                 elif len(concatenated_text.strip().split()) > 0 and ('.' in concatenated_text.strip().split()[0][:4] or '•' in concatenated_text.strip().split()[0][:4]):
                     dom_data['Indexed'] = True
@@ -685,7 +685,7 @@ class parserExtractor:
                         
             parsed_output['data'] = dom_data
             dom_data['ParentId']= str(ele.parent.get('id'))
-            #print"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            #print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             return 1, parsed_output        
 
         else:
@@ -706,7 +706,7 @@ class parserExtractor:
                         dom_data = self.getRulesAndCompare(key, dom_data)
                         
                         dom_data_copy = self.getRulesAndCompare(key, dom_data_copy)
-            #print"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")        
+            #print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")        
             return 4, [ele, eleCopy, dom_data, dom_data_copy]
             
 
@@ -759,7 +759,8 @@ class parserExtractor:
                         parent = tag_dom.parent
                         tag_dom.decompose()
                     else:
-                        tag_dom.string.replace_with(text_in_tag)
+                        if tag_dom.string != None:    
+                            tag_dom.string.replace_with(text_in_tag)
                 #print("Changed:-",tag_dom.text)
                     
         return soup
@@ -790,12 +791,24 @@ class parserExtractor:
                 dom_elements_copy = BeautifulSoup(str(soup), "html.parser").find_all(True)
             
             ## Extracting styles in style tag of HTML, as string
-            css_in_style = str(soup.style)
+            try:
+                f = open(style_filepath)
+                print("Style File Already Exists")
+                css_in_style = str(f.read())
 
-            with open(style_filepath,'w+') as style_file:
-                style_file.write(css_in_style)
-                style_file.close()
-            self.logger.logFlowCheckpoint('Style Information Stored In File: ' + style_filepath)
+                #print("css_in_style",css_in_style)
+                f.close()
+            except IOError:
+                print("Style File not present")
+                css_in_style = str(soup.style)
+                with open(style_filepath,'w+') as style_file:
+                    style_file.write(css_in_style)
+                    style_file.close()
+                self.logger.logFlowCheckpoint('Style Information Stored In File: ' + style_filepath)
+
+            
+
+            
 
             css_in_style = self.cleanCssString(css_in_style)
 
@@ -826,7 +839,7 @@ class parserExtractor:
             parsed_dom_elements = defaultdict(list)
             parsed_output = None
             addedIndex = 0
-
+            ## Using parent ID to ignore childen in ignore_child_in_tagType list
             for index, ele in enumerate(dom_elements_copy):
                 #print("Pure Element",type(ele.name),str(ele.name) == "None",parsed_output and parsed_output['ignore_child_in_parentId'] and ele.parents)
                 

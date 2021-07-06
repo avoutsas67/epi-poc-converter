@@ -170,6 +170,10 @@ class ValidateMatch():
                     if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'CAP' and currentHeadingRow['document_number'] == 3 and currentHeadingRow['Heading Level'] == 'L1':
                         self.logger.logValidateCheckpoint("Validation Failed Package Leaflet Special Case L1 cannot repeat after itself.", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
                         return False
+                    
+                    if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'NAP' and currentHeadingRow['document_number'] == 3 and currentHeadingRow['Heading Level'] == 'L1':
+                        self.logger.logValidateCheckpoint("Validation Failed Package Leaflet Special Case L1 cannot repeat after itself.", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
+                        return False
 
                     self.logger.logValidateCheckpoint(f"{currentHeadingRow['heading_id'], currentHeadingRow['document_number'], currentHeadingRow['Procedure type'] } Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
                     

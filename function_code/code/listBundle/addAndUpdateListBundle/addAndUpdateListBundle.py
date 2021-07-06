@@ -26,6 +26,8 @@ class JsonLoadError(Exception):
 
 class FoundMultipleListBundlesForAMan(Exception):
     pass
+class FoundMultipleListBundlesForAMedName(Exception):
+    pass
 
 class FailedToExtractListBundleIDForAMan(Exception):
     pass
@@ -39,6 +41,8 @@ class MultipleDomainsErros(Exception):
 class NoAuthorizationCodeFound(Exception):
     pass
 
+class NoListFoundForMedName(Exception):
+    pass
 class ListBundleHandler:
 
     def __init__(self,
@@ -76,8 +80,10 @@ class ListBundleHandler:
         self.apiMmgtBaseUrl = apiMmgtBaseUrl #ema-dap-epi-dev-fhir-apim.azure-api.net
         self.getListApiEndPointUrlSuffix = getListApiEndPointUrlSuffix
         self.addUpdateListApiEndPointUrlSuffix = addUpdateListApiEndPointUrlSuffix
+        self.documentNumber = documentNumber
+        self.procedureType = procedureType
 
-        if self.listMANs == []:
+        if self.listMANs == [] and (self.procedureType != "NAP" and self.documentNumber != 3):
             raise NoAuthorizationCodeFound("No MAN Code found")
         
         listBundleDocumentTypeCodesFilePath = os.path.join(self.controlBasePath,
@@ -101,7 +107,16 @@ class ListBundleHandler:
         
         self.tempListJson = self.loadJsonListTemplate()
         
-        self.listJson = self.getDocListIdUsingMANs()
+        if self.documentNumber == 3 and self.procedureType == 'NAP':
+
+            self.medName = re.match(r'^[\D]+',self.medName)[0].strip().lower()
+            self.listJson = self.getDocListIdUsingMedName()
+            
+            if self.listJson == None:
+                raise NoListFoundForMedName("No List Bundle Found For Med Name")
+
+        else:
+            self.listJson = self.getDocListIdUsingMANs()
 
         if self.listJson == None:
             self.isNew = True
@@ -237,9 +252,73 @@ class ListBundleHandler:
         return respJson
 
                     
-            
-                    
+        
+    def getDocListIdUsingMedName(self):
 
+        '''
+        This function will be used for getting the document list from the FHIR server using Medcine Name for Package Leaflet in NAP.
+        '''
+
+        self.logger.logFlowCheckpoint(f"Getting Existing List Bundle using Med Name")
+        
+        listBundleIdFoundForMedName = None
+
+        self.logger.logFlowCheckpoint(f"Getting list bundle for med name {self.medName}.")
+
+        try:
+            
+            response = requests.get(url=f'{self.apiMmgtBaseUrl}{self.getListApiEndPointUrlSuffix}?identifier={self.medName}',
+                headers={
+                'Ocp-Apim-Subscription-Key': self.apiMmgtSubsKey}
+            )
+            
+        except Exception as e:
+            msg = f"Error occured while sending request for searching list bundle for med name {self.medName}"
+            self.logger.logFlowCheckpoint(msg)
+            
+            raise HttpRequestError(f"{self.medName} [Errno {e.errno}] {e.strerror}")
+        
+        if response.status_code != 200:
+            self.logger.logFlowCheckpoint(f"API failed to return an output for med {self.medName}")                
+            raise HttpResponseError(f"API failed to return an output for med {self.medName}")
+        
+        try:
+            respJson = json.loads(response.text)
+        except Exception as e:
+            msg = f"Failed to convert the response json string to python json object for {self.medName}"
+            self.logger.logFlowCheckpoint(msg)                
+            raise JsonLoadError(msg)
+        
+        
+        if 'entry' not in respJson.keys():
+            self.logger.logFlowCheckpoint(f"No list bundle found for med {self.medName}")                
+        elif len(respJson['entry']) == 0:
+            self.logger.logFlowCheckpoint(f"No list bundle found for med {self.medName}")                
+        elif len(respJson['entry']) > 1:
+            #print(respJson['entry'])
+            msg = f"Raising Error as Found more than two list bundles for med {self.medName}"
+            self.logger.logFlowCheckpoint(msg)
+            raise FoundMultipleListBundlesForAMedName(msg)
+        else: 
+            try:
+                listBundleIdFoundForMedName = respJson['entry'][0]['resource']['id']
+            except:
+                raise FailedToExtractListBundleIDForAMan(f"Failed to extract list bundle id from response entry for med name {self.medName}")
+
+        if listBundleIdFoundForMedName == None:
+            return None
+        
+        self.id = listBundleIdFoundForMedName
+        respJson = self.getDocListUsingId(self.id)
+        try:
+            del respJson['resourceType']
+            del respJson['meta']
+        except:
+            print("Unable to delete resourceType and meta keys.")
+        
+        
+        
+        return respJson
     def loadJsonListTemplate(self):
         
         try:
@@ -386,9 +465,9 @@ class ListBundleHandler:
             
 
         if len(activeSubstanceNames) > 0:
-            if len(currentActiveSubstanceExts) == 1 and currentActiveSubstanceExts[1] == 'None':
-                self.listJson['subject']['extension'][currentActiveSubstanceExts[0]]['valueCoding']['display'] = activeSubstanceNames[0]
-                self.listJson['subject']['extension'][currentActiveSubstanceExts[0]]['valueCoding']['code'] = activeSubstanceNames[0]
+            if len(currentActiveSubstanceExts) == 1 and currentActiveSubstanceExts[0][1] == 'None':
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0][0]]['valueCoding']['display'] = activeSubstanceNames[0]
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0][0]]['valueCoding']['code'] = activeSubstanceNames[0]
                 del activeSubstanceNames[0]
             else:
                 for activeSubName in activeSubstanceNames:

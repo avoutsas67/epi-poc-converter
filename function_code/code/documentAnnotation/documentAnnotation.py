@@ -23,7 +23,7 @@ class IncorrectReference(Exception):
 
 class DocumentAnnotation:
 
-    def __init__(self, fileName, pmsSubscriptionKey, smsSubscriptionKey, apiMgmtApiBaseUrl, apiMgmtPmsApiEndpointSuffix, apiMgmtSmsApiEndpointSuffix, dfHtml, matchCollection, documentNumber):
+    def __init__(self, fileName, pmsSubscriptionKey, smsSubscriptionKey, apiMgmtApiBaseUrl, apiMgmtPmsApiEndpointSuffix, apiMgmtSmsApiEndpointSuffix, dfHtml, matchCollection, domain, procedureType, documentNumber):
         self._fileName = fileName
         self._pmsSubscriptionKey = pmsSubscriptionKey
         self._smsSubscriptionKey = smsSubscriptionKey
@@ -32,6 +32,8 @@ class DocumentAnnotation:
         self._apiMgmtSmsApiBaseUrl = self._apiMgmtApiBaseUrl + apiMgmtSmsApiEndpointSuffix
         self._dfHtml = dfHtml
         self._matchCollection = matchCollection
+        self.domain = domain
+        self.procedureType = procedureType
         self.documentNumber = documentNumber
         self.listRegulatedAuthorizationIdentifiers = None
 
@@ -53,91 +55,104 @@ class DocumentAnnotation:
 
     def findRegulatedAuthorization(self, authorizationIdentifier):
 
-        response = requests.get(url='%s/RegulatedAuthorization/?identifier=%s' % (
-            self._apiMgmtPmsApiBaseUrl, authorizationIdentifier),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+        try:
+            response = requests.get(url='%s/RegulatedAuthorization/?identifier=%s' % (
+                self._apiMgmtPmsApiBaseUrl, authorizationIdentifier),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
-        )
+            )
 
-        if response.status_code != 200:
-            print(response.json()['issue'])
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
-
         return response.json()
 
     def findMedicinalProductDefinition(self, medicinalProductDefinitionID):
+        
+        try:
+            response = requests.get(url='%s/MedicinalProductDefinition/%s' % (
+                self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionID),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
-        response = requests.get(url='%s/MedicinalProductDefinition/%s' % (
-            self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionID),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
-
-        )
-        if response.status_code != 200:
-            print(response.json()['issue'])
+            )
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
-
         return response.json()
 
     def findAdministrableProductDefinition(self, medicinalProductDefinitionId):
         
-        
-        response = requests.get(url='%s/AdministrableProductDefinition/?subject=%s' % (
-            self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionId),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
-        )
-
-        if response.status_code != 200:
-            print(response.json()['issue'])
+        try:
+            response = requests.get(url='%s/AdministrableProductDefinition/?subject=%s' % (
+                self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionId),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+            )
+            
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
-
         return response.json()
 
     def findPackagedProductDefinition(self, packagedProductDefinitionID):
 
-        response = requests.get(url='%s/PackagedProductDefinition/%s' % (
-            self._apiMgmtPmsApiBaseUrl, packagedProductDefinitionID),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+        try:
+            response = requests.get(url='%s/PackagedProductDefinition/%s' % (
+                self._apiMgmtPmsApiBaseUrl, packagedProductDefinitionID),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
-        )
+            )
 
-        if response.status_code != 200:
-            print(response.json()['issue'])
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
 
         return response.json()
 
     def findIngredientDefinition(self, ingredientId):
         
-        response = requests.get(url='%s/Ingredient/%s' % (
-            self._apiMgmtPmsApiBaseUrl, ingredientId),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
+        try:
+            response = requests.get(url='%s/Ingredient/%s' % (
+                self._apiMgmtPmsApiBaseUrl, ingredientId),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._pmsSubscriptionKey}
 
-        )
+            )
 
-        if response.status_code != 200:
-            print(response.json()['issue'])
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
 
         return response.json()
 
     def findSubstanceDefinition(self, substanceCode):
         
-        response = requests.get(url='%s/SubstanceDefinition/%s' % (
-            self._apiMgmtSmsApiBaseUrl, substanceCode),
-            headers={
-            'Ocp-Apim-Subscription-Key': self._smsSubscriptionKey}
+        try:
+            response = requests.get(url='%s/SubstanceDefinition/%s' % (
+                self._apiMgmtSmsApiBaseUrl, substanceCode),
+                headers={
+                'Ocp-Apim-Subscription-Key': self._smsSubscriptionKey}
 
-        )
-        
-        if response.status_code != 200:
-            print(response.json()['issue'])
+            )
+            
+            if response.status_code != 200:
+                print(response.json()['issue'])
+                return None
+        except:
             return None
-
         return response.json()        
 
     def extractRegulatedAuthorizationNumbers(self):
@@ -147,10 +162,27 @@ class DocumentAnnotation:
 
         heading_id = "InvalidId"
 
-        if self.documentNumber == 0:
+        if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 0:
             heading_id = 56
-        if self.documentNumber == 2:
+        if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 2:
             heading_id = 14
+        if self.domain == "H" and self.procedureType == "NAP" and self.documentNumber == 0:
+            heading_id = 54
+        if self.domain == "H" and self.procedureType == "NAP" and self.documentNumber == 2:
+            heading_id = 14
+        #if self.domain == "H" and self.procedureType == "NAP" and self.documentNumber == 3:
+        #    heading_id = 14
+        if self.domain == "V" and self.procedureType == "CAP" and self.documentNumber == 0:
+            heading_id = 38
+        if self.domain == "V" and self.procedureType == "CAP" and self.documentNumber == 2:
+            heading_id = 18
+        if self.domain == "V" and self.procedureType == "NAP" and self.documentNumber == 0:
+            heading_id = 54
+        if self.domain == "V" and self.procedureType == "NAP" and self.documentNumber == 2:
+            heading_id = 14
+        #if self.domain == "V" and self.procedureType == "NAP" and self.documentNumber == 3:
+        #    heading_id = 14
+        
         dfAuthHeadingsSmPC = dfHeadings[dfHeadings['heading_id'] == heading_id]
 
         finalListAuthIdentifiers = []
@@ -163,11 +195,20 @@ class DocumentAnnotation:
                 for item in list(dfHtml.loc[startHtmlIndex:(startHtmlIndex+100)].Text):
                     #print('item',item,"|")
                     if len(item) > 3:
-                        matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
-                        for code in matches:
-                            #print('code', code)
-                            if len(code) > 5:
-                                finalListAuthIdentifiers.append(code)
+                        if self.procedureType == "CAP":
+                            matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
+                            for code in matches:
+                                #print('code', code)
+                                if len(code) > 5:
+                                    finalListAuthIdentifiers.append(code)
+                        else:
+                            matches = re.findall(r'[\d]{4,10}',item)
+                            print("matches",matches)
+                            for code in matches:
+                                #print('code', code)
+                                if len(code) > 2:
+                                    finalListAuthIdentifiers.append(code)
+                        
             else:
                 endHtmlIndex = (dfHeadings.loc[index + 1].htmlIndex - 1)
                 #print("endHtmlIndex",endHtmlIndex)
@@ -175,12 +216,21 @@ class DocumentAnnotation:
                 for item in list(dfHtml.loc[startHtmlIndex:endHtmlIndex].Text):
                     #print('item',item,"|")
                     if len(item) > 3:
-                        matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
-                        for code in matches:
-                            #print('code', code)
-                            if len(code) > 5:
-                                finalListAuthIdentifiers.append(code)
-                
+                        if self.procedureType == "CAP":
+                            matches = re.findall(r'[a-zA-Z]+/[\w\d/–-]+',item)
+
+                            for code in matches:
+                                #print('code', code)
+                                if len(code) > 5:
+                                    finalListAuthIdentifiers.append(code)
+                        else:
+                            matches = re.findall(r'[\d]{4,10}',item)
+                            print("matches",matches)
+                        
+                            for code in matches:
+                                #print('code', code)
+                                if len(code) > 2:
+                                    finalListAuthIdentifiers.append(code)
                         
         ####
         # raise warning if we find mutiple auth identifiers.
@@ -678,12 +728,12 @@ class DocumentAnnotation:
                 authorizationIdentifier=authIdentifier)
             #print("processedOutputRA",processedOutputRA)
             for product in processedOutputRA:
-                print(list(product))
+                #print(list(product))
                 productDefinitionId = product[1]
 
                 medicinalProdOutput = self.processMedicinalProductDefinition(
                     medicinalProductDefinitionID=productDefinitionId)
-                print("medicinalProdOutput",medicinalProdOutput)
+                #print("medicinalProdOutput",medicinalProdOutput)
                 productName = medicinalProdOutput['medicinalProductName']
                 productList = list(product)
                 productList.append(productName)
@@ -704,7 +754,6 @@ class DocumentAnnotation:
             self.finalOutputDict = {}
             holderData = self.extractMAHFromFinalOutput(self.finalOutput)
 
-           
             self.finalOutputDict['Author Value'] = holderData[1]
             self.finalOutputDict['Author Reference'] = holderData[0]
                 
@@ -715,7 +764,7 @@ class DocumentAnnotation:
                 self.finalOutputDict['Author Value'] = holderData[1]
                 self.finalOutputDict['Author Reference'] = holderData[0]
 
-
+            print("final Dict", self.finalOutputDict)
             return self.finalOutputDict
         else:
             return None
