@@ -19,6 +19,7 @@ def main(inputBlob: func.InputStream,
 
     fileNameQrd = 'qrd_canonical_model.csv'
     fileNameMatchRuleBook = 'ruleDict.json'
+    fileNameLocalCreds = "localCredentialsDev.json"
     fileNameDocumentTypeNames = 'documentTypeNames.json'
     fsMountName = '/mounted'
     jsonTempFileName = 'listBundleJsonTemplate.json'
@@ -26,9 +27,12 @@ def main(inputBlob: func.InputStream,
     apiMmgtBaseUrl = "https://ema-dap-epi-dev-fhir-apim.azure-api.net"
     getListApiEndPointUrlSuffix = "/epi/v1/List"
     addUpdateListApiEndPointUrlSuffix = "/epi-w/v1/List"
-    apiMmgtSubsKey = "ba6d7e9a73ed4facaa58fc983bf6db50"
-    submitFhirUrl = "https://ema-dap-epi-dev-fhir-api.azurewebsites.net/Bundle"
-
+    addBundleApiEndPointUrlSuffix = "/epi-w/v1/Bundle"
+    
+    sporApiMgmtApiBaseUrl = "https://spor-sit.azure-api.net"
+    pmsApiEndpointSuffix = "/pms/api/v2/"
+    smsApiEndpointSuffix = "/sms/api/v2/"
+            
     inputZipFilePath = inputBlob.name
     inputZipFileName = inputZipFilePath.split('/')[-1]
     inputZipFolderPath = '/'.join(inputZipFilePath.split('/')[0:-1])
@@ -40,7 +44,13 @@ def main(inputBlob: func.InputStream,
         domain = info[1]
         procedureType = info[2]
         languageCode = info[3]
-        timestamp = info[4]
+        if procedureType == "NAP":     
+            NAPDocumentNumber = info[4]
+            timestamp = info[5]
+        else:
+            timestamp = info[4]
+            NAPDocumentNumber = None
+            
         timestamp = timestamp.replace(".zip","")
 
     except Exception:
@@ -57,7 +67,23 @@ def main(inputBlob: func.InputStream,
         outputFolderPath = os.path.join(f'{fsMountName}', 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
         controlFolderPath = os.path.join(f'{fsMountName}','control')
 
-
+    localCredFilePath = os.path.join(controlFolderPath, 'localCredentials', fileNameLocalCreds)
+    
+    with open(localCredFilePath) as r:
+        localCredsJson = json.load(r)
+    
+    metaDatakeys = set([ key for key in localCredsJson])
+    requiredCredsParameters = set(['PmsSubscriptionKey','SmsSubscriptionKey','apiMmgtSubsKey','appInsightsInstrumentationKey'])
+    
+    if len(requiredCredsParameters - metaDatakeys) !=0:
+        raise Exception(f"Missing required keys in local creds file :- {str(requiredCredsParameters-metaDatakeys)}")
+    
+    for key in localCredsJson:
+        if len(localCredsJson[key]) == 0 or localCredsJson[key] == None:
+            raise Exception(f"Missing required info in the zip file for key {key}")
+    
+    os.environ['APPLICATIONINSIGHTS_CONNECTION_STRING'] = localCredsJson['appInsightsInstrumentationKey']
+    
     print(inputZipFileName, inputZipFolderPath, outputFolderPath, controlFolderPath)
 
     mode = 0o666
@@ -74,16 +100,15 @@ def main(inputBlob: func.InputStream,
 
     except Exception:
         print("Already Present")
-        
+
     with zipfile.ZipFile(f'{inputZipFolderPath}/{inputZipFileName}',"r") as zip_ref:
             zip_ref.extractall(outputFolderPath)
-        
+
 
     _,_,fileNames = next(os.walk(outputFolderPath))
     htmlFileName = [fileName for fileName in fileNames if ".htm" in fileName][0]
 
     print(htmlFileName)
-
 
     parseDocument(controlFolderPath,
                 outputFolderPath,
@@ -96,7 +121,11 @@ def main(inputBlob: func.InputStream,
                 apiMmgtBaseUrl,
                 getListApiEndPointUrlSuffix,
                 addUpdateListApiEndPointUrlSuffix,
-                apiMmgtSubsKey,
-                submitFhirUrl,
-                medName)    
+                addBundleApiEndPointUrlSuffix,
+                sporApiMgmtApiBaseUrl,
+                pmsApiEndpointSuffix, 
+                smsApiEndpointSuffix,
+                localCredsJson,
+                medName,
+                NAPDocumentNumber)    
 

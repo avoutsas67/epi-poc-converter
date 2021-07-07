@@ -115,7 +115,15 @@ def getRandomString(N):
     return str_
 
 
-def convertHtmlToJson(controlBasePath, basePath, domain, procedureType, languageCode, htmlDocName, fileNameQrd, fileNameLog):
+def convertHtmlToJson(controlBasePath,
+                      basePath,
+                      domain,
+                      procedureType,
+                      languageCode,
+                      htmlDocName,
+                      fileNameQrd,
+                      fileNameLog,
+                      NAPDocumentNumber):
 
     module_path = os.path.join(basePath)
 
@@ -141,19 +149,30 @@ def convertHtmlToJson(controlBasePath, basePath, domain, procedureType, language
 
         styleLogger = MatchLogger(
             f'Style Dictionary_{getRandomString(1)}', htmlDocName, domain, procedureType, languageCode, "HTML", fileNameLog)
-
-        styleRulesObj = StyleRulesDictionary(logger=styleLogger,
-                                             controlBasePath=controlBasePath,
-                                             language=languageCode,
-                                             fileName=fileNameQrd,
-                                             domain=domain,
-                                             procedureType=procedureType
-                                             )
-
+        if procedureType == "CAP":
+            styleRulesObj = StyleRulesDictionary(logger=styleLogger,
+                                                 controlBasePath=controlBasePath,
+                                                 language=languageCode,
+                                                 fileName=fileNameQrd,
+                                                 domain=domain,
+                                                 procedureType=procedureType)
+        else:
+            if NAPDocumentNumber == None:
+                raise Exception("Missing NAPDocumentNumber")
+            
+            styleRulesObj = StyleRulesDictionary(logger=styleLogger,
+                                                 controlBasePath=controlBasePath,
+                                                 language=languageCode,
+                                                 fileName=fileNameQrd,
+                                                 domain=domain,
+                                                 procedureType=procedureType,
+                                                 NAPDocumentNumber = NAPDocumentNumber
+                                                 )
+        
         parserObj = parserExtractor(config, logger, styleRulesObj.styleRuleDict,
                                     styleRulesObj.styleFeatureKeyList,
                                     styleRulesObj.qrd_section_headings)
-
+        
         for input_filename in filenames:
           # if(input_filename.find('Kalydeco II-86-PI-clean')!=-1):
             output_filename = os.path.join(output_json_path, htmlDocName)
@@ -170,7 +189,7 @@ def convertHtmlToJson(controlBasePath, basePath, domain, procedureType, language
                                            style_filepath = style_filepath,
                                            img_base64_dict=parserObj.convertImgToBase64(input_filename)
                                            )
-            
+        #return parserObj, input_filename, output_filename, style_filepath
         return output_filename.split(pathSep)[-1], style_filepath
     else:
         try:    
@@ -200,7 +219,7 @@ def splitJson(controlBasePath, basePath, domain, procedureType, languageCode, fi
     partitionLogger = MatchLogger(
         f'Partition_{getRandomString(1)}', fileNameJson, domain, procedureType, languageCode, "Json", fileNameLog)
 
-    partitioner = DocTypePartitioner(partitionLogger)
+    partitioner = DocTypePartitioner(partitionLogger, domain, procedureType)
 
     partitionedJsonPaths = partitioner.partitionHtmls(
         styleRulesObj.qrd_section_headings, path_json)
@@ -268,10 +287,9 @@ def extractAndValidateHeadings(controlBasePath,
         stopWordlanguage,
         isPackageLeaflet,
         medName)
-    df, coll, documentType = matchDocObj.matchHtmlHeaddingsWithQrd()
+    df, coll, documentType, documentTypeForUI = matchDocObj.matchHtmlHeaddingsWithQrd()
 
-    return df, coll, documentType
-
+    return df, coll, documentType, documentTypeForUI
 
 def parseDocument(controlBasePath,
                   basePath,
@@ -284,9 +302,13 @@ def parseDocument(controlBasePath,
                   apiMmgtBaseUrl,
                   getListApiEndPointUrlSuffix,
                   addUpdateListApiEndPointUrlSuffix,
-                  apiMmgtSubsKey,
-                  submitFhirUrl,
-                  medName = None):
+                  addBundleApiEndPointUrlSuffix,
+                  sporApiMgmtApiBaseUrl,
+                  pmsApiEndpointSuffix, 
+                  smsApiEndpointSuffix,
+                  localCredsJson,
+                  medName = None,
+                  NAPDocumentNumber=None):
     
     listRegulatedAuthCodesAccrossePI = []
     
@@ -314,29 +336,49 @@ def parseDocument(controlBasePath,
     
     flowLogger.logFlowCheckpoint("Starting HTML Conversion To Json")
     ###Convert Html to Json
-    fileNameJson, stylesFilePath = convertHtmlToJson(controlBasePath, basePath, domain, procedureType, languageCode, htmlDocName, fileNameQrd, fileNameLog)
+    
+    fileNameJson, stylesFilePath = convertHtmlToJson(controlBasePath, basePath, domain, procedureType, languageCode, htmlDocName, fileNameQrd, fileNameLog, NAPDocumentNumber)
     
     print("stylePath:-",stylesFilePath)
     flowLogger.logFlowCheckpoint("Completed HTML Conversion To Json")
     metrics.getMetric("HTML Conversion To Json")
+    if procedureType == "CAP":
+        
+        flowLogger.logFlowCheckpoint("Starting Json Split")
 
-    flowLogger.logFlowCheckpoint("Starting Json Split")
+        ###Split Uber Json to multiple Jsons for each category.
+        partitionedJsonPaths = splitJson(controlBasePath, basePath, domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog)
 
-    ###Split Uber Json to multiple Jsons for each category.
-    partitionedJsonPaths = splitJson(controlBasePath, basePath, domain, procedureType, languageCode, fileNameJson, fileNameQrd, fileNameLog)
+        partitionedJsonPaths = [ path.split(pathSep)[-1] for path in partitionedJsonPaths]
+        flowLogger.logFlowCheckpoint(str(partitionedJsonPaths))
+
+        flowLogger.logFlowCheckpoint("Completed Json Split")
+        metrics.getMetric("Split Json")
     
-    partitionedJsonPaths = [ path.split(pathSep)[-1] for path in partitionedJsonPaths]
-    flowLogger.logFlowCheckpoint(str(partitionedJsonPaths))
+        flowLogger.logFlowCheckpoint("Started Processing CAP Partitioned Jsons")
+    else:       
+
+        # Create the partitioned json for NAP which will be the same as output json as there is only one document.
+
+        with open(os.path.join(basePath,'outputJSON',fileNameJson)) as f:
+            json_html = json.load(f)
+        dfPartitioned = pd.DataFrame(json_html['data'])
+
+        if(not os.path.exists(os.path.join(basePath, 'partitionedJSONs'))):
+            os.mkdir(os.path.join(basePath, 'partitionedJSONs'))
+
+        dfPartitioned.to_json(os.path.join(basePath, 'partitionedJSONs', fileNameJson), orient ='records')
+        partitionedJsonPaths = [fileNameJson]
+        flowLogger.logFlowCheckpoint("Started Processing NAP Json")
+        
     
-    flowLogger.logFlowCheckpoint("Completed Json Split")
-    metrics.getMetric("Split Json")
-    
-    flowLogger.logFlowCheckpoint("Started Processing Partitioned Jsons")
-    
+    previous_pms_oms_annotation_data  = None
     for index, fileNamePartitioned in enumerate(partitionedJsonPaths):
         print("Index", index)
-        if index in [0]:
-            continue
+        #if index in [0,1]:
+        #    continue
+        if procedureType != "CAP":
+            index = int(NAPDocumentNumber)
         flowLogger.logFlowCheckpoint(f"\n\n\n\n||||||||||||||||||||||||||||||||{str(index)} ||||| {str(fileNamePartitioned)}||||||||||||||||||||||||||||||||\n\n\n\n")
         
         if index == 3:
@@ -346,7 +388,7 @@ def parseDocument(controlBasePath,
             stopWordFilterLen = 6
             isPackageLeaflet = False
             
-        df, coll, documentType = extractAndValidateHeadings(controlBasePath,
+        df, coll, documentType, documentTypeForUI = extractAndValidateHeadings(controlBasePath,
                                     basePath,
                                     domain,
                                     procedureType,
@@ -360,22 +402,38 @@ def parseDocument(controlBasePath,
                                     stopWordFilterLen=stopWordFilterLen,
                                     isPackageLeaflet=isPackageLeaflet,
                                     medName=medName)
-    
-        
+        #return df, coll, documentType, documentTypeForUI
         print(f"Completed Heading Extraction For File")
         flowLogger.logFlowCheckpoint("Completed Heading Extraction For File")
         metrics.getMetric(f"{index}: Heading Extraction")
 
         print(f"Starting Document Annotation For File :- {fileNamePartitioned}")        
         flowLogger.logFlowCheckpoint("Starting Document Annotation For File")
-        documentAnnotationObj = DocumentAnnotation(fileNamePartitioned,'c20835db4b1b4e108828a8537ff41506','https://spor-sit.azure-api.net/pms/api/v2/',df,coll, index)
-        try:
-            pms_oms_annotation_data = documentAnnotationObj.processRegulatedAuthorizationForDoc()
-            print(pms_oms_annotation_data)
-        except Exception as e:
-            pms_oms_annotation_data = None
-            print("Error Found", str(e))
-            
+        documentAnnotationObj = DocumentAnnotation(fileNamePartitioned,
+                                                   localCredsJson['PmsSubscriptionKey'],
+                                                   localCredsJson['SmsSubscriptionKey'],
+                                                   sporApiMgmtApiBaseUrl,
+                                                   pmsApiEndpointSuffix,
+                                                   smsApiEndpointSuffix,
+                                                   df,
+                                                   coll,
+                                                   domain,
+                                                   procedureType,
+                                                   index)
+        #try
+        #    pms_oms_annotation_data = documentAnnotationObj.processRegulatedAuthorizationForDoc()
+        #    print(pms_oms_annotation_data)
+        #except Exception as e:
+        #    pms_oms_annotation_data = None
+        #    print("Error Found", str(e))
+        pms_oms_annotation_data = documentAnnotationObj.processRegulatedAuthorizationForDoc()
+        print(pms_oms_annotation_data)
+        
+        if pms_oms_annotation_data == None:
+            pms_oms_annotation_data = previous_pms_oms_annotation_data
+        else:
+            previous_pms_oms_annotation_data = pms_oms_annotation_data
+        
         print(f"Completed Document Annotation")        
         flowLogger.logFlowCheckpoint("Completed Document Annotation")
         metrics.getMetric(f"{index}: Document Annotation")
@@ -393,15 +451,29 @@ def parseDocument(controlBasePath,
         
         
         xmlLogger =  MatchLogger(f'XmlGeneration_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
-        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, controlBasePath, basePath, pms_oms_annotation_data, stylesFilePath, medName)
+        
+        listBundleDocumentTypeCodesFilePath = os.path.join(controlBasePath,
+                                                                listBundleDocumentTypeCodesFileName.split(".")[0],
+                                                                listBundleDocumentTypeCodesFileName)
+        with open(listBundleDocumentTypeCodesFilePath, encoding='utf-8') as f:
+            listBundleDocumentTypeCodes = json.load(f)
+            
+        bundleDocumentTypeCode = listBundleDocumentTypeCodes[domain][str(index)]['listBundleCode']
+        bundleMetaData = {'pmsOmsAnnotationData':pms_oms_annotation_data,
+                          'documentTypeCode': bundleDocumentTypeCode,
+                          'documentType': documentTypeForUI,
+                          'languageCode': languageCode,
+                          'medName': medName}
+        
+        fhirXmlGeneratorObj = FhirXmlGenerator(xmlLogger, controlBasePath, basePath, bundleMetaData, stylesFilePath)
         fileNameXml = fileNamePartitioned.replace('.json','.xml')
         generatedXml = fhirXmlGeneratorObj.generateXml(dfExtractedHierRR, fileNameXml)
         
         metrics.getMetric(f"{index}: Generate XML")
         
         fhirServiceLogger =  MatchLogger(f'XML Submission Logger_{index}_{getRandomString(1)}', fileNamePartitioned, domain, procedureType, languageCode, index, fileNameLog)
-
-        fhirServiceObj = FhirService(fhirServiceLogger, submitFhirUrl, basePath, generatedXml)
+        
+        fhirServiceObj = FhirService(fhirServiceLogger, apiMmgtBaseUrl, addBundleApiEndPointUrlSuffix, localCredsJson['apiMmgtSubsKey'], basePath, generatedXml)
         fhirServiceObj.submitFhirXml()
         
         
@@ -423,6 +495,7 @@ def parseDocument(controlBasePath,
                      procedureType,
                      index,
                      documentType,
+                     documentTypeForUI,
                      languageCode,
                      medName,
                      controlBasePath,
@@ -433,14 +506,15 @@ def parseDocument(controlBasePath,
                      apiMmgtBaseUrl,
                      getListApiEndPointUrlSuffix,
                      addUpdateListApiEndPointUrlSuffix,
-                     apiMmgtSubsKey)
+                     localCredsJson['apiMmgtSubsKey'])
 
-            listBundleXml = listBundleHandler.addOrUpdateDocumentItem(str(fhirServiceObj.SubmittedFhirMsgRefId))
+            listBundleXml = listBundleHandler.addOrUpdateDocumentItem(str(fhirServiceObj.SubmittedFhirMsgRefId), pms_oms_annotation_data)
+            print(listBundleXml)
             listBundleHandler.submitListXmLToServer(listBundleXml)
 
             flowLogger.logFlowCheckpoint("Completed list bundle update/addition")
             metrics.getMetric(f"{index}: Update/Add List Bundle")
-            #return df,coll,dfExtractedHierRR
+                    #return df,coll,dfExtractedHierRR
         except Exception as e:
             print(str(e))
             if 'No MAN Code found' in str(e):

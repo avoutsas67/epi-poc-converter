@@ -1,11 +1,12 @@
 
 <section>
 			<title value="{{id_dict[root].htmlText}}"/>
+			<id value="{{id_dict[root].itemLevelGuid}}"/>
 				<code>
 					<coding>
 						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
+						<code value="{{id_dict[root].headingId}}"/>
+						<display value="{{id_dict[root].headingName}}"/>
 					</coding>
 				</code>
 		<text>
