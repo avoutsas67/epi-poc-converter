@@ -1,1 +1,0 @@
-## Directory to save zip files containing html document along with word and context json.

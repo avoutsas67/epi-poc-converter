@@ -1,0 +1,1 @@
+## This class is used to convert word document in to html and wrap them inside a zip file with some additional information and files.

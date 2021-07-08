@@ -1,0 +1,1 @@
+## This class is used to read and extract specific sections of the qrd template.

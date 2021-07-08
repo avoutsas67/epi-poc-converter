@@ -1,0 +1,1 @@
+## This class is used for extracting the relevent information from the SPOR API using the markerting authorization codes found in the ePI documents.

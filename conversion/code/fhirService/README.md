@@ -1,0 +1,1 @@
+## This class is used for submitting the document bundle to FHIR server.
