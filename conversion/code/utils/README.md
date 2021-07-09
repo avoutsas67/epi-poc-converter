@@ -1,0 +1,1 @@
+## This folder contains utility functions like Match Logger used for sending logs to application insights and write them to a text file.

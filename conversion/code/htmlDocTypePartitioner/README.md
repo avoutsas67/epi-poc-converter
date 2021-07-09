@@ -1,0 +1,1 @@
+## This class is used to partition the CAP document json into four separate document type jsons.

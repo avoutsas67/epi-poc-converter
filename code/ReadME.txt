@@ -1,1 +1,0 @@
-This section will contain finalized pieces of code. There will be a testing notebook here as well.
