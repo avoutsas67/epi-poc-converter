@@ -19,7 +19,7 @@ class DocTypePartitioner:
         
             mid = low + (high - low) // 2
     
-            # If element is present at the middle itself
+            # If element is present between mid and mid -1
             if arr[mid] > x and arr[mid-1]<x and mid>0:
                 return mid
     

@@ -18,43 +18,6 @@ class FhirService:
         
         self.SubmittedFhirMsgRefId = None 
 
-    def storeXMLIdOnPost(self, post_xml_id):
-        
-        file_path = os.path.join( self.basePath, "fhir_messages", "postMetaData")
-
-        if(not os.path.exists(file_path)):
-            os.mkdir(file_path)
-            
-            xml_id = defaultdict(list)
-            xml_id['ID']= [post_xml_id ]
-            xml_id_json = {
-                'data':str([xml_id])
-                }
-            file_path = os.path.join(file_path, 'postMetaData.json')
-            with open(file_path, 'w+') as outfile:
-                json.dump(xml_id_json, outfile)
-            outfile.close()
-        else:
-            file_path = os.path.join(file_path, 'postMetaData.json')
-            id_found = False
-            with open(file_path) as f:
-                post_data = json.load(f)
-            f.close()
-            df = pd.DataFrame(post_data['data'])
-
-            for i, row in enumerate(df.itertuples(), 0):
-                if(row.ID == post_xml_id ):
-                    df.at[row.Index][row.TimeStamp] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-                    id_found = True
-                    break
-            display(df.head(5))
-            if(not id_found):
-                df.loc[len(df.index)] = [post_xml_id, datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")] 
-           
-            with open(file_path, 'w+') as outfile:
-                json.dump({'data':df.to_json(orient="records")}, outfile)
-            outfile.close()
-
     def submitFhirXml(self):
         
         response = requests.post(f'{self.apiMmgtBaseUrl}{self.addBundleApiEndPointUrlSuffix}', data=self.body, 
