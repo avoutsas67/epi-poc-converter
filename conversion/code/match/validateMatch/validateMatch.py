@@ -1,8 +1,9 @@
 
+from utils.logger.matchLogger import MatchLogger
 
 class ValidateMatch():
 
-    def __init__(self, logger):
+    def __init__(self, logger: matchLogger):
         
         self.logger = logger
 

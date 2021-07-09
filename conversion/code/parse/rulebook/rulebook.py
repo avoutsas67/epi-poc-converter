@@ -11,7 +11,7 @@ class DocumentTypeErrorQrdTemplate(Exception):
     pass
 class StyleRulesDictionary:
 
-    def __init__(self, logger, controlBasePath, language, fileName, domain, procedureType, NAPDocumentNumber = None):
+    def __init__(self, logger: matchLogger, controlBasePath, language, fileName, domain, procedureType, NAPDocumentNumber = None):
         self.language = language
         self.fileName = fileName
         self.domain = domain

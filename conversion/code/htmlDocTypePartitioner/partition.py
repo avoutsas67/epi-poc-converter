@@ -2,9 +2,11 @@ import re
 import os
 import pandas as pd
 import json
+from utils.logger.matchLogger import MatchLogger
+
 
 class DocTypePartitioner:
-    def __init__(self, logger, domain, procedureType):
+    def __init__(self, logger: matchLogger, domain, procedureType):
         self.logger = logger
         self.new_dataframe_start = 0
         self.domain = domain

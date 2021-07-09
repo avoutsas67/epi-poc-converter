@@ -31,7 +31,7 @@ pd.set_option("max_rows", None)
 class MatchDocument():
 
     def __init__(self,
-                    logger,
+                    logger: matchLogger,
                     controlBasePath,
                     basePath,
                     domain,

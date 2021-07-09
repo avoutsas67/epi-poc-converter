@@ -8,12 +8,13 @@ from collections import defaultdict
 from bs4 import BeautifulSoup
 from datetime import datetime
 import base64
+from utils.logger.matchLogger import MatchLogger
 
 class MissingKeysInBundleMetaData(Exception):
     pass
 class FhirXmlGenerator:
     
-    def __init__(self, logger, controlBasePath, basePath, bundleMetaData, styles_file_path):
+    def __init__(self, logger: MatchLogger, controlBasePath, basePath, bundleMetaData, styles_file_path):
 
         self.logger = logger
         self.basePath = basePath

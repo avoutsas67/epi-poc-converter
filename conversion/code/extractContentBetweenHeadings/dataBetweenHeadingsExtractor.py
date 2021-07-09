@@ -3,12 +3,13 @@ import os
 import json
 from collections import defaultdict
 from bs4 import NavigableString, BeautifulSoup
+from utils.logger.matchLogger import MatchLogger
 from scripts.jsonHandlingUtils import loadJSON_Convert_to_DF, mkdir, addjson
 
 
 class DataBetweenHeadingsExtractor:
     
-    def __init__(self, logger, basePath, matched_collection):
+    def __init__(self, logger: MatchLogger, basePath, matched_collection):
         self.matched_collection = matched_collection
         self.logger = logger
         self.basePath = basePath

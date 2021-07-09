@@ -18,17 +18,19 @@ import time
 import re
 pd.options.display.max_colwidth = 200
 pd.set_option("max_rows", None)
+from utils.logger.matchLogger import MatchLogger
 
 import jellyfish
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
+from utils.logger.matchLogger import MatchLogger
 
 
 
 class MatchStrings():
 
-    def __init__(self, logger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
+    def __init__(self, logger: MatchLogger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
         self.logger = logger
         self.domain = domain

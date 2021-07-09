@@ -8,6 +8,8 @@ import string
 import json
 import xml.etree.ElementTree as et
 import copy
+from utils.logger.matchLogger import MatchLogger
+
 
 class NoEntryFoundError(Exception):
     pass
@@ -46,7 +48,7 @@ class NoListFoundForMedName(Exception):
 class ListBundleHandler:
 
     def __init__(self,
-                 logger,
+                 logger: matchLogger,
                  domain,
                  procedureType,
                  documentNumber,

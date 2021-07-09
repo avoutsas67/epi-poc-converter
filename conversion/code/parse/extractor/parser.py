@@ -19,7 +19,7 @@ from os.path import isfile, join
 
 class parserExtractor:
 
-    def __init__(self, config, logger, styleRuleDict, styleFeatureKeyList, qrd_section_headings):
+    def __init__(self, config, logger: matchLogger, styleRuleDict, styleFeatureKeyList, qrd_section_headings):
         self.config = config
         self.logger = logger
         self.styleRuleDict = styleRuleDict
