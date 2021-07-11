@@ -1,1138 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- This is a template for a FHIR resource, and needs items (marked with "${}") replacing to make a real instance -->
-<!-- The resulting instance is a Bundle of Bundles, each of which is a document (having a Composition, and supporting resources) -->
-<!-- 2020-02-22 -->
-<!-- This is for FHIR version R5 Preview 2 (May 2020) -->
-<Bundle xmlns="http://hl7.org/fhir">
-	<type value="collection"/>
-	<!-- Repeat at this level per document -->
-	<entry>
-		<fullUrl value="urn:uuid:68ad787a-709e-40df-871a-34ddd7022faa"/>
-		<!-- Top level of each document is a also FHIR Bundle, of type "document"
-		 see http://hl7.org/fhir/documents.html, http://hl7.org/fhir/bundle.html
-	 	 All the other resources for this document are within this. -->
-		<resource>
-            <Bundle>
-            	<!-- When PUTing, some servers mandate an id here to match the existing id -->
-            	<id value="df395878-2959-4edc-a190-5f740e92613f"/>
-				<!-- document bundles must have an identifier (bdl-9) -->
-				<identifier>
-					<!-- possibly different identifier types may be needed here -->
-					<system value="http://ema.europa.eu/fhir/identifier/documentid"/>
-					<value value="${instance.bundle[n].Identifier}"/>
-				</identifier>
-				<!-- fixed code -->
-				<type value="document" /> 
-            	<!-- document bundles must have a date (bdl-10) -->
-            	<timestamp value="2021-05-11T20:58:38Z"/>
-				<!-- a repeating set of entry elements, each with a FHIR resource inside -->
-				<entry>
-					<!-- fullUrl is mandatory for each entry in document Bundle. It is a random uuid. http://build.fhir.org/bundle.html#bundle-unique -->
-					<fullUrl value="urn:uuid:55d492f0-0a51-4ec4-9ef8-808dc88eb6c0"/>
-					<resource>
-						<!-- the first resource must be Composition (bdl-11) -->
-						<!-- This is the overall document structure. -->
-						<!-- see definition http://hl7.org/fhir/composition.html, and similar for other resources -->
-                        <Composition>
-                        	<!-- images if requied within html text of this document -->
-							
-              
-              <contained>
-                          <Binary>
-                            <id value="stylesheet0"/>
-                            <!-- example format -->
-                            <contentType value="stylesheet/css"/>
-                            <!-- data is base 64 encoded, actual bytes of the image png file -->
-                            <data value="PHN0eWxlPg0NCjwhLS0NDQogLyogRm9udCBEZWZpbml0aW9ucyAqLw0NCiBAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpIZWx2ZXRpY2E7DQ0KCXBhbm9zZS0xOjIgMTEgNiA0IDIgMiAyIDIgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpXaW5nZGluZ3M7DQ0KCXBhbm9zZS0xOjUgMCAwIDAgMCAwIDAgMCAwIDA7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJNUyBNaW5jaG8iOw0NCglwYW5vc2UtMToyIDIgNiA5IDQgMiA1IDggMyA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpTaW1TdW47DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJDYW1icmlhIE1hdGgiOw0NCglwYW5vc2UtMToyIDQgNSAzIDUgNCA2IDMgMiA0O30NDQpAZm9udC1mYWNlDQ0KCXtmb250LWZhbWlseTpDYWxpYnJpOw0NCglwYW5vc2UtMToyIDE1IDUgMiAyIDIgNCAzIDIgNDt9DQ0KQGZvbnQtZmFjZQ0NCgl7Zm9udC1mYW1pbHk6VmVyZGFuYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OlRhaG9tYTsNDQoJcGFub3NlLTE6MiAxMSA2IDQgMyA1IDQgNCAyIDQ7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQFNpbVN1biI7DQ0KCXBhbm9zZS0xOjIgMSA2IDAgMyAxIDEgMSAxIDE7fQ0NCkBmb250LWZhY2UNDQoJe2ZvbnQtZmFtaWx5OiJcQE1TIE1pbmNobyI7DQ0KCXBhbm9zZS0xOjIgMiA2IDkgNCAyIDUgOCAzIDQ7fQ0NCiAvKiBTdHlsZSBEZWZpbml0aW9ucyAqLw0NCiBwLk1zb05vcm1hbCwgbGkuTXNvTm9ybWFsLCBkaXYuTXNvTm9ybWFsDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpoMg0NCgl7bXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbWFyZ2luLXRvcDoyLjBwdDsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTowaW47DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTMuMHB0Ow0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6MTMuMHB0Ow0NCglmb250LWZhbWlseToiQ2FsaWJyaSBMaWdodCIsc2Fucy1zZXJpZjsNDQoJY29sb3I6IzJFNzRCNTsNDQoJZm9udC13ZWlnaHQ6bm9ybWFsO30NDQpwLk1zb0Zvb3Rub3RlVGV4dCwgbGkuTXNvRm9vdG5vdGVUZXh0LCBkaXYuTXNvRm9vdG5vdGVUZXh0DQ0KCXttc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvQ29tbWVudFRleHQsIGxpLk1zb0NvbW1lbnRUZXh0LCBkaXYuTXNvQ29tbWVudFRleHQNDQoJe21zby1zdHlsZS1saW5rOiJDb21tZW50IFRleHQgQ2hhciI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvSGVhZGVyLCBsaS5Nc29IZWFkZXIsIGRpdi5Nc29IZWFkZXINDQoJe21hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjEwLjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1zb0Zvb3RlciwgbGkuTXNvRm9vdGVyLCBkaXYuTXNvRm9vdGVyDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZTo4LjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1zb0NhcHRpb24sIGxpLk1zb0NhcHRpb24sIGRpdi5Nc29DYXB0aW9uDQ0KCXttc28tc3R5bGUtbmFtZToiQ2FwdGlvblwsQmVzY2hyaWZ0dW5nIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhciBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyMVwsQmVzY2hyaWZ0dW5nIENoYXIxXCxCZXNjaHJpZnR1bmcgQ2hhcjEgQ2hhciBDaGFyXCxUYWJcLFRhYlwvRmlnXCxUYWJcL0ZpZyBDaGFyXCxUYWJcL0ZpZyBDaGFyIENoYXJcLFRhYlwvRmlnIENoYXIgQ2hhciBDaGFyIENoYXJcLFRhYlwvRmlnIENoYXIxIENoYXIgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJDYXB0aW9uIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhciBDaGFyIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIxIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyMSBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhcjEgQ2hhciBDaGFyIENoYXJcLFRhYiBDaGFyXCxUYWJcL0ZpZyBDaGFyMVwsVGFiXC9GaWcgQ2hhciBDaGFyMSI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjEuMGluOw0NCgl0ZXh0LWluZGVudDotMS4waW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuTXNvQm9keVRleHQsIGxpLk1zb0JvZHlUZXh0LCBkaXYuTXNvQm9keVRleHQNDQoJe21hcmdpbjowaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjpncmVlbjsNDQoJZm9udC1zdHlsZTppdGFsaWM7fQ0NCnAuTXNvQm9keVRleHRJbmRlbnQsIGxpLk1zb0JvZHlUZXh0SW5kZW50LCBkaXYuTXNvQm9keVRleHRJbmRlbnQNDQoJe21zby1zdHlsZS1saW5rOiJCb2R5IFRleHQgSW5kZW50IENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo2LjBwdDsNDQoJbWFyZ2luLWxlZnQ6LjI1aW47DQ0KCWxpbmUtaGVpZ2h0OjEzLjBwdDsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCmE6bGluaywgc3Bhbi5Nc29IeXBlcmxpbmsNDQoJe2NvbG9yOmJsdWU7DQ0KCXRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7fQ0NCmE6dmlzaXRlZCwgc3Bhbi5Nc29IeXBlcmxpbmtGb2xsb3dlZA0NCgl7Y29sb3I6Izk1NEY3MjsNDQoJdGV4dC1kZWNvcmF0aW9uOnVuZGVybGluZTt9DQ0KcC5Nc29Eb2N1bWVudE1hcCwgbGkuTXNvRG9jdW1lbnRNYXAsIGRpdi5Nc29Eb2N1bWVudE1hcA0NCgl7bXNvLXN0eWxlLWxpbms6IkRvY3VtZW50IE1hcCBDaGFyIjsNDQoJbWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjguMHB0Ow0NCglmb250LWZhbWlseToiVGFob21hIixzYW5zLXNlcmlmO30NDQpwDQ0KCXttYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tbGVmdDowaW47DQ0KCWZvbnQtc2l6ZToxMi4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLk1zb0NvbW1lbnRTdWJqZWN0LCBsaS5Nc29Db21tZW50U3ViamVjdCwgZGl2Lk1zb0NvbW1lbnRTdWJqZWN0DQ0KCXttc28tc3R5bGUtbGluazoiQ29tbWVudCBTdWJqZWN0IENoYXIiOw0NCgltYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZToxMC4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLk1zb0FjZXRhdGUsIGxpLk1zb0FjZXRhdGUsIGRpdi5Nc29BY2V0YXRlDQ0KCXttYXJnaW46MGluOw0NCglsaW5lLWhlaWdodDoxMy4wcHQ7DQ0KCWZvbnQtc2l6ZTo4LjBwdDsNDQoJZm9udC1mYW1pbHk6IlRhaG9tYSIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29STVBhbmUsIGxpLk1zb1JNUGFuZSwgZGl2Lk1zb1JNUGFuZQ0NCgl7bWFyZ2luOjBpbjsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuTXNvTGlzdFBhcmFncmFwaCwgbGkuTXNvTGlzdFBhcmFncmFwaCwgZGl2Lk1zb0xpc3RQYXJhZ3JhcGgNDQoJe21hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjguMHB0Ow0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcEZpcnN0LCBsaS5Nc29MaXN0UGFyYWdyYXBoQ3hTcEZpcnN0LCBkaXYuTXNvTGlzdFBhcmFncmFwaEN4U3BGaXJzdA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcE1pZGRsZSwgbGkuTXNvTGlzdFBhcmFncmFwaEN4U3BNaWRkbGUsIGRpdi5Nc29MaXN0UGFyYWdyYXBoQ3hTcE1pZGRsZQ0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWxpbmUtaGVpZ2h0OjE1MCU7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjt9DQ0KcC5Nc29MaXN0UGFyYWdyYXBoQ3hTcExhc3QsIGxpLk1zb0xpc3RQYXJhZ3JhcGhDeFNwTGFzdCwgZGl2Lk1zb0xpc3RQYXJhZ3JhcGhDeFNwTGFzdA0NCgl7bWFyZ2luLXRvcDowaW47DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206OC4wcHQ7DQ0KCW1hcmdpbi1sZWZ0Oi41aW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJbGluZS1oZWlnaHQ6MTUwJTsNDQoJZm9udC1zaXplOjExLjBwdDsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpwLk1lbW9IZWFkZXJTdHlsZSwgbGkuTWVtb0hlYWRlclN0eWxlLCBkaXYuTWVtb0hlYWRlclN0eWxlDQ0KCXttc28tc3R5bGUtbmFtZTpNZW1vSGVhZGVyU3R5bGU7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6NzAuOXB0Ow0NCgl0ZXh0LWFsaWduOmp1c3RpZnk7DQ0KCXRleHQtanVzdGlmeTppbnRlci1pZGVvZ3JhcGg7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJBcmlhbCIsc2Fucy1zZXJpZjsNDQoJZm9udC12YXJpYW50OnNtYWxsLWNhcHM7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuRU1FQUVuQm9keVRleHQsIGxpLkVNRUFFbkJvZHlUZXh0LCBkaXYuRU1FQUVuQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJFTUVBIEVuIEJvZHkgVGV4dCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJdGV4dC1hbGlnbjpqdXN0aWZ5Ow0NCgl0ZXh0LWp1c3RpZnk6aW50ZXItaWRlb2dyYXBoOw0NCglmb250LXNpemU6MTEuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0KcC5Cb2R5dGV4dEFnZW5jeSwgbGkuQm9keXRleHRBZ2VuY3ksIGRpdi5Cb2R5dGV4dEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6IkJvZHkgdGV4dCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uQm9keXRleHRBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiQm9keSB0ZXh0IFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IHRleHQgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGxpLkRyYWZ0aW5nTm90ZXNBZ2VuY3ksIGRpdi5EcmFmdGluZ05vdGVzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSI7DQ0KCW1zby1zdHlsZS1saW5rOiJEcmFmdGluZyBOb3RlcyBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJDb3VyaWVyIE5ldyI7DQ0KCWNvbG9yOiMzMzk5NjY7DQ0KCWZvbnQtc3R5bGU6aXRhbGljO30NDQpzcGFuLkRyYWZ0aW5nTm90ZXNBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiRHJhZnRpbmcgTm90ZXMgXChBZ2VuY3lcKSBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRyYWZ0aW5nIE5vdGVzIFwoQWdlbmN5XCkiOw0NCglmb250LWZhbWlseToiQ291cmllciBOZXciOw0NCgljb2xvcjojMzM5OTY2Ow0NCglmb250LXN0eWxlOml0YWxpYzt9DQ0KcC5Ob3JtYWxBZ2VuY3ksIGxpLk5vcm1hbEFnZW5jeSwgZGl2Lk5vcm1hbEFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vcm1hbCBcKEFnZW5jeVwpIjsNDQoJbXNvLXN0eWxlLWxpbms6Ik5vcm1hbCBcKEFnZW5jeVwpIENoYXIiOw0NCgltYXJnaW46MGluOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpwLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGxpLlRhYmxlaGVhZGluZ3Jvd3NBZ2VuY3ksIGRpdi5UYWJsZWhlYWRpbmdyb3dzQWdlbmN5DQ0KCXttc28tc3R5bGUtbmFtZToiVGFibGUgaGVhZGluZyByb3dzIFwoQWdlbmN5XCkiOw0NCgltYXJnaW4tdG9wOjBpbjsNDQoJbWFyZ2luLXJpZ2h0OjBpbjsNDQoJbWFyZ2luLWJvdHRvbTo3LjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglsaW5lLWhlaWdodDoxNC4wcHQ7DQ0KCXBhZ2UtYnJlYWstYWZ0ZXI6YXZvaWQ7DQ0KCWZvbnQtc2l6ZTo5LjBwdDsNDQoJZm9udC1mYW1pbHk6IlZlcmRhbmEiLHNhbnMtc2VyaWY7DQ0KCWZvbnQtd2VpZ2h0OmJvbGQ7fQ0NCnAuVGFibGV0ZXh0cm93c0FnZW5jeSwgbGkuVGFibGV0ZXh0cm93c0FnZW5jeSwgZGl2LlRhYmxldGV4dHJvd3NBZ2VuY3kNDQoJe21zby1zdHlsZS1uYW1lOiJUYWJsZSB0ZXh0IHJvd3MgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbjowaW47DQ0KCWxpbmUtaGVpZ2h0OjE0LjBwdDsNDQoJZm9udC1zaXplOjkuMHB0Ow0NCglmb250LWZhbWlseToiVmVyZGFuYSIsc2Fucy1zZXJpZjt9DQ0Kc3Bhbi5Ob3JtYWxBZ2VuY3lDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiTm9ybWFsIFwoQWdlbmN5XCkgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJOb3JtYWwgXChBZ2VuY3lcKSI7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmO30NDQpzcGFuLkNvbW1lbnRUZXh0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgVGV4dCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpzcGFuLkNvbW1lbnRTdWJqZWN0Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNvbW1lbnQgU3ViamVjdCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNvbW1lbnQgU3ViamVjdCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpwLkRlZmF1bHQsIGxpLkRlZmF1bHQsIGRpdi5EZWZhdWx0DQ0KCXttc28tc3R5bGUtbmFtZTpEZWZhdWx0Ow0NCgltYXJnaW46MGluOw0NCgl0ZXh0LWF1dG9zcGFjZTpub25lOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJY29sb3I6YmxhY2s7fQ0NCnAuVGV4dDEsIGxpLlRleHQxLCBkaXYuVGV4dDENDQoJe21zby1zdHlsZS1uYW1lOiJUZXh0IDEiOw0NCgltc28tc3R5bGUtbGluazoiVGV4dCAxIENoYXIiOw0NCgltYXJnaW4tdG9wOjYuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiQXJpYWwiLHNhbnMtc2VyaWY7fQ0NCnNwYW4uVGV4dDFDaGFyDQ0KCXttc28tc3R5bGUtbmFtZToiVGV4dCAxIENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiVGV4dCAxIjsNDQoJZm9udC1mYW1pbHk6IkFyaWFsIixzYW5zLXNlcmlmO30NDQpzcGFuLkhlYWRpbmcyQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkhlYWRpbmcgMiBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkhlYWRpbmcgMiI7DQ0KCWZvbnQtZmFtaWx5OiJDYWxpYnJpIExpZ2h0IixzYW5zLXNlcmlmOw0NCgljb2xvcjojMkU3NEI1O30NDQpwLkJvbGRIZGdVbm51bWJlcmVkLCBsaS5Cb2xkSGRnVW5udW1iZXJlZCwgZGl2LkJvbGRIZGdVbm51bWJlcmVkDQ0KCXttc28tc3R5bGUtbmFtZToiQm9sZCBIZGcgVW5udW1iZXJlZCI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206MGluOw0NCgltYXJnaW4tbGVmdDouNWluOw0NCgl0ZXh0LWluZGVudDotLjVpbjsNDQoJcGFnZS1icmVhay1hZnRlcjphdm9pZDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IkhlbHZldGljYSIsc2Fucy1zZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0Kc3Bhbi5DYXB0aW9uQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkNhcHRpb24gQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjJcLEJlc2NocmlmdHVuZyBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhciBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjEgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIxIENoYXJcLEJlc2NocmlmdHVuZyBDaGFyMSBDaGFyIENoYXIgQ2hhclwsVGFiIENoYXJcLFRhYlwvRmlnIENoYXIxXCxUYWJcL0ZpZyBDaGFyIENoYXIxIjsNDQoJbXNvLXN0eWxlLWxpbms6IkNhcHRpb25cLEJlc2NocmlmdHVuZyBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyXCxCZXNjaHJpZnR1bmcgQ2hhciBDaGFyIENoYXIgQ2hhclwsQmVzY2hyaWZ0dW5nIENoYXIgQ2hhcjFcLEJlc2NocmlmdHVuZyBDaGFyMVwsQmVzY2hyaWZ0dW5nIENoYXIxIENoYXIgQ2hhclwsVGFiXCxUYWJcL0ZpZ1wsVGFiXC9GaWcgQ2hhclwsVGFiXC9GaWcgQ2hhciBDaGFyXCxUYWJcL0ZpZyBDaGFyIENoYXIgQ2hhciBDaGFyXCxUYWJcL0ZpZyBDaGFyMSBDaGFyIENoYXIiOw0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjsNDQoJZm9udC13ZWlnaHQ6Ym9sZDt9DQ0KcC5Oby1udW1oZWFkaW5nNUFnZW5jeSwgbGkuTm8tbnVtaGVhZGluZzVBZ2VuY3ksIGRpdi5Oby1udW1oZWFkaW5nNUFnZW5jeQ0NCgl7bXNvLXN0eWxlLW5hbWU6Ik5vLW51bSBoZWFkaW5nIDUgXChBZ2VuY3lcKSI7DQ0KCW1hcmdpbi10b3A6MTQuMHB0Ow0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjExLjBwdDsNDQoJbWFyZ2luLWxlZnQ6MGluOw0NCglwYWdlLWJyZWFrLWFmdGVyOmF2b2lkOw0NCglmb250LXNpemU6OS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJWZXJkYW5hIixzYW5zLXNlcmlmOw0NCglmb250LXdlaWdodDpib2xkO30NDQpzcGFuLkJvZHlUZXh0SW5kZW50Q2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkJvZHkgVGV4dCBJbmRlbnQgQ2hhciI7DQ0KCW1zby1zdHlsZS1saW5rOiJCb2R5IFRleHQgSW5kZW50IjsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnAuQy1Cb2R5VGV4dCwgbGkuQy1Cb2R5VGV4dCwgZGl2LkMtQm9keVRleHQNDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCI7DQ0KCW1zby1zdHlsZS1saW5rOiJDLUJvZHkgVGV4dCBDaGFyMSI7DQ0KCW1hcmdpbi10b3A6Ni4wcHQ7DQ0KCW1hcmdpbi1yaWdodDowaW47DQ0KCW1hcmdpbi1ib3R0b206Ni4wcHQ7DQ0KCW1hcmdpbi1sZWZ0OjBpbjsNDQoJbGluZS1oZWlnaHQ6MTQuMHB0Ow0NCglmb250LXNpemU6MTIuMHB0Ow0NCglmb250LWZhbWlseToiVGltZXMgTmV3IFJvbWFuIixzZXJpZjt9DQ0Kc3Bhbi5DLUJvZHlUZXh0Q2hhcjENDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCBDaGFyMSI7DQ0KCW1zby1zdHlsZS1saW5rOiJDLUJvZHkgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpwLlJlc3BvbnNlVGV4dCwgbGkuUmVzcG9uc2VUZXh0LCBkaXYuUmVzcG9uc2VUZXh0DQ0KCXttc28tc3R5bGUtbmFtZToiUmVzcG9uc2UgVGV4dCI7DQ0KCW1hcmdpbjowaW47DQ0KCXRleHQtYWxpZ246anVzdGlmeTsNDQoJdGV4dC1qdXN0aWZ5OmludGVyLWlkZW9ncmFwaDsNDQoJZm9udC1zaXplOjEyLjBwdDsNDQoJZm9udC1mYW1pbHk6IlRpbWVzIE5ldyBSb21hbiIsc2VyaWY7fQ0NCnNwYW4uQy1Cb2R5VGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJDLUJvZHkgVGV4dCBDaGFyIjt9DQ0KcC5UYWJsZVRleHRGb290bm90ZSwgbGkuVGFibGVUZXh0Rm9vdG5vdGUsIGRpdi5UYWJsZVRleHRGb290bm90ZQ0NCgl7bXNvLXN0eWxlLW5hbWU6IlRhYmxlVGV4dCBGb290bm90ZSI7DQ0KCW1hcmdpbi10b3A6MGluOw0NCgltYXJnaW4tcmlnaHQ6MGluOw0NCgltYXJnaW4tYm90dG9tOjBpbjsNDQoJbWFyZ2luLWxlZnQ6LjFpbjsNDQoJdGV4dC1pbmRlbnQ6LS4xaW47DQ0KCWZvbnQtc2l6ZToxMS4wcHQ7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmOw0NCgljb2xvcjojMDA3MEMwO30NDQpzcGFuLkZvb3Rub3RlVGV4dENoYXINDQoJe21zby1zdHlsZS1uYW1lOiJGb290bm90ZSBUZXh0IENoYXIiOw0NCgltc28tc3R5bGUtbGluazoiRm9vdG5vdGUgVGV4dCI7DQ0KCWZvbnQtZmFtaWx5OiJUaW1lcyBOZXcgUm9tYW4iLHNlcmlmO30NDQpzcGFuLkRvY3VtZW50TWFwQ2hhcg0NCgl7bXNvLXN0eWxlLW5hbWU6IkRvY3VtZW50IE1hcCBDaGFyIjsNDQoJbXNvLXN0eWxlLWxpbms6IkRvY3VtZW50IE1hcCI7DQ0KCWZvbnQtZmFtaWx5OiJUYWhvbWEiLHNhbnMtc2VyaWY7fQ0NCi5Nc29DaHBEZWZhdWx0DQ0KCXtmb250LXNpemU6MTAuMHB0O30NDQogLyogUGFnZSBEZWZpbml0aW9ucyAqLw0NCiBAcGFnZSBXb3JkU2VjdGlvbjENDQoJe3NpemU6NTk1LjM1cHQgODQyLjBwdDsNDQoJbWFyZ2luOjU2LjdwdCA3MC45cHQgNTYuN3B0IDcwLjlwdDt9DQ0KZGl2LldvcmRTZWN0aW9uMQ0NCgl7cGFnZTpXb3JkU2VjdGlvbjE7fQ0NCiAvKiBMaXN0IERlZmluaXRpb25zICovDQ0KIG9sDQ0KCXttYXJnaW4tYm90dG9tOjBpbjt9DQ0KdWwNDQoJe21hcmdpbi1ib3R0b206MGluO30NDQotLT4NDQo8L3N0eWxlPg=="/>
-                          </Binary>
-                        </contained>
-                        <!-- this exension is necessary per image -->
-                        <extension url="http://ema.europa.eu/fhir/extension/dummyValidationReference">
-                          <valueReference>
-                            <reference value="#stylesheet0"/>
-                          </valueReference>
-                        </extension>
-              
-              <status value="final"/>
-							<!-- document type -->
-							<type>
-								<coding>
-									<system value="http://spor.ema.europa.eu/v1/lists/100000155531"/>
-									<code value="${document[n].documentTypeCode}"/>
-									<display value="${document[n].documentTypeDisplay}"/>
-								</coding>
-							</type>
-							<subject>
-								<!-- links to the List resource in this bundle - local url format -->
-								<reference value="[]"/> <!-- local url format -->
-								<!--reference value="${instance.bundle[n].listUuid}"/--> <!-- uuid url format. Possible alternate format may be neeed -->
-							</subject>
-                        	<!-- mandatory date of the document -->
-                        	<date value="2021-02-01"/>
-							<author>
-								<identifier>
-									<system value="http://spor.ema.europa.eu/v1/locations" />
-									<value value="" />
-								</identifier>
-							</author>
-                        	<title value="${document[n].title}"/>
-							<relatesTo>
-								<code value="appends"/>
-								<targetReference>
-									<!-- reference to another Composition -->
-									<reference value="${document[n].relatesTo}"/>
-								</targetReference>
-							</relatesTo>
-							<!-- main sections of the document, to follow the QRD template -->
-	               			
-<section>
-	
-		
-			<title value="SUMMARY OF PRODUCT CHARACTERISTICS"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <span lang="EN-GB" style='font-size:11.0pt;font-family:"Times New Roman",serif; color:green'><br clear="all" style="page-break-before:always"/> </span><br clear="all" style="page-break-before:always"/>
-			</div>
-		</text>
-		
-		
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare professionals are asked to report any suspected adverse reactions. See section 4.8 for how to report adverse reactions."/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="1.       NAME OF THE MEDICINAL PRODUCT"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Alpivab 200 mg concentrate for solution for infusion</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="2.       QUALITATIVE AND QUANTITATIVE COMPOSITION"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each 20 mL vial of concentrate contains 200 mg peramivir.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">1 mL concentrate for solution for infusion contains 10 mg peramivir (anhydrous base).</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Excipients with known effect"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Each mL of concentrate contains 0.154 millimole (mmol) sodium, which is 3.54 mg of sodium.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">For the full list of excipients, see section 6.1.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="3.       PHARMACEUTICAL FORM"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Concentrate for solution for infusion.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Clear, colourless, solution.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="4.       CLINICAL PARTICULARS"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="4.1     Therapeutic indications"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Alpivab is indicated for the treatment of uncomplicated influenza in adults and children from the age of 2 years (see sections 4.4 and 5.1).</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.2     Posology and method of administration"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Posology"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span lang="EN-GB">Alpivab should be administered as a single intravenous dose within 48 hours of the onset of symptoms of influenza.</span></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span lang="EN-GB">The recommended single intravenous dose of peramivir depends on age and body weight as shown in Table 1.</span></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal"><a name="_Hlk506883324"><b><span lang="EN-GB">Table 1: Peramivir dose based on age and body weight </span></b></a></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:-.25pt;border-collapse:collapse;border:none"> <tr style="height:.4in"> <td style="width:3.5in;border:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:.4in" width="336"> <p class="MsoNormal" style="line-height:14.0pt"><b><span lang="EN-GB">Age and   body weight</span></b></p> </td> <td style="width:201.3pt;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:.4in" width="268"> <p class="MsoNormal" style="line-height:14.0pt"><b><span lang="EN-GB">Recommended   single dose</span></b></p> </td> </tr> <tr style="height:.3in"> <td style="width:3.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:.3in" width="336"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-GB">Children aged   from 2 years and &lt;50 kg</span></p> </td> <td style="width:201.3pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:.3in" width="268"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">12 mg/kg</span></p> </td> </tr> <tr style="height:.3in"> <td style="width:3.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:.3in" width="336"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-GB">Children aged   from 2 years and ≥50 kg body weight</span></p> </td> <td style="width:201.3pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:.3in" width="268"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">600 mg</span></p> </td> </tr> <tr style="height:.3in"> <td style="width:3.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:.3in" width="336"> <p class="MsoNormal" style="line-height:14.0pt"><span lang="EN-GB">Adults and   adolescents (13 years and older)</span></p> </td> <td style="width:201.3pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:.3in" width="268"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">600 mg</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Elderly</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">No dose adjustment is required based on age (see sections 4.4 and 5.2).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><a name="_Hlk503790927"></a><a name="_Hlk499654234"><i><span lang="EN-GB">Renal impairment</span></i></a></p><p class="MsoNormal" style="line-height:normal"><a name="_Hlk503874094"><span lang="EN-GB">The dose should be reduced for adults and adolescents (13 years and older) with absolute glomerular filtration rate (GFR) below 50 mL/min as shown in Table 2 (see sections 4.4 and 5.2). </span></a></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoCaption" style="margin-top:0in;margin-right:0in;margin-bottom:0in; margin-left:.6in;text-indent:-.6in;line-height:normal"><a name="_Ref499728619"><span style="font-size:11.0pt">Table</span></a><span style="font-size:11.0pt"> 2: Peramivir dose for adults and adolescents (from 13 years and 50 kg) based on absolute GFR</span></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:-.25pt;border-collapse:collapse;border:none"> <tr> <td style="width:3.0in;border:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt" width="288"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><b><span lang="EN-GB">Absolute Glomerular Filtration Rate (GFR)*</span></b></p> </td> <td style="width:237.3pt;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt" width="316"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><b><span lang="EN-GB">Recommended single dose</span></b></p> </td> </tr> <tr> <td style="width:3.0in;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="288"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">≥50</span></p> </td> <td style="width:237.3pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="316"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">600 mg</span></p> </td> </tr> <tr> <td style="width:3.0in;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="288"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">30 to 49</span></p> </td> <td style="width:237.3pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="316"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">300 mg</span></p> </td> </tr> <tr> <td style="width:3.0in;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt" valign="top" width="288"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">10 to 29</span></p> </td> <td style="width:237.3pt;border-top:none;border-left:   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt" valign="top" width="316"> <p align="center" class="MsoNormal" style="text-align:center;line-height:14.0pt"><span lang="EN-GB">200 mg</span></p> </td> </tr> </table><p class="MsoNormal"><span lang="EN-GB">*Absolute GFR not adjusted for body surface area</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">In adults and adolescents (from 13 years and 50 kg) with chronic renal impairment maintained on haemodialysis, peramivir should be administered after dialysis at a dose adjusted for renal function (Table 2).</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p align="left" class="ResponseText" style="text-align:left"><span style="font-size:11.0pt">There are insufficient clinical data available in children and adolescents aged less than 13 years or with body weight less than 50 kg with renal impairment to be able to make any dosing recommendation.</span></p><p align="left" class="ResponseText" style="text-align:left"> </p><p align="left" class="ResponseText" style="text-align:left"><i><span style="font-size:11.0pt">Hepatic impairment</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">No dose adjustment is required in patients with hepatic impairment (see section 5.2).</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Paediatric population"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">The safety and efficacy of peramivir in children aged under 2 years has not yet been established. No data are available.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Method of administration"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Alpivab is administered via intravenous infusion for 15 to 30 minutes. </span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">For instructions on dilution of the medicinal product before administration, see section 6.6.</span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.3     Contraindications"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Hypersensitivity to the active substance or to any of the excipients listed in section 6.1.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.4     Special warnings and precautions for use"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">Serious hypersensitivity</span></u><u><span lang="EN-GB"> r</span></u><u><span lang="EN-GB">eactions</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Anaphylactic reactions and serious skin reactions (including erythema multiforme, toxic epidermal necrolysis and Stevens-Johnson syndrome) have been reported with peramivir (see section 4.8). If any hypersensitivity reaction occurs during infusion of peramivir, the infusion must be stopped immediately and appropriate management should be instituted.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">Neuropsychiatric events</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Delirium, hallucinations and abnormal behaviour have been reported in patients with influenza who were receiving peramivir. These events were reported primarily among paediatric patients and often had an abrupt onset and rapid resolution. The contribution of peramivir to these events has not been established. Patients with influenza should be closely monitored for signs of abnormal behaviour. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoBodyText"><u><span lang="EN-GB" style="color:windowtext;font-style: normal">Reduced renal function</span></u></p><p class="MsoBodyText"><s><u><span lang="EN-GB" style="color:red;font-style:normal"></span></u></s></p><p class="MsoBodyText"><span lang="EN-GB" style="color:windowtext;font-style:normal">Acute renal failure, renal failure, pre-renal failure, renal disorder, anuria, nephritis, and increased blood creatinine have been reported in patients with influenza who were receiving peramivir. Most of the cases occurred in elderly patients with comorbidities and multiple concomitant medicinal products. The contribution of peramivir to these events has not been established. Patients with influenza and already existing diseases should be closely monitored for renal function.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt"><u><span lang="EN-GB">Limitations of the clinical data</span></u></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:14.0pt"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span lang="EN-GB">The efficacy of peramivir as a single dose treatment for uncomplicated influenza was demonstrated in a single placebo-controlled study conducted in 300 adult patients in Japan during the 2007/2008 influenza season. The recommended 600 mg single intravenous dose resulted in shortening of the median time to alleviation of symptoms by 21 hours (see section 5.1).</span></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Available data do not support a conclusion that peramivir is effective in patients with influenza B or in patients with complicated influenza.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><u><span lang="EN-GB">Resistance to peramivir</span></u></p><p class="MsoNormal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal"><span lang="EN-GB">Influenza A/H1N1 viruses that contain the H275Y mutation have reduced susceptibility to peramivir and oseltamivir. In a clinical trial, no statistically significant clinical benefit could be demonstrated for peramivir over placebo in patients infected with the A/H1N1 virus containing the H275Y mutation. Available information on influenza drug susceptibility should be taken into account when deciding whether to use peramivir (see section 5.1). </span></p><p class="MsoNormal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">Risk of bacterial infections</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">There is no evidence for efficacy of peramivir in any illness caused by agents other than influenza viruses. Serious bacterial infections may begin with influenza-like symptoms or may coexist with or occur as complications during the course of influenza. Peramivir has not been shown to prevent such complications. </span></p><p class="MsoNormal" style="margin-left:28.35pt;text-indent:-28.35pt;line-height: normal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">Excipients</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">This medicinal product contains 212.4 mg sodium per 3 vials, equivalent to 10.6% of the World Health Organization (WHO) recommended maximum daily intake of 2 g sodium for an adult.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.5     Interaction with other medicinal products and other forms of interaction"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The potential for interactions of peramivir with other medicines is low, based on the known elimination pathway of peramivir. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">Live attenuated influenza vaccines are not recommended to be used until 48 hours following Alpivab administrationdue to a theoretical risk that peramivir could reduce the immunogenicity of the vaccine.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.6     Fertility, pregnancy and lactation"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Pregnancy"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">There are no or limited amount of data (less than 300 pregnancies outcomes) from the use of peramivir in pregnant women. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Animal studies do not indicate direct or indirect harmful effects with respect to reproductive toxicity (see section 5.3). </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">As a precautionary measure, it is preferable to avoid the use of peramivir during pregnancy.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Breast-feeding"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="text-autospace:none"><span style="color:black">Available pharmacodynamic/toxicological data in animals have shown excretion of peramivir in milk (see section 5.3).</span></p><p class="MsoNormal" style="text-autospace:none"></p><p class="MsoNormal" style="line-height:normal"><span style="color:black">A risk to the newborns/infants cannot be excluded.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">A decision must be made whether to discontinue breast-feeding or to discontinue/abstain from peramivir therapy taking into account the benefit of breast-feeding for the child and the benefit of therapy for the woman.</span></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Fertility"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">No human data on the effect of peramivir on fertility are available. Peramivir had no effects on mating or fertility in animal studies (see section 5.3). </span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.7     Effects on ability to drive and use machines"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Peramivir has no or negligible influence on the ability to drive and use machines.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.8     Undesirable effects"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal;page-break-after:avoid;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Summary of the safety profile</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal;text-autospace:none"><span lang="EN-GB">The most important serious adverse reactions associated with permivir in patients are anaphylaxis and </span><span lang="EN-GB">skin reactions, including erythema multiforme and Stevens-Johnson Syndrome. </span></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">Among 467 adult subjects with uncomplicated influenza who received a single intravenous dose of </span><span lang="EN-GB">peramivir</span><span lang="EN-GB"> 600 mg in clinical trials, the most commonly observed adverse reactions were neutrophil count decreased (3.2 %) and nausea (2.4 %). </span></p><p class="MsoNormal" style="page-break-after:avoid"></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal;text-autospace:none"><u><span lang="EN-GB">Tabulated list of adverse reactions</span></u></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal;text-autospace:none"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="text-autospace:none"><span lang="EN-GB">Frequencies are defined as very common (≥1/10), common (≥1/100 to &lt;1/10), uncommon (≥1/1000 to &lt;1/100), rare (≥1/10,000 to &lt;1/1000), very rare (&lt;1/10,000).</span></p><p class="MsoNormal" style="text-autospace:none"></p><p class="MsoNormal" style="page-break-after:avoid"><a name="_Hlk498529576"><b><span lang="EN-GB">Table 3: <span style="color:black;background:white">Adverse reactions in studies investigating peramivir for treatment of uncomplicated influenza in adults </span></span></b></a></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="margin-left:-.5pt;border-collapse:collapse;border:none" width="648"> <thead> <tr style="height:28.5pt"> <td rowspan="2" style="width:1.5in;border:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt;height:28.5pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">System    Organ Class (SOC)</span></b></p> </td> <td colspan="4" style="width:5.25in;border:solid windowtext 1.0pt;    border-left:none;padding:0in 5.4pt 0in 5.4pt;height:28.5pt" width="504"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span lang="EN-GB">Adverse Reaction According to Frequency*</span></b></p> </td> </tr> <tr style="height:15.75pt"> <td style="width:1.25in;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Common</span></b></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Uncommon</span></b></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Rare</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Unknown</span></b></p> </td> </tr> </thead> <tr style="height:29.25pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:29.25pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Blood and   lymphatic system disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:29.25pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">neutrophil   count decreased</span></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:29.25pt" width="180"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:29.25pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:29.25pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:30.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Immune   system disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:30.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">anaphylactic   reaction*, anaphylactic shock*</span></p> </td> </tr> <tr style="height:137.2pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:137.2pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Metabolism   and nutrition disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:137.2pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">blood lactate   dehydrogenase increased</span></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:137.2pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">decreased   appetite, blood albumin decreased, blood chloride increased, blood glucose   decreased, blood lactate dehydrogenase decreased, blood potassium increased,   blood sodium increased, blood uric acid increased, protein total increased</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:137.2pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:137.2pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:30.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Psychiatric   disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">insomnia</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:30.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">abnormal   behaviour*, delirium*</span></p> </td> </tr> <tr style="height:30.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Nervous   system disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">hypoaesthesia,   paraesthesia</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:30.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:15.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Eye   disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">vision blurred</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:15.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:30.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Cardiac   disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">electrocardiogram   QT prolonged</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:30.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:30.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:40.0pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:40.0pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Gastrointestinal   disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:40.0pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">nausea,   vomiting</span></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:40.0pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">abdominal pain   upper, abdominal discomfort, gastritis</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:40.0pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:40.0pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:75.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:75.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Hepatobiliary   disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:75.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:75.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">increased   gamma-glutamyltransferase</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:75.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:75.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">liver   disorder*, alanine aminotransferase increased*, aspartate aminotransferase   increased* </span></p> </td> </tr> <tr style="height:45.75pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:45.75pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Skin and   subcutaneous tissue disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:45.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:45.75pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">dermatitis,   drug eruption, eczema, urticaria</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:45.75pt" width="84"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">erythema   multiforme</span></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:45.75pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">dermatitis   exfoliative*, Stevens-Johnson syndrome*</span></p> </td> </tr> <tr style="height:43.5pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Musculoskeletal   and connective tissue disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">arthralgia,   blood creatine phosphokinase increased</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:43.5pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> <tr style="height:63.8pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:63.8pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">Renal and   urinary disorders</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:63.8pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:63.8pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">blood urea   increased, blood present in urine, urobilin present in urine, blood   creatinine increased, urine ketone body increased</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:63.8pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:63.8pt" width="120"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">acute kidney   injury*, renal impairment*</span></p> </td> </tr> <tr style="height:43.5pt"> <td style="width:1.5in;border:solid windowtext 1.0pt;border-top:   none;padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="144"> <p class="MsoNormal" style="line-height:normal"><b><span lang="EN-GB">General   disorders and administration site conditions</span></b></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:135.0pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="180"> <p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">chest   discomfort, fatigue</span></p> </td> <td style="width:63.0pt;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:43.5pt" width="84"> <p class="MsoNormal" style="line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:43.5pt" width="120"> <p class="MsoNormal" style="line-height:normal"></p> </td> </tr> </table><p class="TableTextFootnote"><span style="color:windowtext">*These events reported from post-authorization use occurred with different dosage and dosing schedule to that described in the SmPC.</span></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><i><span lang="EN-GB">Paediatrics</span></i></p><p class="MsoNormal" style="page-break-after:avoid"><span lang="EN-GB">In paediatric subjects (age 2 to 17 years) with uncomplicated influenza enrolled in a clinical trial, the safety profile of peramivir was similar to that reported in adults. Common a</span><span lang="EN-GB">dverse reactions not reported in adults were injection site rash, pyrexia, tympanic membrane hyperaemia, psychomotor hyperactivity, and pruritus. </span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Reporting of suspected adverse reactions"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Reporting suspected adverse reactions after authorisation of the medicinal product is important. It allows continued monitoring of the benefit/risk balance of the medicinal product. Healthcare professionals are asked to report any suspected adverse reactions via the national reporting system listed in </span><span lang="EN-GB"><a href="http://www.ema.europa.eu/docs/en_GB/document_library/Template_or_form/2013/03/WC500139752.doc">Appendix V</a></span><span lang="EN-GB">.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="4.9     Overdose"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid;text-autospace: none"><span lang="EN-GB">There is no experience of acute overdose with peramivir in humans. Treatment of an overdose should consist of general supportive measures including monitoring of vital signs and observation of the clinical status of the patient. </span></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="line-height:normal;text-autospace:none"><span lang="EN-GB">Peramivir is cleared by renal excretion and can be cleared by haemodialysis. There is no specific antidote to treat an overdose of this medicine.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="5.       PHARMACOLOGICAL PROPERTIES"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="5.1     Pharmacodynamic properties"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Pharmacotherapeutic group: Antivirals for systemic use, neuraminidase inhibitors ATC code</span><b><span lang="EN-GB">: </span></b><span lang="EN-GB">J05AH03</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Mechanism of action"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;text-autospace:none"></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Peramivir is an inhibitor of influenza virus neuraminidase, an enzyme that releases viral particles from the plasma membrane of infected cells and is also important for viral entry into uninfected cells, which causes further spread of infectious virus in the body.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><u><span lang="EN-GB">In-vitro</span></u></i><u><span lang="EN-GB"> activity </span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Neuraminidase inhibition occurred at very low peramivir concentrations <i>in-vitro</i>, with median inhibitory concentration 50% (IC<sub>50</sub>) values of 0.13 nanomolar (nM) to 0.99 nM against influenza A and B strains.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><a name="_Hlk503779250"><i><span lang="EN-GB">Resistance</span></i></a></p><p class="MsoNormal" style="text-autospace:none"><span lang="EN-GB">In a clinical trial in which 245 subjects <a name="_Hlk500240383">were infected at baseline with influenza</a> A/H1N1 containing the H275Y mutation, the median baseline IC<sub>50</sub> values for peramivir, oseltamivir and zanamivir were 51.0 nM, 487.6 nM and 0.95 nM, respectively. </span></p><p class="MsoNormal" style="text-autospace:none"></p><p class="MsoNormal" style="text-autospace:none"><span lang="EN-GB">In clinical trials, H275Y was the only resistance-associated treatment-emergent mutation in the neuraminidase gene that occurred in virus obtained from more than one peramivir-treated subject (in 9 of 481[1.9 %] infected with the A/H1N1 influenza virus). </span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Cross resistance</span></i></p><p class="BodytextAgency" style="margin-bottom:0in;text-align:justify;text-justify: inter-ideograph;line-height:normal"><span lang="EN-GB" style='font-size:11.0pt; font-family:"Times New Roman",serif'>The H275Y substitution is associated with reduced susceptibility to peramivir and oseltamivir. Cross-resistance between peramivir and each of oseltamivir and zanamivir may also occur. </span></p><p class="MsoNormal" style="line-height:normal"><s><span lang="EN-GB" style="color:red"></span></s></p><p class="MsoNormal" style="text-autospace:none"><u><span lang="EN-GB">Clinical studies</span></u></p><p class="MsoNormal" style="margin-right:-.1pt"></p><p class="MsoNormal" style="margin-right:-.1pt"><a name="_Hlk498508026"><i><span lang="EN-GB">Uncomplicated influenza in adults</span></i></a></p><p class="MsoNormal"><span lang="EN-GB">A randomised, multicentre, double-blind trial conducted in Japan evaluated a single intravenous administration of peramivir 300 mg or 600 mg, or placebo administered over 30 minutes in subjects 20 to 64 years of age withuncomplicated influenza. Subjects were eligible if they had fever greater than 38 <a name="_Hlk503778028">°C</a> and a positive rapid antigen test for influenza virus, accompanied by at least two of the following symptoms: cough, nasal symptoms, sore throat, myalgia, chills/sweats, malaise, fatigue or headache. </span></p><p class="MsoNormal"></p><p class="MsoNormal"><span lang="EN-GB">Study treatment was started within 48 hours of onset of symptoms. Subjects participating in the trial were required to self-assess their influenza symptoms as “none’, ‘mild’, ‘moderate’ or ‘severe’ twice daily. The primary endpoint, time to alleviation of symptoms, was defined as the number of hours from initiation of study drug until the start of the 24 hour period in which all seven symptoms of influenza (cough, sore throat, nasal congestion, headache, feverishness, myalgia and fatigue) were either absent or present at a level no greater than mild for at least 21.5 hours.</span></p><p class="MsoNormal"></p><p class="MsoNormal"><span lang="EN-GB">The intent to treat influenza population (ITTI) included 296 subjects with influenza confirmed by polymerase chain reaction (PCR). Among the 97 subjects enrolled in the peramivir 600 mg dose group, 99 % were infected with influenza A virus (subtypes H1 and H3; 71 % and 26 %, respectively) and 1 % with influenza B virus. At enrollment 85 % of the 296 subjects had a composite influenza symptom score &lt;15. The mean temperature at enrolment was 38.6 °C (axillary). Key efficacy results are presented in Table 4.</span></p><p class="MsoNormal" style="margin-right:-.1pt"></p><p class="MsoNormal" style="margin-right:-.1pt"><b><span lang="EN-GB">Table 4: Key efficacy results from study 0722T0621 (ITTI Population)</span></b></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="width:418.1pt;border-collapse:collapse" width="557"> <tr> <td style="width:45.68%;border:inset 1.0pt;border-bottom:   solid windowtext 1.0pt;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="top" width="45%"></td> <td style="width:27.14%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="top" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span style="color:black">Peramivir 600 mg</span></b></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">n=97</span></p> </td> <td style="width:27.2%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="top" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><b><span style="color:black">Placebo</span></b></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">n=100</span></p> </td> </tr> <tr> <td style="width:45.68%;border:inset 1.0pt;border-top:   none;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="top" width="45%"> <p class="MsoNormal" style="line-height:normal">Time to alleviation of symptoms</p> <p class="MsoNormal" style="line-height:normal"><span style="color:black">median   (hours)</span></p> <p class="MsoNormal" style="line-height:normal"><span style="color:black">(95 %   CI)</span></p> </td> <td style="width:27.14%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="bottom" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">59.9</span></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">(54.4, 68.1)</span></p> </td> <td style="width:27.2%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="bottom" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">81.8</span></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">(68.0, 101.5)</span></p> </td> </tr> <tr> <td style="width:45.68%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="top" width="45%"> <p class="MsoNormal" style="line-height:normal"><span style="color:black">Time   to recovery of normal temperature median (hours)</span></p> <p class="MsoNormal" style="line-height:normal"><span style="color:black">(95 %   CI)</span></p> </td> <td style="width:27.14%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="bottom" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">30.2</span></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">(25.9, 31.9)</span></p> </td> <td style="width:27.2%;padding:1.2pt 1.2pt 1.2pt 1.2pt" valign="bottom" width="27%"> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">42.4</span></p> <p align="center" class="MsoNormal" style="text-align:center;line-height:normal"><span style="color:black">(32.9, 46.5)</span></p> </td> </tr> </table><p class="MsoNormal" style="margin-right:-.1pt"><span lang="EN-GB">CI = Confidence Interval </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Uncomplicated influenza in paediatric subjects aged 2-17 years</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The safety of peramivir was evaluated in a randomised, active-controlled study of 110 subjects with uncomplicated influenza who received open label treatment with a single dose of peramivir (600 mg for subjects 13 to 17 years of age and 12 mg/kg up to a maximum dose of 600 mg in subjects 2 to 12 years of age) or oral oseltamivir administered twice daily for 5 days. </span><span lang="EN-GB">The ITTI population included 84 subjects with influenza confirmed by PCR. Among the 93 subjects enrolled in the peramivir dose group, 43% were infected with influenza A virus (subtypes H1 and H3; 54 % and 46 %, respectively) and 27% with influenza B virus. </span><span lang="EN-GB">Randomisation was 4:1 for peramivir and oseltamivir. Treatment was given or commenced within 48 hours of onset of symptoms of influenza. Efficacy (time to resolution of fever; time to resolution of influenza symptoms, viral shedding, virus susceptibility) was a secondary endpoint.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Subjects receiving peramivir experienced a median time to alleviation of their combined influenza symptoms of 79.0 hours and the median time to recovery to normal temperature (less than 37 °C) was approximately 40.0 hours.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Elderly patients</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Clinical trials in which single intravenous doses of peramivir were administered to patients with uncomplicated influenza included few subjects aged 65 and over (n=10).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal"><span lang="EN-GB">The European Medicines Agency has deferred the obligation to submit the results of studies with Alpivab in one or more subsets of the paediatric population for the treatment of influenza (see section 4.2 for information on paediatric use).</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="5.2     Pharmacokinetic properties"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="Absorption"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The pharmacokinetic parameters following intravenous (IV) administration of peramivir (0.17 to 2 times the recommended dose) showed a linear relationship between dose and exposure parameters (maximum serum concentration [C<sub>max</sub>] and area under the curve [AUC]). Following intravenous administration of a single dose of peramivir 600 mg over 30 minutes, C<sub>max</sub> was reached at the end of infusion. </span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Distribution"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">In-vitro</span></i><span lang="EN-GB"> binding of peramivir to human plasma proteins is less than 30 %. </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Based on a population pharmacokinetic analysis, the central volume of distribution was 12.56 L.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Biotransformation"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Peramivir is not significantly metabolised in humans.</span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB"></span></u></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="Elimination"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">The elimination half-life of peramivir following IV administration to healthy subjects of 600 mg as a single dose is approximately 20 hours. The major route of elimination of peramivir is via the kidney. Renal clearance of unchanged peramivir accounts for approximately 90 % of total clearance.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB">Special populations</span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><i><span lang="EN-GB">Race</span></i></p><p class="MsoNormal"><a name="_Hlk498601677"><span lang="EN-GB">In simulations of a single dose of 600 mg, the predicted AUC in Asians (AUC<sub>0-24</sub> 88,800 ng</span></a><span lang="EN-GB">•</span><span lang="EN-GB">h/mL) was slightly higher as compared to Non-Asians (AUC<sub>0-24</sub> 77,200 ng</span><span lang="EN-GB">•</span><span lang="EN-GB">h/mL).  </span></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Gender</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The pharmacokinetics of peramivir following a 600 mg intramuscular (IM) injection was similar in males and females with AUC<sub>0-∞</sub> of 76,600 ng•hr/mL and 101,000 ng•hr/mL, respectively, and C<sub>max</sub> of 27,760 ng/mL and 34,710 ng/mL, respectively.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><a name="_Hlk503609111"><i><span lang="EN-GB">Paediatrics</span></i></a></p><p class="MsoNormal" style="line-height:normal"><a name="_Hlk497130888"><span lang="EN-GB">The pharmacokinetics of peramivir has been evaluated in a study in paediatric subjects 2 to 17 years of age with uncomplicated influenza. Pharmacokinetic sampling in this study was limited to approximately 3 hours after administration of peramivir. Pharmacokinetics of peramivir in subjects 2 to 17 years of age (administered 12 mg/kg or 600 mg according to age and body weight) and in healthy adults (administered 600 mg) was similar (Table 5). </span></a></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-right:-.1pt"><b><span lang="EN-GB">Table 5: Pharmacokinetic parameters in paediatric subjects </span></b></p><table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="border-collapse:collapse;border:none"> <tr style="height:28.3pt"> <td style="width:103.25pt;border:solid windowtext 1.0pt;padding:   0in 5.4pt 0in 5.4pt;height:28.3pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center"><b><span style="font-size:11.0pt">Age Group</span></b></p> </td> <td style="width:103.5pt;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:28.3pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center"></p> </td> <td style="width:.5in;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:28.3pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center"><b><span style="font-size:11.0pt">N</span></b></p> </td> <td style="width:1.25in;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:28.3pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center"><b><span style="font-size:11.0pt">C<sub>max</sub> (ng/mL)</span></b></p> </td> <td style="width:1.5in;border:solid windowtext 1.0pt;border-left:   none;padding:0in 5.4pt 0in 5.4pt;height:28.3pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center"><b><span style="font-size:11.0pt">AUC<sub>last</sub> (ng</span></b>•<b><span style="font-size:11.0pt">h/mL)</span></b></p> </td> </tr> <tr style="height:17.5pt"> <td rowspan="3" style="width:103.25pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.5pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><b><span style="font-size:11.0pt">2 years - &lt;7 years</span></b></p> </td> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.5pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Mean (SD)</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.5pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">28</span></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.5pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">53,600 (26,200)</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.5pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">74,000 (30,000)</span></p> </td> </tr> <tr style="height:19.3pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:19.3pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Geometric Mean</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:19.3pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:19.3pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">47,400</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:19.3pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">68,100</span></p> </td> </tr> <tr style="height:14.35pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:14.35pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">%CV</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:14.35pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:14.35pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">48.9</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:14.35pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">40.6</span></p> </td> </tr> <tr style="height:16.15pt"> <td rowspan="3" style="width:103.25pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:16.15pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><b><span style="font-size:11.0pt">7 years - &lt;13 years</span></b></p> </td> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.15pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Mean (SD)</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:16.15pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">39</span></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:16.15pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">66,800 (35,400)</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:16.15pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">87,000 (40,800)</span></p> </td> </tr> <tr style="height:18.4pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:18.4pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Geometric Mean</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:18.4pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:18.4pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">61200</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:18.4pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">81,000</span></p> </td> </tr> <tr style="height:15.25pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.25pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">%CV</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:15.25pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:15.25pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">53.0</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:15.25pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">46.8</span></p> </td> </tr> <tr style="height:27.4pt"> <td rowspan="3" style="width:103.25pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:27.4pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><b><span style="font-size:11.0pt">13 years - &lt;18</span></b></p> </td> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:27.4pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Mean (SD)</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:27.4pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">20</span></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:27.4pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">54,300 (17,900)</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:27.4pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">72,400 (20,000)</span></p> </td> </tr> <tr style="height:17.5pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.5pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Geometric Mean</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.5pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.5pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">51,500</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.5pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">69,500</span></p> </td> </tr> <tr style="height:17.05pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">%CV</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">33.0</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">27.6</span></p> </td> </tr> <tr style="height:17.05pt"> <td rowspan="3" style="width:103.25pt;border:solid windowtext 1.0pt;   border-top:none;padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><b><span style="font-size:11.0pt">2 years - &lt;18 years</span></b></p> </td> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Mean (SD)</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">87</span></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">59,700 (29,700)</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">79,500 (34,000)</span></p> </td> </tr> <tr style="height:17.05pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">Geometric Mean</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">54,200</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">74,000</span></p> </td> </tr> <tr style="height:17.05pt"> <td style="width:103.5pt;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="138"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">%CV</span></p> </td> <td style="width:.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="48"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"></p> </td> <td style="width:1.25in;border-top:none;border-left:none;   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;   padding:0in 5.4pt 0in 5.4pt;height:17.05pt" width="120"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">49.8</span></p> </td> <td style="width:1.5in;border-top:none;border-left:none;border-bottom:   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;   height:17.05pt" width="144"> <p align="center" class="C-BodyText" style="margin:0in;text-align:center;   line-height:normal"><span style="font-size:11.0pt">42.7</span></p> </td> </tr> </table><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">SD = Standard Deviation; CV = Coefficient of Variation</span></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB" style="color:red"></span></u></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Elderly</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The pharmacokinetics of peramivir was evaluated in 20 elderly subjects (&gt;65 years of age) following a single 4 mg/kg IV dose of peramivir. The elderly subjects enrolled were aged 65 to 79 years, with a mean age of 70.1 years, with creatinine clearance (Cockcroft-Gault calculation) CrCl<sub>cg</sub> ranging from 82.8 mL/min to 197.9 mL/min. The </span><span lang="EN-GB">pharmacokinetics in elderly subjects was similar to non-elderly subjects.</span><span lang="EN-GB"> Mean peak concentrations of peramivir were approximately 10 % higher in elderly subjects following administration of a single dose when compared to young adults (22,647 vs. 20,490 ng/mL, respectively). Exposure (AUC<sub>0-12</sub>) to peramivir following a single dose was approximately 33 % higher in elderly subjects compared to young adults (61,334 vs. 46,200 ng</span><span lang="EN-GB">•</span><span lang="EN-GB">hr/mL, respectively).</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Renal impairment</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">In a study in subjects with various degrees of renal impairment and subjects with normal renal function, a single 2 mg/kg IV dose of peramivir was administered. Serum creatinine measurements were used to calculate creatinine clearance (Cockcroft-Gault equation). The mean AUC<sub>0-</sub></span><sub><span lang="EN-GB" style="font-family:Symbol">µ</span></sub><span lang="EN-GB"> was increased by 28 %, 302 % and 412 % in subjects with creatinine clearance of 50‑79, 30‑49 and 10‑29 mL/min, respectively. Haemodialysis initiated at 2 hours after dosing reduced systemic exposure of peramivir by 73 to 81 %.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><i><span lang="EN-GB">Hepatic impairment</span></i></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The pharmacokinetics of peramivir in subjects with hepatic impairment has not been studied. No clinically relevant alterations to peramivir pharmacokinetics are expected in patients with hepatic impairment based on the route of peramivir elimination.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="5.3     Preclinical safety data"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal;page-break-after: avoid"><span lang="EN-GB">Peramivir was not teratogenic in embryo-fetal development studies in rats and rabbits and had no effects on mating or fertility in rats up to 600 mg/kg/day, at which exposures were approximately 8‑fold of those in humans at the clinically recommended dose. However, in an embryo-foetal development study in rats, in which dams received continuous infusions of peramivir from day 6‑17 of gestation at does of 50, 400 or 1000 mg/kg/day, dose related increases in the incidences of reduction of the renal papillae and dilatation of the ureters were observed. The teratological importance of these findings is unclear.</span></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Carcinogenicity studies by intravenous injection of peramivir were not performed. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Peramivir was not mutagenic or clastogenic in a battery of <i>in-vitro</i> and <i>in-vivo</i> assays.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Acute renal necrosis was found in rabbits at doses ≥ 200 mg/kg with a clear no observed adverse effect level (NOAEL) established in multiple studies at 100 mg/kg/day. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Two-week oral toxicity studies were conducted in juvenile rats and rabbits, and a four-week IV toxicity study was conducted in juvenile rats. In general, nephrotoxicity was observed in rabbits, no unexpected toxicity was observed, and no other target organ toxicity was identified in juvenile animals.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="6.       PHARMACEUTICAL PARTICULARS"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-
-			    
-		               
-<section>
-			<title value="6.1     List of excipients"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium chloride</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Water for injections</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Sodium hydroxide (for pH adjustment)</span></p><p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal"><span lang="EN-GB">Hydrochloric acid (for pH adjustment)</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="6.2     Incompatibilities"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">This medicinal product must not be mixed with other medicinal products except those mentioned in section 6.6.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="6.3     Shelf life"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">Unopened vial</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5 years</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB">After dilution</span></u></p><p class="MsoNormal" style="line-height:normal"><u><span lang="EN-GB"></span></u></p><p class="MsoNormal"><span lang="EN-GB">Chemical and physical in-use stability has been demonstrated for 72 hours at 5 ºC and 25 ºC.</span></p><p class="MsoNormal"><span lang="EN-GB">From a microbiological point of view, the product, once diluted, should be used immediately.</span><span lang="EN-GB">If not used immediately in-use storage times and conditions prior to use are the responsibility of the user and would normally not be longer than 24 hours at 2 ºC to 8 ºC, unless dilution has taken place in controlled and validated aseptic conditions.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="6.4     Special precautions for storage"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Do not refrigerate or freeze.</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">For storage conditions after dilution of the medicinal product, see section 6.3.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="6.5     Nature and contents of container"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph; line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Clear glass vial (Type I) with a coated bromobutyl-rubber stopper, aluminium overseal and flip-off cap. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Pack size of 3 single-use vials.</span></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-
-			    
-		               
-<section>
-			<title value="6.6     Special precautions for disposal and other handling"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal;page-break-after:avoid"></p><p class="MsoNormal" style="line-height:normal;page-break-after:avoid"><span lang="EN-GB">Aseptic technique should be used during the preparation of Alpivab to prevent inadvertent microbial contamination. </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">The following steps should be followed to prepare a diluted solution of peramivir:</span></p><p class="MsoListParagraphCxSpFirst" style="margin-left:28.35pt;text-indent:-28.35pt; line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Check the seal of each vial. Do not use if seal opening is broken or missing.</span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Visually inspect the peramivir concentrate 10 mg/mL. It must be colourless and without particulate matter. </span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal;page-break-after:avoid"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>If a patient receives 600 mg peramivir the required volume of peramivir concentrate is 60 mL (3 vials with 20 mL each). In the case of a 300 mg peramivir dose, 30 mL (1½ vials) of peramivir concentrate is needed and for a 200 mg dose, only 20 mL (1 vial). Fractions of a vial may be needed for appropriate dose adjustments in children with a bodyweight of less than 50 kg.</span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Add the measured volume of peramivir concentrate into the infusion container.</span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Dilute the required dose of peramivir concentrate in sodium chloride 9 mg/mL (0.9 %) or 4.5 mg/mL (0.45 %) solution for infusion, 5 % dextrose or Ringer lactate solution to a volume of 100 mL.</span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Administer the diluted solution via intravenous infusion for 15 to 30 minutes.</span></p><p class="MsoListParagraphCxSpMiddle" style="margin-left:28.35pt;text-indent: -28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Once a diluted peramivir solution has been prepared, administer immediately or store in a refrigerator (2 °C to 8 °C) for up to 24 hours. If refrigerated, allow the diluted peramivir solution to reach room temperature, then administer immediately.</span></p><p class="MsoListParagraphCxSpLast" style="margin-top:0in;margin-right:0in; margin-bottom:0in;margin-left:28.35pt;text-indent:-28.35pt;line-height:normal"><span lang="EN-GB" style="font-family:Symbol">·</span><span lang="EN-GB" style='font-family:"Times New Roman",serif'>Discard any unused diluted solution of peramivir after 24 hours.</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Any unused medicinal product or waste material should be disposed of in accordance with local requirements.</span></p><p class="MsoNormal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="7.       MARKETING AUTHORISATION HOLDER"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">BioCryst UK Ltd, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">c/o Morgan Lewis &amp; Bockius</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Condor House, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">5-10 St. Paul's Churchyard, </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">London EC4M 8AL </span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Tel: +44 (</span>0) 20 3289 9824</p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">Fax: +44 (</span><span style="color:#222222">0) 20 3725 7789</span></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">E</span><span lang="EN-GB">-mail: safety@biocryst.com</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="8.       MARKETING AUTHORISATION NUMBER(S) "/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"><span lang="EN-GB">EU/1/18/1269/001</span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="9.       DATE OF FIRST AUTHORISATION/RENEWAL OF THE AUTHORISATION"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-				
-			    
-						
-		               
-<section>
-			<title value="10.     DATE OF REVISION OF THE TEXT"/>
-				<code>
-					<coding>
-						<system value="http://spor.ema.europa.eu/v1/example-sections"/>
-						<code value="${document[n].section[n].subsection[n].typeCode}"/>
-						<display value="${document[n].section[n].subsection[n].typeDisplay}"/>
-					</coding>
-				</code>
-		<text>
-			<status value="additional"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-		    <p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="margin-right:-.1pt;line-height:normal"><span lang="EN-GB">Detailed information on this medicinal product is available on the website of the European Medicines Agency <span style="color:blue">http://www.ema.europa.eu</span>.<br clear="all" style="page-break-before:always"/> </span></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p><p class="MsoNormal" style="line-height:normal"></p>
-			</div>
-		</text>
-		
-    	    
-		
-</section>
-			    
-    	    
-		
-	
-</section>
-							<!-- sections can repeat as necessary -->
-						</Composition>
-					</resource>
-				</entry>
-				
-			</Bundle>
-		</resource>
-	</entry>
-</Bundle>

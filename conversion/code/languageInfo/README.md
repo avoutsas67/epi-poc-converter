@@ -1,0 +1,1 @@
+## This class is used to read the content from the documentTypeNames.json control reference file.

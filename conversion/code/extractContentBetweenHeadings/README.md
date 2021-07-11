@@ -1,0 +1,1 @@
+## This class is used for extracting the content of the heading found and parsed by the heading extraction code.
