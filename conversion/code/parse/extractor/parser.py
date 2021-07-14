@@ -1,16 +1,10 @@
-import pprint
 import pandas as pd
 import uuid
 import json
 import os
-import glob
 import re
-import sys
-from bs4 import NavigableString, BeautifulSoup
+from bs4 import BeautifulSoup
 from collections import defaultdict
-import random
-import string
-import unicodedata
 import base64
 from os import listdir
 from os.path import isfile, join
