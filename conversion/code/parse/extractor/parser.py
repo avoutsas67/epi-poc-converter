@@ -14,12 +14,13 @@ import unicodedata
 import base64
 from os import listdir
 from os.path import isfile, join
+from utils.logger.matchLogger import MatchLogger
 
 
 
 class parserExtractor:
 
-    def __init__(self, config, logger: matchLogger, styleRuleDict, styleFeatureKeyList, qrd_section_headings):
+    def __init__(self, config, logger: MatchLogger, styleRuleDict, styleFeatureKeyList, qrd_section_headings):
         self.config = config
         self.logger = logger
         self.styleRuleDict = styleRuleDict

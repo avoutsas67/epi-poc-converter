@@ -6,7 +6,7 @@ from utils.logger.matchLogger import MatchLogger
 
 
 class DocTypePartitioner:
-    def __init__(self, logger: matchLogger, domain, procedureType):
+    def __init__(self, logger: MatchLogger, domain, procedureType):
         self.logger = logger
         self.new_dataframe_start = 0
         self.domain = domain

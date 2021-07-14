@@ -47,8 +47,19 @@ class NoListFoundForMedName(Exception):
     pass
 class ListBundleHandler:
 
+    '''
+    This class is used to update or add the list bundle for a particular medicine.
+    Functions in this class help in following :- 
+    - Add MAN in the identifier
+    - Add lowercase name of the medicine in the identifier
+    - Add MAH in the extension
+    - Add domain in the extension
+    - Add active substance in the extension
+    - Add or update the entry with the latest document bundle details.
+    '''
+
     def __init__(self,
-                 logger: matchLogger,
+                 logger: MatchLogger,
                  domain,
                  procedureType,
                  documentNumber,
@@ -65,6 +76,11 @@ class ListBundleHandler:
                  getListApiEndPointUrlSuffix,
                  addUpdateListApiEndPointUrlSuffix,
                  apiMmgtSubsKey):
+
+        '''
+        Init function used to instantiate the object of this class.
+        It requires above parameters from outside for the same.
+        '''
         
         self.id = None
         
@@ -132,6 +148,9 @@ class ListBundleHandler:
     
     def convertDictToXML(self, currNode, prevNode, dictJson):
     
+        '''
+        Convert python dictionary into a XML tree
+        '''
         if str(type(dictJson)) == "<class 'str'>":
             currNode.attrib['value'] = dictJson
         if str(type(dictJson)) == "<class 'dict'>":
@@ -154,6 +173,9 @@ class ListBundleHandler:
     
     def getDocListUsingId(self, listBundleId):
         
+        '''
+        Extract the list bundle from FHIR server using the list bundle id parameter value.
+        '''
         self.logger.logFlowCheckpoint(f"Getting Existing List Bundle using common list id {listBundleId}")
         
         try:
@@ -184,7 +206,8 @@ class ListBundleHandler:
     def getDocListIdUsingMANs(self):
 
         '''
-        This function will be used for getting the document list from the FHIR server.
+        This function will be used for getting the common document list from the FHIR server accross all the MANs found in the document.
+        This function will raise an error if it finds more than 1 list across these MANs
         '''
 
         self.logger.logFlowCheckpoint(f"Getting Existing List Bundle accross all MANs")
@@ -321,8 +344,12 @@ class ListBundleHandler:
         
         
         return respJson
+
     def loadJsonListTemplate(self):
-        
+        '''
+        Load the list bundle template stored in the control folder. This is used for creating a new list bundle.
+        '''
+
         try:
             with open(self.jsonTemplateFilePath, encoding='utf-8') as f:
                 listTemplateJson = json.load(f)
@@ -335,6 +362,10 @@ class ListBundleHandler:
 
         
     def updateManInListJson(self):
+
+        '''
+        This function is used to update the MANs in the identifier of the list bundle.
+        '''
         
         self.listMANs = [entry.replace("–","-") for entry in self.listMANs]
         added = False
@@ -352,6 +383,10 @@ class ListBundleHandler:
             del self.listJson['identifier'][0]
     
     def updateDomain(self):
+
+        '''
+        Update domain in the extension of the list bundle.
+        '''
 
         if 'subject' not in self.listJson.keys():
             subjectCopy = copy.deepcopy(self.tempListJson['subject'])
@@ -382,6 +417,9 @@ class ListBundleHandler:
     
     def updateMedName(self):
         
+        '''
+        Update domain in the extension of the list bundle.
+        '''
 
         medNameIdentList = [ identIndex  for identIndex, ident in enumerate(self.listJson['identifier']) if 'medicine' in ident['system']]
         
@@ -433,7 +471,9 @@ class ListBundleHandler:
             self.listJson['subject']['extension'].append(newExt)
     
     def addMarketAuthHolder(self, pmsOmsSmsData):
-
+        '''
+        Update MAH in the extension of the list bundle.
+        '''
         marketingAuthHolderValue = pmsOmsSmsData['Author Value']
         marketingAuthHolderReference = pmsOmsSmsData['Author Reference']
 
@@ -452,6 +492,10 @@ class ListBundleHandler:
 
     def addActiveSubstance(self, pmsOmsSmsData):
         
+        '''
+        Update active substance details in the of the list bundle.
+        '''
+
         activeSubstanceNames = []
         for medEntry in pmsOmsSmsData['Medicinal Product Definitions']:
             for name in medEntry[2]:
@@ -486,7 +530,10 @@ class ListBundleHandler:
         
     def addOrUpdateDocumentItem(self,
                             referenceValue, pmsOmsSmsData):
-                        
+        '''
+        This is the main orchestrator function called from outside to add or update the list budle after successfully uploading a document bundle.
+        
+        '''
 
         self.updateManInListJson()
         
@@ -594,6 +641,9 @@ class ListBundleHandler:
             
     def submitListXmLToServer(self, body):
 
+        '''
+        This function is used to submit the new or updated xml list bundle generated by the previous function to the FHIR server.
+        '''
 
         try:
             if self.isNew == True:

@@ -3,7 +3,7 @@ from utils.logger.matchLogger import MatchLogger
 
 class ValidateMatch():
 
-    def __init__(self, logger: matchLogger):
+    def __init__(self, logger: MatchLogger):
         
         self.logger = logger
 
