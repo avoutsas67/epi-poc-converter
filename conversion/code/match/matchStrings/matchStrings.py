@@ -30,6 +30,10 @@ from utils.logger.matchLogger import MatchLogger
 
 class MatchStrings():
 
+    '''
+    This class is used to perform the matching alogorithm used to find if two input texts (qrd heading and html text) are matching or not.
+    '''
+
     def __init__(self, logger: MatchLogger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
         self.logger = logger
@@ -90,7 +94,7 @@ class MatchStrings():
             return 0, outputScores
 
     def getTrueLength(self, str_):
-
+        
         return len(self.preprocessStr(str_))
 
 

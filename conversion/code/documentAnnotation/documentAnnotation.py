@@ -23,7 +23,29 @@ class IncorrectReference(Exception):
 
 class DocumentAnnotation:
 
+    '''
+    This class is used for extracting following details from SPOR API using Marketing authorization.
+    Step 1 - Extract MANs using the dfHtml(pandas dataframe created using outputJson/partitionedJson (created from HTML))
+    Step 2 - For each MANs from Regulated Authorization API extract 
+            - Author value
+            - Medicinal Product Definition Ids (Or Packaged Product Definition IDs)
+            - Optional Step :- From Packaged product extract medicinal product definition
+    Step 3 - For each medicinal product, from its API output extract 
+            - product name
+            - Administrable prodcut id
+            - Using Administrable product id extract ingredient id
+            - Using ingredient api output extract substance id
+            - Using substance api output extract active substance
+    Step 4 - Collect all the above details for each MAN and return unique values
+    '''
+
+
     def __init__(self, fileName, pmsSubscriptionKey, smsSubscriptionKey, apiMgmtApiBaseUrl, apiMgmtPmsApiEndpointSuffix, apiMgmtSmsApiEndpointSuffix, dfHtml, matchCollection, domain, procedureType, documentNumber):
+        '''
+        Init function
+        Used to initialize the class using above parameters.
+        '''
+        
         self._fileName = fileName
         self._pmsSubscriptionKey = pmsSubscriptionKey
         self._smsSubscriptionKey = smsSubscriptionKey
@@ -38,12 +60,19 @@ class DocumentAnnotation:
         self.listRegulatedAuthorizationIdentifiers = None
 
     def convertToInt(self, x):
+        '''
+        Return a integer string version of the input x
+        '''
         try:
             return str(int(x))
         except:
             return x
 
     def convertCollectionToDataFrame(self, collection):
+        '''
+        convert collection of heading found in Heading extraction step to pandas dataframe
+        '''
+        
 
         dfExtractedHier = pd.DataFrame(collection)
         dfExtractedHier['parent_id'] = dfExtractedHier['parent_id'].apply(
@@ -54,6 +83,10 @@ class DocumentAnnotation:
         return dfExtractedHier
 
     def findRegulatedAuthorization(self, authorizationIdentifier):
+        '''
+        Get API response for a MAN using RegulatedAuthorization SPOR API endpoint
+        '''
+        
 
         try:
             response = requests.get(url='%s/RegulatedAuthorization/?identifier=%s' % (
@@ -71,7 +104,9 @@ class DocumentAnnotation:
         return response.json()
 
     def findMedicinalProductDefinition(self, medicinalProductDefinitionID):
-        
+        '''
+        Get API response for a medicinal product definition id using MedicinalProductDefinition SPOR API endpoint
+        '''
         try:
             response = requests.get(url='%s/MedicinalProductDefinition/%s' % (
                 self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionID),
@@ -87,7 +122,9 @@ class DocumentAnnotation:
         return response.json()
 
     def findAdministrableProductDefinition(self, medicinalProductDefinitionId):
-        
+        '''
+        Get API response for a administrable product definition id using AdministrableProductDefinition SPOR API endpoint
+        '''
         try:
             response = requests.get(url='%s/AdministrableProductDefinition/?subject=%s' % (
                 self._apiMgmtPmsApiBaseUrl, medicinalProductDefinitionId),
@@ -103,7 +140,9 @@ class DocumentAnnotation:
         return response.json()
 
     def findPackagedProductDefinition(self, packagedProductDefinitionID):
-
+        '''
+        Get API response for a packaged product definition id using PackagedProductDefinition SPOR API endpoint
+        '''
         try:
             response = requests.get(url='%s/PackagedProductDefinition/%s' % (
                 self._apiMgmtPmsApiBaseUrl, packagedProductDefinitionID),
@@ -121,6 +160,9 @@ class DocumentAnnotation:
         return response.json()
 
     def findIngredientDefinition(self, ingredientId):
+        '''
+        Get API response for a ingredient id using Ingredient SPOR API endpoint
+        '''
         
         try:
             response = requests.get(url='%s/Ingredient/%s' % (
@@ -139,7 +181,9 @@ class DocumentAnnotation:
         return response.json()
 
     def findSubstanceDefinition(self, substanceCode):
-        
+        '''
+        Get API response for a substance id using SubstanceDefinition SPOR API endpoint
+        '''
         try:
             response = requests.get(url='%s/SubstanceDefinition/%s' % (
                 self._apiMgmtSmsApiBaseUrl, substanceCode),
@@ -156,6 +200,10 @@ class DocumentAnnotation:
         return response.json()        
 
     def extractRegulatedAuthorizationNumbers(self):
+        '''
+        Extract MANs from dfHtml using MAN heading in the document stored in the heading collection
+        '''
+
         dfHtml = self._dfHtml
         coll = self._matchCollection
         dfHeadings = self.convertCollectionToDataFrame(coll)
@@ -244,6 +292,9 @@ class DocumentAnnotation:
         return uniqueFinalListAuthIdentifiers
 
     def processRegulatedAuthorization(self, authorizationIdentifier):
+        '''
+        For a MAN, peform complete end to end process of extracting all the required information.
+        '''
 
         output = self.findRegulatedAuthorization(authorizationIdentifier)
 
@@ -386,7 +437,9 @@ class DocumentAnnotation:
 
 
     def processMedicinalProductDefinition(self, medicinalProductDefinitionID):
-
+        '''
+        For a medicinal product definition id, perform complete end to end process of extracting all the required information.
+        '''
         output = self.findMedicinalProductDefinition(
             medicinalProductDefinitionID)
 
@@ -531,7 +584,9 @@ class DocumentAnnotation:
         # return productName,packagedProductDefinitionIdsList
 
     def processPackagedProductDefinition(self, packagedProductDefinitionID):
-
+        '''
+        For a packaged prodcut defnition id, extract medicinal product definition id.
+        '''
         output = self.findPackagedProductDefinition(
             packagedProductDefinitionID)
 
@@ -561,7 +616,9 @@ class DocumentAnnotation:
         return medicinalProductDefinitionIds
 
     def extractMedicinalProductsFromPackagedProducts(self, listPackagedProductDefinitionIds):
-
+        '''
+        For each packaged prodcut defnition id in the input list, extract medicinal product definition ids across all packaged products.
+        '''
         finalOutput = []
 
         for packagedProductTupple in listPackagedProductDefinitionIds:
@@ -580,6 +637,9 @@ class DocumentAnnotation:
         return finalOutput
 
     def removeDuplicatesFromOutput(self, finalOutput):
+        '''
+        Remove duplicate entries from final output based on medicinal product definition ids
+        '''
 
         listRegulatedAuthorizationIdentifiers = [
             item[1] for item in finalOutput]
@@ -596,7 +656,9 @@ class DocumentAnnotation:
         return [finalOutput[ind] for ind in indexes]
 
     def extractActiveSubstanceNames(self, data):
-
+        '''
+        Extract all prefered active substances from a substance definition API output
+        '''
         activeSubstanceNames = []
         for ingredient in data:
             for substance in ingredient['substances']:
@@ -607,7 +669,9 @@ class DocumentAnnotation:
         return activeSubstanceNames        
 
     def extractMAHfromParentMAN(self):
-
+        '''
+        Extract MAH from parent MAN regulated authorization output.
+        '''
 
         holderReferenceValue = None
         holderDisplayValue = None
@@ -694,7 +758,9 @@ class DocumentAnnotation:
         return (holderReferenceValue,holderDisplayValue)
 
     def extractMAHFromFinalOutput(self, finalOutput):
-
+        '''
+        Find the first non-null value of MAH across all MAH extracted from all the MAH outputs.
+        '''
         holderDataComplete = [output[0] for output in finalOutput]
 
         for holderData in holderDataComplete:
@@ -706,7 +772,10 @@ class DocumentAnnotation:
         return (None,None)
 
     def processRegulatedAuthorizationForDoc(self,listRegulatedAuthorizationIdentifiers=None):
-
+        '''
+        This is orchestrator function, which helps in processing all the end to end flow.
+        This function can also be provided a list MAN if they are not required to be extracted from the document.
+        '''
         if listRegulatedAuthorizationIdentifiers is None:
             listRegulatedAuthorizationIdentifiers = self.extractRegulatedAuthorizationNumbers()
 
