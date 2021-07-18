@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { EmaComponentLibraryComponent } from './ema-component-library.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { EmaIconsModule } from './atoms/icons/ema-icons/ema-icons.module';
 import { FooterModule } from './layouts/footer/footer.module';
@@ -20,7 +19,7 @@ import { AccordionModule } from './molecules/accordion/accordion.module';
 import { CompareModalComponent } from './molecules/compare-modal/compare-modal.component';
 
 @NgModule({
-  declarations: [EmaComponentLibraryComponent, HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent, ButtonComponent, CompareModalComponent],
+  declarations: [HeaderComponent, SidebarComponent, DocumentHeaderComponent, DropdownComponent, ActionLinksComponent, DisclaimerModalComponent, ButtonComponent, CompareModalComponent],
   imports: [
     PipesModule,
     EmaIconsModule,
@@ -33,7 +32,7 @@ import { CompareModalComponent } from './molecules/compare-modal/compare-modal.c
     TagsModule,
     TextboxMultiSelectModule
   ],
-  exports: [EmaComponentLibraryComponent,
+  exports: [
     ButtonComponent,
     HeaderComponent,
     SidebarComponent,
