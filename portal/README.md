@@ -11,12 +11,12 @@ Angular requires Node.js in your system. You can download Node.js from here if y
 Check @angular/cli version in your system.
 If you already have it installed, make sure it uses the same version as that of the project.
 Otherwise, run the following command in command prompt:
-npm install -g @angular/cli@11.0.2
+`npm install -g @angular/cli@11.0.2`
 
 ### Install all required npm packages for the project
 Navigate to the project folder in command prompt.
 Run the following command in command prompt:
-npm install
+`npm install`
 
 ## Development server
 
