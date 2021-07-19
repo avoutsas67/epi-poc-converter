@@ -4,16 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Pre-requisites for installation
 
-1. Install NPM 
+### Install NPM 
 Angular requires Node.js in your system. You can download Node.js from here if you do not have it installed [Node.js](https://nodejs.org/en/)
 
-2. Install Angular CLI 
+### Install Angular CLI 
 Check @angular/cli version in your system.
 If you already have it installed, make sure it uses the same version as that of the project.
 Otherwise, run the following command in command prompt:
 npm install -g @angular/cli@11.0.2
 
-3. Install all required npm packages for the project
+### Install all required npm packages for the project
 Navigate to the project folder in command prompt.
 Run the following command in command prompt:
 npm install
@@ -78,7 +78,7 @@ Folder/File Name (Description about the contents)
 
 This angular application uses a proxy. The configurations of the proxy can be obtained from the `proxy.conf.json` file. 
 
-Please make sure your server's base url is the same as the one present in the `target` property of the `proxy.conf.json`.
+Please make sure that your server's base url is the same as the one present in the `target` property of the `proxy.conf.json`.
 For example, if your server's url is `xyz.com`, the `target` property should be as follows:
 `"target" :"xyz.com/"`
 
