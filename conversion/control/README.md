@@ -4,6 +4,8 @@
 3. listBundleDocumentTypeCodes :- codes of different objects like H and V domain , document types, to be used in the list bundle
 4. listBundleTemplates :- list bundle template
 5. LocalCredentials :- Credentials for accessing SPOR and FHIR server APIs
+    - Create a copy of the localCredentialTemplate.
+    - Rename the copy file to localCredentialDev or localCredentialTest and populate the credentials for using it in the notebook.
 6. matchRulebook :- Matching Rule Book
 7. qrdTemplate :- Qrd Template
 8. styleRules :- Style Based Rule Book for each document type and language
