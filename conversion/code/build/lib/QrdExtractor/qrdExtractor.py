@@ -7,6 +7,10 @@ class ErrorInQrdTemplate(Exception):
 
 class QrdCanonical():
 
+    '''
+    This class is used to read the QRD template and load it as a pandas dataframe for matching and validation steps.
+    '''
+
     def __init__(self, controlBasePath, fileName, domain, procedureType, languageCode, documentType, documentNumber):
         # r'qrd_canonical_mode_CAP_NAP.csv'
         
@@ -26,6 +30,10 @@ class QrdCanonical():
 
 
     def createQrdDataframe(self):
+
+        '''
+        This function is used to create the qrd pandas dataframe using only the required columns
+        '''
         
         dfCanonicalModel = pd.read_csv(self.filePathQRD, encoding= 'utf-8')
         
@@ -37,64 +45,6 @@ class QrdCanonical():
         
         return dfCanonicalModel
 
-        
-    ## Assign Heading level to the Qrd dataframe.
-    def assignHeadingLevel(self, row):
-        
-        '''
-        Assign Heading level to the Qrd dataframe depending upon the document type.
-        '''
-
-        topCateories = [
-            'SUMMARY OF PRODUCT CHARACTERISTICS',
-            'ANNEX II',
-            'LABELLING',
-            'PACKAGE LEAFLET']
-            
-        if self.documentType == 'SmPC':    
-            if row['Name'] in topCateories:
-                return 'L0'
-            elif pd.isna(row['Display code']):
-                return 'L3'
-            elif '.' in str(row['Display code']):
-                return 'L2'
-            else:
-                return 'L1'
-        
-        if self.documentType == 'AnnexII':
-            if row['Name'] in topCateories:
-                return 'L0'
-            elif pd.isna(row['Display code']):
-                return 'L2'
-            else:
-                return 'L1'
-
-        if self.documentType == 'Labelling':
-            if row['Name'] in topCateories:
-                return 'L0'
-            elif pd.isna(row['Display code']):
-                return 'L1'
-            else:
-                return 'L2'
-        
-        if self.documentType == 'Package leaflet':
-            if row['Name'] in topCateories:
-                return 'L0'
-            elif pd.isna(row['Display code']):
-                return 'L1'
-            else:
-                return 'L2'
-
-
-    # def createHeadingLevelColumn(self, dfQrd):
-
-    #     '''
-    #     Create Heading Level column in the Qrd template dataframe.
-    #     '''
-
-    #     dfQrd['Heading Level'] = dfQrd.apply(lambda row: self.assignHeadingLevel(row), axis=1)
-
-    #     return dfQrd
 
 
     def createHeadingLevelColumn(self,dfQrd):
@@ -159,6 +109,10 @@ class QrdCanonical():
         
 
     def ProcessQrdDataframe(self):
+        '''
+        This is the main orchestrator function called from outside.
+        This is used to call the rquired function to return the qrd dataframe.
+        '''
 
         dfQrd = self.createQrdDataframe()
 

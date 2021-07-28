@@ -2,6 +2,13 @@ import json
 import os
 class DocumentTypeNames():
 
+    '''
+    This class is used to read the documentTypeNames json file.
+    This json reference file contains 
+        - The refernce codes for different languages
+        - The stopword language keyword to be used in the NLTK library stopword function call.
+    '''
+
     def __init__(self, controlBasePath, fileNameDocumentTypeNames, languageCode, domain, procedureType, documentNumber):
         
         self.controlBasePath = controlBasePath

@@ -8,7 +8,7 @@
 			"isBackground": true,
 			"dependsOn": "pipInstall",
 			"options": {
-				"cwd": "${workspaceFolder}/function_code\\azureFunctions\\documentParserFunction1"
+				"cwd": "${workspaceFolder}/conversion\\azureFunctions\\documentParserFunction"
 			}
 		},
 		{
@@ -25,7 +25,7 @@
 			},
 			"problemMatcher": [],
 			"options": {
-				"cwd": "${workspaceFolder}/function_code\\azureFunctions\\documentParserFunction1"
+				"cwd": "${workspaceFolder}/conversion\\azureFunctions\\documentParserFunction"
 			}
 		}
 	]
