@@ -21,7 +21,7 @@ variables:
 
 stages:
 
--stage: Wheel_Update
+- stage: Wheel_Update
   displayName: Wheel_Update
   jobs:
   - job: Build
