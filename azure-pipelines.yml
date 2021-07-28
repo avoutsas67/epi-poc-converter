@@ -20,6 +20,48 @@ variables:
   workingDirectory: 'conversion/azureFunctions/documentParserFunction'
 
 stages:
+
+-stage: Wheel_Update
+  displayName: Wheel_Update
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+
+    - task: UsePythonVersion@0
+      displayName: 'Use Python 3.7'
+      inputs:
+        versionSpec: 3.7 # Functions V2 supports Python 3.7 as of today
+
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: 'python setup.py sdist bdist_wheel'
+        workingDirectory: 'conversion\code'
+
+    - task: PythonScript@0
+      inputs:
+        scriptSource: 'inline'
+        script: |
+          import os
+          whlFileName = [path for path in os.listdir("dist") if "whl" in path][0]
+          a = os.path.abspath(os.path.join('..',"code","dist",whlFileName))
+          
+          b = os.path.abspath(os.path.join('..',"azureFunctions","documentParserFunction","wheelhouse","code-modules.post-py3-none-any.whl")) 
+          
+          os.rename(a,b)
+
+          print("|||||||||||||| Wheel Path |||||||||")
+          print(os.listdir(os.path.join('..',"azureFunctions","documentParserFunction","wheelhouse")))
+          
+          for path in os.listdir("dist"):
+          	os.remove(os.path.abspath(os.path.join('..',"code","dist", path)))
+        workingDirectory: 'conversion\code'
+
+
 - stage: Build
   displayName: Build stage
 
