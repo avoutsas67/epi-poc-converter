@@ -40,7 +40,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: 'python setup.py sdist bdist_wheel'
-        workingDirectory: 'conversion\code'
+        workingDirectory: 'conversion/code'
 
     - task: PythonScript@0
       inputs:
@@ -59,7 +59,7 @@ stages:
           
           for path in os.listdir("dist"):
           	os.remove(os.path.abspath(os.path.join('..',"code","dist", path)))
-        workingDirectory: 'conversion\code'
+        workingDirectory: 'conversion/code'
 
 
 - stage: Build
