@@ -4,6 +4,7 @@ import codecs
 import azure.functions as func
 from .function import parseDocument
 import zipfile
+import json
 
 
 def main(inputBlob: func.InputStream,
@@ -60,9 +61,10 @@ def main(inputBlob: func.InputStream,
 
     if "\\" in os.getcwd():
         localEnv = True
-        inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputZipFolderPath)
-        outputFolderPath = os.path.join(os.path.abspath(os.path.join('..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
-        controlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),'control')
+        print("~~~~~~~~~~~~~~~~~~~~~LOCAL~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('../..')),inputZipFolderPath)
+        outputFolderPath = os.path.join(os.path.abspath(os.path.join('../..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
+        controlFolderPath = os.path.join(os.path.abspath(os.path.join('../..')),'control')
     else:
         localEnv = False
         inputZipFolderPath = os.path.join(f'{fsMountName}',inputZipFolderPath)
