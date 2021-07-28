@@ -39,7 +39,9 @@ stages:
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
-        script: 'python setup.py sdist bdist_wheel'
+        script: |
+          pip install wheel
+          python setup.py sdist bdist_wheel
         workingDirectory: 'conversion/code'
 
     - task: PythonScript@0
