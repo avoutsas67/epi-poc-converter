@@ -1,0 +1,130 @@
+# Python Function App to Linux on Azure
+# Build a Python function app and deploy it to Azure as a Linux function app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: '1ddb2dee-3b6b-48c1-8054-7588ac0c96b4'
+
+  # Function app name
+  functionAppName: 'emafunctionappvipul01'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+  # Working Directory
+  workingDirectory: 'conversion/azureFunctions/documentParserFunction'
+
+stages:
+
+- stage: Wheel_Update
+  displayName: Wheel_Update
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+
+    - task: UsePythonVersion@0
+      displayName: 'Use Python 3.7'
+      inputs:
+        versionSpec: 3.7 # Functions V2 supports Python 3.7 as of today
+
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          pip install wheel
+          python setup.py sdist bdist_wheel
+        workingDirectory: 'conversion/code'
+
+    - task: PythonScript@0
+      inputs:
+        scriptSource: 'inline'
+        script: |
+          import os
+          whlFileName = [path for path in os.listdir("dist") if "whl" in path][0]
+          a = os.path.abspath(os.path.join('..',"code","dist",whlFileName))
+          
+          b = os.path.abspath(os.path.join('..',"azureFunctions","documentParserFunction","wheelhouse","code-modules.post-py3-none-any.whl")) 
+          
+          os.rename(a,b)
+
+          print("|||||||||||||| Wheel Path |||||||||")
+          print(os.listdir(os.path.join('..',"azureFunctions","documentParserFunction","wheelhouse")))
+          
+          for path in os.listdir("dist"):
+          	os.remove(os.path.abspath(os.path.join('..',"code","dist", path)))
+        workingDirectory: 'conversion/code'
+
+
+- stage: Build
+  displayName: Build stage
+
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - bash: |
+        if [ -f extensions.csproj ]
+        then
+            dotnet build extensions.csproj --runtime ubuntu.16.04-x64 --output ./bin
+        fi
+      workingDirectory: $(workingDirectory)
+      displayName: 'Build extensions'
+
+    - task: UsePythonVersion@0
+      displayName: 'Use Python 3.7'
+      inputs:
+        versionSpec: 3.7 # Functions V2 supports Python 3.7 as of today
+
+    - bash: |
+        pip install --target="./.python_packages/lib/site-packages" -r ./requirements.txt
+      workingDirectory: $(workingDirectory)
+      displayName: 'Install application dependencies'
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(workingDirectory)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  condition: succeeded()
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: 'development'
+    pool:
+      vmImage: $(vmImageName)
+
+    strategy:
+      runOnce:
+        deploy:
+
+          steps:
+          - task: AzureFunctionApp@1
+            displayName: 'Azure functions app deploy'
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appType: functionAppLinux
+              appName: $(functionAppName)
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'

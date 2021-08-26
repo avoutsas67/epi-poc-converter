@@ -4,6 +4,7 @@ import codecs
 import azure.functions as func
 from .function import parseDocument
 import zipfile
+import json
 
 
 def main(inputBlob: func.InputStream,
@@ -39,6 +40,8 @@ def main(inputBlob: func.InputStream,
     inputZipFileName = inputZipFilePath.split('/')[-1]
     inputZipFolderPath = '/'.join(inputZipFilePath.split('/')[0:-1])
 
+    blob = inputBlob.read()
+
     info = inputZipFileName.split("~")
 
     try:
@@ -58,11 +61,15 @@ def main(inputBlob: func.InputStream,
     except Exception:
         raise f"Missing required info in the zip file name {inputZipFileName}"
 
+    logging.info(f"~2~ {inputZipFileName, inputZipFolderPath}")
+
+
     if "\\" in os.getcwd():
         localEnv = True
-        inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputZipFolderPath)
-        outputFolderPath = os.path.join(os.path.abspath(os.path.join('..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
-        controlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),'control')
+        print("~~~~~~~~~~~~~~~~~~~~~LOCAL~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('../..')),inputZipFolderPath)
+        outputFolderPath = os.path.join(os.path.abspath(os.path.join('../..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
+        controlFolderPath = os.path.join(os.path.abspath(os.path.join('../..')),'control')
     else:
         localEnv = False
         inputZipFolderPath = os.path.join(f'{fsMountName}',inputZipFolderPath)
@@ -86,7 +93,7 @@ def main(inputBlob: func.InputStream,
     
     os.environ['APPLICATIONINSIGHTS_CONNECTION_STRING'] = localCredsJson['appInsightsInstrumentationKey']
     
-    print(inputZipFileName, inputZipFolderPath, outputFolderPath, controlFolderPath)
+    logging.info(f"~2~ {inputZipFileName, inputZipFolderPath, outputFolderPath, controlFolderPath}")
 
     mode = 0o666
 
@@ -103,11 +110,17 @@ def main(inputBlob: func.InputStream,
     except Exception:
         print("Already Present")
 
+    with open(f'{inputZipFolderPath}/{inputZipFileName}', "wb") as outfile:
+        outfile.write(blob)
+    
+
     with zipfile.ZipFile(f'{inputZipFolderPath}/{inputZipFileName}',"r") as zip_ref:
+            
             zip_ref.extractall(outputFolderPath)
 
 
     _,_,fileNames = next(os.walk(outputFolderPath))
+    logging.info(f"fileNames: {fileNames}")
     htmlFileName = [fileName for fileName in fileNames if ".htm" in fileName][0]
 
     print(htmlFileName)

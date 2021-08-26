@@ -1,8 +1,9 @@
 
+from utils.logger.matchLogger import MatchLogger
 
 class ValidateMatch():
 
-    def __init__(self, logger):
+    def __init__(self, logger: MatchLogger):
         
         self.logger = logger
 
@@ -34,7 +35,7 @@ class ValidateMatch():
 
         for index, row in dfFilteredQrd.iterrows():
 
-            if row['Heading Level'] == "H3":
+            if row['Heading Level'] == "L3":
                 listValidH3Headings.append(row)
             else:
                 break
@@ -61,7 +62,7 @@ class ValidateMatch():
         ouputRow = None
         for index, row in dfFilteredQrdReverse.iterrows():
 
-            if row['Heading Level'] != "H3":
+            if row['Heading Level'] != "L3":
                 ouputRow = row
                 break
 
@@ -165,8 +166,16 @@ class ValidateMatch():
                 else:
                     if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'CAP' and currentHeadingRow['document_number'] == 0 and currentHeadingRow['heading_id'] == 4:
                         self.logger.logValidateCheckpoint("Validation Failed SmPc Special Case", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
-
                         return False
+
+                    if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'CAP' and currentHeadingRow['document_number'] == 3 and currentHeadingRow['Heading Level'] == 'L1':
+                        self.logger.logValidateCheckpoint("Validation Failed Package Leaflet Special Case L1 cannot repeat after itself.", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
+                        return False
+                    
+                    if currentHeadingRow['domain'] == 'H' and currentHeadingRow['Procedure type'] == 'NAP' and currentHeadingRow['document_number'] == 3 and currentHeadingRow['Heading Level'] == 'L1':
+                        self.logger.logValidateCheckpoint("Validation Failed Package Leaflet Special Case L1 cannot repeat after itself.", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, False)                
+                        return False
+
                     self.logger.logValidateCheckpoint(f"{currentHeadingRow['heading_id'], currentHeadingRow['document_number'], currentHeadingRow['Procedure type'] } Validation Passed As Current Heading Is Same As Previous H1 Heading", currentHeadingRow, None, previousHeadingRowFound, previousH1HeadingRowFound,  previousH2HeadingRowFound, True)                
                     
                     return True
@@ -222,7 +231,11 @@ class ValidateMatch():
 
                     previousHeadingRowActual = self.findPreviousHeading(
                         currentHeadingRow, dfQrd, collectionFoundHeadings, checkPreviousHeadingExists=False)
+                    #print(previousHeadingRowActual)
+                    #print("child list",self.findChildHeadings(
+                    #    previousHeadingRowActual, dfQrd))
 
+                    #print("curr id",currentHeadingRow['id'])
                     childH3HeadingsIdList = [item['id'] for item in self.findChildHeadings(
                         previousHeadingRowActual, dfQrd)]
 

@@ -18,17 +18,23 @@ import time
 import re
 pd.options.display.max_colwidth = 200
 pd.set_option("max_rows", None)
+from utils.logger.matchLogger import MatchLogger
 
 import jellyfish
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
+from utils.logger.matchLogger import MatchLogger
 
 
 
 class MatchStrings():
 
-    def __init__(self, logger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
+    '''
+    This class is used to perform the matching alogorithm used to find if two input texts (qrd heading and html text) are matching or not.
+    '''
+
+    def __init__(self, logger: MatchLogger, domain, procedureType, documentNumber, ruleDict, stopWordFilterListSize=6, stopWordlanguage="english"):
 
         self.logger = logger
         self.domain = domain
@@ -46,7 +52,7 @@ class MatchStrings():
         '''
         #str_ = re.sub('^[A-Za-z0-9]\.[\s]*', '', str_)
 
-        str_ = re.sub('^.[\s]+', '', str_)
+        #str_ = re.sub('^.[\s]+', '', str_)
         str_ = re.sub('[\s]+', ' ', str_)
 
         str_ = str_.rstrip()
@@ -88,7 +94,7 @@ class MatchStrings():
             return 0, outputScores
 
     def getTrueLength(self, str_):
-
+        
         return len(self.preprocessStr(str_))
 
 
@@ -217,6 +223,14 @@ class MatchStrings():
                 key = "SpecialCase2"
                 ruleDict1 = self.ruleDict[key]
 
+        if self.domain == "H" and self.procedureType == "NAP" and self.documentNumber == 0: ## SmPC
+            if (qrdRowHeadingId == 50):
+                key = "SpecialCase1"
+                ruleDict1 = self.ruleDict[key]
+            elif (qrdRowHeadingId == 52):
+                key = "SpecialCase2"
+                ruleDict1 = self.ruleDict[key]
+
         if self.domain == "H" and self.procedureType == "CAP" and self.documentNumber == 3: ## Package Leaflet
             
             if(qrdRowHeadingId == 13):
@@ -285,6 +299,7 @@ class MatchStrings():
             return True, outputString
 
         else:
+            #print(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
             lowerCaseCheckFuzzyScoreThreshhold = ruleDict1['lowerCaseWeightedFuzzyScore']
             if (fuzzyScoreOutput[2] > lowerCaseCheckFuzzyScoreThreshhold) and (avoidLowerCaseMatch == False):
                 
@@ -307,13 +322,13 @@ class MatchStrings():
                     self.logger.logMatchCheckpoint(f'Match Passed In Lowercase  : {outputString1}',textOriginal, textToMatch, True)
                     return foundMatchLowerCase, outputString1
 
-                else:
-                    self.logger.logMatchCheckpoint(f'Match Failed In Lowercase : {outputString}',textOriginal, textToMatch, False)
-                    return False, outputString1
+                #else:
+                #    self.logger.logMatchCheckpoint(f'Match Failed In Lowercase : {outputString}',textOriginal, textToMatch, False)
+                #    return False, outputString1
 
             #if resultSum == 2:
-            #    self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
-                
+            #    #self.logger.logMatchCheckpoint(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
+            #    print(f'Match Failed : {outputString}',textOriginal, textToMatch, False)
 
             return False, outputString
 

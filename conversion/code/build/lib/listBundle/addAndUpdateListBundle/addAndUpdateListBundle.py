@@ -1,3 +1,4 @@
+from abc import abstractmethod
 import xml.etree.ElementTree as et
 import os
 import re
@@ -7,6 +8,8 @@ import string
 import json
 import xml.etree.ElementTree as et
 import copy
+from utils.logger.matchLogger import MatchLogger
+
 
 class NoEntryFoundError(Exception):
     pass
@@ -25,6 +28,8 @@ class JsonLoadError(Exception):
 
 class FoundMultipleListBundlesForAMan(Exception):
     pass
+class FoundMultipleListBundlesForAMedName(Exception):
+    pass
 
 class FailedToExtractListBundleIDForAMan(Exception):
     pass
@@ -35,14 +40,31 @@ class FoundMultipleListBundlesAcrossMans(Exception):
 class MultipleDomainsErros(Exception):
     pass
 
+class NoAuthorizationCodeFound(Exception):
+    pass
+
+class NoListFoundForMedName(Exception):
+    pass
 class ListBundleHandler:
 
+    '''
+    This class is used to update or add the list bundle for a particular medicine.
+    Functions in this class help in following :- 
+    - Add MAN in the identifier
+    - Add lowercase name of the medicine in the identifier
+    - Add MAH in the extension
+    - Add domain in the extension
+    - Add active substance in the extension
+    - Add or update the entry with the latest document bundle details.
+    '''
+
     def __init__(self,
-                 logger,
+                 logger: MatchLogger,
                  domain,
                  procedureType,
                  documentNumber,
                  documentType,
+                 documentTypeForUI,
                  language,
                  medName,
                  controlBasePath,
@@ -54,6 +76,11 @@ class ListBundleHandler:
                  getListApiEndPointUrlSuffix,
                  addUpdateListApiEndPointUrlSuffix,
                  apiMmgtSubsKey):
+
+        '''
+        Init function used to instantiate the object of this class.
+        It requires above parameters from outside for the same.
+        '''
         
         self.id = None
         
@@ -62,6 +89,7 @@ class ListBundleHandler:
         self.language = language
         self.medName = medName
         self.documentType = documentType
+        self.documentTypeForUI = documentTypeForUI
         self.controlBasePath = controlBasePath
         self.jsonTemplateFileName = jsonTemplateFileName
         self.jsonTemplateFilePath = os.path.join(self.controlBasePath, 'listBundleTemplates', self.jsonTemplateFileName)
@@ -70,6 +98,11 @@ class ListBundleHandler:
         self.apiMmgtBaseUrl = apiMmgtBaseUrl #ema-dap-epi-dev-fhir-apim.azure-api.net
         self.getListApiEndPointUrlSuffix = getListApiEndPointUrlSuffix
         self.addUpdateListApiEndPointUrlSuffix = addUpdateListApiEndPointUrlSuffix
+        self.documentNumber = documentNumber
+        self.procedureType = procedureType
+
+        if self.listMANs == [] and (self.procedureType != "NAP" and self.documentNumber != 3):
+            raise NoAuthorizationCodeFound("No MAN Code found")
         
         listBundleDocumentTypeCodesFilePath = os.path.join(self.controlBasePath,
                                                                 listBundleDocumentTypeCodesFileName.split(".")[0],
@@ -92,7 +125,16 @@ class ListBundleHandler:
         
         self.tempListJson = self.loadJsonListTemplate()
         
-        self.listJson = self.getDocListIdUsingMANs()
+        if self.documentNumber == 3 and self.procedureType == 'NAP':
+
+            self.medName = re.match(r'^[\D]+',self.medName)[0].strip().lower()
+            self.listJson = self.getDocListIdUsingMedName()
+            
+            if self.listJson == None:
+                raise NoListFoundForMedName("No List Bundle Found For Med Name")
+
+        else:
+            self.listJson = self.getDocListIdUsingMANs()
 
         if self.listJson == None:
             self.isNew = True
@@ -106,6 +148,9 @@ class ListBundleHandler:
     
     def convertDictToXML(self, currNode, prevNode, dictJson):
     
+        '''
+        Convert python dictionary into a XML tree
+        '''
         if str(type(dictJson)) == "<class 'str'>":
             currNode.attrib['value'] = dictJson
         if str(type(dictJson)) == "<class 'dict'>":
@@ -128,6 +173,9 @@ class ListBundleHandler:
     
     def getDocListUsingId(self, listBundleId):
         
+        '''
+        Extract the list bundle from FHIR server using the list bundle id parameter value.
+        '''
         self.logger.logFlowCheckpoint(f"Getting Existing List Bundle using common list id {listBundleId}")
         
         try:
@@ -158,7 +206,8 @@ class ListBundleHandler:
     def getDocListIdUsingMANs(self):
 
         '''
-        This function will be used for getting the document list from the FHIR server.
+        This function will be used for getting the common document list from the FHIR server accross all the MANs found in the document.
+        This function will raise an error if it finds more than 1 list across these MANs
         '''
 
         self.logger.logFlowCheckpoint(f"Getting Existing List Bundle accross all MANs")
@@ -228,11 +277,79 @@ class ListBundleHandler:
         return respJson
 
                     
+        
+    def getDocListIdUsingMedName(self):
+
+        '''
+        This function will be used for getting the document list from the FHIR server using Medcine Name for Package Leaflet in NAP.
+        '''
+
+        self.logger.logFlowCheckpoint(f"Getting Existing List Bundle using Med Name")
+        
+        listBundleIdFoundForMedName = None
+
+        self.logger.logFlowCheckpoint(f"Getting list bundle for med name {self.medName}.")
+
+        try:
             
-                    
+            response = requests.get(url=f'{self.apiMmgtBaseUrl}{self.getListApiEndPointUrlSuffix}?identifier={self.medName}',
+                headers={
+                'Ocp-Apim-Subscription-Key': self.apiMmgtSubsKey}
+            )
+            
+        except Exception as e:
+            msg = f"Error occured while sending request for searching list bundle for med name {self.medName}"
+            self.logger.logFlowCheckpoint(msg)
+            
+            raise HttpRequestError(f"{self.medName} [Errno {e.errno}] {e.strerror}")
+        
+        if response.status_code != 200:
+            self.logger.logFlowCheckpoint(f"API failed to return an output for med {self.medName}")                
+            raise HttpResponseError(f"API failed to return an output for med {self.medName}")
+        
+        try:
+            respJson = json.loads(response.text)
+        except Exception as e:
+            msg = f"Failed to convert the response json string to python json object for {self.medName}"
+            self.logger.logFlowCheckpoint(msg)                
+            raise JsonLoadError(msg)
+        
+        
+        if 'entry' not in respJson.keys():
+            self.logger.logFlowCheckpoint(f"No list bundle found for med {self.medName}")                
+        elif len(respJson['entry']) == 0:
+            self.logger.logFlowCheckpoint(f"No list bundle found for med {self.medName}")                
+        elif len(respJson['entry']) > 1:
+            #print(respJson['entry'])
+            msg = f"Raising Error as Found more than two list bundles for med {self.medName}"
+            self.logger.logFlowCheckpoint(msg)
+            raise FoundMultipleListBundlesForAMedName(msg)
+        else: 
+            try:
+                listBundleIdFoundForMedName = respJson['entry'][0]['resource']['id']
+            except:
+                raise FailedToExtractListBundleIDForAMan(f"Failed to extract list bundle id from response entry for med name {self.medName}")
+
+        if listBundleIdFoundForMedName == None:
+            return None
+        
+        self.id = listBundleIdFoundForMedName
+        respJson = self.getDocListUsingId(self.id)
+        try:
+            del respJson['resourceType']
+            del respJson['meta']
+        except:
+            print("Unable to delete resourceType and meta keys.")
+        
+        
+        
+        return respJson
 
     def loadJsonListTemplate(self):
-        
+        '''
+        Load the list bundle template stored in the control folder. This is used for creating a new list bundle.
+        '''
+
         try:
             with open(self.jsonTemplateFilePath, encoding='utf-8') as f:
                 listTemplateJson = json.load(f)
@@ -245,9 +362,13 @@ class ListBundleHandler:
 
         
     def updateManInListJson(self):
+
+        '''
+        This function is used to update the MANs in the identifier of the list bundle.
+        '''
         
         self.listMANs = [entry.replace("–","-") for entry in self.listMANs]
-
+        added = False
         for man in self.listMANs:
             added = False
             listManIdent = [dictt['value']  for identIndex, dictt in enumerate(self.listJson['identifier']) if 'authorisation' in dictt['system'] ] 
@@ -263,14 +384,19 @@ class ListBundleHandler:
     
     def updateDomain(self):
 
+        '''
+        Update domain in the extension of the list bundle.
+        '''
+
         if 'subject' not in self.listJson.keys():
             subjectCopy = copy.deepcopy(self.tempListJson['subject'])
             
             self.listJson['subject'] = subjectCopy
-
+        countDomains = 0
+        
         for extIndex, ext in enumerate(self.listJson['subject']['extension']):
             
-            countDomains = 0
+            
             if 'domain' in ext['url']:
                 countDomains = countDomains + 1
                 if self.domainCode not in ext['valueCoding']['system']:
@@ -281,58 +407,166 @@ class ListBundleHandler:
             if countDomains > 1:
                 raise MultipleDomainsErros("Found Multiple Domains mentioned in the json")                 
             
-            if countDomains == 0:
-                domainExtCopy = copy.deepcopy([extIndex for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'domain' in ext['url']][0])
-                domainExtCopy['valueCoding']['code'] = self.domainCode
-                domainExtCopy['valueCoding']['display'] = self.domain
+        if countDomains == 0:
+            domainExtCopy = copy.deepcopy([extIndex for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'domain' in ext['url']][0])
+            domainExtCopy['valueCoding']['code'] = self.domainCode
+            domainExtCopy['valueCoding']['display'] = self.domain
 
-                self.listJson['subject']['extension'].append(domainExtCopy)
+            self.listJson['subject']['extension'].append(domainExtCopy)
                 
     
     def updateMedName(self):
         
+        '''
+        Update domain in the extension of the list bundle.
+        '''
 
         medNameIdentList = [ identIndex  for identIndex, ident in enumerate(self.listJson['identifier']) if 'medicine' in ident['system']]
         
         if len(medNameIdentList) > 1:
             print("Found multiple medicine names, updating the first medicine name entry")
-
-        if len(medNameIdentList) == 1:
+        
             identIndex = medNameIdentList[0]
 
             if self.medName != self.listJson['identifier'][identIndex]['value']:
-                self.listJson['identifier'][identIndex]['value'] = self.medName
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
 
+        if len(medNameIdentList) == 1:
+            identIndex = medNameIdentList[0]
+            if self.medName != self.listJson['identifier'][identIndex]['value']:
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
+            else:
+                print("inside right place ~~~~~~~~~~~~~~~~~~~~~~~~")
+                self.listJson['identifier'][identIndex]['value'] = str(self.medName).lower()
         else:
             medIdentIndex = [index for index, ident  in enumerate(self.tempListJson['identifier']) if 'medicine' in ident['system']][0]
             newIdent = copy.deepcopy(self.tempListJson['identifier'][medIdentIndex])
-            newIdent['value'] = self.medName
+            newIdent['value'] = str(self.medName).lower()
             self.listJson['identifier'].append(newIdent)
 
+        medNameExtList = [ extIndex  for extIndex, ext in enumerate(self.listJson['subject']['extension']) if 'medicine' in ext['url']]
         
+        if len(medNameExtList) > 1:
+            print("Found multiple medicine names in extension, updating the first medicine name entry")
         
+            extIndex = medNameExtList[0]
+
+            if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['code'] = self.medName
+                
+        if len(medNameExtList) == 1:
+            extIndex = medNameExtList[0]
+
+            if self.medName != self.listJson['subject']['extension'][extIndex]['valueCoding']['display']:
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['display'] = self.medName
+                self.listJson['subject']['extension'][extIndex]['valueCoding']['code'] = self.medName
+
+        else:
+            medExtIndex = [ extIndex  for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'medicine' in ext['url']][0]
+
+            newExt = copy.deepcopy(self.tempListJson['subject']['extension'][medExtIndex])
+            newExt['valueCoding']['display'] = self.medName
+            newExt['valueCoding']['code'] = self.medName
+            self.listJson['subject']['extension'].append(newExt)
+    
+    def addMarketAuthHolder(self, pmsOmsSmsData):
+        '''
+        Update MAH in the extension of the list bundle.
+        '''
+        marketingAuthHolderValue = pmsOmsSmsData['Author Value']
+        marketingAuthHolderReference = pmsOmsSmsData['Author Reference']
+
+        if marketingAuthHolderValue != None:
+            
+            marketingAuthHolderExtIndex = [index for index, ext in enumerate(self.listJson['subject']['extension']) if 'holder' in ext['url']][0]
+
+            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['code'] = marketingAuthHolderReference
+            self.listJson['subject']['extension'][marketingAuthHolderExtIndex]['valueCoding']['display'] = marketingAuthHolderValue
+
+            self.logger.logFlowCheckpoint("updated martketing authorization holder value")
+
+        else:
+            print("Skipping updating marketing authorization holder value as it is None on PMS")
+
+
+    def addActiveSubstance(self, pmsOmsSmsData):
+        
+        '''
+        Update active substance details in the of the list bundle.
+        '''
+
+        activeSubstanceNames = []
+        for medEntry in pmsOmsSmsData['Medicinal Product Definitions']:
+            for name in medEntry[2]:
+                if name not in activeSubstanceNames:
+                    activeSubstanceNames.append(name)
+        
+        currentActiveSubstanceExts = [(index, ext['valueCoding']['display']) for index, ext in enumerate(self.listJson['subject']['extension']) if 'active-subs' in ext['url']]
+        currentActiveSubstanceNames = [ext['valueCoding']['display'] for ext in self.listJson['subject']['extension'] if 'active-subs' in ext['url']]
+        
+        activeSubExtIndexInTemplate = [ extIndex  for extIndex, ext in enumerate(self.tempListJson['subject']['extension']) if 'active-subs' in ext['url']][0]
+
+        newExt = copy.deepcopy(self.tempListJson['subject']['extension'][activeSubExtIndexInTemplate])
+            
+
+        if len(activeSubstanceNames) > 0:
+            if len(currentActiveSubstanceExts) == 1 and currentActiveSubstanceExts[0][1] == 'None':
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0][0]]['valueCoding']['display'] = activeSubstanceNames[0]
+                self.listJson['subject']['extension'][currentActiveSubstanceExts[0][0]]['valueCoding']['code'] = activeSubstanceNames[0]
+                del activeSubstanceNames[0]
+            else:
+                for activeSubName in activeSubstanceNames:
+                    if activeSubName not in currentActiveSubstanceNames:
+                        newExt['valueCoding']['display'] = activeSubName
+                        newExt['valueCoding']['code'] = activeSubName
+                        self.listJson['subject']['extension'].append(newExt)
+
+            self.logger.logFlowCheckpoint("updated active substance in list extension")
+        else:
+            print("Skipping updating active substance as none was found in the pms data")
+
 
         
     def addOrUpdateDocumentItem(self,
-                            referenceValue):
-                        
+                            referenceValue, pmsOmsSmsData):
+        '''
+        This is the main orchestrator function called from outside to add or update the list budle after successfully uploading a document bundle.
+        
+        '''
 
         self.updateManInListJson()
-        self.updateDomain()
-        self.updateMedName()
+        
         self.logger.logFlowCheckpoint("Added missing MAN identifiers")
         
+        self.updateDomain()
+        
+        self.logger.logFlowCheckpoint("Upated domain")
+
+        self.updateMedName()
+
+        self.logger.logFlowCheckpoint("Updated medicine name")
+
+        if pmsOmsSmsData is not None:
+
+            self.addActiveSubstance(pmsOmsSmsData)
+
+            self.addMarketAuthHolder(pmsOmsSmsData)
+            
+            
         
         
         #if self.isNew == False:
             
         foundExistingItem = False
         for entryIndex, entry in enumerate(self.listJson['entry']):
-            print(entry)
+            #print(entry)
             
-            print(entry['item'])
+            #print(entry['item'])
             foundDocumentTypeCode = False
             foundLanguageCode = False
+            validDocTypeExtIndex = None
+            validLangCodeExtIndex = None
             
             for extIndex, ext in enumerate(entry['item']['extension']):
 
@@ -340,9 +574,12 @@ class ListBundleHandler:
 
                     if remoteCode == self.listBundleDocumentTypeCode:
                         foundDocumentTypeCode = True
+                        validDocTypeExtIndex = extIndex
                     if remoteCode == self.languageCode:
                         foundLanguageCode = True
-                    
+                        validLangCodeExtIndex = extIndex
+
+
             if foundDocumentTypeCode == True and foundLanguageCode == True:
                 foundExistingItem = True
                 break                        
@@ -351,10 +588,11 @@ class ListBundleHandler:
         if foundExistingItem == True:
             
             self.logger.logFlowCheckpoint("Updating existing item")
+            self.listJson['entry'][entryIndex]['item']['extension'][validDocTypeExtIndex]['valueCoding']['display'] = self.documentTypeForUI
             self.listJson['entry'][entryIndex]['item']['reference'] = f"Bundle/{referenceValue}"
                 
         else:
-            print("original1", self.listJson['entry'][0])
+            #print("original1", self.listJson['entry'][0])
             self.logger.logFlowCheckpoint("Adding a new item")
             
             #itemCopy = self.listJson['entry'][0]['item'].copy()
@@ -362,10 +600,10 @@ class ListBundleHandler:
             
             if 'documentType' in itemCopy['extension'][0]['url']:
                 itemCopy['extension'][0]['valueCoding']['code'] = self.listBundleDocumentTypeCode
-                itemCopy['extension'][0]['valueCoding']['display'] = self.documentType
+                itemCopy['extension'][0]['valueCoding']['display'] = self.documentTypeForUI
             if 'documentType' in itemCopy['extension'][1]['url']:
                 itemCopy['extension'][1]['valueCoding']['code'] = self.listBundleDocumentTypeCode
-                itemCopy['extension'][1]['valueCoding']['display'] = self.documentType
+                itemCopy['extension'][1]['valueCoding']['display'] = self.documentTypeForUI
             
             if 'language' in itemCopy['extension'][0]['url']:
                 itemCopy['extension'][0]['valueCoding']['code'] = self.languageCode
@@ -375,11 +613,11 @@ class ListBundleHandler:
                 itemCopy['extension'][1]['valueCoding']['display'] = self.language
             
             
-            print("original2", self.listJson['entry'][0])
+            #print("original2", self.listJson['entry'][0])
 
             itemCopy['reference'] = f"Bundle/{referenceValue}"
             
-            print("Copy", itemCopy)
+            #print("Copy", itemCopy)
             
             self.listJson['entry'].append({'item':itemCopy})
             
@@ -394,7 +632,7 @@ class ListBundleHandler:
         self.convertDictToXML(root, None, self.listJson)
         self.logger.logFlowCheckpoint("Converted to required XML format")
 
-        print(et.tostring(root, encoding='utf-8', method='xml'))
+        #print(et.tostring(root, encoding='utf-8', method='xml'))
         
         
         
@@ -403,6 +641,9 @@ class ListBundleHandler:
             
     def submitListXmLToServer(self, body):
 
+        '''
+        This function is used to submit the new or updated xml list bundle generated by the previous function to the FHIR server.
+        '''
 
         try:
             if self.isNew == True:
