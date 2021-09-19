@@ -39,11 +39,8 @@ get_ipython().run_line_magic('load_ext', 'autoreload')
 get_ipython().run_line_magic('autoreload', '2')
 os.chdir(os.path.abspath(os.path.join('..')))
 
-
-# In[ ]:
-
-
-# WORD to HTML Conversion 
+LOCAL_ENVIRONMENT = True
+#%%# WORD to HTML Conversion 
 ###################################
 ##########  STEP 0  ###############
 
@@ -55,10 +52,7 @@ os.chdir(os.path.abspath(os.path.join('..')))
 ############# END #################
 
 
-# In[ ]:
-
-
-import tracemalloc
+#%%import tracemalloc
 import psutil
 import pprint
 import pandas as pd
@@ -650,7 +644,7 @@ def parseDocument(controlBasePath,
     metrics.end()
 
 
-# In[4]:
+#%%:
 
 
 #####################################
@@ -699,8 +693,7 @@ def runAll(inputList):
         except Exception:
             raise f"Missing required info in the zip file name {inputZipFileName}"
 
-        if "\\" in os.getcwd():
-            localEnv = True
+        if LOCAL_ENVIRONMENT:
             inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputZipFolderPath)
             if os.path.exists(os.path.join(os.path.abspath(os.path.join('..')), 'work')):
                 outputFolderPath = os.path.join(os.path.abspath(os.path.join('..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
@@ -711,10 +704,7 @@ def runAll(inputList):
                 controlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),'control')
             elif os.path.exists(os.path.join(os.path.abspath(os.path.join("../..")),'control')):
                 controlFolderPath = os.path.join(os.path.abspath(os.path.join('../..')),'control')
-            
-            
         else:
-            localEnv = False
             inputZipFolderPath = os.path.join(f'{fsMountName}',inputZipFolderPath)
             outputFolderPath = os.path.join(f'{fsMountName}', 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
             controlFolderPath = os.path.join(f'{fsMountName}','control')
@@ -740,7 +730,7 @@ def runAll(inputList):
 
         mode = 0o666
 
-        if localEnv is True:
+        if LOCAL_ENVIRONMENT:
             inputZipFolderPath = inputZipFolderPath.replace("/","\\")
             outputFolderPath = outputFolderPath.replace("/","\\")
             controlFolderPath = controlFolderPath.replace("/","\\")
@@ -790,7 +780,7 @@ def runAll(inputList):
 ##########  END ####################
 
 
-# In[5]:
+#%%:
 
 
 def runAllTest(inputList):
@@ -836,13 +826,11 @@ def runAllTest(inputList):
         except Exception:
             raise f"Missing required info in the zip file name {inputZipFileName}"
 
-        if "\\" in os.getcwd():
-            localEnv = True
+        if LOCAL_ENVIRONMENT:
             inputZipFolderPath = os.path.join(os.path.abspath(os.path.join('..')),inputZipFolderPath)
             outputFolderPath = os.path.join(os.path.abspath(os.path.join('..')), 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
             controlFolderPath = os.path.join(os.path.abspath(os.path.join('..')),'control')
         else:
-            localEnv = False
             inputZipFolderPath = os.path.join(f'{fsMountName}',inputZipFolderPath)
             outputFolderPath = os.path.join(f'{fsMountName}', 'work', f"{domain}", f"{procedureType}", f"{medName}", f"{languageCode}", f"{timestamp}")
             controlFolderPath = os.path.join(f'{fsMountName}','control')
@@ -868,7 +856,7 @@ def runAllTest(inputList):
 
         mode = 0o666
 
-        if localEnv is True:
+        if LOCAL_ENVIRONMENT:
             inputZipFolderPath = inputZipFolderPath.replace("/","\\")
             outputFolderPath = outputFolderPath.replace("/","\\")
             controlFolderPath = controlFolderPath.replace("/","\\")
@@ -910,46 +898,26 @@ def runAllTest(inputList):
                   NAPDocumentNumber)
 
 
-# In[ ]:
-
-
-inputList = ['ELOCTA~H~CAP~bg~2021-06-09T08-18-48Z.zip',
- 'ELOCTA~H~CAP~cs~2021-06-09T09-32-50Z.zip',
- 'ELOCTA~H~CAP~da~2021-06-09T09-34-52Z.zip',
+#%%
+inputList = [
  'ELOCTA~H~CAP~de~2021-06-09T09-36-33Z.zip',
- 'ELOCTA~H~CAP~el~2021-06-07T06-03-45Z.zip']
-
+ 'ELOCTA~H~CAP~el~2021-06-07T06-03-45Z.zip'
+]
 runAll(inputList)
 
-
-# In[ ]:
-
-
-
+#%%
 runAll(['Abacavir Accord~H~NAP~sv~0~2021-05-27T10-49-42Z.zip'])
 
-
-# In[ ]:
-
-
+#%%
 runAllTest(['Cystagon~H~CAP~no~2021-06-25T14-03-22Z.zip'])
 
-
-# In[92]:
-
-
+#%%:
 runAllTest(['Cystagon~H~CAP~no~2021-06-25T14-03-22Z.zip'])
 
-
-# In[34]:
-
-
+#%%:
 runAllTest(['Metacam~V~CAP~en~2021-05-17T11-36-04Z.zip'])
 
-
-# In[6]:
-
-
+#%%:
 inputList = ['ELOCTA~H~CAP~bg~2021-06-09T08-18-48Z.zip',
  'ELOCTA~H~CAP~cs~2021-06-09T09-32-50Z.zip',
  'ELOCTA~H~CAP~da~2021-06-09T09-34-52Z.zip',
