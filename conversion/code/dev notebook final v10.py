@@ -33,11 +33,12 @@
 
 import os
 import zipfile
+from sys import platform
 from IPython import get_ipython
 # get_ipython().run_line_magic('load_ext', 'autoreload')
 
 # get_ipython().run_line_magic('autoreload', '2')
-os.chdir(os.path.abspath(os.path.join('..')))
+#os.chdir(os.path.abspath(os.path.join('..')))
 
 LOCAL_ENVIRONMENT = True
 #%%# WORD to HTML Conversion 
@@ -730,7 +731,7 @@ def runAll(inputList):
 
         mode = 0o666
 
-        if LOCAL_ENVIRONMENT:
+        if platform == 'win32':
             inputZipFolderPath = inputZipFolderPath.replace("/","\\")
             outputFolderPath = outputFolderPath.replace("/","\\")
             controlFolderPath = controlFolderPath.replace("/","\\")
@@ -739,11 +740,10 @@ def runAll(inputList):
             os.makedirs(inputZipFolderPath, mode)
             os.makedirs(outputFolderPath, mode)
             os.makedirs(controlFolderPath, mode)
-
         except Exception:
             print("Already Present")
 
-        with zipfile.ZipFile(f'{inputZipFolderPath}/{inputZipFileName}',"r") as zip_ref:
+        with zipfile.ZipFile(f'{inputZipFolderPath}/{inputZipFileName}') as zip_ref:
                 zip_ref.extractall(outputFolderPath)
 
 
@@ -856,7 +856,7 @@ def runAllTest(inputList):
 
         mode = 0o666
 
-        if LOCAL_ENVIRONMENT:
+        if platform == 'win32':
             inputZipFolderPath = inputZipFolderPath.replace("/","\\")
             outputFolderPath = outputFolderPath.replace("/","\\")
             controlFolderPath = controlFolderPath.replace("/","\\")
