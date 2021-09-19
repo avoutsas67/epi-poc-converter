@@ -1,7 +1,7 @@
 function_code/testWork/testDoc.txt
 function_code/testWork/testDoc.txt
 *.pyc
-
+.DS_Store/
 .venv/
 .vscode/
 
