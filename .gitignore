@@ -5,3 +5,6 @@ function_code/testWork/testDoc.txt
 .venv/
 .vscode/
 
+*/.DS_Store
+*/work/
+*/inputblob
