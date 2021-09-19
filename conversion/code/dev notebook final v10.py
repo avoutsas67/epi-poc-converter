@@ -34,9 +34,9 @@
 import os
 import zipfile
 from IPython import get_ipython
-get_ipython().run_line_magic('load_ext', 'autoreload')
+# get_ipython().run_line_magic('load_ext', 'autoreload')
 
-get_ipython().run_line_magic('autoreload', '2')
+# get_ipython().run_line_magic('autoreload', '2')
 os.chdir(os.path.abspath(os.path.join('..')))
 
 LOCAL_ENVIRONMENT = True
