@@ -1,0 +1,6 @@
+*.pyc
+.venv/
+.vscode/
+.ipynb_checkpoints/
+build/
+code.egg-info/
