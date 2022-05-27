@@ -3,3 +3,11 @@ function_code/testWork/testDoc.txt
 *.pyc
 conversion/code/.venv/
 **/*-checkpoint.ipynb_checkpoints
+.venv/
+.vscode/
+
+**/.DS_Store
+**/work/
+**/inputblob
+
+data_set/

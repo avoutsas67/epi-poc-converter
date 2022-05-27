@@ -6,4 +6,4 @@ beautifulsoup4
 nltk
 fuzzywuzzy
 comtypes
-azure-storage-blob 
+azure-storage-blob
