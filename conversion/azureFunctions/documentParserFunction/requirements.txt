@@ -4,3 +4,4 @@
 
 azure-functions
 wheelhouse/code-modules.post-py3-none-any.whl
+werkzeug>=3.1.5 # not directly required, pinned by Snyk to avoid a vulnerability
